@@ -1,0 +1,15 @@
+{
+  "/_not-found/page": "app/_not-found/page.js",
+  "/api/stripe/checkout/route": "app/api/stripe/checkout/route.js",
+  "/api/stripe/portal/route": "app/api/stripe/portal/route.js",
+  "/api/stripe/webhook/route": "app/api/stripe/webhook/route.js",
+  "/auth/callback/route": "app/auth/callback/route.js",
+  "/page": "app/page.js",
+  "/(app)/lesson/[worldId]/[lessonId]/page": "app/(app)/lesson/[worldId]/[lessonId]/page.js",
+  "/(app)/badges/page": "app/(app)/badges/page.js",
+  "/(app)/home/page": "app/(app)/home/page.js",
+  "/(app)/parent/page": "app/(app)/parent/page.js",
+  "/(app)/world/[worldId]/page": "app/(app)/world/[worldId]/page.js",
+  "/blog/[slug]/page": "app/blog/[slug]/page.js",
+  "/blog/page": "app/blog/page.js"
+}
