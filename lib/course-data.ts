@@ -24,6 +24,12 @@ export type InteractiveType =
   | "face-parts"
   | "trick-the-eye"
   | "vision-classifier"
+  | "creative-or-copy"
+  | "dream-machine"
+  | "beat-builder"
+  | "style-mixer"
+  | "directors-chair"
+  | "creative-showcase"
   | "locked";
 
 export interface Lesson {
@@ -439,7 +445,7 @@ export const WORLDS: World[] = [
         title: "Can AI Be Creative?",
         concept:
           "AI generates new content by remixing patterns from training data. Is recombination the same as creativity? Philosophy meets technology.",
-        interactiveType: "locked",
+        interactiveType: "creative-or-copy",
         interactiveTitle: "Creative or Copy?",
         dinnerTakeaway:
           "AI creates new things by mixing up patterns from millions of examples — but is remixing the same as being creative? You decide!",
@@ -452,7 +458,7 @@ export const WORLDS: World[] = [
         title: "How AI Makes Images",
         concept:
           "Text-to-image models turn descriptions into pictures by learning from millions of image-text pairs. Same prompt, different results every time.",
-        interactiveType: "locked",
+        interactiveType: "dream-machine",
         interactiveTitle: "Dream Machine",
         dinnerTakeaway:
           "AI can turn words into pictures by learning what millions of images look like — but every time you ask, you get something different!",
@@ -465,7 +471,7 @@ export const WORLDS: World[] = [
         title: "AI Music and Sound",
         concept:
           "AI composes music by learning patterns in melody, rhythm, and harmony. But humans make the creative decisions — what to make and why.",
-        interactiveType: "locked",
+        interactiveType: "beat-builder",
         interactiveTitle: "Beat Builder",
         dinnerTakeaway:
           "AI can write music by copying patterns from thousands of songs, but it takes a human to decide WHAT kind of music to make and WHY!",
@@ -478,7 +484,7 @@ export const WORLDS: World[] = [
         title: "The Remix Question",
         concept:
           "AI art is trained on human art. Is that fair to artists? Questions about learning vs copying, attribution, and consent don't have easy answers.",
-        interactiveType: "locked",
+        interactiveType: "style-mixer",
         interactiveTitle: "Style Mixer",
         dinnerTakeaway:
           "AI art is trained by studying millions of human artworks — which raises big questions about fairness and giving credit to artists!",
@@ -491,7 +497,7 @@ export const WORLDS: World[] = [
         title: "Humans + AI Together",
         concept:
           "The most interesting creative work combines human vision with AI execution. Human = the why, AI = the how. You're the creative director.",
-        interactiveType: "locked",
+        interactiveType: "directors-chair",
         interactiveTitle: "Director's Chair",
         dinnerTakeaway:
           "The best AI creativity happens when humans and AI work as a team — you bring the ideas, AI helps make them real!",
@@ -504,7 +510,7 @@ export const WORLDS: World[] = [
         "Create a mini project — a short story, mood board, or song concept — using AI tools and your own ideas.",
       badgeName: "Creative Director",
       badgeEmoji: "🎬",
-      interactiveType: "locked",
+      interactiveType: "creative-showcase",
       xpReward: 150,
     },
   },

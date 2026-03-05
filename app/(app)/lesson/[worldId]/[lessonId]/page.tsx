@@ -29,6 +29,12 @@ import { PhotoCoach } from "@/components/interactives/PhotoCoach";
 import { FaceParts } from "@/components/interactives/FaceParts";
 import { TrickTheEye } from "@/components/interactives/TrickTheEye";
 import { VisionClassifier } from "@/components/interactives/VisionClassifier";
+import { CreativeOrCopy } from "@/components/interactives/CreativeOrCopy";
+import { DreamMachine } from "@/components/interactives/DreamMachine";
+import { BeatBuilder } from "@/components/interactives/BeatBuilder";
+import { StyleMixer } from "@/components/interactives/StyleMixer";
+import { DirectorsChair } from "@/components/interactives/DirectorsChair";
+import { CreativeShowcase } from "@/components/interactives/CreativeShowcase";
 
 type Phase = "concept" | "interactive" | "takeaway" | "complete";
 
@@ -173,6 +179,25 @@ export default function LessonPage() {
       case "vision-classifier":
         return (
           <VisionClassifier
+            onComplete={(passed) => {
+              handleInteractiveDone();
+              if (passed) handleContinue();
+            }}
+          />
+        );
+      case "creative-or-copy":
+        return <CreativeOrCopy onComplete={handleInteractiveDone} />;
+      case "dream-machine":
+        return <DreamMachine onComplete={handleInteractiveDone} />;
+      case "beat-builder":
+        return <BeatBuilder onComplete={handleInteractiveDone} />;
+      case "style-mixer":
+        return <StyleMixer onComplete={handleInteractiveDone} />;
+      case "directors-chair":
+        return <DirectorsChair onComplete={handleInteractiveDone} />;
+      case "creative-showcase":
+        return (
+          <CreativeShowcase
             onComplete={(passed) => {
               handleInteractiveDone();
               if (passed) handleContinue();
