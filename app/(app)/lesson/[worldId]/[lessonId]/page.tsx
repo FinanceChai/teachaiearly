@@ -35,6 +35,13 @@ import { BeatBuilder } from "@/components/interactives/BeatBuilder";
 import { StyleMixer } from "@/components/interactives/StyleMixer";
 import { DirectorsChair } from "@/components/interactives/DirectorsChair";
 import { CreativeShowcase } from "@/components/interactives/CreativeShowcase";
+import { BiasedBots } from "@/components/interactives/BiasedBots";
+import { DesignDilemmas } from "@/components/interactives/DesignDilemmas";
+import { TruthDetective } from "@/components/interactives/TruthDetective";
+import { DataTrail } from "@/components/interactives/DataTrail";
+import { RuleMaker } from "@/components/interactives/RuleMaker";
+import { FutureForecaster } from "@/components/interactives/FutureForecaster";
+import { EthicsBoard } from "@/components/interactives/EthicsBoard";
 
 type Phase = "concept" | "interactive" | "takeaway" | "complete";
 
@@ -198,6 +205,27 @@ export default function LessonPage() {
       case "creative-showcase":
         return (
           <CreativeShowcase
+            onComplete={(passed) => {
+              handleInteractiveDone();
+              if (passed) handleContinue();
+            }}
+          />
+        );
+      case "biased-bots":
+        return <BiasedBots onComplete={handleInteractiveDone} />;
+      case "design-dilemmas":
+        return <DesignDilemmas onComplete={handleInteractiveDone} />;
+      case "truth-detective":
+        return <TruthDetective onComplete={handleInteractiveDone} />;
+      case "data-trail":
+        return <DataTrail onComplete={handleInteractiveDone} />;
+      case "rule-maker":
+        return <RuleMaker onComplete={handleInteractiveDone} />;
+      case "future-forecaster":
+        return <FutureForecaster onComplete={handleInteractiveDone} />;
+      case "ethics-board":
+        return (
+          <EthicsBoard
             onComplete={(passed) => {
               handleInteractiveDone();
               if (passed) handleContinue();

@@ -30,6 +30,13 @@ export type InteractiveType =
   | "style-mixer"
   | "directors-chair"
   | "creative-showcase"
+  | "biased-bots"
+  | "design-dilemmas"
+  | "truth-detective"
+  | "data-trail"
+  | "rule-maker"
+  | "future-forecaster"
+  | "ethics-board"
   | "locked";
 
 export interface Lesson {
@@ -536,7 +543,7 @@ export const WORLDS: World[] = [
         title: "Bias In, Bias Out",
         concept:
           "AI inherits biases from its training data and builders. Biased data produces biased outcomes — and biased AI can hurt real people.",
-        interactiveType: "locked",
+        interactiveType: "biased-bots",
         interactiveTitle: "Biased Bots",
         dinnerTakeaway:
           "If you train AI on unfair examples, it will make unfair decisions — that's why the data we use matters so much!",
@@ -549,7 +556,7 @@ export const WORLDS: World[] = [
         title: "Who Decides?",
         concept:
           "Humans make value-laden choices at every step of AI development. There is no 'neutral' AI — values are embedded in every system.",
-        interactiveType: "locked",
+        interactiveType: "design-dilemmas",
         interactiveTitle: "Design Dilemmas",
         dinnerTakeaway:
           "Every AI was designed by people who had to make choices about what's 'right' and 'wrong' — there's no such thing as a neutral AI!",
@@ -562,7 +569,7 @@ export const WORLDS: World[] = [
         title: "Real or Fake?",
         concept:
           "AI can generate realistic fake content: deepfakes, synthetic text, fabricated images. Critical literacy is more important than ever.",
-        interactiveType: "locked",
+        interactiveType: "truth-detective",
         interactiveTitle: "Truth Detective",
         dinnerTakeaway:
           "AI can now create fake images, text, and videos that look totally real — that's why it's so important to check your sources!",
@@ -575,7 +582,7 @@ export const WORLDS: World[] = [
         title: "Privacy and Your Data",
         concept:
           "AI needs data to function. That data often comes from people — sometimes without their full awareness or consent.",
-        interactiveType: "locked",
+        interactiveType: "data-trail",
         interactiveTitle: "Data Trail",
         dinnerTakeaway:
           "Every time you use an app, you leave a data trail — knowing what's being collected helps you make better choices!",
@@ -588,7 +595,7 @@ export const WORLDS: World[] = [
         title: "AI Rules: Who Makes Them?",
         concept:
           "Governments, companies, and communities are all trying to establish governance frameworks for AI. Your opinion matters.",
-        interactiveType: "locked",
+        interactiveType: "rule-maker",
         interactiveTitle: "Rule Maker",
         dinnerTakeaway:
           "Just like we have rules for driving and building things, people around the world are creating rules for AI — and your opinion matters!",
@@ -601,7 +608,7 @@ export const WORLDS: World[] = [
         title: "Your AI Future",
         concept:
           "AI will keep evolving. The most important skill is knowing how to think about it critically and adapt. You are the generation that will shape AI.",
-        interactiveType: "locked",
+        interactiveType: "future-forecaster",
         interactiveTitle: "Future Forecaster",
         dinnerTakeaway:
           "You're growing up at the most important time in AI history — what you learn now will help you shape how AI is used in the future!",
@@ -614,7 +621,7 @@ export const WORLDS: World[] = [
         "You're presented with a real-world AI scenario. Write a short recommendation: should it be used? Why or why not?",
       badgeName: "Ethics Guardian",
       badgeEmoji: "🛡️",
-      interactiveType: "locked",
+      interactiveType: "ethics-board",
       xpReward: 150,
     },
   },
