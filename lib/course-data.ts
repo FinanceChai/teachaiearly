@@ -12,6 +12,12 @@ export type InteractiveType =
   | "training-tracker"
   | "train-classifier-challenge"
   | "ai-game-show"
+  | "word-map"
+  | "finish-my-sentence"
+  | "prompt-showdown"
+  | "translation-telephone"
+  | "co-author"
+  | "prompt-lab"
   | "locked";
 
 export interface Lesson {
@@ -245,7 +251,7 @@ export const WORLDS: World[] = [
         title: "How AI Reads",
         concept:
           "AI doesn't understand words like humans — it converts them to numbers and maps relationships between them (word embeddings). Similar words have similar numbers.",
-        interactiveType: "locked",
+        interactiveType: "word-map",
         interactiveTitle: "Word Map",
         dinnerTakeaway:
           "To an AI, every word is actually a bunch of numbers — and similar words have similar numbers!",
@@ -258,7 +264,7 @@ export const WORLDS: World[] = [
         title: "Predicting the Next Word",
         concept:
           "Language models work by predicting what word comes next, repeatedly. Chatbots are sophisticated autocomplete — nothing more, nothing less.",
-        interactiveType: "locked",
+        interactiveType: "finish-my-sentence",
         interactiveTitle: "Finish My Sentence",
         dinnerTakeaway:
           "Chatbots like ChatGPT are basically super-advanced autocomplete — they just predict the next word, over and over!",
@@ -271,7 +277,7 @@ export const WORLDS: World[] = [
         title: "The Art of Asking (Prompt Craft)",
         concept:
           "How you phrase a question to AI dramatically changes the output. Specificity, context, and structure matter — a lot.",
-        interactiveType: "locked",
+        interactiveType: "prompt-showdown",
         interactiveTitle: "Prompt Showdown",
         dinnerTakeaway:
           "The secret to getting great answers from AI? Ask great questions — be specific about what you want!",
@@ -284,7 +290,7 @@ export const WORLDS: World[] = [
         title: "Lost in Translation",
         concept:
           "AI can translate languages but sometimes misses context, humor, idioms, and cultural nuance. It's fast but not always perfect.",
-        interactiveType: "locked",
+        interactiveType: "translation-telephone",
         interactiveTitle: "Translation Telephone",
         dinnerTakeaway:
           "AI can translate languages super fast, but it sometimes misses jokes, sayings, and things that only make sense in one culture!",
@@ -297,7 +303,7 @@ export const WORLDS: World[] = [
         title: "AI as a Writing Partner",
         concept:
           "AI can help with writing but can't replace human ideas, voice, and lived experience. Your ideas and your voice are what make writing special.",
-        interactiveType: "locked",
+        interactiveType: "co-author",
         interactiveTitle: "Co-Author",
         dinnerTakeaway:
           "AI can help you write, but YOUR ideas and YOUR voice are what make writing special!",
@@ -310,7 +316,7 @@ export const WORLDS: World[] = [
         "Craft prompts to get AI to produce specific outputs. Scored on creativity and precision.",
       badgeName: "Prompt Master",
       badgeEmoji: "✍️",
-      interactiveType: "locked",
+      interactiveType: "prompt-lab",
       xpReward: 150,
     },
   },

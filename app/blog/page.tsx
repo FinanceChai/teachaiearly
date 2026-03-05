@@ -29,7 +29,7 @@ export default function BlogPage() {
       {/* Hero */}
       <div className="text-center mb-12">
         <div className="text-5xl mb-4">📖</div>
-        <h1 className="text-4xl font-black text-white mb-3">The AI Explorer Blog</h1>
+        <h1 className="text-4xl font-black text-white mb-3">The Teach AI Early Blog</h1>
         <p className="text-slate-400 text-lg max-w-xl mx-auto">
           Practical guides for parents and educators navigating AI with kids — no jargon, no hype.
         </p>

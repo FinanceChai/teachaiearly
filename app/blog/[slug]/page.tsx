@@ -61,13 +61,13 @@ export default function ArticlePage({
           Ready to explore AI with your child?
         </h3>
         <p className="text-slate-400 text-sm mb-5">
-          AI Explorer turns these concepts into hands-on lessons kids aged 9–12 actually enjoy.
+          Teach AI Early turns these concepts into hands-on lessons kids aged 9–12 actually enjoy.
         </p>
         <Link
           href="/"
           className="inline-block px-6 py-3 rounded-xl font-black text-white bg-gradient-to-r from-teal-500 to-cyan-400 hover:from-teal-400 hover:to-cyan-300 transition-all"
         >
-          Try AI Explorer Free →
+          Try Teach AI Early Free →
         </Link>
       </div>
 

@@ -314,11 +314,8 @@ function LandingContent() {
 
       {/* Nav */}
       <nav className="relative z-10 flex items-center justify-between px-6 py-5 max-w-6xl mx-auto">
-        <div className="flex items-center gap-3">
-          <span className="text-3xl">🚀</span>
-          <span className="text-2xl font-black text-white tracking-tight">
-            AI Explorer
-          </span>
+        <div className="flex items-center">
+          <img src="/logo.svg" alt="Teach AI Early" className="h-10" />
         </div>
         <div className="flex items-center gap-3">
           <a
@@ -583,10 +580,9 @@ function LandingContent() {
             Pricing
           </a>
         </div>
-        <div className="text-slate-500 text-sm">
-          <span className="text-2xl mr-2">🚀</span>
-          <strong className="text-white">AI Explorer</strong> — COPPA compliant
-          · No ads · No data sold
+        <div className="text-slate-500 text-sm flex items-center justify-center gap-2">
+          <img src="/logo.svg" alt="Teach AI Early" className="h-6 inline-block" />
+          <span>— COPPA compliant · No ads · No data sold</span>
         </div>
       </footer>
     </div>

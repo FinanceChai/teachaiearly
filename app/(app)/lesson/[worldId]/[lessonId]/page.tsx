@@ -17,6 +17,12 @@ import { TrainingTracker } from "@/components/interactives/TrainingTracker";
 import { TrainClassifierChallenge } from "@/components/interactives/TrainClassifierChallenge";
 import { LockedInteractive } from "@/components/interactives/LockedInteractive";
 import { AIGameShow } from "@/components/interactives/AIGameShow";
+import { WordMap } from "@/components/interactives/WordMap";
+import { FinishMySentence } from "@/components/interactives/FinishMySentence";
+import { PromptShowdown } from "@/components/interactives/PromptShowdown";
+import { TranslationTelephone } from "@/components/interactives/TranslationTelephone";
+import { CoAuthor } from "@/components/interactives/CoAuthor";
+import { PromptLab } from "@/components/interactives/PromptLab";
 
 type Phase = "concept" | "interactive" | "takeaway" | "complete";
 
@@ -123,6 +129,25 @@ export default function LessonPage() {
       case "ai-game-show":
         return (
           <AIGameShow
+            onComplete={(passed) => {
+              handleInteractiveDone();
+              if (passed) handleContinue();
+            }}
+          />
+        );
+      case "word-map":
+        return <WordMap onComplete={handleInteractiveDone} />;
+      case "finish-my-sentence":
+        return <FinishMySentence onComplete={handleInteractiveDone} />;
+      case "prompt-showdown":
+        return <PromptShowdown onComplete={handleInteractiveDone} />;
+      case "translation-telephone":
+        return <TranslationTelephone onComplete={handleInteractiveDone} />;
+      case "co-author":
+        return <CoAuthor onComplete={handleInteractiveDone} />;
+      case "prompt-lab":
+        return (
+          <PromptLab
             onComplete={(passed) => {
               handleInteractiveDone();
               if (passed) handleContinue();

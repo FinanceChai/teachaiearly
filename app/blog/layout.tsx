@@ -8,10 +8,10 @@ export default function BlogLayout({ children }: { children: React.ReactNode }) 
         <div className="max-w-4xl mx-auto px-4 py-4 flex items-center justify-between">
           <Link
             href="/"
-            className="flex items-center gap-2 text-slate-400 hover:text-white transition-colors font-bold text-sm"
+            className="flex items-center gap-2 hover:opacity-80 transition-opacity"
           >
-            <span>←</span>
-            <span>AI Explorer</span>
+            <span className="text-slate-400">←</span>
+            <img src="/logo.svg" alt="Teach AI Early" className="h-8" />
           </Link>
           <Link
             href="/blog"
@@ -33,8 +33,7 @@ export default function BlogLayout({ children }: { children: React.ReactNode }) 
       {/* Footer */}
       <footer className="border-t border-slate-800 mt-20 py-10">
         <div className="max-w-4xl mx-auto px-4 text-center">
-          <div className="text-2xl mb-2">🤖</div>
-          <div className="font-black text-white mb-1">AI Explorer</div>
+          <img src="/logo.svg" alt="Teach AI Early" className="h-8 mx-auto mb-2" />
           <p className="text-slate-500 text-sm">
             Gamified AI literacy for kids aged 9–12.
           </p>
