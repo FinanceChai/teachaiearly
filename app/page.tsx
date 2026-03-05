@@ -321,6 +321,12 @@ function LandingContent() {
           </span>
         </div>
         <div className="flex items-center gap-3">
+          <a
+            href="/blog"
+            className="text-slate-400 hover:text-white font-bold px-4 py-2.5 rounded-xl transition-colors text-sm"
+          >
+            Blog
+          </a>
           <button
             onClick={() => {
               setIsSignIn(true);
@@ -388,7 +394,11 @@ function LandingContent() {
           {WORLDS.map((world) => (
             <div
               key={world.id}
-              className="relative bg-space-800 rounded-2xl p-6 border border-slate-700 card-hover overflow-hidden"
+              onClick={() => {
+                setIsSignIn(false);
+                setStep("auth");
+              }}
+              className="relative bg-space-800 rounded-2xl p-6 border border-slate-700 card-hover overflow-hidden cursor-pointer"
             >
               {world.tier === "paid" && (
                 <div className="absolute top-3 right-3 bg-amber-500 text-amber-900 text-xs font-black px-2 py-1 rounded-full">
