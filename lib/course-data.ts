@@ -18,6 +18,12 @@ export type InteractiveType =
   | "translation-telephone"
   | "co-author"
   | "prompt-lab"
+  | "zoom-in"
+  | "feature-finder"
+  | "photo-coach"
+  | "face-parts"
+  | "trick-the-eye"
+  | "vision-classifier"
   | "locked";
 
 export interface Lesson {
@@ -342,7 +348,7 @@ export const WORLDS: World[] = [
         title: "Pixels and Patterns",
         concept:
           "AI sees images as grids of numbers (pixels), not objects. It must build understanding from millions of tiny colored squares — starting from zero.",
-        interactiveType: "locked",
+        interactiveType: "zoom-in",
         interactiveTitle: "Zoom In",
         dinnerTakeaway:
           "AI doesn't see pictures like we do — it sees millions of tiny colored squares and has to figure out what they mean!",
@@ -355,7 +361,7 @@ export const WORLDS: World[] = [
         title: "Finding Edges and Shapes",
         concept:
           "AI breaks images into layers of features: edges first, then shapes, then parts, then full objects. Like a detective putting clues together.",
-        interactiveType: "locked",
+        interactiveType: "feature-finder",
         interactiveTitle: "Feature Finder",
         dinnerTakeaway:
           "AI builds up from edges to shapes to parts to objects — like a detective putting together clues!",
@@ -368,7 +374,7 @@ export const WORLDS: World[] = [
         title: "Teaching AI to See",
         concept:
           "Image classifiers learn from thousands of labeled examples. Edge cases are genuinely hard — even humans disagree on them.",
-        interactiveType: "locked",
+        interactiveType: "photo-coach",
         interactiveTitle: "Photo Coach",
         dinnerTakeaway:
           "To teach AI to recognize anything, you need thousands of examples — and even then, weird edge cases will trip it up!",
@@ -381,7 +387,7 @@ export const WORLDS: World[] = [
         title: "Faces and Recognition",
         concept:
           "Facial recognition works by measuring face geometry — distance between eyes, jaw shape, nose width. It's powerful and controversial.",
-        interactiveType: "locked",
+        interactiveType: "face-parts",
         interactiveTitle: "Face Parts",
         dinnerTakeaway:
           "AI can recognize faces by measuring the distance between your eyes, nose, and mouth — like a face fingerprint!",
@@ -394,7 +400,7 @@ export const WORLDS: World[] = [
         title: "When AI Sees Things That Aren't There",
         concept:
           "Adversarial examples: tiny changes to images that fool AI but not humans. A panda can become a toaster with just a few pixel tweaks.",
-        interactiveType: "locked",
+        interactiveType: "trick-the-eye",
         interactiveTitle: "Trick the Eye",
         dinnerTakeaway:
           "You can trick AI by changing just a few tiny pixels in a picture — things so small you can't even see the difference!",
@@ -407,7 +413,7 @@ export const WORLDS: World[] = [
         "Pick a theme, provide training images, and build your own working image classifier!",
       badgeName: "Vision Builder",
       badgeEmoji: "🔭",
-      interactiveType: "locked",
+      interactiveType: "vision-classifier",
       xpReward: 150,
     },
   },

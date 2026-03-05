@@ -23,6 +23,12 @@ import { PromptShowdown } from "@/components/interactives/PromptShowdown";
 import { TranslationTelephone } from "@/components/interactives/TranslationTelephone";
 import { CoAuthor } from "@/components/interactives/CoAuthor";
 import { PromptLab } from "@/components/interactives/PromptLab";
+import { ZoomIn } from "@/components/interactives/ZoomIn";
+import { FeatureFinder } from "@/components/interactives/FeatureFinder";
+import { PhotoCoach } from "@/components/interactives/PhotoCoach";
+import { FaceParts } from "@/components/interactives/FaceParts";
+import { TrickTheEye } from "@/components/interactives/TrickTheEye";
+import { VisionClassifier } from "@/components/interactives/VisionClassifier";
 
 type Phase = "concept" | "interactive" | "takeaway" | "complete";
 
@@ -148,6 +154,25 @@ export default function LessonPage() {
       case "prompt-lab":
         return (
           <PromptLab
+            onComplete={(passed) => {
+              handleInteractiveDone();
+              if (passed) handleContinue();
+            }}
+          />
+        );
+      case "zoom-in":
+        return <ZoomIn onComplete={handleInteractiveDone} />;
+      case "feature-finder":
+        return <FeatureFinder onComplete={handleInteractiveDone} />;
+      case "photo-coach":
+        return <PhotoCoach onComplete={handleInteractiveDone} />;
+      case "face-parts":
+        return <FaceParts onComplete={handleInteractiveDone} />;
+      case "trick-the-eye":
+        return <TrickTheEye onComplete={handleInteractiveDone} />;
+      case "vision-classifier":
+        return (
+          <VisionClassifier
             onComplete={(passed) => {
               handleInteractiveDone();
               if (passed) handleContinue();
