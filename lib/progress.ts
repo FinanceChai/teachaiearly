@@ -111,7 +111,7 @@ export function isLessonUnlocked(
   isSubscribed: boolean,
   tier: "free" | "paid"
 ): boolean {
-  if (tier === "paid" && !isSubscribed) return false;
+  // TODO: restore paywall — if (tier === "paid" && !isSubscribed) return false;
   if (lessonNumber === 1) return true;
   const prevLessonId = `${worldId}-${lessonNumber - 1}`;
   return isLessonCompleted(prevLessonId);
@@ -122,7 +122,7 @@ export function isWorldUnlocked(
   isSubscribed: boolean,
   tier: "free" | "paid"
 ): boolean {
-  if (tier === "paid" && !isSubscribed) return false;
+  // TODO: restore paywall — if (tier === "paid" && !isSubscribed) return false;
   if (worldId === 1) return true;
   return isChallengeCompleted(worldId - 1);
 }
