@@ -1,4 +1,4 @@
-import { stripe } from "@/lib/stripe";
+import { getStripe } from "@/lib/stripe";
 import { createAdminClient } from "@/lib/supabase/admin";
 import { NextResponse } from "next/server";
 import { headers } from "next/headers";
@@ -15,7 +15,7 @@ export async function POST(request: Request) {
   let event: Stripe.Event;
 
   try {
-    event = stripe.webhooks.constructEvent(
+    event = getStripe().webhooks.constructEvent(
       body,
       sig,
       process.env.STRIPE_WEBHOOK_SECRET!
@@ -37,7 +37,7 @@ export async function POST(request: Request) {
 
         const subscriptionId = session.subscription as string;
         const subscription =
-          await stripe.subscriptions.retrieve(subscriptionId);
+          await getStripe().subscriptions.retrieve(subscriptionId);
 
         const periodEnd = subscription.items.data[0]?.current_period_end;
 
