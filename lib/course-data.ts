@@ -37,6 +37,45 @@ export type InteractiveType =
   | "rule-maker"
   | "future-forecaster"
   | "ethics-board"
+  // World 7: AI & Sound
+  | "waveform-explorer"
+  | "voice-pipeline"
+  | "melody-maker"
+  | "voice-lineup"
+  | "ai-podcast"
+  // World 8: AI & Games
+  | "npc-brain-mapper"
+  | "ai-battle-timeline"
+  | "reward-trainer"
+  | "level-generator"
+  | "fair-play-judge"
+  | "game-designer-challenge"
+  // World 9: AI & Robots
+  | "robot-or-puppet"
+  | "self-driving-sim"
+  | "robot-designer"
+  | "robot-rights-debate"
+  | "robot-pitch"
+  // World 10: AI & You
+  | "algorithm-audit"
+  | "bubble-breaker"
+  | "smart-home-mapper"
+  | "health-tracker-sim"
+  | "settings-safari"
+  | "ai-life-audit"
+  // World 11: Building with AI
+  | "toolkit-tour"
+  | "project-scoper"
+  | "prototype-builder"
+  | "feedback-loop"
+  | "project-showcase"
+  | "portfolio-piece"
+  // World 12: AI Futures
+  | "future-bingo"
+  | "ai-for-good"
+  | "risk-o-meter"
+  | "future-letter"
+  | "ai-manifesto"
   | "locked";
 
 export interface Lesson {
@@ -623,6 +662,519 @@ export const WORLDS: World[] = [
       badgeEmoji: "🛡️",
       interactiveType: "ethics-board",
       xpReward: 150,
+    },
+  },
+  // ─── WORLD 7: AI & Sound (PRO) ───────────────────────────────────────
+  {
+    id: 7,
+    title: "AI & Sound",
+    subtitle: "Machines That Listen",
+    theme: "How AI processes sound, speech, and music",
+    emoji: "🔊",
+    color: "violet",
+    bgColor: "bg-violet-500",
+    ringColor: "ring-violet-400",
+    textColor: "text-violet-400",
+    gradientFrom: "from-violet-500",
+    gradientTo: "to-purple-400",
+    hex: "#8b5cf6",
+    tier: "paid",
+    lessons: [
+      {
+        id: "7-1",
+        worldId: 7,
+        lessonNumber: 1,
+        title: "How Machines Hear",
+        concept:
+          "Sound is just waves, and AI converts those waves into numbers. What you hear as music, a voice, or a clap, AI sees as squiggly lines made of data.",
+        interactiveType: "waveform-explorer",
+        interactiveTitle: "Waveform Explorer",
+        dinnerTakeaway:
+          "When AI 'hears' your voice, it doesn't hear sounds — it sees squiggly lines made of numbers!",
+        xpReward: 50,
+      },
+      {
+        id: "7-2",
+        worldId: 7,
+        lessonNumber: 2,
+        title: "Voice Assistants — How They Work",
+        concept:
+          "When you say 'Hey Siri,' a chain of AI models kicks in — one detects the wake word, another converts speech to text, another figures out what you meant, and another talks back.",
+        interactiveType: "voice-pipeline",
+        interactiveTitle: "Voice Pipeline",
+        dinnerTakeaway:
+          "When you talk to Siri, at least 4 different AI systems work together just to answer your question!",
+        xpReward: 50,
+      },
+      {
+        id: "7-3",
+        worldId: 7,
+        lessonNumber: 3,
+        title: "AI Makes Music",
+        concept:
+          "AI can compose music by learning patterns in melody, rhythm, and harmony — but it doesn't feel the music. It knows what sounds good together without knowing why.",
+        interactiveType: "melody-maker",
+        interactiveTitle: "Melody Maker",
+        dinnerTakeaway:
+          "AI can write a catchy song by copying patterns from thousands of other songs — but it has no idea what the music feels like!",
+        xpReward: 50,
+      },
+      {
+        id: "7-4",
+        worldId: 7,
+        lessonNumber: 4,
+        title: "Sound Fakes & Voice Cloning",
+        concept:
+          "AI can clone anyone's voice from just a few seconds of audio. This has amazing uses (accessibility, preserving languages) and scary ones (scam calls, impersonation).",
+        interactiveType: "voice-lineup",
+        interactiveTitle: "Voice Lineup",
+        dinnerTakeaway:
+          "AI can now copy anyone's voice almost perfectly — which is why you should always double-check if a surprising call or message is really from who you think!",
+        xpReward: 50,
+      },
+    ],
+    challenge: {
+      title: "The AI Podcast",
+      description:
+        "Create a mini podcast episode using AI-generated sound effects, music, or narration. Mix AI-made elements with your own voice to produce a 2-minute show!",
+      badgeName: "Sound Engineer",
+      badgeEmoji: "🎧",
+      interactiveType: "ai-podcast",
+      xpReward: 150,
+    },
+  },
+  // ─── WORLD 8: AI & Games (PRO) ───────────────────────────────────────
+  {
+    id: 8,
+    title: "AI & Games",
+    subtitle: "The Player's Guide",
+    theme: "How AI learns to play, create, and challenge you in games",
+    emoji: "🎮",
+    color: "red",
+    bgColor: "bg-red-500",
+    ringColor: "ring-red-400",
+    textColor: "text-red-400",
+    gradientFrom: "from-red-500",
+    gradientTo: "to-rose-400",
+    hex: "#ef4444",
+    tier: "paid",
+    lessons: [
+      {
+        id: "8-1",
+        worldId: 8,
+        lessonNumber: 1,
+        title: "NPCs — The AI You Already Know",
+        concept:
+          "Every video game enemy that chases you, every villager with dialogue, every teammate that adapts — that's AI. Some are simple rule followers, others actually learn your play style.",
+        interactiveType: "npc-brain-mapper",
+        interactiveTitle: "NPC Brain Mapper",
+        dinnerTakeaway:
+          "Those enemies chasing you in video games? That's AI! And some of them are actually learning how you play!",
+        xpReward: 50,
+      },
+      {
+        id: "8-2",
+        worldId: 8,
+        lessonNumber: 2,
+        title: "AI vs Humans — The Great Battles",
+        concept:
+          "From Deep Blue beating the world chess champion in 1997 to AlphaGo mastering Go in 2016 — AI has been challenging humans at games for decades, and winning.",
+        interactiveType: "ai-battle-timeline",
+        interactiveTitle: "AI Battle Timeline",
+        dinnerTakeaway:
+          "AI beat the world's best chess player in 1997 and the best Go player in 2016 — games people thought computers could NEVER win!",
+        xpReward: 50,
+      },
+      {
+        id: "8-3",
+        worldId: 8,
+        lessonNumber: 3,
+        title: "How Game AI Learns",
+        concept:
+          "Reinforcement learning is like training a puppy — reward good behavior, ignore bad behavior, repeat thousands of times. Game AI learns by playing millions of rounds and figuring out what earns points.",
+        interactiveType: "reward-trainer",
+        interactiveTitle: "Reward Trainer",
+        dinnerTakeaway:
+          "Game AI learns by playing the same game millions of times — it starts out terrible but eventually figures out winning strategies all on its own!",
+        xpReward: 50,
+      },
+      {
+        id: "8-4",
+        worldId: 8,
+        lessonNumber: 4,
+        title: "AI Designs Games",
+        concept:
+          "Procedural generation lets AI create infinite unique worlds, levels, and puzzles. Minecraft's endless landscapes and No Man's Sky's 18 quintillion planets are all AI-generated.",
+        interactiveType: "level-generator",
+        interactiveTitle: "Level Generator",
+        dinnerTakeaway:
+          "Minecraft's infinite worlds are created by AI — no human designed all those caves, mountains, and villages!",
+        xpReward: 50,
+      },
+      {
+        id: "8-5",
+        worldId: 8,
+        lessonNumber: 5,
+        title: "Fair Play — Cheating, Difficulty & AI",
+        concept:
+          "Is AI aim-assist cheating? What about dynamic difficulty that secretly makes the game easier when you're losing? AI in gaming raises big questions about what's fair.",
+        interactiveType: "fair-play-judge",
+        interactiveTitle: "Fair Play Judge",
+        dinnerTakeaway:
+          "Some games secretly get easier when you're losing — that's AI adjusting the difficulty without telling you!",
+        xpReward: 50,
+      },
+    ],
+    challenge: {
+      title: "Design a Game with AI",
+      description:
+        "Design your own game concept that uses AI — whether it's adaptive NPCs, procedural levels, or dynamic difficulty. Plan the rules and playtest your idea!",
+      badgeName: "Game Designer",
+      badgeEmoji: "🕹️",
+      interactiveType: "game-designer-challenge",
+      xpReward: 150,
+    },
+  },
+  // ─── WORLD 9: AI & Robots (PRO) ──────────────────────────────────────
+  {
+    id: 9,
+    title: "AI & Robots",
+    subtitle: "When AI Gets a Body",
+    theme: "What happens when AI moves from screens to the physical world",
+    emoji: "🦾",
+    color: "slate",
+    bgColor: "bg-slate-500",
+    ringColor: "ring-slate-400",
+    textColor: "text-slate-400",
+    gradientFrom: "from-slate-500",
+    gradientTo: "to-zinc-400",
+    hex: "#71717a",
+    tier: "paid",
+    lessons: [
+      {
+        id: "9-1",
+        worldId: 9,
+        lessonNumber: 1,
+        title: "Brains vs Bodies",
+        concept:
+          "A robot without AI is like a puppet — it only does what you tell it. A robot WITH AI can adapt, learn, and make decisions on its own. The brain (AI) is what makes the body (robot) intelligent.",
+        interactiveType: "robot-or-puppet",
+        interactiveTitle: "Robot or Puppet?",
+        dinnerTakeaway:
+          "A robot without AI is just a fancy puppet — it's the AI brain that makes robots actually smart!",
+        xpReward: 50,
+      },
+      {
+        id: "9-2",
+        worldId: 9,
+        lessonNumber: 2,
+        title: "Self-Driving Cars",
+        concept:
+          "Self-driving cars use cameras, LIDAR, radar, GPS, and microphones — five AI-powered senses working together to navigate roads safely. Every second, they make hundreds of decisions.",
+        interactiveType: "self-driving-sim",
+        interactiveTitle: "Self-Driving Simulator",
+        dinnerTakeaway:
+          "A self-driving car makes hundreds of decisions every second using cameras, radar, and AI — way more than a human driver thinks about!",
+        xpReward: 50,
+      },
+      {
+        id: "9-3",
+        worldId: 9,
+        lessonNumber: 3,
+        title: "Robots That Help",
+        concept:
+          "Robots assist in surgery with superhuman precision, explore disaster zones too dangerous for humans, help disabled people with daily tasks, and venture into deep ocean and outer space.",
+        interactiveType: "robot-designer",
+        interactiveTitle: "Robot Designer",
+        dinnerTakeaway:
+          "Robots with AI are already performing surgery, exploring the deep ocean, and helping people who can't walk — and they're getting better every year!",
+        xpReward: 50,
+      },
+      {
+        id: "9-4",
+        worldId: 9,
+        lessonNumber: 4,
+        title: "Robots & Us — Living Together",
+        concept:
+          "As robots get smarter, we face big questions: Would you want a robot friend? A robot teacher? What about one that looks exactly human? Somewhere along that spectrum, things get complicated.",
+        interactiveType: "robot-rights-debate",
+        interactiveTitle: "Robot Rights Debate",
+        dinnerTakeaway:
+          "As robots get smarter, we have to decide — should a really advanced robot have rights? It's one of the biggest questions we'll face in your lifetime!",
+        xpReward: 50,
+      },
+    ],
+    challenge: {
+      title: "Robot Pitch",
+      description:
+        "Design a robot that solves a real-world problem. Create a pitch with the problem, your robot's design, what AI it uses, and why someone would want it!",
+      badgeName: "Robot Engineer",
+      badgeEmoji: "🤖",
+      interactiveType: "robot-pitch",
+      xpReward: 150,
+    },
+  },
+  // ─── WORLD 10: AI & You (PRO) ────────────────────────────────────────
+  {
+    id: 10,
+    title: "AI & You",
+    subtitle: "Your Digital Mirror",
+    theme: "How AI already shapes your daily life — and how to take control",
+    emoji: "📱",
+    color: "cyan",
+    bgColor: "bg-cyan-500",
+    ringColor: "ring-cyan-400",
+    textColor: "text-cyan-400",
+    gradientFrom: "from-cyan-500",
+    gradientTo: "to-teal-400",
+    hex: "#06b6d4",
+    tier: "paid",
+    lessons: [
+      {
+        id: "10-1",
+        worldId: 10,
+        lessonNumber: 1,
+        title: "The Algorithm Knows",
+        concept:
+          "TikTok and YouTube learn what you like by watching what you watch. You watch → AI notes it → AI recommends similar → you watch more → AI learns more. It's a feedback loop designed to keep you scrolling.",
+        interactiveType: "algorithm-audit",
+        interactiveTitle: "Algorithm Audit",
+        dinnerTakeaway:
+          "Every time you watch a video or like a post, you're training an AI to know exactly what keeps you scrolling!",
+        xpReward: 50,
+      },
+      {
+        id: "10-2",
+        worldId: 10,
+        lessonNumber: 2,
+        title: "Filter Bubbles & Echo Chambers",
+        concept:
+          "When AI only shows you things you already agree with, your world gets smaller. Two people can search the same word and see completely different results — and neither knows what the other sees.",
+        interactiveType: "bubble-breaker",
+        interactiveTitle: "Bubble Breaker",
+        dinnerTakeaway:
+          "AI shows you what it thinks you want to see — which means you might never see things that challenge your opinions!",
+        xpReward: 50,
+      },
+      {
+        id: "10-3",
+        worldId: 10,
+        lessonNumber: 3,
+        title: "Smart Home, Smart Life",
+        concept:
+          "Voice assistants, robot vacuums, smart thermostats, smart doorbells — your home is full of AI that collects data and makes decisions. Each device knows a little about you; together, they know a lot.",
+        interactiveType: "smart-home-mapper",
+        interactiveTitle: "Smart Home Mapper",
+        dinnerTakeaway:
+          "Almost every 'smart' device in your home is collecting data about you — your voice assistant alone knows your schedule, music taste, and what questions you ask!",
+        xpReward: 50,
+      },
+      {
+        id: "10-4",
+        worldId: 10,
+        lessonNumber: 4,
+        title: "AI & Your Health",
+        concept:
+          "Fitness trackers, sleep monitors, and screen time apps all use AI to analyze your habits. They can spot patterns you'd never notice — like how your sleep changes before you get sick.",
+        interactiveType: "health-tracker-sim",
+        interactiveTitle: "Health Tracker Sim",
+        dinnerTakeaway:
+          "AI in fitness trackers can sometimes predict you're getting sick before you even feel it — just by noticing tiny changes in your heart rate and sleep!",
+        xpReward: 50,
+      },
+      {
+        id: "10-5",
+        worldId: 10,
+        lessonNumber: 5,
+        title: "Taking Back Control",
+        concept:
+          "You're not powerless. You can adjust recommendations, manage privacy settings, and choose when to listen to AI and when to ignore it. Digital literacy is a superpower.",
+        interactiveType: "settings-safari",
+        interactiveTitle: "Settings Safari",
+        dinnerTakeaway:
+          "You can actually control what AI shows you and what data it collects — most people just never check their settings!",
+        xpReward: 50,
+      },
+    ],
+    challenge: {
+      title: "AI Life Audit",
+      description:
+        "Map every AI in your life — every device, app, and service. For each one, note what it does, what data it collects, and one change you'd make.",
+      badgeName: "Digital Detective",
+      badgeEmoji: "🔎",
+      interactiveType: "ai-life-audit",
+      xpReward: 150,
+    },
+  },
+  // ─── WORLD 11: Building with AI (PRO) ────────────────────────────────
+  {
+    id: 11,
+    title: "Building with AI",
+    subtitle: "The Maker's Workshop",
+    theme: "Stop watching. Start making. Build your own AI project.",
+    emoji: "🔧",
+    color: "lime",
+    bgColor: "bg-lime-500",
+    ringColor: "ring-lime-400",
+    textColor: "text-lime-400",
+    gradientFrom: "from-lime-500",
+    gradientTo: "to-green-400",
+    hex: "#84cc16",
+    tier: "paid",
+    lessons: [
+      {
+        id: "11-1",
+        worldId: 11,
+        lessonNumber: 1,
+        title: "Your AI Toolkit",
+        concept:
+          "Teachable Machine, Scratch with ML, ChatGPT, image generators, music AI — these are real tools you can use RIGHT NOW to build things with AI. No coding degree required.",
+        interactiveType: "toolkit-tour",
+        interactiveTitle: "Toolkit Tour",
+        dinnerTakeaway:
+          "You don't need to be a programmer to build with AI — tools like Teachable Machine let you train your own AI in minutes!",
+        xpReward: 50,
+      },
+      {
+        id: "11-2",
+        worldId: 11,
+        lessonNumber: 2,
+        title: "Project Planning",
+        concept:
+          "Good projects have a clear goal, a specific audience, and a realistic scope. 'I want to build everything' becomes 'I want to build an AI that recognizes hand-drawn emojis.'",
+        interactiveType: "project-scoper",
+        interactiveTitle: "Project Scoper",
+        dinnerTakeaway:
+          "The secret to building cool things is starting small — even the biggest tech companies start with a simple prototype!",
+        xpReward: 50,
+      },
+      {
+        id: "11-3",
+        worldId: 11,
+        lessonNumber: 3,
+        title: "Build Phase 1 — Prototype",
+        concept:
+          "Prototypes are supposed to be ugly. The point is to make it work, not make it pretty. Every great product started as a rough first version.",
+        interactiveType: "prototype-builder",
+        interactiveTitle: "Prototype Builder",
+        dinnerTakeaway:
+          "The first version of Google was literally just a white page with a search box — prototypes are supposed to be simple!",
+        xpReward: 50,
+      },
+      {
+        id: "11-4",
+        worldId: 11,
+        lessonNumber: 4,
+        title: "Build Phase 2 — Iterate",
+        concept:
+          "Build, test, learn, improve, repeat. Every product goes through this cycle dozens of times. The feedback from real users is worth more than months of guessing.",
+        interactiveType: "feedback-loop",
+        interactiveTitle: "Feedback Loop",
+        dinnerTakeaway:
+          "The best builders aren't the ones who get it right the first time — they're the ones who listen to feedback and keep improving!",
+        xpReward: 50,
+      },
+      {
+        id: "11-5",
+        worldId: 11,
+        lessonNumber: 5,
+        title: "Build Phase 3 — Polish & Present",
+        concept:
+          "Finishing a project means cleaning it up and presenting it well. When you demo, talk about the problem you solved, not just the buttons you built.",
+        interactiveType: "project-showcase",
+        interactiveTitle: "Project Showcase",
+        dinnerTakeaway:
+          "Being able to explain what you built and WHY is just as important as building it — that's how real inventors pitch their ideas!",
+        xpReward: 50,
+      },
+    ],
+    challenge: {
+      title: "Portfolio Piece",
+      description:
+        "Complete your AI project and present it! Include the problem, your solution, what AI tools you used, and what you'd do differently next time.",
+      badgeName: "AI Builder",
+      badgeEmoji: "🏗️",
+      interactiveType: "portfolio-piece",
+      xpReward: 150,
+    },
+  },
+  // ─── WORLD 12: AI Futures (PRO) ──────────────────────────────────────
+  {
+    id: 12,
+    title: "AI Futures",
+    subtitle: "What Comes Next",
+    theme: "You're not just learning about AI — you're the generation that will shape it",
+    emoji: "🔮",
+    color: "amber",
+    bgColor: "bg-amber-500",
+    ringColor: "ring-amber-400",
+    textColor: "text-amber-400",
+    gradientFrom: "from-amber-500",
+    gradientTo: "to-yellow-400",
+    hex: "#f59e0b",
+    tier: "paid",
+    lessons: [
+      {
+        id: "12-1",
+        worldId: 12,
+        lessonNumber: 1,
+        title: "AI in 2030",
+        concept:
+          "In the next few years: AI tutors personalized to every student, AI doctors in rural areas, real-time translation earbuds, fully autonomous delivery. Some of these are almost here.",
+        interactiveType: "future-bingo",
+        interactiveTitle: "2030 Bingo",
+        dinnerTakeaway:
+          "By the time you're a teenager, AI might give you a personal tutor, translate any language in your ear, and deliver your packages by drone!",
+        xpReward: 50,
+      },
+      {
+        id: "12-2",
+        worldId: 12,
+        lessonNumber: 2,
+        title: "AI & Big Problems",
+        concept:
+          "AI is being pointed at humanity's biggest challenges — climate change, disease, food shortages, space exploration. It can optimize energy grids, discover new medicines, and navigate Mars rovers.",
+        interactiveType: "ai-for-good",
+        interactiveTitle: "AI for Good",
+        dinnerTakeaway:
+          "AI is already helping fight climate change, discover new medicines, and grow food more efficiently — it might help solve problems that seemed impossible!",
+        xpReward: 50,
+      },
+      {
+        id: "12-3",
+        worldId: 12,
+        lessonNumber: 3,
+        title: "The Risks Ahead",
+        concept:
+          "AI could be used for mass surveillance, could widen inequality if only rich countries have access, and could make decisions that are hard to explain or reverse. Being honest about risks helps us prevent them.",
+        interactiveType: "risk-o-meter",
+        interactiveTitle: "Risk-O-Meter",
+        dinnerTakeaway:
+          "AI has real risks — like being used to spy on people or making unfair decisions — which is why we need smart people like you to help guide it!",
+        xpReward: 50,
+      },
+      {
+        id: "12-4",
+        worldId: 12,
+        lessonNumber: 4,
+        title: "Your AI Future",
+        concept:
+          "You're growing up at the most important moment in AI history. The choices your generation makes about AI will shape the world for decades. You won't just use AI — you'll shape it.",
+        interactiveType: "future-letter",
+        interactiveTitle: "Letter to Future Me",
+        dinnerTakeaway:
+          "You're part of the first generation that will grow up WITH AI — what you learn and decide now will shape how AI works for everyone!",
+        xpReward: 50,
+      },
+    ],
+    challenge: {
+      title: "My AI Manifesto",
+      description:
+        "Write your personal AI Manifesto — your vision for how AI should be built and used. Include principles you believe in and a promise about how you'll use AI responsibly.",
+      badgeName: "AI Visionary",
+      badgeEmoji: "🌟",
+      interactiveType: "ai-manifesto",
+      xpReward: 200,
     },
   },
 ];

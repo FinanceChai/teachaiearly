@@ -362,7 +362,7 @@ function LandingContent() {
           </span>
         </h1>
         <p className="text-xl text-slate-300 max-w-2xl mx-auto leading-relaxed mb-10">
-          6 worlds. 6 written courses. 30 interactive lessons. Zero boring
+          12 worlds. 12 written courses. 55+ interactive lessons. Zero boring
           videos. Kids learn how AI works, think critically about it — and
           have fun doing it.
         </p>
@@ -391,7 +391,7 @@ function LandingContent() {
       {/* World Cards */}
       <section className="relative z-10 max-w-4xl mx-auto px-6 pb-20">
         <h2 className="text-3xl font-black text-white text-center mb-4">
-          6 Worlds to Explore
+          12 Worlds to Explore
         </h2>
         <p className="text-center text-slate-400 mb-12 max-w-2xl mx-auto">
           Each world includes a written course, interactive lessons, and a final challenge to earn a badge.
@@ -494,7 +494,7 @@ function LandingContent() {
             {
               icon: "🏆",
               title: "Real achievements",
-              desc: "6 skill-based badges earned through understanding, not just clicking through slides.",
+              desc: "12 skill-based badges earned through understanding, not just clicking through slides.",
             },
             {
               icon: "📊",
@@ -578,8 +578,8 @@ function LandingContent() {
             <ul className="space-y-3 mb-8">
               {[
                 "✅ Everything in Free",
-                "✅ All 6 written courses + 30 interactive lessons",
-                "✅ All 6 challenge badges",
+                "✅ All 12 written courses + 55+ interactive lessons",
+                "✅ All 12 challenge badges",
                 "✅ Full AI Playground",
                 "✅ Parent dashboard + reports",
                 "✅ Monthly new content drops",
