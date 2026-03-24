@@ -42,6 +42,45 @@ import { DataTrail } from "@/components/interactives/DataTrail";
 import { RuleMaker } from "@/components/interactives/RuleMaker";
 import { FutureForecaster } from "@/components/interactives/FutureForecaster";
 import { EthicsBoard } from "@/components/interactives/EthicsBoard";
+// World 7: AI & Sound
+import { WaveformExplorer } from "@/components/interactives/WaveformExplorer";
+import { VoicePipeline } from "@/components/interactives/VoicePipeline";
+import { MelodyMaker } from "@/components/interactives/MelodyMaker";
+import { VoiceLineup } from "@/components/interactives/VoiceLineup";
+import { AIPodcast } from "@/components/interactives/AIPodcast";
+// World 8: AI & Games
+import { NPCBrainMapper } from "@/components/interactives/NPCBrainMapper";
+import { AIBattleTimeline } from "@/components/interactives/AIBattleTimeline";
+import { RewardTrainer } from "@/components/interactives/RewardTrainer";
+import { LevelGenerator } from "@/components/interactives/LevelGenerator";
+import { FairPlayJudge } from "@/components/interactives/FairPlayJudge";
+import { GameDesignerChallenge } from "@/components/interactives/GameDesignerChallenge";
+// World 9: AI & Robots
+import { RobotOrPuppet } from "@/components/interactives/RobotOrPuppet";
+import { SelfDrivingSim } from "@/components/interactives/SelfDrivingSim";
+import { RobotDesigner } from "@/components/interactives/RobotDesigner";
+import { RobotRightsDebate } from "@/components/interactives/RobotRightsDebate";
+import { RobotPitch } from "@/components/interactives/RobotPitch";
+// World 10: AI & You
+import { AlgorithmAudit } from "@/components/interactives/AlgorithmAudit";
+import { BubbleBreaker } from "@/components/interactives/BubbleBreaker";
+import { SmartHomeMapper } from "@/components/interactives/SmartHomeMapper";
+import { HealthTrackerSim } from "@/components/interactives/HealthTrackerSim";
+import { SettingsSafari } from "@/components/interactives/SettingsSafari";
+import { AILifeAudit } from "@/components/interactives/AILifeAudit";
+// World 11: Building with AI
+import { ToolkitTour } from "@/components/interactives/ToolkitTour";
+import { ProjectScoper } from "@/components/interactives/ProjectScoper";
+import { PrototypeBuilder } from "@/components/interactives/PrototypeBuilder";
+import { FeedbackLoop } from "@/components/interactives/FeedbackLoop";
+import { ProjectShowcase } from "@/components/interactives/ProjectShowcase";
+import { PortfolioPiece } from "@/components/interactives/PortfolioPiece";
+// World 12: AI Futures
+import { FutureBingo } from "@/components/interactives/FutureBingo";
+import { AIForGood } from "@/components/interactives/AIForGood";
+import { RiskOMeter } from "@/components/interactives/RiskOMeter";
+import { FutureLetter } from "@/components/interactives/FutureLetter";
+import { AIManifesto } from "@/components/interactives/AIManifesto";
 
 type Phase = "concept" | "interactive" | "takeaway" | "complete";
 
@@ -232,6 +271,78 @@ export default function LessonPage() {
             }}
           />
         );
+      // World 7: AI & Sound
+      case "waveform-explorer":
+        return <WaveformExplorer onComplete={handleInteractiveDone} />;
+      case "voice-pipeline":
+        return <VoicePipeline onComplete={handleInteractiveDone} />;
+      case "melody-maker":
+        return <MelodyMaker onComplete={handleInteractiveDone} />;
+      case "voice-lineup":
+        return <VoiceLineup onComplete={handleInteractiveDone} />;
+      case "ai-podcast":
+        return <AIPodcast onComplete={handleInteractiveDone} />;
+      // World 8: AI & Games
+      case "npc-brain-mapper":
+        return <NPCBrainMapper onComplete={handleInteractiveDone} />;
+      case "ai-battle-timeline":
+        return <AIBattleTimeline onComplete={handleInteractiveDone} />;
+      case "reward-trainer":
+        return <RewardTrainer onComplete={handleInteractiveDone} />;
+      case "level-generator":
+        return <LevelGenerator onComplete={handleInteractiveDone} />;
+      case "fair-play-judge":
+        return <FairPlayJudge onComplete={handleInteractiveDone} />;
+      case "game-designer-challenge":
+        return <GameDesignerChallenge onComplete={handleInteractiveDone} />;
+      // World 9: AI & Robots
+      case "robot-or-puppet":
+        return <RobotOrPuppet onComplete={handleInteractiveDone} />;
+      case "self-driving-sim":
+        return <SelfDrivingSim onComplete={handleInteractiveDone} />;
+      case "robot-designer":
+        return <RobotDesigner onComplete={handleInteractiveDone} />;
+      case "robot-rights-debate":
+        return <RobotRightsDebate onComplete={handleInteractiveDone} />;
+      case "robot-pitch":
+        return <RobotPitch onComplete={handleInteractiveDone} />;
+      // World 10: AI & You
+      case "algorithm-audit":
+        return <AlgorithmAudit onComplete={handleInteractiveDone} />;
+      case "bubble-breaker":
+        return <BubbleBreaker onComplete={handleInteractiveDone} />;
+      case "smart-home-mapper":
+        return <SmartHomeMapper onComplete={handleInteractiveDone} />;
+      case "health-tracker-sim":
+        return <HealthTrackerSim onComplete={handleInteractiveDone} />;
+      case "settings-safari":
+        return <SettingsSafari onComplete={handleInteractiveDone} />;
+      case "ai-life-audit":
+        return <AILifeAudit onComplete={handleInteractiveDone} />;
+      // World 11: Building with AI
+      case "toolkit-tour":
+        return <ToolkitTour onComplete={handleInteractiveDone} />;
+      case "project-scoper":
+        return <ProjectScoper onComplete={handleInteractiveDone} />;
+      case "prototype-builder":
+        return <PrototypeBuilder onComplete={handleInteractiveDone} />;
+      case "feedback-loop":
+        return <FeedbackLoop onComplete={handleInteractiveDone} />;
+      case "project-showcase":
+        return <ProjectShowcase onComplete={handleInteractiveDone} />;
+      case "portfolio-piece":
+        return <PortfolioPiece onComplete={handleInteractiveDone} />;
+      // World 12: AI Futures
+      case "future-bingo":
+        return <FutureBingo onComplete={handleInteractiveDone} />;
+      case "ai-for-good":
+        return <AIForGood onComplete={handleInteractiveDone} />;
+      case "risk-o-meter":
+        return <RiskOMeter onComplete={handleInteractiveDone} />;
+      case "future-letter":
+        return <FutureLetter onComplete={handleInteractiveDone} />;
+      case "ai-manifesto":
+        return <AIManifesto onComplete={handleInteractiveDone} />;
       default:
         return <LockedInteractive title={interactiveTitle} onComplete={handleInteractiveDone} />;
     }
