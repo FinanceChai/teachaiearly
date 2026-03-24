@@ -357,8 +357,9 @@ function LandingContent() {
           </span>
         </h1>
         <p className="text-xl text-slate-300 max-w-2xl mx-auto leading-relaxed mb-10">
-          6 interactive worlds. 30 lessons. Zero boring videos. Kids learn how
-          AI works, think critically about it — and have fun doing it.
+          6 worlds. 6 written courses. 30 interactive lessons. Zero boring
+          videos. Kids learn how AI works, think critically about it — and
+          have fun doing it.
         </p>
         <div className="flex flex-col sm:flex-row gap-4 justify-center">
           <button
@@ -383,11 +384,14 @@ function LandingContent() {
       </section>
 
       {/* World Cards */}
-      <section className="relative z-10 max-w-6xl mx-auto px-6 pb-20">
-        <h2 className="text-3xl font-black text-white text-center mb-12">
+      <section className="relative z-10 max-w-4xl mx-auto px-6 pb-20">
+        <h2 className="text-3xl font-black text-white text-center mb-4">
           6 Worlds to Explore
         </h2>
-        <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
+        <p className="text-center text-slate-400 mb-12 max-w-2xl mx-auto">
+          Each world includes a written course, interactive lessons, and a final challenge to earn a badge.
+        </p>
+        <div className="space-y-4">
           {WORLDS.map((world) => (
             <div
               key={world.id}
@@ -397,25 +401,59 @@ function LandingContent() {
               }}
               className="relative bg-space-800 rounded-2xl p-6 border border-slate-700 card-hover overflow-hidden cursor-pointer"
             >
-              {world.tier === "paid" && (
-                <div className="absolute top-3 right-3 bg-amber-500 text-amber-900 text-xs font-black px-2 py-1 rounded-full">
-                  PRO
+              <div className="flex items-start gap-5">
+                <div
+                  className="w-16 h-16 rounded-2xl flex items-center justify-center text-3xl flex-shrink-0"
+                  style={{
+                    background: world.hex + "20",
+                    border: `2px solid ${world.hex}40`,
+                  }}
+                >
+                  {world.emoji}
                 </div>
-              )}
-              {world.tier === "free" && (
-                <div className="absolute top-3 right-3 bg-teal-500 text-white text-xs font-black px-2 py-1 rounded-full">
-                  FREE
+                <div className="flex-1 min-w-0">
+                  <div className="flex items-center gap-2 mb-1">
+                    <span className="text-xs font-bold text-slate-500">
+                      WORLD {world.id}
+                    </span>
+                    {world.tier === "paid" ? (
+                      <span className="bg-amber-500 text-amber-900 text-xs font-black px-2 py-0.5 rounded-full">
+                        PRO
+                      </span>
+                    ) : (
+                      <span className="bg-teal-500 text-white text-xs font-black px-2 py-0.5 rounded-full">
+                        FREE
+                      </span>
+                    )}
+                  </div>
+                  <div className="text-xl font-black text-white mb-1">
+                    {world.title}
+                  </div>
+                  <div className="text-sm text-slate-400 mb-3">
+                    {world.theme}
+                  </div>
+                  <div className="flex flex-wrap gap-2 mb-3">
+                    {world.lessons.map((lesson) => (
+                      <span
+                        key={lesson.id}
+                        className="text-xs font-bold px-2.5 py-1 rounded-lg bg-slate-700/50 text-slate-300"
+                      >
+                        {lesson.title}
+                      </span>
+                    ))}
+                  </div>
+                  <div className="flex items-center gap-4 text-xs text-slate-500 font-bold">
+                    <span style={{ color: world.hex }}>
+                      📖 Written course
+                    </span>
+                    <span>
+                      🎮 {world.lessons.length} interactive lessons
+                    </span>
+                    <span>
+                      🏆 {world.challenge.badgeEmoji} {world.challenge.badgeName} badge
+                    </span>
+                  </div>
                 </div>
-              )}
-              <div className="text-4xl mb-3">{world.emoji}</div>
-              <div className="text-xs font-bold text-slate-500 mb-1">
-                WORLD {world.id}
-              </div>
-              <div className="text-lg font-black text-white mb-2">
-                {world.title}
-              </div>
-              <div className="text-sm text-slate-400">
-                {world.lessons.length} lessons + challenge
               </div>
               <div
                 className="absolute bottom-0 left-0 h-1 w-full opacity-60 rounded-b-2xl"
@@ -496,9 +534,9 @@ function LandingContent() {
             <div className="text-4xl font-black text-teal-400 mb-6">$0</div>
             <ul className="space-y-3 mb-8">
               {[
-                "✅ World 1: What is AI? (4 lessons)",
-                "✅ World 2: How Machines Learn (5 lessons)",
-                "✅ 2 challenge badges",
+                "✅ World 1: What is AI? (course + 4 lessons)",
+                "✅ World 2: How Machines Learn (course + 5 lessons)",
+                "✅ 2 written courses + 2 challenge badges",
                 "✅ AI Playground (limited)",
                 "✅ Basic progress tracking",
               ].map((item) => (
@@ -535,7 +573,7 @@ function LandingContent() {
             <ul className="space-y-3 mb-8">
               {[
                 "✅ Everything in Free",
-                "✅ All 6 Worlds (30 lessons)",
+                "✅ All 6 written courses + 30 interactive lessons",
                 "✅ All 6 challenge badges",
                 "✅ Full AI Playground",
                 "✅ Parent dashboard + reports",
