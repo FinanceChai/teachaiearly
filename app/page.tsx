@@ -61,7 +61,12 @@ function LandingContent() {
         }
         router.push("/home");
       } else {
-        // Sign up — go to profile setup
+        // Sign up — validate before going to profile setup
+        if (password.length < 6) {
+          setAuthError("Password must be at least 6 characters.");
+          setAuthLoading(false);
+          return;
+        }
         setStep("setup");
         setAuthLoading(false);
       }
