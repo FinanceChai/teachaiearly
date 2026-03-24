@@ -84,8 +84,30 @@ export default function WorldPage() {
         </div>
       </div>
 
+      {/* Course Overview Link */}
+      <div className="max-w-2xl mx-auto px-4 pt-2">
+        <Link
+          href={`/course/${world.id}`}
+          className="flex items-center gap-4 p-4 rounded-2xl border border-slate-600 bg-space-800 hover:border-slate-400 transition-all group"
+        >
+          <div
+            className="w-12 h-12 rounded-xl flex items-center justify-center text-2xl flex-shrink-0"
+            style={{ background: world.hex + "20", border: `2px solid ${world.hex}40` }}
+          >
+            📖
+          </div>
+          <div className="flex-1">
+            <div className="font-black text-white text-sm">Read the Course</div>
+            <div className="text-xs text-slate-400 mt-0.5">
+              A short written lesson covering everything in World {world.id}
+            </div>
+          </div>
+          <span className="text-slate-400 group-hover:text-white transition-colors text-lg">›</span>
+        </Link>
+      </div>
+
       {/* Lessons */}
-      <div className="max-w-2xl mx-auto px-4 pb-8">
+      <div className="max-w-2xl mx-auto px-4 pb-8 mt-6">
         <h2 className="text-xl font-black text-white mb-4">Lessons</h2>
         <div className="space-y-3">
           {world.lessons.map((lesson, idx) => {
