@@ -21,7 +21,15 @@ export default function AppLayout({ children }: { children: React.ReactNode }) {
 
   async function handleLogout() {
     await signOut();
-    localStorage.removeItem("ai_explorer_profile");
+    const appKeys = [
+      "ai_explorer_profile",
+      "ai_explorer_progress",
+      "ai_explorer_subscribed",
+      "ai_explorer_saved_cards",
+      "ai_daily_last_completed",
+      "ai_daily_last_answer",
+    ];
+    appKeys.forEach((key) => localStorage.removeItem(key));
     router.push("/");
   }
 
