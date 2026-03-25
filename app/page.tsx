@@ -26,6 +26,7 @@ function LandingContent() {
   const [name, setName] = useState("");
   const [avatar, setAvatar] = useState("🚀");
   const [step, setStep] = useState<"landing" | "auth" | "setup">("landing");
+  const [showAllWorlds, setShowAllWorlds] = useState(false);
   const [isSignIn, setIsSignIn] = useState(false);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -317,18 +318,6 @@ function LandingContent() {
       {/* Stars */}
       <div className="absolute inset-0 stars-bg pointer-events-none" />
 
-      {/* Hero background image – faded */}
-      <div
-        className="absolute inset-x-0 top-0 h-[700px] z-0 opacity-30 pointer-events-none"
-        style={{
-          backgroundImage: "url('/abstract-neural-network-background.png')",
-          backgroundSize: "cover",
-          backgroundPosition: "center top",
-          maskImage: "linear-gradient(to bottom, black 40%, transparent 100%)",
-          WebkitMaskImage: "linear-gradient(to bottom, black 40%, transparent 100%)",
-        }}
-      />
-
       {/* Nav */}
       <nav className="relative z-10 flex items-center justify-between px-6 py-5 max-w-6xl mx-auto">
         <div className="flex items-center">
@@ -351,10 +340,7 @@ function LandingContent() {
             Sign In
           </button>
           <button
-            onClick={() => {
-              setIsSignIn(false);
-              setStep("auth");
-            }}
+            onClick={() => setStep("setup")}
             className="bg-teal-500 hover:bg-teal-400 text-white font-bold px-6 py-2.5 rounded-xl btn-press transition-colors text-sm"
           >
             Start Free
@@ -375,10 +361,7 @@ function LandingContent() {
           lecturing. For ages 9-12.
         </p>
         <button
-          onClick={() => {
-            setIsSignIn(false);
-            setStep("auth");
-          }}
+          onClick={() => setStep("setup")}
           className="bg-gradient-to-r from-teal-500 to-cyan-400 text-white font-black text-xl px-12 py-5 rounded-2xl btn-press hover:from-teal-400 hover:to-cyan-300 shadow-lg shadow-teal-500/30 transition-all"
         >
           Start Free
@@ -391,7 +374,7 @@ function LandingContent() {
       {/* ========== 2. TRUST STRIP — Social Proof ========== */}
       <section className="relative z-10 border-y border-slate-700/50 py-5 mb-20">
         <div className="flex flex-wrap items-center justify-center gap-x-8 gap-y-3 text-sm font-bold text-slate-400 max-w-4xl mx-auto px-6">
-          <span>Built by a CFA &amp; parent</span>
+          <span>Built by a parent</span>
           <span className="hidden sm:inline text-slate-700">|</span>
           <span>Ages 9-12</span>
           <span className="hidden sm:inline text-slate-700">|</span>
@@ -453,13 +436,13 @@ function LandingContent() {
           Each world is a self-contained adventure with a written course,
           interactive lessons, and a badge to earn.
         </p>
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
-          {WORLDS.map((world) => (
+        <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
+          {(showAllWorlds ? WORLDS : WORLDS.slice(0, 6)).map((world) => (
             <div
               key={world.id}
               onClick={() => {
                 setIsSignIn(false);
-                setStep("auth");
+                setStep("setup");
               }}
               className="relative bg-space-800 rounded-2xl p-5 border border-slate-700 card-hover cursor-pointer group text-center"
             >
@@ -501,6 +484,16 @@ function LandingContent() {
             </div>
           ))}
         </div>
+        {!showAllWorlds && (
+          <div className="text-center mt-8">
+            <button
+              onClick={() => setShowAllWorlds(true)}
+              className="text-teal-400 hover:text-teal-300 font-bold text-sm transition-colors"
+            >
+              See all 12 worlds &rarr;
+            </button>
+          </div>
+        )}
       </section>
 
       {/* ========== 5. PARENT VALUE — Why AI Literacy Now ========== */}
@@ -516,12 +509,12 @@ function LandingContent() {
         </p>
         <div className="flex flex-wrap justify-center gap-6 text-sm text-slate-400">
           <div className="bg-space-800 rounded-xl px-5 py-3 border border-slate-700">
-            <span className="text-2xl font-black text-teal-400 block">82%</span>
-            of educators say AI literacy should start before high school
-          </div>
-          <div className="bg-space-800 rounded-xl px-5 py-3 border border-slate-700">
             <span className="text-2xl font-black text-teal-400 block">OECD</span>
             AI Literacy Framework aligned
+          </div>
+          <div className="bg-space-800 rounded-xl px-5 py-3 border border-slate-700">
+            <span className="text-2xl font-black text-teal-400 block">12</span>
+            worlds covering ethics, creativity, robotics &amp; more
           </div>
           <div className="bg-space-800 rounded-xl px-5 py-3 border border-slate-700">
             <span className="text-2xl font-black text-teal-400 block">0</span>
@@ -538,11 +531,6 @@ function LandingContent() {
         <div className="grid md:grid-cols-3 gap-6">
           {[
             {
-              icon: "🎮",
-              title: "Actually fun",
-              desc: "Interactive activities within 60 seconds. No passive video watching.",
-            },
-            {
               icon: "🍽️",
               title: "Dinner table moments",
               desc: "Every lesson ends with a takeaway that sparks real conversations at home.",
@@ -553,19 +541,9 @@ function LandingContent() {
               desc: "COPPA compliant. No ads. No loot boxes. No data sold. Ever.",
             },
             {
-              icon: "🏆",
-              title: "Real achievements",
-              desc: "12 skill-based badges earned through understanding, not just clicking.",
-            },
-            {
               icon: "📊",
               title: "Parent dashboard",
               desc: "See what your child learned, time spent, and conversation starters.",
-            },
-            {
-              icon: "📚",
-              title: "Written courses",
-              desc: "Every world has a full written course — real reading, real comprehension.",
             },
           ].map((f) => (
             <div
@@ -612,10 +590,7 @@ function LandingContent() {
               ))}
             </ul>
             <button
-              onClick={() => {
-                setIsSignIn(false);
-                setStep("auth");
-              }}
+              onClick={() => setStep("setup")}
               className="w-full bg-white/10 hover:bg-white/20 text-white font-bold py-4 rounded-2xl btn-press transition-colors"
             >
               Get Started Free
@@ -651,10 +626,7 @@ function LandingContent() {
               ))}
             </ul>
             <button
-              onClick={() => {
-                setIsSignIn(false);
-                setStep("auth");
-              }}
+              onClick={() => setStep("setup")}
               className="w-full bg-gradient-to-r from-teal-500 to-cyan-400 hover:from-teal-400 hover:to-cyan-300 text-white font-black py-4 rounded-2xl btn-press transition-all shadow-lg"
             >
               Start 7-Day Free Trial
@@ -680,10 +652,7 @@ function LandingContent() {
           learning, disguised as fun.
         </p>
         <button
-          onClick={() => {
-            setIsSignIn(false);
-            setStep("auth");
-          }}
+          onClick={() => setStep("setup")}
           className="bg-gradient-to-r from-teal-500 to-cyan-400 text-white font-black text-xl px-12 py-5 rounded-2xl btn-press hover:from-teal-400 hover:to-cyan-300 shadow-lg shadow-teal-500/30 transition-all"
         >
           Start Free
@@ -691,25 +660,48 @@ function LandingContent() {
       </section>
 
       {/* Footer */}
-      <footer className="relative z-10 border-t border-slate-800 py-8 px-6 text-center">
-        <div className="flex items-center justify-center gap-6 mb-4 text-sm text-slate-500">
-          <a
-            href="/blog"
-            className="hover:text-slate-300 transition-colors font-bold"
-          >
-            Blog
-          </a>
-          <span>·</span>
-          <a
-            href="#pricing"
-            className="hover:text-slate-300 transition-colors font-bold"
-          >
-            Pricing
-          </a>
-        </div>
-        <div className="text-slate-500 text-sm flex items-center justify-center gap-2">
-          <img src="/logo.svg" alt="Teach AI Early" className="h-6 inline-block" />
-          <span>— COPPA compliant · No ads · No data sold</span>
+      <footer className="relative z-10 border-t border-slate-800 py-10 px-6">
+        <div className="max-w-4xl mx-auto">
+          <div className="flex flex-wrap items-center justify-center gap-x-6 gap-y-2 mb-6 text-sm text-slate-500">
+            <a
+              href="/blog"
+              className="hover:text-slate-300 transition-colors font-bold"
+            >
+              Blog
+            </a>
+            <span>·</span>
+            <a
+              href="#pricing"
+              className="hover:text-slate-300 transition-colors font-bold"
+            >
+              Pricing
+            </a>
+            <span>·</span>
+            <a
+              href="mailto:hello@teachaiearly.com"
+              className="hover:text-slate-300 transition-colors font-bold"
+            >
+              Contact
+            </a>
+            <span>·</span>
+            <a
+              href="/terms"
+              className="hover:text-slate-300 transition-colors font-bold"
+            >
+              Terms
+            </a>
+            <span>·</span>
+            <a
+              href="/privacy"
+              className="hover:text-slate-300 transition-colors font-bold"
+            >
+              Privacy
+            </a>
+          </div>
+          <div className="text-slate-500 text-sm flex items-center justify-center gap-2">
+            <img src="/logo.svg" alt="Teach AI Early" className="h-6 inline-block" />
+            <span>— COPPA compliant · No ads · No data sold</span>
+          </div>
         </div>
       </footer>
     </div>
