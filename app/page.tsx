@@ -317,6 +317,18 @@ function LandingContent() {
       {/* Stars */}
       <div className="absolute inset-0 stars-bg pointer-events-none" />
 
+      {/* Hero background image – faded */}
+      <div
+        className="absolute inset-x-0 top-0 h-[700px] z-0 opacity-30 pointer-events-none"
+        style={{
+          backgroundImage: "url('/abstract-neural-network-background.png')",
+          backgroundSize: "cover",
+          backgroundPosition: "center top",
+          maskImage: "linear-gradient(to bottom, black 40%, transparent 100%)",
+          WebkitMaskImage: "linear-gradient(to bottom, black 40%, transparent 100%)",
+        }}
+      />
+
       {/* Nav */}
       <nav className="relative z-10 flex items-center justify-between px-6 py-5 max-w-6xl mx-auto">
         <div className="flex items-center">
@@ -345,70 +357,103 @@ function LandingContent() {
             }}
             className="bg-teal-500 hover:bg-teal-400 text-white font-bold px-6 py-2.5 rounded-xl btn-press transition-colors text-sm"
           >
-            Try Free
+            Start Free
           </button>
         </div>
       </nav>
 
-      {/* Hero background image – faded */}
-      <div
-        className="absolute inset-x-0 top-0 h-[700px] z-0 opacity-40 pointer-events-none"
-        style={{
-          backgroundImage: "url('/abstract-neural-network-background.png')",
-          backgroundSize: "cover",
-          backgroundPosition: "center top",
-          maskImage: "linear-gradient(to bottom, black 40%, transparent 100%)",
-          WebkitMaskImage: "linear-gradient(to bottom, black 40%, transparent 100%)",
-        }}
-      />
-
-      {/* Hero */}
-      <section className="relative z-10 text-center pt-12 pb-20 px-6 max-w-4xl mx-auto">
-        <div className="inline-block bg-teal-500/20 text-teal-300 text-sm font-bold px-4 py-2 rounded-full mb-8 border border-teal-500/30">
-          ✨ For kids aged 9-12 — No fluff, real AI literacy
-        </div>
-        <h1 className="text-6xl md:text-7xl font-black text-white leading-tight mb-6">
-          Learn what AI{" "}
+      {/* ========== 1. HERO — One Clear Promise ========== */}
+      <section className="relative z-10 text-center pt-16 pb-24 px-6 max-w-3xl mx-auto">
+        <h1 className="text-5xl md:text-7xl font-black text-white leading-tight mb-6">
+          AI literacy for kids,{" "}
           <span className="bg-gradient-to-r from-teal-400 to-cyan-300 text-transparent bg-clip-text">
-            actually is
+            disguised as a game
           </span>
         </h1>
-        <p className="text-xl text-slate-300 max-w-2xl mx-auto leading-relaxed mb-10">
-          12 worlds. 12 written courses. 55+ interactive lessons. Zero boring
-          videos. Kids learn how AI works, think critically about it — and
-          have fun doing it.
+        <p className="text-xl text-slate-300 max-w-xl mx-auto leading-relaxed mb-10">
+          Your child&apos;s first AI adventure — learn by playing, not by
+          lecturing. For ages 9-12.
         </p>
-        <div className="flex flex-col sm:flex-row gap-4 justify-center">
-          <button
-            onClick={() => {
-              setIsSignIn(false);
-              setStep("auth");
-            }}
-            className="bg-gradient-to-r from-teal-500 to-cyan-400 text-white font-black text-xl px-10 py-5 rounded-2xl btn-press hover:from-teal-400 hover:to-cyan-300 shadow-lg shadow-teal-500/30 transition-all"
-          >
-            Start for Free 🚀
-          </button>
-          <a
-            href="#pricing"
-            className="bg-white/10 hover:bg-white/20 text-white font-bold text-xl px-10 py-5 rounded-2xl btn-press transition-colors"
-          >
-            See Pricing
-          </a>
-        </div>
+        <button
+          onClick={() => {
+            setIsSignIn(false);
+            setStep("auth");
+          }}
+          className="bg-gradient-to-r from-teal-500 to-cyan-400 text-white font-black text-xl px-12 py-5 rounded-2xl btn-press hover:from-teal-400 hover:to-cyan-300 shadow-lg shadow-teal-500/30 transition-all"
+        >
+          Start Free
+        </button>
         <p className="text-slate-500 text-sm mt-5">
-          Worlds 1 & 2 free forever. No credit card required.
+          Worlds 1 &amp; 2 free forever. No credit card needed.
         </p>
       </section>
 
-      {/* World Cards */}
-      <section className="relative z-10 max-w-4xl mx-auto px-6 pb-20">
+      {/* ========== 2. TRUST STRIP — Social Proof ========== */}
+      <section className="relative z-10 border-y border-slate-700/50 py-5 mb-20">
+        <div className="flex flex-wrap items-center justify-center gap-x-8 gap-y-3 text-sm font-bold text-slate-400 max-w-4xl mx-auto px-6">
+          <span>Built by a CFA &amp; parent</span>
+          <span className="hidden sm:inline text-slate-700">|</span>
+          <span>Ages 9-12</span>
+          <span className="hidden sm:inline text-slate-700">|</span>
+          <span>COPPA compliant</span>
+          <span className="hidden sm:inline text-slate-700">|</span>
+          <span>No ads, no data sold</span>
+          <span className="hidden sm:inline text-slate-700">|</span>
+          <span>55+ interactive lessons</span>
+        </div>
+      </section>
+
+      {/* ========== 3. HOW IT WORKS — 3 Steps ========== */}
+      <section className="relative z-10 max-w-4xl mx-auto px-6 pb-24">
+        <h2 className="text-3xl font-black text-white text-center mb-4">
+          How it works
+        </h2>
+        <p className="text-center text-slate-400 mb-12">
+          Three steps. Five minutes to start.
+        </p>
+        <div className="grid md:grid-cols-3 gap-8">
+          {[
+            {
+              num: "1",
+              icon: "🗺️",
+              title: "Pick a World",
+              desc: "Choose from 12 AI-themed adventures — from robots to ethics to creativity.",
+            },
+            {
+              num: "2",
+              icon: "🎮",
+              title: "Play & Learn",
+              desc: "Interactive lessons teach real AI concepts through stories, challenges, and hands-on activities.",
+            },
+            {
+              num: "3",
+              icon: "🏆",
+              title: "Earn & Track",
+              desc: "Kids earn badges for each world. Parents see exactly what they learned.",
+            },
+          ].map((s) => (
+            <div key={s.num} className="text-center">
+              <div className="text-5xl mb-4">{s.icon}</div>
+              <div className="inline-block bg-teal-500/20 text-teal-300 text-xs font-black px-3 py-1 rounded-full mb-3">
+                STEP {s.num}
+              </div>
+              <h3 className="text-xl font-black text-white mb-2">{s.title}</h3>
+              <p className="text-slate-400 text-sm leading-relaxed">{s.desc}</p>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      {/* ========== 4. WORLDS SHOWCASE — Visual Cards ========== */}
+      <section className="relative z-10 max-w-5xl mx-auto px-6 pb-24">
         <h2 className="text-3xl font-black text-white text-center mb-4">
           12 Worlds to Explore
         </h2>
         <p className="text-center text-slate-400 mb-12 max-w-2xl mx-auto">
-          Each world includes a written course, interactive lessons, and a final challenge to earn a badge.
+          Each world is a self-contained adventure with a written course,
+          interactive lessons, and a badge to earn.
         </p>
-        <div className="space-y-4">
+        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
           {WORLDS.map((world) => (
             <div
               key={world.id}
@@ -416,64 +461,41 @@ function LandingContent() {
                 setIsSignIn(false);
                 setStep("auth");
               }}
-              className="relative bg-space-800 rounded-2xl p-6 border border-slate-700 card-hover overflow-hidden cursor-pointer"
+              className="relative bg-space-800 rounded-2xl p-5 border border-slate-700 card-hover cursor-pointer group text-center"
             >
-              <div className="flex items-start gap-5">
-                <div
-                  className="w-16 h-16 rounded-2xl flex items-center justify-center text-3xl flex-shrink-0"
-                  style={{
-                    background: world.hex + "20",
-                    border: `2px solid ${world.hex}40`,
-                  }}
-                >
-                  {world.emoji}
-                </div>
-                <div className="flex-1 min-w-0">
-                  <div className="flex items-center gap-2 mb-1">
-                    <span className="text-xs font-bold text-slate-500">
-                      WORLD {world.id}
-                    </span>
-                    {world.tier === "paid" ? (
-                      <span className="bg-amber-500 text-amber-900 text-xs font-black px-2 py-0.5 rounded-full">
-                        PRO
-                      </span>
-                    ) : (
-                      <span className="bg-teal-500 text-white text-xs font-black px-2 py-0.5 rounded-full">
-                        FREE
-                      </span>
-                    )}
-                  </div>
-                  <div className="text-xl font-black text-white mb-1">
-                    {world.title}
-                  </div>
-                  <div className="text-sm text-slate-400 mb-3">
-                    {world.theme}
-                  </div>
-                  <div className="flex flex-wrap gap-2 mb-3">
-                    {world.lessons.map((lesson) => (
-                      <span
-                        key={lesson.id}
-                        className="text-xs font-bold px-2.5 py-1 rounded-lg bg-slate-700/50 text-slate-300"
-                      >
-                        {lesson.title}
-                      </span>
-                    ))}
-                  </div>
-                  <div className="flex items-center gap-4 text-xs text-slate-500 font-bold">
-                    <span style={{ color: world.hex }}>
-                      📖 Written course
-                    </span>
-                    <span>
-                      🎮 {world.lessons.length} interactive lessons
-                    </span>
-                    <span>
-                      🏆 {world.challenge.badgeEmoji} {world.challenge.badgeName} badge
-                    </span>
-                  </div>
-                </div>
-              </div>
               <div
-                className="absolute bottom-0 left-0 h-1 w-full opacity-60 rounded-b-2xl"
+                className="w-14 h-14 rounded-2xl flex items-center justify-center text-3xl mx-auto mb-3"
+                style={{
+                  background: world.hex + "20",
+                  border: `2px solid ${world.hex}40`,
+                }}
+              >
+                {world.emoji}
+              </div>
+              <div className="text-sm font-black text-white mb-1 leading-tight">
+                {world.title}
+              </div>
+              <div className="text-xs text-slate-500 mb-3 leading-snug">
+                {world.lessons.length} lessons
+              </div>
+              {world.tier === "free" ? (
+                <span className="bg-teal-500/20 text-teal-300 text-xs font-black px-2.5 py-0.5 rounded-full border border-teal-500/30">
+                  FREE
+                </span>
+              ) : (
+                <span className="bg-slate-700/50 text-slate-400 text-xs font-black px-2.5 py-0.5 rounded-full">
+                  PRO
+                </span>
+              )}
+              {world.id === 1 && (
+                <div
+                  className="absolute -top-2 -right-2 bg-teal-500 text-white text-[10px] font-black px-2 py-0.5 rounded-full shadow-lg"
+                >
+                  START HERE
+                </div>
+              )}
+              <div
+                className="absolute bottom-0 left-0 h-1 w-full opacity-50 rounded-b-2xl"
                 style={{ background: world.hex }}
               />
             </div>
@@ -481,8 +503,35 @@ function LandingContent() {
         </div>
       </section>
 
-      {/* Features */}
-      <section className="relative z-10 max-w-5xl mx-auto px-6 pb-20">
+      {/* ========== 5. PARENT VALUE — Why AI Literacy Now ========== */}
+      <section className="relative z-10 max-w-3xl mx-auto px-6 pb-24 text-center">
+        <h2 className="text-3xl font-black text-white mb-6">
+          Why AI literacy, why now?
+        </h2>
+        <p className="text-lg text-slate-300 leading-relaxed mb-6">
+          AI is already part of your child&apos;s world — in the apps they use,
+          the content they see, the future they&apos;ll inherit. The question
+          isn&apos;t whether they&apos;ll use AI. It&apos;s whether
+          they&apos;ll understand it.
+        </p>
+        <div className="flex flex-wrap justify-center gap-6 text-sm text-slate-400">
+          <div className="bg-space-800 rounded-xl px-5 py-3 border border-slate-700">
+            <span className="text-2xl font-black text-teal-400 block">82%</span>
+            of educators say AI literacy should start before high school
+          </div>
+          <div className="bg-space-800 rounded-xl px-5 py-3 border border-slate-700">
+            <span className="text-2xl font-black text-teal-400 block">OECD</span>
+            AI Literacy Framework aligned
+          </div>
+          <div className="bg-space-800 rounded-xl px-5 py-3 border border-slate-700">
+            <span className="text-2xl font-black text-teal-400 block">0</span>
+            videos — 100% reading + doing
+          </div>
+        </div>
+      </section>
+
+      {/* ========== 6. FEATURES — Why Parents Love It ========== */}
+      <section className="relative z-10 max-w-5xl mx-auto px-6 pb-24">
         <h2 className="text-3xl font-black text-white text-center mb-12">
           Why parents love it
         </h2>
@@ -491,32 +540,32 @@ function LandingContent() {
             {
               icon: "🎮",
               title: "Actually fun",
-              desc: "Interactive activities within 60 seconds of starting each lesson. No passive video watching.",
+              desc: "Interactive activities within 60 seconds. No passive video watching.",
             },
             {
               icon: "🍽️",
               title: "Dinner table moments",
-              desc: "Every lesson ends with a 'tell someone tonight' takeaway that sparks real conversations.",
+              desc: "Every lesson ends with a takeaway that sparks real conversations at home.",
             },
             {
               icon: "🔒",
-              title: "Safe & compliant",
-              desc: "COPPA compliant. No ads. No loot boxes. No data sold. Parents control everything.",
+              title: "Safe & private",
+              desc: "COPPA compliant. No ads. No loot boxes. No data sold. Ever.",
             },
             {
               icon: "🏆",
               title: "Real achievements",
-              desc: "12 skill-based badges earned through understanding, not just clicking through slides.",
+              desc: "12 skill-based badges earned through understanding, not just clicking.",
             },
             {
               icon: "📊",
               title: "Parent dashboard",
-              desc: "See exactly what your child learned, time spent, and conversation starters for the week.",
+              desc: "See what your child learned, time spent, and conversation starters.",
             },
             {
-              icon: "🌍",
-              title: "Actually relevant",
-              desc: "Covers AI ethics, bias, privacy, and creativity — things kids need to know NOW.",
+              icon: "📚",
+              title: "Written courses",
+              desc: "Every world has a full written course — real reading, real comprehension.",
             },
           ].map((f) => (
             <div
@@ -533,10 +582,10 @@ function LandingContent() {
         </div>
       </section>
 
-      {/* Pricing */}
+      {/* ========== 7. PRICING — Free vs Pro ========== */}
       <section
         id="pricing"
-        className="relative z-10 max-w-4xl mx-auto px-6 pb-20"
+        className="relative z-10 max-w-4xl mx-auto px-6 pb-24"
       >
         <h2 className="text-3xl font-black text-white text-center mb-4">
           Simple pricing
@@ -548,17 +597,17 @@ function LandingContent() {
           {/* Free */}
           <div className="bg-space-800 rounded-3xl p-8 border border-slate-700">
             <div className="text-2xl font-black text-white mb-1">Free</div>
-            <div className="text-4xl font-black text-teal-400 mb-6">$0</div>
+            <div className="text-4xl font-black text-teal-400 mb-2">$0</div>
+            <div className="text-sm text-slate-500 mb-6">Forever</div>
             <ul className="space-y-3 mb-8">
               {[
-                "✅ World 1: What is AI? (course + 4 lessons)",
-                "✅ World 2: How Machines Learn (course + 5 lessons)",
-                "✅ 2 written courses + 2 challenge badges",
-                "✅ AI Playground (limited)",
-                "✅ Basic progress tracking",
+                "World 1: What is AI? (course + 4 lessons)",
+                "World 2: How Machines Learn (course + 5 lessons)",
+                "2 challenge badges",
+                "Basic progress tracking",
               ].map((item) => (
-                <li key={item} className="text-slate-300 text-sm">
-                  {item}
+                <li key={item} className="text-slate-300 text-sm flex items-start gap-2">
+                  <span className="text-teal-400 mt-0.5">&#10003;</span> {item}
                 </li>
               ))}
             </ul>
@@ -575,30 +624,29 @@ function LandingContent() {
           {/* Paid */}
           <div className="bg-gradient-to-br from-teal-500/20 to-cyan-500/10 rounded-3xl p-8 border-2 border-teal-500/50 relative">
             <div className="absolute -top-3 left-1/2 -translate-x-1/2 bg-teal-500 text-white text-xs font-black px-4 py-1 rounded-full">
-              MOST POPULAR
+              BEST VALUE
             </div>
             <div className="text-2xl font-black text-white mb-1">
               Explorer Pro
             </div>
-            <div className="mb-6">
+            <div className="mb-2">
               <span className="text-4xl font-black text-teal-400">$9.99</span>
               <span className="text-slate-400 ml-1">/month</span>
-              <div className="text-xs text-slate-500 mt-1">
-                or $79.99/year (save 33%)
-              </div>
+            </div>
+            <div className="text-sm text-slate-500 mb-6">
+              or $79.99/year (save 33%)
             </div>
             <ul className="space-y-3 mb-8">
               {[
-                "✅ Everything in Free",
-                "✅ All 12 written courses + 55+ interactive lessons",
-                "✅ All 12 challenge badges",
-                "✅ Full AI Playground",
-                "✅ Parent dashboard + reports",
-                "✅ Monthly new content drops",
-                "✅ Priority support",
+                "Everything in Free",
+                "All 12 worlds — courses + 55+ lessons",
+                "All 12 challenge badges",
+                "Full AI Playground",
+                "Parent dashboard + reports",
+                "Monthly new content drops",
               ].map((item) => (
-                <li key={item} className="text-slate-300 text-sm">
-                  {item}
+                <li key={item} className="text-slate-300 text-sm flex items-start gap-2">
+                  <span className="text-teal-400 mt-0.5">&#10003;</span> {item}
                 </li>
               ))}
             </ul>
@@ -609,13 +657,37 @@ function LandingContent() {
               }}
               className="w-full bg-gradient-to-r from-teal-500 to-cyan-400 hover:from-teal-400 hover:to-cyan-300 text-white font-black py-4 rounded-2xl btn-press transition-all shadow-lg"
             >
-              Start Free Trial 🚀
+              Start 7-Day Free Trial
             </button>
             <p className="text-center text-xs text-slate-500 mt-3">
-              7-day free trial. Cancel anytime.
+              Cancel anytime. No questions asked.
             </p>
           </div>
         </div>
+      </section>
+
+      {/* ========== 8. FINAL CTA — Repeat the Action ========== */}
+      <section className="relative z-10 text-center py-20 px-6">
+        <h2 className="text-3xl md:text-4xl font-black text-white mb-4">
+          Ready to start your child&apos;s{" "}
+          <span className="bg-gradient-to-r from-teal-400 to-cyan-300 text-transparent bg-clip-text">
+            AI adventure
+          </span>
+          ?
+        </h2>
+        <p className="text-slate-400 mb-8 max-w-lg mx-auto">
+          Two full worlds free. No credit card. No commitment. Just real
+          learning, disguised as fun.
+        </p>
+        <button
+          onClick={() => {
+            setIsSignIn(false);
+            setStep("auth");
+          }}
+          className="bg-gradient-to-r from-teal-500 to-cyan-400 text-white font-black text-xl px-12 py-5 rounded-2xl btn-press hover:from-teal-400 hover:to-cyan-300 shadow-lg shadow-teal-500/30 transition-all"
+        >
+          Start Free
+        </button>
       </section>
 
       {/* Footer */}
