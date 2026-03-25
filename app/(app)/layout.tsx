@@ -9,7 +9,7 @@ import Link from "next/link";
 export default function AppLayout({ children }: { children: React.ReactNode }) {
   const router = useRouter();
   const pathname = usePathname();
-  const { user, loading } = useAuth();
+  const { user, loading, signOut } = useAuth();
 
   useEffect(() => {
     if (loading) return;
@@ -18,6 +18,12 @@ export default function AppLayout({ children }: { children: React.ReactNode }) {
       router.push("/");
     }
   }, [user, loading, router]);
+
+  async function handleLogout() {
+    await signOut();
+    localStorage.removeItem("ai_explorer_profile");
+    router.push("/");
+  }
 
   return (
     <div className="min-h-screen bg-space-900 pb-20">
@@ -29,6 +35,13 @@ export default function AppLayout({ children }: { children: React.ReactNode }) {
           <NavItem href="/flashcards" label="Cards" icon="🃏" active={pathname?.startsWith("/flashcards")} />
           <NavItem href="/daily" label="Daily" icon="⚡" active={pathname === "/daily"} />
           <NavItem href="/badges" label="Badges" icon="🏆" active={pathname === "/badges"} />
+          <button
+            onClick={handleLogout}
+            className="flex flex-col items-center gap-1 px-4 py-1 rounded-xl transition-colors text-slate-500 hover:text-red-400"
+          >
+            <span className="text-2xl">🚪</span>
+            <span className="text-xs font-bold">Log Out</span>
+          </button>
         </div>
       </nav>
     </div>
