@@ -427,6 +427,50 @@ function LandingContent() {
         </div>
       </section>
 
+      {/* ========== PRODUCT DEMO — See It In Action ========== */}
+      <section className="relative z-10 max-w-5xl mx-auto px-6 pb-24">
+        <h2 className="text-3xl font-black text-white text-center mb-4">
+          See what kids actually do
+        </h2>
+        <p className="text-center text-slate-400 mb-12 max-w-2xl mx-auto">
+          Not worksheets. Not videos. Real interactive lessons that teach AI
+          concepts through hands-on challenges.
+        </p>
+        <div className="grid md:grid-cols-3 gap-6">
+          {[
+            {
+              src: "/screenshot-1.png",
+              alt: "Train Your Own Classifier — interactive AI lesson",
+              caption: "Train an AI classifier by picking categories and testing it",
+            },
+            {
+              src: "/screenshot-2.png",
+              alt: "Your Journey — world progress dashboard",
+              caption: "Track progress across worlds with badges and milestones",
+            },
+            {
+              src: "/screenshot-3.png",
+              alt: "Explorer profile setup screen",
+              caption: "Kids pick an avatar and jump straight into learning",
+            },
+          ].map((shot) => (
+            <div key={shot.src} className="group">
+              <div className="bg-space-800 rounded-2xl border border-slate-700 overflow-hidden shadow-lg">
+                <img
+                  src={shot.src}
+                  alt={shot.alt}
+                  className="w-full"
+                  loading="lazy"
+                />
+              </div>
+              <p className="text-slate-400 text-xs text-center mt-3 font-bold">
+                {shot.caption}
+              </p>
+            </div>
+          ))}
+        </div>
+      </section>
+
       {/* ========== 4. WORLDS SHOWCASE — Visual Cards ========== */}
       <section className="relative z-10 max-w-5xl mx-auto px-6 pb-24">
         <h2 className="text-3xl font-black text-white text-center mb-4">
