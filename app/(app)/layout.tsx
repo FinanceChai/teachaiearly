@@ -28,6 +28,7 @@ export default function AppLayout({ children }: { children: React.ReactNode }) {
       "ai_explorer_saved_cards",
       "ai_daily_last_completed",
       "ai_daily_last_answer",
+      "ai_wild_journal",
     ];
     appKeys.forEach((key) => localStorage.removeItem(key));
     router.push("/");

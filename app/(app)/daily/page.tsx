@@ -1,6 +1,6 @@
 "use client";
 
-import { useState, useEffect } from "react";
+import { useState, useEffect, useCallback } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { useProgress } from "@/hooks/useProgress";
 import { getTodaysChallenge, DailyChallenge } from "@/lib/daily-challenges";
@@ -9,6 +9,37 @@ import { getProgress, saveProgress } from "@/lib/progress";
 
 const DAILY_LAST_COMPLETED_KEY = "ai_daily_last_completed";
 const DAILY_LAST_ANSWER_KEY = "ai_daily_last_answer";
+const JOURNAL_KEY = "ai_wild_journal";
+
+interface JournalEntry {
+  id: string;
+  text: string;
+  date: string;
+  xpAwarded: boolean;
+}
+
+const JOURNAL_PROMPTS = [
+  "Did an app recommend something to you today?",
+  "Did your phone autocorrect a word?",
+  "Did you see a chatbot on a website?",
+  "Did a streaming app suggest what to watch next?",
+  "Did you notice a smart speaker respond to someone?",
+  "Did you see an ad that felt like it was reading your mind?",
+  "Did you use a filter on a photo?",
+  "Did a navigation app reroute you?",
+  "Did you see AI-generated content online?",
+  "Did a game change difficulty based on how you played?",
+];
+
+function getJournalEntries(): JournalEntry[] {
+  if (typeof window === "undefined") return [];
+  const raw = localStorage.getItem(JOURNAL_KEY);
+  return raw ? JSON.parse(raw) : [];
+}
+
+function saveJournalEntries(entries: JournalEntry[]) {
+  localStorage.setItem(JOURNAL_KEY, JSON.stringify(entries));
+}
 
 const CATEGORY_COLORS: Record<string, string> = {
   "AI Basics": "bg-blue-500/20 text-blue-300 border-blue-500/30",
@@ -393,7 +424,163 @@ export default function DailyChallengePage() {
             </motion.div>
           )}
         </AnimatePresence>
+
+        {/* ========== AI in the Wild Journal ========== */}
+        <WildJournal />
       </div>
+    </div>
+  );
+}
+
+function WildJournal() {
+  const [entries, setEntries] = useState<JournalEntry[]>([]);
+  const [newEntry, setNewEntry] = useState("");
+  const [todayPrompt, setTodayPrompt] = useState("");
+  const [justAdded, setJustAdded] = useState(false);
+  const [showAll, setShowAll] = useState(false);
+
+  const loadEntries = useCallback(() => {
+    setEntries(getJournalEntries());
+  }, []);
+
+  useEffect(() => {
+    loadEntries();
+    // Pick a daily prompt based on date
+    const dayIndex = Math.floor(Date.now() / 86400000) % JOURNAL_PROMPTS.length;
+    setTodayPrompt(JOURNAL_PROMPTS[dayIndex]);
+  }, [loadEntries]);
+
+  function handleAddEntry() {
+    if (!newEntry.trim()) return;
+
+    const entry: JournalEntry = {
+      id: Date.now().toString(),
+      text: newEntry.trim(),
+      date: new Date().toLocaleDateString("en-US", {
+        month: "short",
+        day: "numeric",
+      }),
+      xpAwarded: true,
+    };
+
+    const updated = [entry, ...entries];
+    saveJournalEntries(updated);
+    setEntries(updated);
+    setNewEntry("");
+
+    // Award 5 XP
+    const currentProgress = getProgress();
+    currentProgress.xp += 5;
+    saveProgress(currentProgress);
+
+    setJustAdded(true);
+    setTimeout(() => setJustAdded(false), 2000);
+  }
+
+  const today = new Date().toLocaleDateString("en-US", { month: "short", day: "numeric" });
+  const todayEntries = entries.filter((e) => e.date === today);
+  const canAddMore = todayEntries.length < 3;
+  const visibleEntries = showAll ? entries : entries.slice(0, 5);
+
+  return (
+    <div className="mt-10 pt-8 border-t border-slate-800">
+      <div className="text-center mb-6">
+        <h2 className="text-2xl font-black text-white">AI in the Wild</h2>
+        <p className="text-slate-400 text-sm mt-1">
+          Spot AI in your daily life and earn 5 XP per entry (up to 3/day)
+        </p>
+      </div>
+
+      {/* Daily prompt */}
+      <div className="bg-space-800 rounded-2xl p-4 border border-slate-700 mb-4">
+        <p className="text-xs font-bold text-teal-400 mb-1">Today&apos;s prompt</p>
+        <p className="text-slate-300 text-sm">{todayPrompt}</p>
+      </div>
+
+      {/* Input */}
+      {canAddMore ? (
+        <div className="flex gap-2 mb-6">
+          <input
+            type="text"
+            value={newEntry}
+            onChange={(e) => setNewEntry(e.target.value)}
+            onKeyDown={(e) => e.key === "Enter" && handleAddEntry()}
+            placeholder="I noticed AI when..."
+            maxLength={200}
+            className="flex-1 bg-space-800 border-2 border-slate-700 rounded-xl px-4 py-3 text-white text-sm font-medium placeholder-slate-600 focus:outline-none focus:border-teal-400 transition-colors"
+          />
+          <button
+            onClick={handleAddEntry}
+            disabled={!newEntry.trim()}
+            className="bg-teal-500 hover:bg-teal-400 disabled:opacity-40 disabled:cursor-not-allowed text-white font-bold px-5 py-3 rounded-xl btn-press transition-colors text-sm"
+          >
+            Log
+          </button>
+        </div>
+      ) : (
+        <div className="text-center mb-6 bg-teal-500/10 border border-teal-500/20 rounded-xl py-3 px-4">
+          <p className="text-teal-400 text-sm font-bold">
+            Great spotting! You&apos;ve logged 3 entries today. Come back tomorrow!
+          </p>
+        </div>
+      )}
+
+      {/* XP animation */}
+      <AnimatePresence>
+        {justAdded && (
+          <motion.div
+            initial={{ opacity: 0, scale: 0.5, y: -10 }}
+            animate={{ opacity: 1, scale: 1, y: 0 }}
+            exit={{ opacity: 0, scale: 0.5 }}
+            className="text-center mb-4"
+          >
+            <span className="inline-block bg-teal-500/20 border border-teal-500/30 text-teal-300 font-black text-sm px-4 py-1.5 rounded-full">
+              +5 XP earned!
+            </span>
+          </motion.div>
+        )}
+      </AnimatePresence>
+
+      {/* Entries */}
+      {entries.length > 0 && (
+        <div className="space-y-2">
+          <p className="text-xs font-bold text-slate-500 uppercase mb-2">
+            Your sightings ({entries.length} total)
+          </p>
+          {visibleEntries.map((entry) => (
+            <motion.div
+              key={entry.id}
+              initial={{ opacity: 0, x: -10 }}
+              animate={{ opacity: 1, x: 0 }}
+              className="bg-space-800 rounded-xl px-4 py-3 border border-slate-700/50 flex items-start gap-3"
+            >
+              <span className="text-lg mt-0.5">👁️</span>
+              <div className="flex-1 min-w-0">
+                <p className="text-slate-300 text-sm">{entry.text}</p>
+                <p className="text-slate-600 text-xs mt-1">{entry.date}</p>
+              </div>
+              <span className="text-xs text-teal-500 font-bold whitespace-nowrap">+5 XP</span>
+            </motion.div>
+          ))}
+          {entries.length > 5 && !showAll && (
+            <button
+              onClick={() => setShowAll(true)}
+              className="w-full text-center text-teal-400 hover:text-teal-300 text-sm font-bold py-2 transition-colors"
+            >
+              Show all {entries.length} entries &rarr;
+            </button>
+          )}
+        </div>
+      )}
+
+      {entries.length === 0 && (
+        <div className="text-center py-6">
+          <div className="text-4xl mb-3">👁️</div>
+          <p className="text-slate-500 text-sm">
+            No sightings yet. Start noticing AI around you!
+          </p>
+        </div>
+      )}
     </div>
   );
 }
