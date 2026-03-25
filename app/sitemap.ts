@@ -1,6 +1,7 @@
 import { MetadataRoute } from "next";
 import { WORLDS } from "@/lib/course-data";
 import { BLOG_POSTS } from "@/lib/blog-data";
+import { FLASHCARDS, termToSlug } from "@/lib/flashcards-data";
 
 const BASE_URL = "https://teachaiearly.vercel.app";
 
@@ -14,6 +15,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
     },
     {
       url: `${BASE_URL}/blog`,
+      lastModified: new Date(),
+      changeFrequency: "weekly",
+      priority: 0.8,
+    },
+    {
+      url: `${BASE_URL}/glossary`,
       lastModified: new Date(),
       changeFrequency: "weekly",
       priority: 0.8,
@@ -34,5 +41,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.6,
   }));
 
-  return [...staticPages, ...worldPages, ...blogPages];
+  const glossaryPages: MetadataRoute.Sitemap = FLASHCARDS.map((fc) => ({
+    url: `${BASE_URL}/glossary/${termToSlug(fc.term)}`,
+    lastModified: new Date(),
+    changeFrequency: "monthly" as const,
+    priority: 0.5,
+  }));
+
+  return [...staticPages, ...worldPages, ...blogPages, ...glossaryPages];
 }

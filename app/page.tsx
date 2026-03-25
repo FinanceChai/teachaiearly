@@ -330,6 +330,12 @@ function LandingContent() {
           >
             Blog
           </a>
+          <a
+            href="/glossary"
+            className="text-slate-400 hover:text-white font-bold px-4 py-2.5 rounded-xl transition-colors text-sm"
+          >
+            Glossary
+          </a>
           <button
             onClick={() => {
               setIsSignIn(true);
@@ -712,6 +718,13 @@ function LandingContent() {
               className="hover:text-slate-300 transition-colors font-bold"
             >
               Blog
+            </a>
+            <span>·</span>
+            <a
+              href="/glossary"
+              className="hover:text-slate-300 transition-colors font-bold"
+            >
+              Glossary
             </a>
             <span>·</span>
             <a

@@ -88,3 +88,15 @@ export function getFlashcardsByWorld(worldId: number): Flashcard[] {
 export function getFlashcardsByLesson(lessonId: string): Flashcard[] {
   return FLASHCARDS.filter((fc) => fc.lessonId === lessonId);
 }
+
+export function termToSlug(term: string): string {
+  return term.toLowerCase().replace(/[^a-z0-9]+/g, "-").replace(/(^-|-$)/g, "");
+}
+
+export function getFlashcardBySlug(slug: string): Flashcard | undefined {
+  return FLASHCARDS.find((fc) => termToSlug(fc.term) === slug);
+}
+
+export function getAllSlugs(): string[] {
+  return FLASHCARDS.map((fc) => termToSlug(fc.term));
+}
