@@ -2,6 +2,8 @@
 
 import { useProgress } from "@/hooks/useProgress";
 import { WORLDS } from "@/lib/course-data";
+import { getProfile } from "@/lib/progress";
+import { generateCertificate } from "@/lib/certificate";
 
 export default function BadgesPage() {
   const { progress, mounted } = useProgress();
@@ -12,6 +14,24 @@ export default function BadgesPage() {
         <div className="text-4xl animate-float">🏆</div>
       </div>
     );
+  }
+
+  function handleDownloadCertificate(worldId: number) {
+    const world = WORLDS.find((w) => w.id === worldId);
+    if (!world) return;
+    const profile = getProfile();
+    generateCertificate({
+      studentName: profile?.name || "Explorer",
+      badgeName: world.challenge.badgeName,
+      badgeEmoji: world.challenge.badgeEmoji,
+      worldTitle: world.title,
+      worldNumber: world.id,
+      date: new Date().toLocaleDateString("en-US", {
+        year: "numeric",
+        month: "long",
+        day: "numeric",
+      }),
+    });
   }
 
   return (
@@ -43,11 +63,19 @@ export default function BadgesPage() {
                   {world.challenge.badgeName}
                 </div>
                 <div className="text-xs text-slate-400 mt-1">{world.title}</div>
-                {earned && (
-                  <div className="mt-2 text-xs font-black text-yellow-400">
-                    Earned!
+                {earned ? (
+                  <div className="mt-3 space-y-1.5">
+                    <div className="text-xs font-black text-yellow-400">
+                      Earned!
+                    </div>
+                    <button
+                      onClick={() => handleDownloadCertificate(world.id)}
+                      className="text-xs font-bold text-teal-400 hover:text-teal-300 transition-colors"
+                    >
+                      Download Certificate
+                    </button>
                   </div>
-                )}
+                ) : null}
               </div>
             );
           })}

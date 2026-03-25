@@ -4,6 +4,8 @@ import { useState } from "react";
 import { useParams, useRouter } from "next/navigation";
 import { getWorld, getLesson } from "@/lib/course-data";
 import { useProgress } from "@/hooks/useProgress";
+import { getProfile } from "@/lib/progress";
+import { generateCertificate } from "@/lib/certificate";
 import { RuleRobotVsAI } from "@/components/interactives/RuleRobotVsAI";
 import { SpotTheAI } from "@/components/interactives/SpotTheAI";
 import { WhoDoesItBetter } from "@/components/interactives/WhoDoesItBetter";
@@ -498,6 +500,29 @@ export default function LessonPage() {
                 <span className="text-yellow-400">⭐</span>
               </div>
             </div>
+
+            {isChallenge && (
+              <button
+                onClick={() => {
+                  const profile = getProfile();
+                  generateCertificate({
+                    studentName: profile?.name || "Explorer",
+                    badgeName: world.challenge.badgeName,
+                    badgeEmoji: world.challenge.badgeEmoji,
+                    worldTitle: world.title,
+                    worldNumber: world.id,
+                    date: new Date().toLocaleDateString("en-US", {
+                      year: "numeric",
+                      month: "long",
+                      day: "numeric",
+                    }),
+                  });
+                }}
+                className="w-full py-4 rounded-2xl font-bold text-lg text-teal-400 bg-teal-500/10 hover:bg-teal-500/20 border border-teal-500/30 btn-press transition-all"
+              >
+                Download Certificate
+              </button>
+            )}
 
             <button
               onClick={() => router.push(`/world/${worldId}`)}
