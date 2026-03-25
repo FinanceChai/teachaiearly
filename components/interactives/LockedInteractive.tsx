@@ -25,7 +25,7 @@ export function LockedInteractive({
       </div>
       <div className="bg-amber-500/20 border border-amber-500/30 rounded-xl p-4">
         <p className="text-amber-300 text-sm font-bold">
-          Unlock all 30 lessons and 6 interactive challenges with Explorer Pro — just $6/month.
+          Unlock all 55+ lessons and 12 interactive challenges with Explorer Pro — just $9.99/month.
         </p>
       </div>
     </div>

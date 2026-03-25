@@ -78,14 +78,14 @@ export default function PaywallModal({ onClose }: { onClose: () => void }) {
             disabled={loading}
             className="w-full bg-gradient-to-r from-teal-500 to-cyan-400 hover:from-teal-400 hover:to-cyan-300 text-white font-black text-lg py-4 rounded-2xl btn-press transition-all shadow-lg disabled:opacity-60"
           >
-            {loading ? "Loading..." : "Start Free Trial — $6/mo"}
+            {loading ? "Loading..." : "Start Free Trial — $9.99/mo"}
           </button>
           <button
             onClick={() => handleCheckout("yearly")}
             disabled={loading}
             className="w-full bg-teal-500/20 hover:bg-teal-500/30 text-teal-300 font-black text-sm py-3 rounded-2xl btn-press transition-all border border-teal-500/30 disabled:opacity-60"
           >
-            Save 33% — $48/year
+            Save 33% — $79.99/year
           </button>
         </div>
 

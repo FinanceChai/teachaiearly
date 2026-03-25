@@ -569,10 +569,10 @@ function LandingContent() {
               Explorer Pro
             </div>
             <div className="mb-6">
-              <span className="text-4xl font-black text-teal-400">$6</span>
+              <span className="text-4xl font-black text-teal-400">$9.99</span>
               <span className="text-slate-400 ml-1">/month</span>
               <div className="text-xs text-slate-500 mt-1">
-                or $48/year (save 33%)
+                or $79.99/year (save 33%)
               </div>
             </div>
             <ul className="space-y-3 mb-8">
