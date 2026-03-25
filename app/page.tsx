@@ -26,7 +26,6 @@ function LandingContent() {
   const [name, setName] = useState("");
   const [avatar, setAvatar] = useState("🚀");
   const [step, setStep] = useState<"landing" | "auth" | "setup">("landing");
-  const [showAllWorlds, setShowAllWorlds] = useState(false);
   const [isSignIn, setIsSignIn] = useState(false);
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
@@ -437,7 +436,7 @@ function LandingContent() {
           interactive lessons, and a badge to earn.
         </p>
         <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
-          {(showAllWorlds ? WORLDS : WORLDS.slice(0, 6)).map((world) => (
+          {WORLDS.map((world) => (
             <div
               key={world.id}
               onClick={() => {
@@ -484,16 +483,6 @@ function LandingContent() {
             </div>
           ))}
         </div>
-        {!showAllWorlds && (
-          <div className="text-center mt-8">
-            <button
-              onClick={() => setShowAllWorlds(true)}
-              className="text-teal-400 hover:text-teal-300 font-bold text-sm transition-colors"
-            >
-              See all 12 worlds &rarr;
-            </button>
-          </div>
-        )}
       </section>
 
       {/* ========== 5. PARENT VALUE — Why AI Literacy Now ========== */}
