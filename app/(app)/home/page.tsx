@@ -192,12 +192,12 @@ function HomeContent() {
         </div>
 
         {/* Completion message */}
-        {progress.earnedBadges.length === 6 && (
+        {progress.earnedBadges.length === WORLDS.length && (
           <div className="mt-12 bg-gradient-to-br from-teal-500/20 to-cyan-500/10 rounded-3xl p-8 border border-teal-500/30 text-center">
             <div className="text-5xl mb-4">🎉</div>
             <h2 className="text-2xl font-black text-white mb-2">You're an AI Explorer!</h2>
             <p className="text-slate-300">
-              You've completed all 6 worlds and earned every badge. You now know more about
+              You&apos;ve completed all {WORLDS.length} worlds and earned every badge. You now know more about
               AI than most adults!
             </p>
           </div>

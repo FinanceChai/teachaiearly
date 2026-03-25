@@ -52,15 +52,15 @@ export default function PaywallModal({ onClose }: { onClose: () => void }) {
           <div className="text-5xl mb-3">🔒</div>
           <h2 className="text-2xl font-black text-white">Explorer Pro</h2>
           <p className="text-slate-400 text-sm mt-2">
-            Unlock all 6 worlds, 30 lessons, and 6 challenge badges.
+            Unlock all 12 worlds, 55+ lessons, and 12 challenge badges.
           </p>
         </div>
 
         {/* Features */}
         <ul className="space-y-2 mb-6">
           {[
-            "✅ All 6 Worlds (30 lessons)",
-            "✅ All 6 challenge badges",
+            "✅ All 12 Worlds (55+ lessons)",
+            "✅ All 12 challenge badges",
             "✅ Full AI Playground",
             "✅ Parent dashboard + reports",
             "✅ Monthly new content",
