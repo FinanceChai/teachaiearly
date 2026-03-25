@@ -352,6 +352,17 @@ function LandingContent() {
 
       {/* Hero */}
       <section className="relative z-10 text-center pt-12 pb-20 px-6 max-w-4xl mx-auto">
+        {/* Background image – faded */}
+        <div
+          className="absolute inset-0 -z-10 opacity-20 pointer-events-none"
+          style={{
+            backgroundImage: "url('/abstract-neural-network-background.png')",
+            backgroundSize: "cover",
+            backgroundPosition: "center",
+            maskImage: "radial-gradient(ellipse at center, black 30%, transparent 75%)",
+            WebkitMaskImage: "radial-gradient(ellipse at center, black 30%, transparent 75%)",
+          }}
+        />
         <div className="inline-block bg-teal-500/20 text-teal-300 text-sm font-bold px-4 py-2 rounded-full mb-8 border border-teal-500/30">
           ✨ For kids aged 9-12 — No fluff, real AI literacy
         </div>
