@@ -26,9 +26,9 @@ export default function AppLayout({ children }: { children: React.ReactNode }) {
       <nav className="fixed bottom-0 left-0 right-0 bg-space-800/95 backdrop-blur border-t border-slate-700 z-50">
         <div className="max-w-lg mx-auto flex items-center justify-around py-3 px-4">
           <NavItem href="/home" label="Worlds" icon="🗺️" active={pathname === "/home"} />
-          <NavItem href="/badges" label="Badges" icon="🏆" active={pathname === "/badges"} />
           <NavItem href="/flashcards" label="Cards" icon="🃏" active={pathname?.startsWith("/flashcards")} />
-          <NavItem href="/parent" label="Parent" icon="👨‍👩‍👧" active={pathname === "/parent"} />
+          <NavItem href="/daily" label="Daily" icon="⚡" active={pathname === "/daily"} />
+          <NavItem href="/badges" label="Badges" icon="🏆" active={pathname === "/badges"} />
         </div>
       </nav>
     </div>

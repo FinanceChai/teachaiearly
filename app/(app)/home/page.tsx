@@ -77,6 +77,14 @@ function HomeContent() {
                 <span className="text-xl">⭐</span>
                 <span className="text-xs font-black text-yellow-400">{progress.xp}</span>
               </div>
+              {/* Parent */}
+              <Link
+                href="/parent"
+                className="flex flex-col items-center text-slate-500 hover:text-slate-300 transition-colors"
+              >
+                <span className="text-xl">👨‍👩‍👧</span>
+                <span className="text-xs font-bold">Parent</span>
+              </Link>
             </div>
           </div>
           {/* XP Bar */}
