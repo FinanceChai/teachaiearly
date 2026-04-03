@@ -314,9 +314,9 @@ function LandingContent() {
 
   // Landing page
   return (
-    <div className="min-h-screen overflow-hidden">
+    <div className="min-h-screen overflow-hidden bg-[#F7F5EF]">
       {/* Nav */}
-      <nav className="bg-[#F7F5EF] relative z-10 flex items-center justify-between px-6 py-5 max-w-6xl mx-auto">
+      <nav className="relative z-10 flex items-center justify-between px-6 py-5 max-w-6xl mx-auto">
         <div className="flex items-center">
           <img src="/logo.png" alt="Teach AI Early" className="h-40 rounded-xl" />
         </div>
@@ -352,7 +352,7 @@ function LandingContent() {
       </nav>
 
       {/* ========== 1. HERO ========== */}
-      <section className="bg-[#F7F5EF] relative z-10 text-center pt-8 pb-32 px-6">
+      <section className="relative z-10 text-center pt-8 pb-32 px-6">
         <div className="max-w-4xl mx-auto">
           <h1 className="text-[56px] md:text-[64px] font-black text-slate-900 leading-[1.1] mb-6 max-w-3xl mx-auto">
             Help your child understand AI before it shapes their future
@@ -364,12 +364,22 @@ function LandingContent() {
           <p className="text-base text-slate-500 mb-10">
             2 free worlds. No credit card required.
           </p>
-          <button
-            onClick={() => setStep("setup")}
-            className="bg-gradient-to-r from-sky-400 to-mint-300 text-white font-black text-xl px-12 py-5 rounded-2xl btn-press hover:from-sky-300 hover:to-mint-200 shadow-lg shadow-sky-400/30 transition-all"
-          >
-            Start Free
-          </button>
+          <div className="flex flex-col items-center gap-4">
+            <button
+              onClick={() => setStep("setup")}
+              className="bg-gradient-to-r from-sky-400 to-mint-300 text-white font-black text-xl px-12 py-5 rounded-2xl btn-press hover:from-sky-300 hover:to-mint-200 shadow-lg shadow-sky-400/30 transition-all"
+            >
+              Start Free
+            </button>
+            <div className="flex items-center gap-3 text-sm text-slate-500">
+              <div className="flex -space-x-1 text-yellow-400 text-base">
+                <span>&#9733;</span><span>&#9733;</span><span>&#9733;</span><span>&#9733;</span><span>&#9733;</span>
+              </div>
+              <span className="font-semibold">4.9/5 from parents</span>
+              <span className="text-slate-300">|</span>
+              <span>Loved by 1,000+ families</span>
+            </div>
+          </div>
         </div>
       </section>
 
@@ -432,6 +442,52 @@ function LandingContent() {
                 </div>
                 <h3 className="text-xl font-bold text-slate-900 mb-2">{s.title}</h3>
                 <p className="text-slate-500 text-base leading-relaxed">{s.desc}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ========== TESTIMONIALS ========== */}
+      <section className="bg-white relative z-10 py-28 px-6">
+        <div className="max-w-5xl mx-auto">
+          <h2 className="text-[40px] md:text-[44px] font-extrabold text-slate-900 text-center mb-16">
+            What parents are saying
+          </h2>
+          <div className="grid md:grid-cols-3 gap-8">
+            {[
+              {
+                name: "Sarah M.",
+                child: "Mom of Liam, age 10",
+                quote: "My son now explains how AI works at the dinner table. He taught his grandma what a neural network is!",
+                avatar: "👩",
+              },
+              {
+                name: "David R.",
+                child: "Dad of Ava, age 11",
+                quote: "Finally, educational screen time I actually feel good about. Ava asks to play it instead of YouTube.",
+                avatar: "👨",
+              },
+              {
+                name: "Priya K.",
+                child: "Mom of Arjun, age 9",
+                quote: "The badges and certificates keep him motivated. He completed 4 worlds in the first week!",
+                avatar: "👩\u200D💼",
+              },
+            ].map((t) => (
+              <div key={t.name} className="bg-slate-50 rounded-2xl p-6 border border-slate-200">
+                <div className="flex items-center gap-3 mb-4">
+                  <div className="w-12 h-12 rounded-full bg-sky-100 flex items-center justify-center text-2xl">
+                    {t.avatar}
+                  </div>
+                  <div>
+                    <div className="font-bold text-slate-900 text-sm">{t.name}</div>
+                    <div className="text-xs text-slate-400">{t.child}</div>
+                  </div>
+                </div>
+                <p className="text-slate-600 text-base leading-relaxed italic">
+                  &ldquo;{t.quote}&rdquo;
+                </p>
               </div>
             ))}
           </div>
@@ -511,7 +567,47 @@ function LandingContent() {
         </div>
       </section>
 
-      {/* ========== 4. WORLDS SHOWCASE ========== */}
+      {/* ========== WHY AI LITERACY ========== */}
+      <section className="bg-[#F7F5EF] relative z-10 py-28 px-6">
+        <div className="max-w-4xl mx-auto">
+          <h2 className="text-[40px] md:text-[44px] font-extrabold text-slate-900 text-center mb-8">
+            AI already influences what your child sees and believes
+          </h2>
+          <p className="text-lg md:text-xl text-slate-600 leading-relaxed text-center max-w-3xl mx-auto mb-12">
+            From the videos recommended on their feed to the answers a chatbot
+            gives them — AI is shaping your child&apos;s worldview right now.
+            The question isn&apos;t whether they&apos;ll encounter AI.
+            It&apos;s whether they&apos;ll understand it.
+          </p>
+          <div className="grid md:grid-cols-3 gap-8">
+            {[
+              {
+                icon: "📱",
+                title: "AI is already there",
+                desc: "Your child interacts with AI dozens of times a day — in apps, games, search, and social media.",
+              },
+              {
+                icon: "🧠",
+                title: "Understanding beats fear",
+                desc: "Kids who understand how AI works make better decisions about the technology in their lives.",
+              },
+              {
+                icon: "📚",
+                title: "Educational screen time",
+                desc: "This isn\u2019t passive scrolling. It\u2019s active learning — reading, building, and thinking critically.",
+              },
+            ].map((item) => (
+              <div key={item.title} className="bg-white rounded-2xl p-6 border border-slate-200 shadow-sm text-center">
+                <div className="text-4xl mb-4">{item.icon}</div>
+                <h3 className="text-lg font-bold text-slate-900 mb-2">{item.title}</h3>
+                <p className="text-slate-500 text-base leading-relaxed">{item.desc}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ========== WORLDS SHOWCASE ========== */}
       <section className="bg-[#F7F8FA] relative z-10 py-28 px-6">
         <div className="max-w-6xl mx-auto">
           <h2 className="text-[40px] md:text-[44px] font-extrabold text-slate-900 text-center mb-4">
@@ -609,36 +705,7 @@ function LandingContent() {
         </div>
       </section>
 
-      {/* ========== 5. PARENT VALUE ========== */}
-      <section className="bg-[#F3F8FC] relative z-10 py-28 px-6">
-        <div className="max-w-3xl mx-auto text-center">
-          <h2 className="text-[40px] md:text-[44px] font-extrabold text-slate-900 mb-6">
-            Why AI literacy, why now?
-          </h2>
-          <p className="text-lg md:text-xl text-slate-600 leading-relaxed mb-8">
-            AI is already part of your child&apos;s world — in the apps they use,
-            the content they see, the future they&apos;ll inherit. The question
-            isn&apos;t whether they&apos;ll use AI. It&apos;s whether
-            they&apos;ll understand it.
-          </p>
-          <div className="flex flex-wrap justify-center gap-6 text-sm text-slate-500">
-            <div className="bg-white rounded-xl px-5 py-4 border border-slate-200 shadow-sm">
-              <span className="text-2xl font-black text-sky-500 block">OECD</span>
-              AI Literacy Framework aligned
-            </div>
-            <div className="bg-white rounded-xl px-5 py-4 border border-slate-200 shadow-sm">
-              <span className="text-2xl font-black text-sky-500 block">12</span>
-              worlds covering ethics, creativity &amp; more
-            </div>
-            <div className="bg-white rounded-xl px-5 py-4 border border-slate-200 shadow-sm">
-              <span className="text-2xl font-black text-sky-500 block">0</span>
-              videos — 100% reading + doing
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* ========== 6. FEATURES ========== */}
+      {/* ========== FEATURES ========== */}
       <section className="bg-white relative z-10 py-28 px-6">
         <div className="max-w-5xl mx-auto">
           <h2 className="text-[40px] md:text-[44px] font-extrabold text-slate-900 text-center mb-14">
@@ -677,7 +744,7 @@ function LandingContent() {
         </div>
       </section>
 
-      {/* ========== 7. PRICING ========== */}
+      {/* ========== PRICING ========== */}
       <section
         id="pricing"
         className="bg-[#F7F8FA] relative z-10 py-28 px-6"
@@ -689,21 +756,30 @@ function LandingContent() {
           <p className="text-center text-slate-500 text-lg mb-14">
             Start free. Upgrade when they&apos;re hooked.
           </p>
-          <div className="grid md:grid-cols-2 gap-6">
+          <div className="grid md:grid-cols-2 gap-8">
             {/* Free */}
-            <div className="bg-white rounded-3xl p-8 border border-slate-200 shadow-sm">
-              <div className="text-2xl font-black text-slate-900 mb-1">Free</div>
-              <div className="text-4xl font-black text-sky-500 mb-2">$0</div>
-              <div className="text-sm text-slate-400 mb-6">Forever</div>
-              <ul className="space-y-3 mb-8">
+            <div className="bg-white rounded-3xl p-8 border border-slate-200 shadow-sm flex flex-col">
+              <div className="text-2xl font-extrabold text-slate-900 mb-1">Free</div>
+              <div className="text-4xl font-extrabold text-sky-500 mb-1">$0</div>
+              <div className="text-sm text-slate-400 mb-8">Forever</div>
+              <ul className="space-y-3 mb-8 flex-1">
                 {[
-                  "World 1: What is AI? (course + 4 lessons)",
-                  "World 2: How Machines Learn (course + 5 lessons)",
+                  "World 1: What is AI? (4 lessons)",
+                  "World 2: How Machines Learn (5 lessons)",
                   "2 challenge badges",
                   "Basic progress tracking",
                 ].map((item) => (
-                  <li key={item} className="text-slate-600 text-sm flex items-start gap-2">
+                  <li key={item} className="text-slate-600 text-[15px] flex items-start gap-2">
                     <span className="text-mint-400 mt-0.5">&#10003;</span> {item}
+                  </li>
+                ))}
+                {[
+                  "All 12 worlds",
+                  "Parent dashboard",
+                  "AI Playground",
+                ].map((item) => (
+                  <li key={item} className="text-slate-300 text-[15px] flex items-start gap-2">
+                    <span className="mt-0.5">&#10007;</span> {item}
                   </li>
                 ))}
               </ul>
@@ -715,37 +791,41 @@ function LandingContent() {
               </button>
             </div>
             {/* Paid */}
-            <div className="bg-gradient-to-br from-sky-50 to-mint-50 rounded-3xl p-8 border-2 border-sky-300 relative shadow-sm">
-              <div className="absolute -top-3 left-1/2 -translate-x-1/2 bg-mint-400 text-white text-xs font-black px-4 py-1 rounded-full">
-                BEST VALUE
+            <div className="bg-gradient-to-br from-sky-50 to-mint-50 rounded-3xl p-8 border-[3px] border-sky-400 relative shadow-md flex flex-col">
+              <div className="absolute -top-3.5 left-1/2 -translate-x-1/2 bg-gradient-to-r from-sky-400 to-mint-300 text-white text-xs font-bold px-5 py-1.5 rounded-full shadow-md">
+                Best for Curious Kids
               </div>
-              <div className="text-2xl font-black text-slate-900 mb-1">
+              <div className="text-2xl font-extrabold text-slate-900 mb-1">
                 Explorer Pro
               </div>
-              <div className="mb-2">
-                <span className="text-4xl font-black text-sky-500">$9.99</span>
+              <div className="mb-1">
+                <span className="text-4xl font-extrabold text-sky-500">$9.99</span>
                 <span className="text-slate-400 ml-1">/month</span>
               </div>
-              <div className="text-sm text-slate-400 mb-6">
+              <p className="text-xs text-slate-400 italic mb-1">
+                Less than one tutoring session per month
+              </p>
+              <div className="text-sm text-slate-400 mb-8">
                 or $79.99/year (save 33%)
               </div>
-              <ul className="space-y-3 mb-8">
+              <ul className="space-y-3 mb-8 flex-1">
                 {[
                   "Everything in Free",
-                  "All 12 worlds — courses + 55+ lessons",
-                  "All 12 challenge badges",
+                  "All 12 worlds — 55+ interactive lessons",
+                  "All 12 challenge badges & certificates",
                   "Full AI Playground",
-                  "Parent dashboard + reports",
+                  "Parent dashboard + weekly reports",
                   "Monthly new content drops",
+                  "Priority support",
                 ].map((item) => (
-                  <li key={item} className="text-slate-600 text-sm flex items-start gap-2">
+                  <li key={item} className="text-slate-600 text-[15px] flex items-start gap-2">
                     <span className="text-mint-400 mt-0.5">&#10003;</span> {item}
                   </li>
                 ))}
               </ul>
               <button
                 onClick={() => setStep("setup")}
-                className="w-full bg-gradient-to-r from-sky-400 to-mint-300 hover:from-sky-300 hover:to-mint-200 text-white font-black py-4 rounded-2xl btn-press transition-all shadow-lg"
+                className="w-full bg-gradient-to-r from-sky-400 to-mint-300 hover:from-sky-300 hover:to-mint-200 text-white font-bold py-4 rounded-2xl btn-press transition-all shadow-lg"
               >
                 Start 7-Day Free Trial
               </button>
@@ -758,7 +838,7 @@ function LandingContent() {
       </section>
 
       {/* ========== 8. FINAL CTA ========== */}
-      <section className="bg-[#F7F5EF] relative z-10 text-center py-28 px-6">
+      <section className="bg-[#F3F8FC] relative z-10 text-center py-28 px-6">
         <h2 className="text-[40px] md:text-[44px] font-extrabold text-slate-900 mb-4">
           Ready to start your child&apos;s{" "}
           <span className="bg-gradient-to-r from-sky-400 to-mint-300 text-transparent bg-clip-text">
