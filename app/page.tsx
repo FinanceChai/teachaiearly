@@ -314,25 +314,22 @@ function LandingContent() {
 
   // Landing page
   return (
-    <div className="min-h-screen bg-space-900 overflow-hidden">
-      {/* Stars */}
-      <div className="absolute inset-0 stars-bg pointer-events-none" />
-
+    <div className="min-h-screen overflow-hidden">
       {/* Nav */}
-      <nav className="relative z-10 flex items-center justify-between px-6 py-5 max-w-6xl mx-auto">
+      <nav className="bg-[#F7F5EF] relative z-10 flex items-center justify-between px-6 py-5 max-w-6xl mx-auto">
         <div className="flex items-center">
           <img src="/logo.png" alt="Teach AI Early" className="h-40 rounded-xl" />
         </div>
         <div className="flex items-center gap-3">
           <a
             href="/blog"
-            className="text-slate-400 hover:text-sky-600 font-bold px-4 py-2.5 rounded-xl transition-colors text-sm"
+            className="text-slate-500 hover:text-sky-600 font-bold px-4 py-2.5 rounded-xl transition-colors text-sm"
           >
             Blog
           </a>
           <a
             href="/glossary"
-            className="text-slate-400 hover:text-sky-600 font-bold px-4 py-2.5 rounded-xl transition-colors text-sm"
+            className="text-slate-500 hover:text-sky-600 font-bold px-4 py-2.5 rounded-xl transition-colors text-sm"
           >
             Glossary
           </a>
@@ -341,7 +338,7 @@ function LandingContent() {
               setIsSignIn(true);
               setStep("auth");
             }}
-            className="text-slate-400 hover:text-sky-600 font-bold px-4 py-2.5 rounded-xl transition-colors text-sm"
+            className="text-slate-500 hover:text-sky-600 font-bold px-4 py-2.5 rounded-xl transition-colors text-sm"
           >
             Sign In
           </button>
@@ -354,350 +351,364 @@ function LandingContent() {
         </div>
       </nav>
 
-      {/* ========== 1. HERO — One Clear Promise ========== */}
-      <section className="relative z-10 text-center pt-16 pb-24 px-6 max-w-3xl mx-auto">
-        <h1 className="text-5xl md:text-7xl font-black text-slate-900 leading-tight mb-6">
-          AI literacy for kids,{" "}
-          <span className="bg-gradient-to-r from-sky-300 to-mint-200 text-transparent bg-clip-text">
-            disguised as a game
-          </span>
-        </h1>
-        <p className="text-xl text-slate-600 max-w-xl mx-auto leading-relaxed mb-10">
-          Your child&apos;s first AI adventure — learn by playing, not by
-          lecturing. For ages 9-12.
-        </p>
-        <button
-          onClick={() => setStep("setup")}
-          className="bg-gradient-to-r from-sky-400 to-mint-300 text-white font-black text-xl px-12 py-5 rounded-2xl btn-press hover:from-sky-300 hover:to-mint-200 shadow-lg shadow-sky-400/30 transition-all"
-        >
-          Start Free
-        </button>
-        <p className="text-slate-400 text-sm mt-5">
-          Worlds 1 &amp; 2 free forever. No credit card needed.
-        </p>
-      </section>
-
-      {/* ========== 2. TRUST STRIP — Social Proof ========== */}
-      <section className="relative z-10 border-y border-slate-200/50 py-5 mb-20">
-        <div className="flex flex-wrap items-center justify-center gap-x-8 gap-y-3 text-sm font-bold text-slate-400 max-w-4xl mx-auto px-6">
-          <span>Built by a parent</span>
-          <span className="hidden sm:inline text-slate-300">|</span>
-          <span>Ages 9-12</span>
-          <span className="hidden sm:inline text-slate-300">|</span>
-          <span>COPPA compliant</span>
-          <span className="hidden sm:inline text-slate-300">|</span>
-          <span>No ads, no data sold</span>
-          <span className="hidden sm:inline text-slate-300">|</span>
-          <span>55+ interactive lessons</span>
+      {/* ========== 1. HERO ========== */}
+      <section className="bg-[#F7F5EF] relative z-10 text-center pt-8 pb-32 px-6">
+        <div className="max-w-4xl mx-auto">
+          <h1 className="text-[56px] md:text-[64px] font-black text-slate-900 leading-[1.1] mb-6 max-w-3xl mx-auto">
+            Help your child understand AI before it shapes their future
+          </h1>
+          <p className="text-xl md:text-2xl text-slate-600 max-w-2xl mx-auto leading-relaxed mb-3">
+            A safe, guided AI learning platform for ages 9&ndash;12 that teaches
+            through interactive play.
+          </p>
+          <p className="text-base text-slate-500 mb-10">
+            2 free worlds. No credit card required.
+          </p>
+          <button
+            onClick={() => setStep("setup")}
+            className="bg-gradient-to-r from-sky-400 to-mint-300 text-white font-black text-xl px-12 py-5 rounded-2xl btn-press hover:from-sky-300 hover:to-mint-200 shadow-lg shadow-sky-400/30 transition-all"
+          >
+            Start Free
+          </button>
         </div>
       </section>
 
-      {/* ========== 3. HOW IT WORKS — 3 Steps ========== */}
-      <section className="relative z-10 max-w-4xl mx-auto px-6 pb-24">
-        <h2 className="text-3xl font-black text-slate-900 text-center mb-4">
-          How it works
-        </h2>
-        <p className="text-center text-slate-400 mb-12">
-          Three steps. Five minutes to start.
-        </p>
-        <div className="grid md:grid-cols-3 gap-8">
-          {[
-            {
-              num: "1",
-              icon: "🗺️",
-              title: "Pick a World",
-              desc: "Choose from 12 AI-themed adventures — from robots to ethics to creativity.",
-            },
-            {
-              num: "2",
-              icon: "🎮",
-              title: "Play & Learn",
-              desc: "Interactive lessons teach real AI concepts through stories, challenges, and hands-on activities.",
-            },
-            {
-              num: "3",
-              icon: "🏆",
-              title: "Earn & Track",
-              desc: "Kids earn badges for each world. Parents see exactly what they learned.",
-            },
-          ].map((s) => (
-            <div key={s.num} className="text-center">
-              <div className="text-5xl mb-4">{s.icon}</div>
-              <div className="inline-block bg-mint-400/20 text-sky-400 text-xs font-black px-3 py-1 rounded-full mb-3">
-                STEP {s.num}
+      {/* ========== TRUST BAR ========== */}
+      <section className="bg-white relative z-10 py-10 border-y border-slate-200">
+        <div className="max-w-5xl mx-auto px-6">
+          <div className="grid grid-cols-2 md:grid-cols-5 gap-6">
+            {[
+              { icon: "👨‍👩‍👧", label: "Built by Parents" },
+              { icon: "🛡️", label: "COPPA Compliant" },
+              { icon: "🚫", label: "No Ads" },
+              { icon: "🔒", label: "No Data Sold" },
+              { icon: "🎯", label: "Ages 9–12" },
+            ].map((badge) => (
+              <div key={badge.label} className="flex flex-col items-center gap-2 text-center">
+                <span className="text-3xl">{badge.icon}</span>
+                <span className="text-sm font-bold text-slate-700">{badge.label}</span>
               </div>
-              <h3 className="text-xl font-black text-slate-900 mb-2">{s.title}</h3>
-              <p className="text-slate-400 text-sm leading-relaxed">{s.desc}</p>
-            </div>
-          ))}
+            ))}
+          </div>
         </div>
       </section>
 
-      {/* ========== PRODUCT DEMO — See It In Action ========== */}
-      <section className="relative z-10 max-w-5xl mx-auto px-6 pb-24">
-        <h2 className="text-3xl font-black text-slate-900 text-center mb-4">
-          See what kids actually do
-        </h2>
-        <p className="text-center text-slate-400 mb-12 max-w-2xl mx-auto">
-          Not worksheets. Not videos. Real interactive lessons that teach AI
-          concepts through hands-on challenges.
-        </p>
-        <div className="grid md:grid-cols-3 gap-6">
-          {[
-            {
-              src: "/screenshot-1.png",
-              alt: "Train Your Own Classifier — interactive AI lesson",
-              caption: "Train an AI classifier by picking categories and testing it",
-            },
-            {
-              src: "/screenshot-2.png",
-              alt: "Your Journey — world progress dashboard",
-              caption: "Track progress across worlds with badges and milestones",
-            },
-            {
-              src: "/screenshot-3.png",
-              alt: "Explorer profile setup screen",
-              caption: "Kids pick an avatar and jump straight into learning",
-            },
-          ].map((shot) => (
-            <div key={shot.src} className="group">
-              <div className="bg-space-800 rounded-2xl border border-slate-200 overflow-hidden shadow-lg">
-                <img
-                  src={shot.src}
-                  alt={shot.alt}
-                  className="w-full"
-                  loading="lazy"
+      {/* ========== 2. HOW IT WORKS ========== */}
+      <section className="bg-[#F3F8FC] relative z-10 py-28 px-6">
+        <div className="max-w-4xl mx-auto">
+          <h2 className="text-3xl font-black text-slate-900 text-center mb-4">
+            How it works
+          </h2>
+          <p className="text-center text-slate-500 mb-14">
+            Three steps. Five minutes to start.
+          </p>
+          <div className="grid md:grid-cols-3 gap-8">
+            {[
+              {
+                num: "1",
+                icon: "🗺️",
+                title: "Pick a World",
+                desc: "Choose from 12 AI-themed adventures — from robots to ethics to creativity.",
+              },
+              {
+                num: "2",
+                icon: "🎮",
+                title: "Play & Learn",
+                desc: "Interactive lessons teach real AI concepts through stories, challenges, and hands-on activities.",
+              },
+              {
+                num: "3",
+                icon: "🏆",
+                title: "Earn & Track",
+                desc: "Kids earn badges for each world. Parents see exactly what they learned.",
+              },
+            ].map((s) => (
+              <div key={s.num} className="text-center">
+                <div className="text-5xl mb-4">{s.icon}</div>
+                <div className="inline-block bg-sky-100 text-sky-600 text-xs font-black px-3 py-1 rounded-full mb-3">
+                  STEP {s.num}
+                </div>
+                <h3 className="text-xl font-black text-slate-900 mb-2">{s.title}</h3>
+                <p className="text-slate-500 text-sm leading-relaxed">{s.desc}</p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ========== 3. PRODUCT DEMO ========== */}
+      <section className="bg-white relative z-10 py-28 px-6">
+        <div className="max-w-5xl mx-auto">
+          <h2 className="text-3xl font-black text-slate-900 text-center mb-4">
+            See what kids actually do
+          </h2>
+          <p className="text-center text-slate-500 mb-14 max-w-2xl mx-auto">
+            Not worksheets. Not videos. Real interactive lessons that teach AI
+            concepts through hands-on challenges.
+          </p>
+          <div className="grid md:grid-cols-3 gap-6">
+            {[
+              {
+                src: "/screenshot-1.png",
+                alt: "Train Your Own Classifier — interactive AI lesson",
+                caption: "Train an AI classifier by picking categories and testing it",
+              },
+              {
+                src: "/screenshot-2.png",
+                alt: "Your Journey — world progress dashboard",
+                caption: "Track progress across worlds with badges and milestones",
+              },
+              {
+                src: "/screenshot-3.png",
+                alt: "Explorer profile setup screen",
+                caption: "Kids pick an avatar and jump straight into learning",
+              },
+            ].map((shot) => (
+              <div key={shot.src} className="group">
+                <div className="bg-slate-50 rounded-2xl border border-slate-200 overflow-hidden shadow-lg">
+                  <img
+                    src={shot.src}
+                    alt={shot.alt}
+                    className="w-full"
+                    loading="lazy"
+                  />
+                </div>
+                <p className="text-slate-500 text-xs text-center mt-3 font-bold">
+                  {shot.caption}
+                </p>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* ========== 4. WORLDS SHOWCASE ========== */}
+      <section className="bg-[#F7F8FA] relative z-10 py-28 px-6">
+        <div className="max-w-5xl mx-auto">
+          <h2 className="text-3xl font-black text-slate-900 text-center mb-4">
+            12 Worlds to Explore
+          </h2>
+          <p className="text-center text-slate-500 mb-14 max-w-2xl mx-auto">
+            Each world is a self-contained adventure with a written course,
+            interactive lessons, and a badge to earn.
+          </p>
+          <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
+            {(showAllWorlds ? WORLDS : WORLDS.slice(0, 6)).map((world) => (
+              <div
+                key={world.id}
+                onClick={() => {
+                  setIsSignIn(false);
+                  setStep("setup");
+                }}
+                className="relative bg-white rounded-2xl p-5 border border-slate-200 card-hover cursor-pointer group text-center shadow-sm"
+              >
+                <div
+                  className="w-14 h-14 rounded-2xl flex items-center justify-center text-3xl mx-auto mb-3"
+                  style={{
+                    background: world.hex + "20",
+                    border: `2px solid ${world.hex}40`,
+                  }}
+                >
+                  {world.emoji}
+                </div>
+                <div className="text-sm font-black text-slate-900 mb-1 leading-tight">
+                  {world.title}
+                </div>
+                <div className="text-xs text-slate-400 mb-3 leading-snug">
+                  {world.lessons.length} lessons
+                </div>
+                {world.tier === "free" ? (
+                  <span className="bg-mint-50 text-mint-500 text-xs font-black px-2.5 py-0.5 rounded-full border border-mint-200">
+                    FREE
+                  </span>
+                ) : (
+                  <span className="bg-slate-100 text-slate-400 text-xs font-black px-2.5 py-0.5 rounded-full">
+                    PRO
+                  </span>
+                )}
+                {world.id === 1 && (
+                  <div className="absolute -top-2 -right-2 bg-mint-400 text-white text-[10px] font-black px-2 py-0.5 rounded-full shadow-lg">
+                    START HERE
+                  </div>
+                )}
+                <div
+                  className="absolute bottom-0 left-0 h-1 w-full opacity-50 rounded-b-2xl"
+                  style={{ background: world.hex }}
                 />
               </div>
-              <p className="text-slate-400 text-xs text-center mt-3 font-bold">
-                {shot.caption}
-              </p>
-            </div>
-          ))}
-        </div>
-      </section>
-
-      {/* ========== 4. WORLDS SHOWCASE — Visual Cards ========== */}
-      <section className="relative z-10 max-w-5xl mx-auto px-6 pb-24">
-        <h2 className="text-3xl font-black text-slate-900 text-center mb-4">
-          12 Worlds to Explore
-        </h2>
-        <p className="text-center text-slate-400 mb-12 max-w-2xl mx-auto">
-          Each world is a self-contained adventure with a written course,
-          interactive lessons, and a badge to earn.
-        </p>
-        <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
-          {(showAllWorlds ? WORLDS : WORLDS.slice(0, 6)).map((world) => (
-            <div
-              key={world.id}
-              onClick={() => {
-                setIsSignIn(false);
-                setStep("setup");
-              }}
-              className="relative bg-space-800 rounded-2xl p-5 border border-slate-200 card-hover cursor-pointer group text-center"
-            >
-              <div
-                className="w-14 h-14 rounded-2xl flex items-center justify-center text-3xl mx-auto mb-3"
-                style={{
-                  background: world.hex + "20",
-                  border: `2px solid ${world.hex}40`,
-                }}
+            ))}
+          </div>
+          {!showAllWorlds && (
+            <div className="text-center mt-8">
+              <button
+                onClick={() => setShowAllWorlds(true)}
+                className="text-sky-500 hover:text-sky-400 font-bold text-sm transition-colors"
               >
-                {world.emoji}
-              </div>
-              <div className="text-sm font-black text-slate-900 mb-1 leading-tight">
-                {world.title}
-              </div>
-              <div className="text-xs text-slate-400 mb-3 leading-snug">
-                {world.lessons.length} lessons
-              </div>
-              {world.tier === "free" ? (
-                <span className="bg-mint-400/20 text-sky-400 text-xs font-black px-2.5 py-0.5 rounded-full border border-sky-200">
-                  FREE
-                </span>
-              ) : (
-                <span className="bg-slate-100 text-slate-400 text-xs font-black px-2.5 py-0.5 rounded-full">
-                  PRO
-                </span>
-              )}
-              {world.id === 1 && (
-                <div
-                  className="absolute -top-2 -right-2 bg-mint-400 text-white text-[10px] font-black px-2 py-0.5 rounded-full shadow-lg"
-                >
-                  START HERE
-                </div>
-              )}
+                See all 12 worlds &rarr;
+              </button>
+            </div>
+          )}
+        </div>
+      </section>
+
+      {/* ========== 5. PARENT VALUE ========== */}
+      <section className="bg-[#F3F8FC] relative z-10 py-28 px-6">
+        <div className="max-w-3xl mx-auto text-center">
+          <h2 className="text-3xl font-black text-slate-900 mb-6">
+            Why AI literacy, why now?
+          </h2>
+          <p className="text-lg text-slate-600 leading-relaxed mb-8">
+            AI is already part of your child&apos;s world — in the apps they use,
+            the content they see, the future they&apos;ll inherit. The question
+            isn&apos;t whether they&apos;ll use AI. It&apos;s whether
+            they&apos;ll understand it.
+          </p>
+          <div className="flex flex-wrap justify-center gap-6 text-sm text-slate-500">
+            <div className="bg-white rounded-xl px-5 py-4 border border-slate-200 shadow-sm">
+              <span className="text-2xl font-black text-sky-500 block">OECD</span>
+              AI Literacy Framework aligned
+            </div>
+            <div className="bg-white rounded-xl px-5 py-4 border border-slate-200 shadow-sm">
+              <span className="text-2xl font-black text-sky-500 block">12</span>
+              worlds covering ethics, creativity &amp; more
+            </div>
+            <div className="bg-white rounded-xl px-5 py-4 border border-slate-200 shadow-sm">
+              <span className="text-2xl font-black text-sky-500 block">0</span>
+              videos — 100% reading + doing
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ========== 6. FEATURES ========== */}
+      <section className="bg-white relative z-10 py-28 px-6">
+        <div className="max-w-5xl mx-auto">
+          <h2 className="text-3xl font-black text-slate-900 text-center mb-14">
+            Why parents love it
+          </h2>
+          <div className="grid md:grid-cols-3 gap-6">
+            {[
+              {
+                icon: "🍽️",
+                title: "Dinner table moments",
+                desc: "Every lesson ends with a takeaway that sparks real conversations at home.",
+              },
+              {
+                icon: "🔒",
+                title: "Safe & private",
+                desc: "COPPA compliant. No ads. No loot boxes. No data sold. Ever.",
+              },
+              {
+                icon: "📊",
+                title: "Parent dashboard",
+                desc: "See what your child learned, time spent, and conversation starters.",
+              },
+            ].map((f) => (
               <div
-                className="absolute bottom-0 left-0 h-1 w-full opacity-50 rounded-b-2xl"
-                style={{ background: world.hex }}
-              />
-            </div>
-          ))}
-        </div>
-        {!showAllWorlds && (
-          <div className="text-center mt-8">
-            <button
-              onClick={() => setShowAllWorlds(true)}
-              className="text-sky-500 hover:text-sky-400 font-bold text-sm transition-colors"
-            >
-              See all 12 worlds &rarr;
-            </button>
-          </div>
-        )}
-      </section>
-
-      {/* ========== 5. PARENT VALUE — Why AI Literacy Now ========== */}
-      <section className="relative z-10 max-w-3xl mx-auto px-6 pb-24 text-center">
-        <h2 className="text-3xl font-black text-slate-900 mb-6">
-          Why AI literacy, why now?
-        </h2>
-        <p className="text-lg text-slate-600 leading-relaxed mb-6">
-          AI is already part of your child&apos;s world — in the apps they use,
-          the content they see, the future they&apos;ll inherit. The question
-          isn&apos;t whether they&apos;ll use AI. It&apos;s whether
-          they&apos;ll understand it.
-        </p>
-        <div className="flex flex-wrap justify-center gap-6 text-sm text-slate-400">
-          <div className="bg-space-800 rounded-xl px-5 py-3 border border-slate-200">
-            <span className="text-2xl font-black text-sky-500 block">OECD</span>
-            AI Literacy Framework aligned
-          </div>
-          <div className="bg-space-800 rounded-xl px-5 py-3 border border-slate-200">
-            <span className="text-2xl font-black text-sky-500 block">12</span>
-            worlds covering ethics, creativity, robotics &amp; more
-          </div>
-          <div className="bg-space-800 rounded-xl px-5 py-3 border border-slate-200">
-            <span className="text-2xl font-black text-sky-500 block">0</span>
-            videos — 100% reading + doing
+                key={f.title}
+                className="bg-slate-50 rounded-2xl p-6 border border-slate-200"
+              >
+                <div className="text-4xl mb-4">{f.icon}</div>
+                <h3 className="text-lg font-black text-slate-900 mb-2">{f.title}</h3>
+                <p className="text-slate-500 text-sm leading-relaxed">
+                  {f.desc}
+                </p>
+              </div>
+            ))}
           </div>
         </div>
       </section>
 
-      {/* ========== 6. FEATURES — Why Parents Love It ========== */}
-      <section className="relative z-10 max-w-5xl mx-auto px-6 pb-24">
-        <h2 className="text-3xl font-black text-slate-900 text-center mb-12">
-          Why parents love it
-        </h2>
-        <div className="grid md:grid-cols-3 gap-6">
-          {[
-            {
-              icon: "🍽️",
-              title: "Dinner table moments",
-              desc: "Every lesson ends with a takeaway that sparks real conversations at home.",
-            },
-            {
-              icon: "🔒",
-              title: "Safe & private",
-              desc: "COPPA compliant. No ads. No loot boxes. No data sold. Ever.",
-            },
-            {
-              icon: "📊",
-              title: "Parent dashboard",
-              desc: "See what your child learned, time spent, and conversation starters.",
-            },
-          ].map((f) => (
-            <div
-              key={f.title}
-              className="bg-space-800 rounded-2xl p-6 border border-slate-200"
-            >
-              <div className="text-4xl mb-4">{f.icon}</div>
-              <h3 className="text-lg font-black text-slate-900 mb-2">{f.title}</h3>
-              <p className="text-slate-400 text-sm leading-relaxed">
-                {f.desc}
-              </p>
-            </div>
-          ))}
-        </div>
-      </section>
-
-      {/* ========== 7. PRICING — Free vs Pro ========== */}
+      {/* ========== 7. PRICING ========== */}
       <section
         id="pricing"
-        className="relative z-10 max-w-4xl mx-auto px-6 pb-24"
+        className="bg-[#F7F8FA] relative z-10 py-28 px-6"
       >
-        <h2 className="text-3xl font-black text-slate-900 text-center mb-4">
-          Simple pricing
-        </h2>
-        <p className="text-center text-slate-400 mb-12">
-          Start free. Upgrade when they&apos;re hooked.
-        </p>
-        <div className="grid md:grid-cols-2 gap-6">
-          {/* Free */}
-          <div className="bg-space-800 rounded-3xl p-8 border border-slate-200">
-            <div className="text-2xl font-black text-slate-900 mb-1">Free</div>
-            <div className="text-4xl font-black text-sky-500 mb-2">$0</div>
-            <div className="text-sm text-slate-400 mb-6">Forever</div>
-            <ul className="space-y-3 mb-8">
-              {[
-                "World 1: What is AI? (course + 4 lessons)",
-                "World 2: How Machines Learn (course + 5 lessons)",
-                "2 challenge badges",
-                "Basic progress tracking",
-              ].map((item) => (
-                <li key={item} className="text-slate-600 text-sm flex items-start gap-2">
-                  <span className="text-sky-500 mt-0.5">&#10003;</span> {item}
-                </li>
-              ))}
-            </ul>
-            <button
-              onClick={() => setStep("setup")}
-              className="w-full bg-slate-100 hover:bg-slate-200 text-slate-900 font-bold py-4 rounded-2xl btn-press transition-colors"
-            >
-              Get Started Free
-            </button>
-          </div>
-          {/* Paid */}
-          <div className="bg-gradient-to-br from-sky-400/20 to-mint-50 rounded-3xl p-8 border-2 border-sky-300 relative">
-            <div className="absolute -top-3 left-1/2 -translate-x-1/2 bg-mint-400 text-white text-xs font-black px-4 py-1 rounded-full">
-              BEST VALUE
+        <div className="max-w-4xl mx-auto">
+          <h2 className="text-3xl font-black text-slate-900 text-center mb-4">
+            Simple pricing
+          </h2>
+          <p className="text-center text-slate-500 mb-14">
+            Start free. Upgrade when they&apos;re hooked.
+          </p>
+          <div className="grid md:grid-cols-2 gap-6">
+            {/* Free */}
+            <div className="bg-white rounded-3xl p-8 border border-slate-200 shadow-sm">
+              <div className="text-2xl font-black text-slate-900 mb-1">Free</div>
+              <div className="text-4xl font-black text-sky-500 mb-2">$0</div>
+              <div className="text-sm text-slate-400 mb-6">Forever</div>
+              <ul className="space-y-3 mb-8">
+                {[
+                  "World 1: What is AI? (course + 4 lessons)",
+                  "World 2: How Machines Learn (course + 5 lessons)",
+                  "2 challenge badges",
+                  "Basic progress tracking",
+                ].map((item) => (
+                  <li key={item} className="text-slate-600 text-sm flex items-start gap-2">
+                    <span className="text-mint-400 mt-0.5">&#10003;</span> {item}
+                  </li>
+                ))}
+              </ul>
+              <button
+                onClick={() => setStep("setup")}
+                className="w-full bg-slate-100 hover:bg-slate-200 text-slate-700 font-bold py-4 rounded-2xl btn-press transition-colors"
+              >
+                Get Started Free
+              </button>
             </div>
-            <div className="text-2xl font-black text-slate-900 mb-1">
-              Explorer Pro
+            {/* Paid */}
+            <div className="bg-gradient-to-br from-sky-50 to-mint-50 rounded-3xl p-8 border-2 border-sky-300 relative shadow-sm">
+              <div className="absolute -top-3 left-1/2 -translate-x-1/2 bg-mint-400 text-white text-xs font-black px-4 py-1 rounded-full">
+                BEST VALUE
+              </div>
+              <div className="text-2xl font-black text-slate-900 mb-1">
+                Explorer Pro
+              </div>
+              <div className="mb-2">
+                <span className="text-4xl font-black text-sky-500">$9.99</span>
+                <span className="text-slate-400 ml-1">/month</span>
+              </div>
+              <div className="text-sm text-slate-400 mb-6">
+                or $79.99/year (save 33%)
+              </div>
+              <ul className="space-y-3 mb-8">
+                {[
+                  "Everything in Free",
+                  "All 12 worlds — courses + 55+ lessons",
+                  "All 12 challenge badges",
+                  "Full AI Playground",
+                  "Parent dashboard + reports",
+                  "Monthly new content drops",
+                ].map((item) => (
+                  <li key={item} className="text-slate-600 text-sm flex items-start gap-2">
+                    <span className="text-mint-400 mt-0.5">&#10003;</span> {item}
+                  </li>
+                ))}
+              </ul>
+              <button
+                onClick={() => setStep("setup")}
+                className="w-full bg-gradient-to-r from-sky-400 to-mint-300 hover:from-sky-300 hover:to-mint-200 text-white font-black py-4 rounded-2xl btn-press transition-all shadow-lg"
+              >
+                Start 7-Day Free Trial
+              </button>
+              <p className="text-center text-xs text-slate-400 mt-3">
+                Cancel anytime. No questions asked.
+              </p>
             </div>
-            <div className="mb-2">
-              <span className="text-4xl font-black text-sky-500">$9.99</span>
-              <span className="text-slate-400 ml-1">/month</span>
-            </div>
-            <div className="text-sm text-slate-400 mb-6">
-              or $79.99/year (save 33%)
-            </div>
-            <ul className="space-y-3 mb-8">
-              {[
-                "Everything in Free",
-                "All 12 worlds — courses + 55+ lessons",
-                "All 12 challenge badges",
-                "Full AI Playground",
-                "Parent dashboard + reports",
-                "Monthly new content drops",
-              ].map((item) => (
-                <li key={item} className="text-slate-600 text-sm flex items-start gap-2">
-                  <span className="text-sky-500 mt-0.5">&#10003;</span> {item}
-                </li>
-              ))}
-            </ul>
-            <button
-              onClick={() => setStep("setup")}
-              className="w-full bg-gradient-to-r from-sky-400 to-mint-300 hover:from-sky-300 hover:to-mint-200 text-slate-900 font-black py-4 rounded-2xl btn-press transition-all shadow-lg"
-            >
-              Start 7-Day Free Trial
-            </button>
-            <p className="text-center text-xs text-slate-400 mt-3">
-              Cancel anytime. No questions asked.
-            </p>
           </div>
         </div>
       </section>
 
-      {/* ========== 8. FINAL CTA — Repeat the Action ========== */}
-      <section className="relative z-10 text-center py-20 px-6">
+      {/* ========== 8. FINAL CTA ========== */}
+      <section className="bg-[#F7F5EF] relative z-10 text-center py-28 px-6">
         <h2 className="text-3xl md:text-4xl font-black text-slate-900 mb-4">
           Ready to start your child&apos;s{" "}
-          <span className="bg-gradient-to-r from-sky-300 to-mint-200 text-transparent bg-clip-text">
+          <span className="bg-gradient-to-r from-sky-400 to-mint-300 text-transparent bg-clip-text">
             AI adventure
           </span>
           ?
         </h2>
-        <p className="text-slate-400 mb-8 max-w-lg mx-auto">
+        <p className="text-slate-500 mb-8 max-w-lg mx-auto">
           Two full worlds free. No credit card. No commitment. Just real
           learning, disguised as fun.
         </p>
@@ -710,50 +721,20 @@ function LandingContent() {
       </section>
 
       {/* Footer */}
-      <footer className="relative z-10 border-t border-slate-200 py-10 px-6">
+      <footer className="bg-white relative z-10 border-t border-slate-200 py-10 px-6">
         <div className="max-w-4xl mx-auto">
           <div className="flex flex-wrap items-center justify-center gap-x-6 gap-y-2 mb-6 text-sm text-slate-400">
-            <a
-              href="/blog"
-              className="hover:text-slate-600 transition-colors font-bold"
-            >
-              Blog
-            </a>
+            <a href="/blog" className="hover:text-slate-600 transition-colors font-bold">Blog</a>
             <span>·</span>
-            <a
-              href="/glossary"
-              className="hover:text-slate-600 transition-colors font-bold"
-            >
-              Glossary
-            </a>
+            <a href="/glossary" className="hover:text-slate-600 transition-colors font-bold">Glossary</a>
             <span>·</span>
-            <a
-              href="#pricing"
-              className="hover:text-slate-600 transition-colors font-bold"
-            >
-              Pricing
-            </a>
+            <a href="#pricing" className="hover:text-slate-600 transition-colors font-bold">Pricing</a>
             <span>·</span>
-            <a
-              href="mailto:hello@teachaiearly.com"
-              className="hover:text-slate-600 transition-colors font-bold"
-            >
-              Contact
-            </a>
+            <a href="mailto:hello@teachaiearly.com" className="hover:text-slate-600 transition-colors font-bold">Contact</a>
             <span>·</span>
-            <a
-              href="/terms"
-              className="hover:text-slate-600 transition-colors font-bold"
-            >
-              Terms
-            </a>
+            <a href="/terms" className="hover:text-slate-600 transition-colors font-bold">Terms</a>
             <span>·</span>
-            <a
-              href="/privacy"
-              className="hover:text-slate-600 transition-colors font-bold"
-            >
-              Privacy
-            </a>
+            <a href="/privacy" className="hover:text-slate-600 transition-colors font-bold">Privacy</a>
           </div>
           <div className="text-slate-400 text-sm flex items-center justify-center gap-2">
             <img src="/logo.png" alt="Teach AI Early" className="h-10 inline-block rounded" />
