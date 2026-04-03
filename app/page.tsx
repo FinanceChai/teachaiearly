@@ -440,7 +440,7 @@ function LandingContent() {
 
       {/* ========== 3. PRODUCT DEMO ========== */}
       <section className="bg-white relative z-10 py-28 px-6">
-        <div className="max-w-5xl mx-auto">
+        <div className="max-w-6xl mx-auto">
           <h2 className="text-[40px] md:text-[44px] font-extrabold text-slate-900 text-center mb-4">
             See what kids actually do
           </h2>
@@ -448,57 +448,72 @@ function LandingContent() {
             Not worksheets. Not videos. Real interactive lessons that teach AI
             concepts through hands-on challenges.
           </p>
-          <div className="grid md:grid-cols-3 gap-8">
-            {[
-              {
-                src: "/screenshot-1.png",
-                alt: "Train Your Own Classifier — interactive AI lesson",
-                caption: "Interactive Lessons",
-                accent: "#22c55e",
-              },
-              {
-                src: "/screenshot-2.png",
-                alt: "Your Journey — world progress dashboard",
-                caption: "Progress Tracking",
-                accent: "#a855f7",
-              },
-              {
-                src: "/screenshot-3.png",
-                alt: "Explorer profile setup screen",
-                caption: "Easy Onboarding",
-                accent: "#f59e0b",
-              },
-            ].map((shot) => (
-              <div key={shot.src} className="group">
-                <div
-                  className="rounded-2xl overflow-hidden shadow-lg border-2 brightness-110 contrast-105"
-                  style={{ borderColor: shot.accent + "40" }}
-                >
-                  <img
-                    src={shot.src}
-                    alt={shot.alt}
-                    className="w-full"
-                    loading="lazy"
-                  />
-                </div>
-                <div className="flex items-center justify-center gap-2 mt-4">
-                  <div
-                    className="w-2.5 h-2.5 rounded-full"
-                    style={{ background: shot.accent }}
-                  />
-                  <p className="text-slate-700 text-sm font-semibold">
-                    {shot.caption}
-                  </p>
-                </div>
+
+          {/* Side-by-side feature highlight */}
+          <div className="grid md:grid-cols-2 gap-12 items-center mb-20">
+            <div className="relative">
+              <div className="absolute -top-3 left-4 z-10 bg-emerald-500 text-white text-xs font-bold px-3 py-1.5 rounded-full shadow-md">
+                Hands-on classifier game
               </div>
-            ))}
+              <div className="rounded-2xl overflow-hidden shadow-lg border-2 border-emerald-200 brightness-110 contrast-105">
+                <img src="/screenshot-1.png" alt="Train Your Own Classifier" className="w-full" loading="lazy" />
+              </div>
+              <p className="text-slate-500 text-sm mt-3 text-center">
+                Your child learns by building and testing an AI classifier.
+              </p>
+            </div>
+            <div className="space-y-5">
+              <h3 className="text-2xl font-bold text-slate-900">Learn by doing, not watching</h3>
+              <ul className="space-y-4">
+                {[
+                  { title: "Real AI concepts", desc: "Kids train a classifier with real categories — animals vs. objects, weather, food." },
+                  { title: "Instant feedback", desc: "They see how their training data affects the AI\u2019s accuracy in real time." },
+                  { title: "Critical thinking", desc: "They learn why AI gets things wrong and how to improve it." },
+                  { title: "No passive content", desc: "Every lesson starts with interaction within 60 seconds." },
+                ].map((point) => (
+                  <li key={point.title} className="flex items-start gap-3">
+                    <span className="text-mint-400 text-lg mt-0.5">&#10003;</span>
+                    <div>
+                      <span className="font-semibold text-slate-900">{point.title}:</span>{" "}
+                      <span className="text-slate-500">{point.desc}</span>
+                    </div>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          </div>
+
+          {/* Two screenshots with chips and captions */}
+          <div className="grid md:grid-cols-2 gap-10">
+            <div className="relative">
+              <div className="absolute -top-3 left-4 z-10 bg-violet-500 text-white text-xs font-bold px-3 py-1.5 rounded-full shadow-md">
+                Kids earn badges
+              </div>
+              <div className="rounded-2xl overflow-hidden shadow-lg border-2 border-violet-200 brightness-110 contrast-105">
+                <img src="/screenshot-2.png" alt="Progress dashboard" className="w-full" loading="lazy" />
+              </div>
+              <p className="text-slate-500 text-sm mt-3 text-center">
+                Badges and milestones keep children motivated.
+              </p>
+            </div>
+            <div className="relative">
+              <div className="absolute -top-3 left-4 z-10 bg-amber-500 text-white text-xs font-bold px-3 py-1.5 rounded-full shadow-md">
+                Parent dashboard
+              </div>
+              <div className="rounded-2xl overflow-hidden shadow-lg border-2 border-amber-200 brightness-110 contrast-105">
+                <img src="/screenshot-3.png" alt="Explorer profile" className="w-full" loading="lazy" />
+              </div>
+              <p className="text-slate-500 text-sm mt-3 text-center">
+                Parents can track exactly what concepts were learned.
+              </p>
+            </div>
           </div>
         </div>
       </section>
 
       {/* ========== 4. WORLDS SHOWCASE ========== */}
       <section className="bg-[#F7F8FA] relative z-10 py-28 px-6">
-        <div className="max-w-5xl mx-auto">
+        <div className="max-w-6xl mx-auto">
           <h2 className="text-[40px] md:text-[44px] font-extrabold text-slate-900 text-center mb-4">
             12 Worlds to Explore
           </h2>
@@ -506,7 +521,7 @@ function LandingContent() {
             Each world is a self-contained adventure with a written course,
             interactive lessons, and a badge to earn.
           </p>
-          <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
             {(showAllWorlds ? WORLDS : WORLDS.slice(0, 6)).map((world) => (
               <div
                 key={world.id}
@@ -514,49 +529,78 @@ function LandingContent() {
                   setIsSignIn(false);
                   setStep("setup");
                 }}
-                className="relative bg-white rounded-2xl p-5 border border-slate-200 card-hover cursor-pointer group text-center shadow-sm"
+                className="relative bg-white rounded-2xl p-6 border-2 border-transparent cursor-pointer group text-left shadow-sm transition-all duration-200 hover:-translate-y-1 hover:shadow-lg"
+                style={{
+                  // @ts-expect-error custom hover border
+                  "--hover-glow": world.hex + "50",
+                }}
+                onMouseEnter={(e) => {
+                  (e.currentTarget as HTMLElement).style.borderColor = world.hex + "60";
+                  (e.currentTarget as HTMLElement).style.boxShadow = `0 8px 30px ${world.hex}20`;
+                }}
+                onMouseLeave={(e) => {
+                  (e.currentTarget as HTMLElement).style.borderColor = "transparent";
+                  (e.currentTarget as HTMLElement).style.boxShadow = "";
+                }}
               >
-                <div
-                  className="w-14 h-14 rounded-2xl flex items-center justify-center text-3xl mx-auto mb-3"
-                  style={{
-                    background: world.hex + "20",
-                    border: `2px solid ${world.hex}40`,
-                  }}
-                >
-                  {world.emoji}
-                </div>
-                <div className="text-sm font-black text-slate-900 mb-1 leading-tight">
-                  {world.title}
-                </div>
-                <div className="text-xs text-slate-400 mb-3 leading-snug">
-                  {world.lessons.length} lessons
-                </div>
-                {world.tier === "free" ? (
-                  <span className="bg-mint-50 text-mint-500 text-xs font-black px-2.5 py-0.5 rounded-full border border-mint-200">
-                    FREE
-                  </span>
-                ) : (
-                  <span className="bg-slate-100 text-slate-400 text-xs font-black px-2.5 py-0.5 rounded-full">
-                    PRO
-                  </span>
-                )}
                 {world.id === 1 && (
-                  <div className="absolute -top-2 -right-2 bg-mint-400 text-white text-[10px] font-black px-2 py-0.5 rounded-full shadow-lg">
+                  <div className="absolute -top-2.5 right-4 bg-mint-400 text-white text-[11px] font-bold px-3 py-0.5 rounded-full shadow-md">
                     START HERE
                   </div>
                 )}
+                <div className="flex items-start gap-4 mb-4">
+                  <div
+                    className="w-14 h-14 rounded-2xl flex items-center justify-center text-3xl shrink-0"
+                    style={{
+                      background: world.hex + "15",
+                      border: `2px solid ${world.hex}30`,
+                    }}
+                  >
+                    {world.emoji}
+                  </div>
+                  <div className="min-w-0">
+                    <div className="flex items-center gap-2 mb-0.5">
+                      <span className="text-[11px] font-bold text-slate-400">WORLD {world.id}</span>
+                      {world.tier === "free" ? (
+                        <span className="bg-emerald-50 text-emerald-600 text-[10px] font-bold px-2 py-0.5 rounded-full border border-emerald-200">
+                          FREE
+                        </span>
+                      ) : (
+                        <span className="bg-slate-100 text-slate-400 text-[10px] font-bold px-2 py-0.5 rounded-full">
+                          PRO
+                        </span>
+                      )}
+                    </div>
+                    <h3 className="text-lg font-bold text-slate-900 leading-tight">{world.title}</h3>
+                  </div>
+                </div>
+                <p className="text-slate-500 text-sm leading-relaxed mb-4">
+                  {world.theme}
+                </p>
+                <div className="flex items-center justify-between">
+                  <div className="text-xs text-slate-400 font-medium">
+                    {world.lessons.length} lessons &middot; ~{world.lessons.length * 5} min
+                  </div>
+                  <span
+                    className="text-xs font-bold transition-colors"
+                    style={{ color: world.hex }}
+                  >
+                    <span className="group-hover:hidden">Learn More &rarr;</span>
+                    <span className="hidden group-hover:inline">Start World &rarr;</span>
+                  </span>
+                </div>
                 <div
-                  className="absolute bottom-0 left-0 h-1 w-full opacity-50 rounded-b-2xl"
+                  className="absolute bottom-0 left-0 h-1 w-full rounded-b-2xl opacity-0 group-hover:opacity-100 transition-opacity"
                   style={{ background: world.hex }}
                 />
               </div>
             ))}
           </div>
           {!showAllWorlds && (
-            <div className="text-center mt-8">
+            <div className="text-center mt-10">
               <button
                 onClick={() => setShowAllWorlds(true)}
-                className="text-sky-500 hover:text-sky-400 font-bold text-sm transition-colors"
+                className="bg-white border border-slate-200 hover:border-sky-300 text-sky-500 hover:text-sky-600 font-semibold text-sm px-6 py-3 rounded-xl transition-all shadow-sm hover:shadow"
               >
                 See all 12 worlds &rarr;
               </button>
