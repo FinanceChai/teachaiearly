@@ -81,7 +81,7 @@ export async function fetchSubscriptionStatus(
   const supabase = createClient();
   const { data, error } = await supabase
     .from("subscriptions")
-    .select("status, plan_type, current_period_end")
+    .select("status, plan_type, current_period_end, ls_subscription_id")
     .eq("id", userId)
     .single();
 

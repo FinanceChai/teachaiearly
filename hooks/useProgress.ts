@@ -122,17 +122,17 @@ export function useProgress() {
     [user]
   );
 
-  // Initiate Stripe Checkout
+  // Initiate Lemon Squeezy Checkout
   const startCheckout = useCallback(
-    async (priceId: string) => {
+    async (variantId: string) => {
       if (!user) {
         throw new Error("Must be logged in to subscribe");
       }
 
-      const res = await fetch("/api/stripe/checkout", {
+      const res = await fetch("/api/lemonsqueezy/checkout", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({ priceId }),
+        body: JSON.stringify({ variantId }),
       });
 
       const data = await res.json();

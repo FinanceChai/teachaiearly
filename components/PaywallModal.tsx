@@ -27,11 +27,11 @@ export default function PaywallModal({ onClose }: { onClose: () => void }) {
     setLoading(true);
     setError("");
     try {
-      const priceId =
+      const variantId =
         plan === "monthly"
-          ? process.env.NEXT_PUBLIC_STRIPE_MONTHLY_PRICE_ID!
-          : process.env.NEXT_PUBLIC_STRIPE_YEARLY_PRICE_ID!;
-      await startCheckout(priceId);
+          ? process.env.NEXT_PUBLIC_LEMONSQUEEZY_MONTHLY_VARIANT_ID!
+          : process.env.NEXT_PUBLIC_LEMONSQUEEZY_YEARLY_VARIANT_ID!;
+      await startCheckout(variantId);
     } catch (err) {
       console.error("Checkout error:", err);
       setError("Something went wrong. Please try again.");
@@ -59,14 +59,14 @@ export default function PaywallModal({ onClose }: { onClose: () => void }) {
         {/* Features */}
         <ul className="space-y-2 mb-6">
           {[
-            "✅ All 12 Worlds (55+ lessons)",
-            "✅ All 12 challenge badges",
-            "✅ Full AI Playground",
-            "✅ Parent dashboard + reports",
-            "✅ Monthly new content",
+            "All 12 Worlds (55+ lessons)",
+            "All 12 challenge badges",
+            "Full AI Playground",
+            "Parent dashboard + reports",
+            "Monthly new content",
           ].map((item) => (
-            <li key={item} className="text-slate-600 text-sm font-bold">
-              {item}
+            <li key={item} className="text-slate-600 text-sm font-bold flex items-center gap-2">
+              <span className="text-mint-400">&#10003;</span> {item}
             </li>
           ))}
         </ul>
@@ -76,14 +76,14 @@ export default function PaywallModal({ onClose }: { onClose: () => void }) {
           <button
             onClick={() => handleCheckout("monthly")}
             disabled={loading}
-            className="w-full bg-gradient-to-r from-sky-400 to-mint-300 hover:from-sky-300 hover:to-mint-200 text-slate-900 font-black text-lg py-4 rounded-2xl btn-press transition-all shadow-lg disabled:opacity-60"
+            className="w-full bg-gradient-to-r from-sky-400 to-mint-300 hover:from-sky-300 hover:to-mint-200 text-white font-black text-lg py-4 rounded-2xl btn-press transition-all shadow-lg disabled:opacity-60"
           >
             {loading ? "Loading..." : "Start Free Trial — $9.99/mo"}
           </button>
           <button
             onClick={() => handleCheckout("yearly")}
             disabled={loading}
-            className="w-full bg-mint-400/20 hover:bg-mint-400/30 text-sky-400 font-black text-sm py-3 rounded-2xl btn-press transition-all border border-sky-200 disabled:opacity-60"
+            className="w-full bg-mint-400/20 hover:bg-mint-400/30 text-sky-500 font-black text-sm py-3 rounded-2xl btn-press transition-all border border-sky-200 disabled:opacity-60"
           >
             Save 33% — $79.99/year
           </button>
