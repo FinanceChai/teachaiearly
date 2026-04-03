@@ -9,8 +9,8 @@ const config: Config = {
   theme: {
     extend: {
       fontFamily: {
-        sans: ["var(--font-body)", "Nunito", "system-ui", "sans-serif"],
-        heading: ["var(--font-heading)", "Fredoka", "Baloo 2", "sans-serif"],
+        sans: ["var(--font-body)", "Inter", "system-ui", "sans-serif"],
+        heading: ["var(--font-heading)", "Poppins", "system-ui", "sans-serif"],
       },
       colors: {
         // Legacy space colors mapped to light equivalents
