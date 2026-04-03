@@ -321,7 +321,7 @@ function LandingContent() {
       {/* Nav */}
       <nav className="relative z-10 flex items-center justify-between px-6 py-5 max-w-6xl mx-auto">
         <div className="flex items-center">
-          <img src="/logo.png" alt="Teach AI Early" className="h-14 rounded-lg" />
+          <img src="/logo.png" alt="Teach AI Early" className="h-40 rounded-xl" />
         </div>
         <div className="flex items-center gap-3">
           <a
