@@ -364,22 +364,12 @@ function LandingContent() {
           <p className="text-base text-slate-500 mb-10">
             2 free worlds. No credit card required.
           </p>
-          <div className="flex flex-col items-center gap-4">
-            <button
-              onClick={() => setStep("setup")}
-              className="bg-gradient-to-r from-sky-400 to-mint-300 text-white font-black text-xl px-12 py-5 rounded-2xl btn-press hover:from-sky-300 hover:to-mint-200 shadow-lg shadow-sky-400/30 transition-all"
-            >
-              Start Free
-            </button>
-            <div className="flex items-center gap-3 text-sm text-slate-500">
-              <div className="flex -space-x-1 text-yellow-400 text-base">
-                <span>&#9733;</span><span>&#9733;</span><span>&#9733;</span><span>&#9733;</span><span>&#9733;</span>
-              </div>
-              <span className="font-semibold">4.9/5 from parents</span>
-              <span className="text-slate-300">|</span>
-              <span>Loved by 1,000+ families</span>
-            </div>
-          </div>
+          <button
+            onClick={() => setStep("setup")}
+            className="bg-gradient-to-r from-sky-400 to-mint-300 text-white font-black text-xl px-12 py-5 rounded-2xl btn-press hover:from-sky-300 hover:to-mint-200 shadow-lg shadow-sky-400/30 transition-all"
+          >
+            Start Free
+          </button>
         </div>
       </section>
 
@@ -805,8 +795,11 @@ function LandingContent() {
               <p className="text-xs text-slate-400 italic mb-1">
                 Less than one tutoring session per month
               </p>
-              <div className="text-sm text-slate-400 mb-8">
+              <div className="text-sm text-slate-400 mb-2">
                 or $79.99/year (save 33%)
+              </div>
+              <div className="inline-block bg-amber-50 text-amber-600 text-xs font-semibold px-3 py-1 rounded-full border border-amber-200 mb-8">
+                Most parents choose annual and save 33%
               </div>
               <ul className="space-y-3 mb-8 flex-1">
                 {[
