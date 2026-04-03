@@ -113,8 +113,8 @@ export function DirectorsChair({ onComplete }: { onComplete: () => void }) {
           {sortScore >= SORTING_TASKS.length - 2 ? "🎬" : "🎥"}
         </motion.div>
         <div>
-          <div className="text-4xl font-black text-white">{sortScore}/{SORTING_TASKS.length}</div>
-          <div className="text-slate-300 mt-2">
+          <div className="text-4xl font-black text-slate-900">{sortScore}/{SORTING_TASKS.length}</div>
+          <div className="text-slate-600 mt-2">
             {sortScore >= SORTING_TASKS.length - 1 ? "Perfect! You know exactly how to direct AI." : sortScore >= SORTING_TASKS.length / 2 ? "Great sense of human vs. AI strengths!" : "The line between human and AI roles is becoming clearer!"}
           </div>
         </div>
@@ -139,19 +139,19 @@ export function DirectorsChair({ onComplete }: { onComplete: () => void }) {
           <span className="text-xs font-bold text-yellow-400">Score: {sortScore}</span>
         </div>
 
-        <div className="bg-space-800 rounded-2xl p-5 border border-slate-700">
+        <div className="bg-space-800 rounded-2xl p-5 border border-slate-200">
           <div className="text-xs font-black text-blue-400 mb-3">WHO DOES THIS BEST?</div>
 
-          <motion.div key={sortIdx} initial={{ opacity: 0, x: 20 }} animate={{ opacity: 1, x: 0 }} className="bg-space-900 rounded-xl p-5 border border-slate-600 text-center mb-4">
-            <div className="text-white font-black text-lg">&quot;{task.task}&quot;</div>
+          <motion.div key={sortIdx} initial={{ opacity: 0, x: 20 }} animate={{ opacity: 1, x: 0 }} className="bg-space-900 rounded-xl p-5 border border-slate-300 text-center mb-4">
+            <div className="text-slate-900 font-black text-lg">&quot;{task.task}&quot;</div>
           </motion.div>
 
           {sortPicked === null ? (
             <div className="grid grid-cols-2 gap-3">
-              <motion.button onClick={() => pickSort("human")} whileTap={{ scale: 0.95 }} className="py-5 rounded-xl border border-slate-700 bg-space-900 font-black text-white text-lg hover:border-blue-500/50 transition-colors">
+              <motion.button onClick={() => pickSort("human")} whileTap={{ scale: 0.95 }} className="py-5 rounded-xl border border-slate-200 bg-space-900 font-black text-slate-900 text-lg hover:border-blue-500/50 transition-colors">
                 🧑 Human
               </motion.button>
-              <motion.button onClick={() => pickSort("ai")} whileTap={{ scale: 0.95 }} className="py-5 rounded-xl border border-slate-700 bg-space-900 font-black text-white text-lg hover:border-blue-500/50 transition-colors">
+              <motion.button onClick={() => pickSort("ai")} whileTap={{ scale: 0.95 }} className="py-5 rounded-xl border border-slate-200 bg-space-900 font-black text-slate-900 text-lg hover:border-blue-500/50 transition-colors">
                 🤖 AI
               </motion.button>
             </div>
@@ -159,9 +159,9 @@ export function DirectorsChair({ onComplete }: { onComplete: () => void }) {
             <motion.div initial={{ opacity: 0, y: 8 }} animate={{ opacity: 1, y: 0 }} className="space-y-3">
               <div className={`p-4 rounded-xl text-sm font-bold ${sortPicked === task.answer ? "bg-green-500/20 text-green-300" : "bg-red-500/20 text-red-300"}`}>
                 {sortPicked === task.answer ? "Correct! " : `Best done by ${task.answer === "human" ? "a human" : "AI"}. `}
-                <span className="font-normal text-slate-300">{task.explanation}</span>
+                <span className="font-normal text-slate-600">{task.explanation}</span>
               </div>
-              <button onClick={nextSort} className="w-full py-4 rounded-xl font-black text-white bg-blue-500 hover:bg-blue-400 btn-press transition-colors">
+              <button onClick={nextSort} className="w-full py-4 rounded-xl font-black text-slate-900 bg-blue-500 hover:bg-blue-400 btn-press transition-colors">
                 {sortIdx < SORTING_TASKS.length - 1 ? "Next Task" : "See Results"} &rarr;
               </button>
             </motion.div>
@@ -175,54 +175,54 @@ export function DirectorsChair({ onComplete }: { onComplete: () => void }) {
   const project = PROJECTS[projectIdx];
   return (
     <div className="space-y-5">
-      <div className="bg-space-800 rounded-2xl p-5 border border-slate-700">
+      <div className="bg-space-800 rounded-2xl p-5 border border-slate-200">
         <div className="text-xs font-black text-blue-400 mb-1">DIRECTOR&apos;S CHAIR</div>
         <div className="text-sm text-slate-400 font-bold mb-4">See how humans and AI collaborate on creative projects:</div>
 
         {/* Project selector */}
         <div className="flex gap-2 mb-4">
           {PROJECTS.map((p, i) => (
-            <button key={i} onClick={() => setProjectIdx(i)} className={`px-3 py-2 rounded-xl text-xs font-bold transition-colors ${i === projectIdx ? "bg-blue-500/20 text-blue-300 border border-blue-500/40" : "bg-space-900 text-slate-400 border border-slate-700"}`}>
+            <button key={i} onClick={() => setProjectIdx(i)} className={`px-3 py-2 rounded-xl text-xs font-bold transition-colors ${i === projectIdx ? "bg-blue-500/20 text-blue-300 border border-blue-500/40" : "bg-space-900 text-slate-400 border border-slate-200"}`}>
               {p.title}
             </button>
           ))}
         </div>
 
         <motion.div key={projectIdx} initial={{ opacity: 0 }} animate={{ opacity: 1 }}>
-          <div className="bg-space-900 rounded-xl p-4 border border-slate-600 mb-4">
-            <div className="text-white font-black mb-1">{project.title}</div>
+          <div className="bg-space-900 rounded-xl p-4 border border-slate-300 mb-4">
+            <div className="text-slate-900 font-black mb-1">{project.title}</div>
             <div className="text-sm text-slate-400">{project.description}</div>
           </div>
 
           <div className="grid grid-cols-2 gap-3 mb-4">
-            <div className="bg-space-900 rounded-xl p-4 border border-slate-600">
+            <div className="bg-space-900 rounded-xl p-4 border border-slate-300">
               <div className="text-xs font-black text-blue-400 mb-1">🧑 {project.humanRole}</div>
               <ul className="space-y-1.5">
                 {project.humanContributions.map((c, i) => (
-                  <li key={i} className="text-xs text-slate-300 flex items-start gap-1.5">
+                  <li key={i} className="text-xs text-slate-600 flex items-start gap-1.5">
                     <span className="text-blue-400 mt-0.5">&#x2022;</span> {c}
                   </li>
                 ))}
               </ul>
             </div>
-            <div className="bg-space-900 rounded-xl p-4 border border-slate-600">
+            <div className="bg-space-900 rounded-xl p-4 border border-slate-300">
               <div className="text-xs font-black text-slate-400 mb-1">🤖 {project.aiRole}</div>
               <ul className="space-y-1.5">
                 {project.aiContributions.map((c, i) => (
-                  <li key={i} className="text-xs text-slate-300 flex items-start gap-1.5">
-                    <span className="text-slate-500 mt-0.5">&#x2022;</span> {c}
+                  <li key={i} className="text-xs text-slate-600 flex items-start gap-1.5">
+                    <span className="text-slate-400 mt-0.5">&#x2022;</span> {c}
                   </li>
                 ))}
               </ul>
             </div>
           </div>
 
-          <div className="bg-blue-500/10 border border-blue-500/30 rounded-xl p-3 text-sm text-slate-300 mb-4">
+          <div className="bg-blue-500/10 border border-blue-500/30 rounded-xl p-3 text-sm text-slate-600 mb-4">
             <strong className="text-blue-300">Pattern: </strong>Human = the WHY (vision, meaning, emotion). AI = the HOW (speed, options, execution).
           </div>
         </motion.div>
 
-        <button onClick={() => setPhase("sort")} className="w-full py-4 rounded-xl font-black text-white bg-blue-500 hover:bg-blue-400 btn-press transition-colors">
+        <button onClick={() => setPhase("sort")} className="w-full py-4 rounded-xl font-black text-slate-900 bg-blue-500 hover:bg-blue-400 btn-press transition-colors">
           Test: Who Does It Best? &rarr;
         </button>
       </div>

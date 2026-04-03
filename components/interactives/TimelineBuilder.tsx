@@ -55,7 +55,7 @@ export function TimelineBuilder({ onComplete }: { onComplete: () => void }) {
 
   return (
     <div className="space-y-5">
-      <p className="text-slate-300 text-sm font-semibold">
+      <p className="text-slate-600 text-sm font-semibold">
         Select a card, then tap a year slot to place it. Arrange in order from oldest to newest!
       </p>
 
@@ -69,10 +69,10 @@ export function TimelineBuilder({ onComplete }: { onComplete: () => void }) {
               onClick={() => !isPlaced && selectCard(event.id)}
               className={`flex items-center gap-2 px-3 py-2 rounded-xl border font-bold text-sm transition-all btn-press ${
                 isPlaced
-                  ? "opacity-30 cursor-not-allowed border-slate-700 bg-space-800"
+                  ? "opacity-30 cursor-not-allowed border-slate-200 bg-space-800"
                   : selected === event.id
-                  ? "border-teal-400 bg-teal-500/20 text-teal-200"
-                  : "border-slate-600 bg-space-800 text-white hover:border-slate-400"
+                  ? "border-teal-400 bg-mint-400/20 text-teal-200"
+                  : "border-slate-300 bg-space-800 text-slate-900 hover:border-slate-400"
               }`}
             >
               <span>{event.emoji}</span>
@@ -102,8 +102,8 @@ export function TimelineBuilder({ onComplete }: { onComplete: () => void }) {
                       ? "border-green-500 bg-green-500/10"
                       : "border-red-500/60 bg-red-500/10 cursor-pointer hover:border-red-400"
                     : selected
-                    ? "border-teal-400/60 bg-teal-500/5 cursor-pointer hover:border-teal-400"
-                    : "border-slate-700 bg-space-800 cursor-default"
+                    ? "border-teal-400/60 bg-mint-400/5 cursor-pointer hover:border-teal-400"
+                    : "border-slate-200 bg-space-800 cursor-default"
                 }`}
               >
                 {slotContent ? (
@@ -117,7 +117,7 @@ export function TimelineBuilder({ onComplete }: { onComplete: () => void }) {
                       {!isCorrect && <span className="text-red-400 ml-auto">✗</span>}
                     </div>
                     {isCorrect && revealed[i] && (
-                      <div className="text-xs text-slate-300 mt-1.5 bg-green-500/10 rounded-lg p-2">
+                      <div className="text-xs text-slate-600 mt-1.5 bg-green-500/10 rounded-lg p-2">
                         💡 {event.fact}
                       </div>
                     )}
@@ -140,7 +140,7 @@ export function TimelineBuilder({ onComplete }: { onComplete: () => void }) {
           </div>
           {allCorrect && (
             <button onClick={handleDone}
-              className="bg-green-500 hover:bg-green-400 text-white font-black py-3 px-8 rounded-xl btn-press transition-colors">
+              className="bg-green-500 hover:bg-green-400 text-slate-900 font-black py-3 px-8 rounded-xl btn-press transition-colors">
               Awesome! →
             </button>
           )}

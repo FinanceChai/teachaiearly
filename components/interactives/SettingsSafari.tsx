@@ -133,13 +133,13 @@ export function SettingsSafari({ onComplete }: { onComplete: () => void }) {
     }
 
     return (
-      <div className="p-6 bg-space-900 rounded-xl border border-slate-700 max-w-2xl mx-auto">
+      <div className="p-6 bg-space-900 rounded-xl border border-slate-200 max-w-2xl mx-auto">
         <motion.div
           initial={{ scale: 0.8, opacity: 0 }}
           animate={{ scale: 1, opacity: 1 }}
           className="text-center"
         >
-          <h2 className="text-2xl font-bold text-white mb-2">
+          <h2 className="text-2xl font-bold text-slate-900 mb-2">
             🛡️ Your Privacy Score
           </h2>
           <div className="my-6">
@@ -153,19 +153,19 @@ export function SettingsSafari({ onComplete }: { onComplete: () => void }) {
                 <div className="text-4xl font-bold text-cyan-400">
                   {percentage}%
                 </div>
-                <div className="text-xs text-slate-300">private</div>
+                <div className="text-xs text-slate-600">private</div>
               </div>
             </motion.div>
           </div>
           <p className={`text-xl font-bold ${ratingColor} mb-2`}>{rating}</p>
-          <p className="text-slate-300 mb-4">
+          <p className="text-slate-600 mb-4">
             You turned off {offCount} out of 8 settings.
           </p>
           <div className="bg-space-800 rounded-lg p-4 mb-6 text-left">
             <p className="text-cyan-400 font-semibold mb-2">
               💡 What you learned:
             </p>
-            <ul className="text-slate-300 text-sm space-y-1">
+            <ul className="text-slate-600 text-sm space-y-1">
               <li>
                 • Most apps start with privacy settings turned ON (sharing your
                 data)
@@ -187,7 +187,7 @@ export function SettingsSafari({ onComplete }: { onComplete: () => void }) {
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
               onClick={handleComplete}
-              className="px-6 py-3 bg-cyan-500 text-white rounded-lg font-bold"
+              className="px-6 py-3 bg-cyan-500 text-slate-900 rounded-lg font-bold"
             >
               Complete Activity ✓
             </motion.button>
@@ -203,11 +203,11 @@ export function SettingsSafari({ onComplete }: { onComplete: () => void }) {
   }
 
   return (
-    <div className="p-6 bg-space-900 rounded-xl border border-slate-700 max-w-2xl mx-auto">
-      <h2 className="text-2xl font-bold text-white mb-1">
+    <div className="p-6 bg-space-900 rounded-xl border border-slate-200 max-w-2xl mx-auto">
+      <h2 className="text-2xl font-bold text-slate-900 mb-1">
         ⚙️ Settings Safari
       </h2>
-      <p className="text-slate-300 text-sm mb-4">
+      <p className="text-slate-600 text-sm mb-4">
         This app has 8 privacy settings — all turned ON by default. Review each
         one and decide: keep it on or turn it off? Tap a toggle to switch it and
         learn what it really does.
@@ -221,17 +221,17 @@ export function SettingsSafari({ onComplete }: { onComplete: () => void }) {
             animate={{ opacity: 1, x: 0 }}
             transition={{ delay: i * 0.05 }}
             className={`bg-space-800 rounded-lg p-3 border ${
-              reviewed[i] ? "border-cyan-500/40" : "border-slate-700"
+              reviewed[i] ? "border-cyan-500/40" : "border-slate-200"
             }`}
           >
             <div className="flex items-center justify-between">
               <div className="flex items-center gap-2">
                 <span className="text-xl">{setting.icon}</span>
                 <div>
-                  <p className="text-white font-semibold text-sm">
+                  <p className="text-slate-900 font-semibold text-sm">
                     {setting.name}
                   </p>
-                  <p className="text-slate-300 text-xs">
+                  <p className="text-slate-600 text-xs">
                     {setting.description}
                   </p>
                 </div>
@@ -279,7 +279,7 @@ export function SettingsSafari({ onComplete }: { onComplete: () => void }) {
       </div>
 
       <div className="flex items-center justify-between">
-        <p className="text-slate-300 text-sm">
+        <p className="text-slate-600 text-sm">
           Reviewed: {reviewed.filter(Boolean).length}/8
         </p>
         {allReviewed && (
@@ -289,7 +289,7 @@ export function SettingsSafari({ onComplete }: { onComplete: () => void }) {
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
             onClick={handleFinish}
-            className="px-5 py-2 bg-cyan-500 text-white rounded-lg font-bold"
+            className="px-5 py-2 bg-cyan-500 text-slate-900 rounded-lg font-bold"
           >
             See My Privacy Score →
           </motion.button>

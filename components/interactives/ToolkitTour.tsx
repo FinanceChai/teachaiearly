@@ -41,7 +41,7 @@ const TOOLS: AITool[] = [
   {
     name: "ChatGPT",
     icon: "💬",
-    color: "from-teal-500/20 to-cyan-500/20",
+    color: "from-sky-400/20 to-cyan-500/20",
     description: "An AI that can write, explain, brainstorm, and answer questions!",
     whatItDoes: "You type questions or instructions and it responds with human-like text. It was trained on billions of words from the internet. Great for brainstorming and learning!",
     projectIdea: "Create an AI-powered story generator where you pick characters and settings, and AI helps write the adventure!",
@@ -102,9 +102,9 @@ export function ToolkitTour({ onComplete }: { onComplete: () => void }) {
   // Favorite picking phase
   if (allExplored && activeTool === null && favorite === null) {
     return (
-      <div className="p-6 bg-space-900 rounded-xl border border-slate-700 max-w-2xl mx-auto">
-        <h2 className="text-2xl font-bold text-white mb-2">⭐ Pick Your Favorite!</h2>
-        <p className="text-slate-300 text-sm mb-4">
+      <div className="p-6 bg-space-900 rounded-xl border border-slate-200 max-w-2xl mx-auto">
+        <h2 className="text-2xl font-bold text-slate-900 mb-2">⭐ Pick Your Favorite!</h2>
+        <p className="text-slate-600 text-sm mb-4">
           You&apos;ve explored all 5 tools. Which one would you most want to build with?
         </p>
         <div className="space-y-2">
@@ -114,12 +114,12 @@ export function ToolkitTour({ onComplete }: { onComplete: () => void }) {
               whileHover={{ scale: 1.02 }}
               whileTap={{ scale: 0.98 }}
               onClick={() => handlePickFavorite(i)}
-              className="w-full p-3 bg-space-800 rounded-lg border border-slate-700 hover:border-lime-500 flex items-center gap-3 text-left"
+              className="w-full p-3 bg-space-800 rounded-lg border border-slate-200 hover:border-lime-500 flex items-center gap-3 text-left"
             >
               <span className="text-2xl">{tool.icon}</span>
               <div>
-                <p className="text-white font-semibold">{tool.name}</p>
-                <p className="text-slate-300 text-xs">{tool.description}</p>
+                <p className="text-slate-900 font-semibold">{tool.name}</p>
+                <p className="text-slate-600 text-xs">{tool.description}</p>
               </div>
             </motion.button>
           ))}
@@ -132,19 +132,19 @@ export function ToolkitTour({ onComplete }: { onComplete: () => void }) {
   if (favorite !== null) {
     const fav = TOOLS[favorite];
     return (
-      <div className="p-6 bg-space-900 rounded-xl border border-slate-700 max-w-2xl mx-auto">
+      <div className="p-6 bg-space-900 rounded-xl border border-slate-200 max-w-2xl mx-auto">
         <motion.div initial={{ scale: 0.9, opacity: 0 }} animate={{ scale: 1, opacity: 1 }}>
           <div className="text-center">
             <span className="text-5xl">{fav.icon}</span>
-            <h2 className="text-2xl font-bold text-white mt-2">Great Choice!</h2>
+            <h2 className="text-2xl font-bold text-slate-900 mt-2">Great Choice!</h2>
             <p className="text-lime-400 font-semibold mt-1">You picked: {fav.name}</p>
             <div className="bg-space-800 rounded-lg p-4 mt-4 text-left">
               <p className="text-lime-400 font-semibold mb-1">🚀 Project Idea:</p>
-              <p className="text-slate-300 text-sm">{fav.projectIdea}</p>
+              <p className="text-slate-600 text-sm">{fav.projectIdea}</p>
             </div>
             <div className="bg-space-800 rounded-lg p-4 mt-3 text-left">
               <p className="text-lime-400 font-semibold mb-1">💡 Toolkit Summary:</p>
-              <p className="text-slate-300 text-sm">
+              <p className="text-slate-600 text-sm">
                 You explored {TOOLS.length} different AI tools today! Remember — each tool is good at
                 different things. The best builders know which tool fits which job.
               </p>
@@ -154,7 +154,7 @@ export function ToolkitTour({ onComplete }: { onComplete: () => void }) {
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
                 onClick={handleComplete}
-                className="mt-4 px-6 py-3 bg-lime-500 text-white rounded-lg font-bold"
+                className="mt-4 px-6 py-3 bg-lime-500 text-slate-900 rounded-lg font-bold"
               >
                 Complete Tour ✓
               </motion.button>
@@ -171,22 +171,22 @@ export function ToolkitTour({ onComplete }: { onComplete: () => void }) {
   if (activeTool !== null) {
     const tool = TOOLS[activeTool];
     return (
-      <div className="p-6 bg-space-900 rounded-xl border border-slate-700 max-w-2xl mx-auto">
+      <div className="p-6 bg-space-900 rounded-xl border border-slate-200 max-w-2xl mx-auto">
         <button
           onClick={() => setActiveTool(null)}
-          className="text-slate-400 text-sm hover:text-white mb-3"
+          className="text-slate-400 text-sm hover:text-sky-600 mb-3"
         >
           ← Back to all tools
         </button>
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          className={`bg-gradient-to-br ${tool.color} rounded-xl p-5 border border-slate-700`}
+          className={`bg-gradient-to-br ${tool.color} rounded-xl p-5 border border-slate-200`}
         >
           <div className="flex items-center gap-3 mb-3">
             <span className="text-4xl">{tool.icon}</span>
             <div>
-              <h3 className="text-xl font-bold text-white">{tool.name}</h3>
+              <h3 className="text-xl font-bold text-slate-900">{tool.name}</h3>
               <div className="flex gap-0.5">
                 {[1, 2, 3].map((star) => (
                   <span key={star} className={star <= tool.difficulty ? "text-lime-400" : "text-slate-600"}>
@@ -200,12 +200,12 @@ export function ToolkitTour({ onComplete }: { onComplete: () => void }) {
 
           <div className="bg-space-900/60 rounded-lg p-3 mb-3">
             <p className="text-lime-400 font-semibold text-sm mb-1">What it does:</p>
-            <p className="text-slate-300 text-sm">{tool.whatItDoes}</p>
+            <p className="text-slate-600 text-sm">{tool.whatItDoes}</p>
           </div>
 
           <div className="bg-space-900/60 rounded-lg p-3 mb-3">
             <p className="text-lime-400 font-semibold text-sm mb-1">🚀 Project idea:</p>
-            <p className="text-slate-300 text-sm">{tool.projectIdea}</p>
+            <p className="text-slate-600 text-sm">{tool.projectIdea}</p>
           </div>
 
           {!showDemo ? (
@@ -213,7 +213,7 @@ export function ToolkitTour({ onComplete }: { onComplete: () => void }) {
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
               onClick={() => setShowDemo(true)}
-              className="w-full px-4 py-2 bg-lime-500 text-white rounded-lg font-bold"
+              className="w-full px-4 py-2 bg-lime-500 text-slate-900 rounded-lg font-bold"
             >
               ▶️ Try Mini Demo
             </motion.button>
@@ -223,7 +223,7 @@ export function ToolkitTour({ onComplete }: { onComplete: () => void }) {
               animate={{ opacity: 1, height: "auto" }}
               className="bg-space-900/80 rounded-lg p-3 border border-lime-500/30"
             >
-              <p className="text-white text-sm mb-2 font-semibold">{tool.demoScenario}</p>
+              <p className="text-slate-900 text-sm mb-2 font-semibold">{tool.demoScenario}</p>
               <motion.div
                 initial={{ opacity: 0 }}
                 animate={{ opacity: 1 }}
@@ -254,9 +254,9 @@ export function ToolkitTour({ onComplete }: { onComplete: () => void }) {
 
   // Tool grid
   return (
-    <div className="p-6 bg-space-900 rounded-xl border border-slate-700 max-w-2xl mx-auto">
-      <h2 className="text-2xl font-bold text-white mb-1">🧰 AI Toolkit Tour</h2>
-      <p className="text-slate-300 text-sm mb-4">
+    <div className="p-6 bg-space-900 rounded-xl border border-slate-200 max-w-2xl mx-auto">
+      <h2 className="text-2xl font-bold text-slate-900 mb-1">🧰 AI Toolkit Tour</h2>
+      <p className="text-slate-600 text-sm mb-4">
         Explore 5 AI tools! Click each to learn what it does and try a mini demo.
         ({explored.filter(Boolean).length}/5 explored)
       </p>
@@ -274,16 +274,16 @@ export function ToolkitTour({ onComplete }: { onComplete: () => void }) {
             className={`w-full p-3 rounded-lg border flex items-center gap-3 text-left transition-colors ${
               explored[i]
                 ? "bg-lime-500/10 border-lime-500/40"
-                : "bg-space-800 border-slate-700 hover:border-slate-500"
+                : "bg-space-800 border-slate-200 hover:border-slate-500"
             }`}
           >
             <span className="text-2xl">{tool.icon}</span>
             <div className="flex-1">
               <div className="flex items-center justify-between">
-                <p className="text-white font-semibold">{tool.name}</p>
+                <p className="text-slate-900 font-semibold">{tool.name}</p>
                 {explored[i] && <span className="text-lime-400 text-xs">✓ Explored</span>}
               </div>
-              <p className="text-slate-300 text-xs">{tool.description}</p>
+              <p className="text-slate-600 text-xs">{tool.description}</p>
             </div>
           </motion.button>
         ))}
@@ -296,7 +296,7 @@ export function ToolkitTour({ onComplete }: { onComplete: () => void }) {
           whileHover={{ scale: 1.05 }}
           whileTap={{ scale: 0.95 }}
           onClick={() => setActiveTool(null)}
-          className="w-full mt-4 px-5 py-2 bg-lime-500 text-white rounded-lg font-bold"
+          className="w-full mt-4 px-5 py-2 bg-lime-500 text-slate-900 rounded-lg font-bold"
         >
           Pick Your Favorite! →
         </motion.button>

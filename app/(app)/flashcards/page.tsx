@@ -114,7 +114,7 @@ export default function FlashcardsPage() {
       <div className="min-h-screen bg-space-900">
         <div className="max-w-2xl mx-auto px-4 py-16 text-center">
           <div className="text-6xl mb-4">🔒</div>
-          <h1 className="text-2xl font-black text-white mb-2">
+          <h1 className="text-2xl font-black text-slate-900 mb-2">
             Flashcards are a Pro feature
           </h1>
           <p className="text-slate-400 mb-6">
@@ -122,7 +122,7 @@ export default function FlashcardsPage() {
           </p>
           <button
             onClick={() => setShowPaywall(true)}
-            className="bg-gradient-to-r from-teal-500 to-cyan-400 text-white font-black text-lg py-3 px-8 rounded-2xl btn-press transition-all"
+            className="bg-gradient-to-r from-sky-400 to-mint-300 text-white font-black text-lg py-3 px-8 rounded-2xl btn-press transition-all"
           >
             Unlock Flashcards
           </button>
@@ -141,20 +141,20 @@ export default function FlashcardsPage() {
       <div className="max-w-2xl mx-auto px-4 py-8">
         {/* Header */}
         <div className="text-center mb-6">
-          <h1 className="text-3xl font-black text-white">🃏 Flashcards</h1>
+          <h1 className="text-3xl font-black text-slate-900">🃏 Flashcards</h1>
           <p className="text-slate-400 mt-1">Master AI vocabulary</p>
         </div>
 
         {/* Tab bar */}
-        <div className="flex bg-space-800 rounded-2xl p-1 mb-6 border border-slate-700">
+        <div className="flex bg-space-800 rounded-2xl p-1 mb-6 border border-slate-200">
           {(["study", "saved", "quiz"] as Tab[]).map((t) => (
             <button
               key={t}
               onClick={() => setTab(t)}
               className={`flex-1 py-2.5 rounded-xl text-sm font-black transition-all capitalize ${
                 tab === t
-                  ? "bg-teal-500 text-white shadow-lg"
-                  : "text-slate-400 hover:text-white"
+                  ? "bg-mint-400 text-white shadow-lg"
+                  : "text-slate-400 hover:text-sky-600"
               }`}
             >
               {t === "saved" ? `Saved (${savedIds.length})` : t}
@@ -174,7 +174,7 @@ export default function FlashcardsPage() {
                   setWorldFilter(val ? Number(val) : null);
                   setLessonFilter(null);
                 }}
-                className="w-full bg-space-800 border border-slate-700 rounded-xl px-4 py-3 text-white text-sm font-bold appearance-none cursor-pointer focus:outline-none focus:ring-2 focus:ring-teal-500"
+                className="w-full bg-space-800 border border-slate-200 rounded-xl px-4 py-3 text-slate-900 text-sm font-bold appearance-none cursor-pointer focus:outline-none focus:ring-2 focus:ring-teal-500"
               >
                 <option value="">All Worlds ({FLASHCARDS.length} cards)</option>
                 {WORLDS.filter((w) => getFlashcardsByWorld(w.id).length > 0).map(
@@ -195,8 +195,8 @@ export default function FlashcardsPage() {
                   onClick={() => setLessonFilter(null)}
                   className={`px-3 py-1.5 rounded-lg text-xs font-bold transition-all ${
                     !lessonFilter
-                      ? "bg-teal-500 text-white"
-                      : "bg-space-800 text-slate-400 border border-slate-700 hover:text-white"
+                      ? "bg-mint-400 text-white"
+                      : "bg-space-800 text-slate-400 border border-slate-200 hover:text-sky-600"
                   }`}
                 >
                   All Lessons
@@ -210,8 +210,8 @@ export default function FlashcardsPage() {
                       onClick={() => setLessonFilter(lesson.id)}
                       className={`px-3 py-1.5 rounded-lg text-xs font-bold transition-all ${
                         lessonFilter === lesson.id
-                          ? "bg-teal-500 text-white"
-                          : "bg-space-800 text-slate-400 border border-slate-700 hover:text-white"
+                          ? "bg-mint-400 text-white"
+                          : "bg-space-800 text-slate-400 border border-slate-200 hover:text-sky-600"
                       }`}
                     >
                       L{lesson.lessonNumber}: {lesson.title} ({count})
@@ -223,7 +223,7 @@ export default function FlashcardsPage() {
 
             {/* Card display */}
             {filteredCards.length === 0 ? (
-              <div className="text-center py-16 text-slate-500">
+              <div className="text-center py-16 text-slate-400">
                 No flashcards available for this filter.
               </div>
             ) : currentCard ? (
@@ -246,16 +246,16 @@ export default function FlashcardsPage() {
                   >
                     {/* Front */}
                     <div
-                      className="absolute inset-0 bg-space-800 rounded-3xl border border-slate-700 p-8 flex flex-col items-center justify-center"
+                      className="absolute inset-0 bg-space-800 rounded-3xl border border-slate-200 p-8 flex flex-col items-center justify-center"
                       style={{ backfaceVisibility: "hidden" }}
                     >
-                      <p className="text-xs text-teal-400 font-bold mb-4 uppercase tracking-wider">
+                      <p className="text-xs text-sky-500 font-bold mb-4 uppercase tracking-wider">
                         Tap to reveal
                       </p>
-                      <h2 className="text-2xl font-black text-white text-center leading-tight">
+                      <h2 className="text-2xl font-black text-slate-900 text-center leading-tight">
                         {currentCard.term}
                       </h2>
-                      <p className="text-xs text-slate-500 mt-4">
+                      <p className="text-xs text-slate-400 mt-4">
                         World {currentCard.worldId} &middot;{" "}
                         {WORLDS.find((w) => w.id === currentCard.worldId)
                           ?.lessons.find((l) => l.id === currentCard.lessonId)
@@ -265,19 +265,19 @@ export default function FlashcardsPage() {
 
                     {/* Back */}
                     <div
-                      className="absolute inset-0 bg-space-800 rounded-3xl border border-teal-500/40 p-8 flex flex-col items-center justify-center"
+                      className="absolute inset-0 bg-space-800 rounded-3xl border border-sky-200 p-8 flex flex-col items-center justify-center"
                       style={{
                         backfaceVisibility: "hidden",
                         transform: "rotateY(180deg)",
                       }}
                     >
-                      <p className="text-xs text-teal-400 font-bold mb-4 uppercase tracking-wider">
+                      <p className="text-xs text-sky-500 font-bold mb-4 uppercase tracking-wider">
                         Definition
                       </p>
                       <p className="text-lg text-slate-200 text-center leading-relaxed">
                         {currentCard.definition}
                       </p>
-                      <p className="text-xs text-slate-500 mt-4">
+                      <p className="text-xs text-slate-400 mt-4">
                         World {currentCard.worldId} &middot;{" "}
                         {WORLDS.find((w) => w.id === currentCard.worldId)
                           ?.lessons.find((l) => l.id === currentCard.lessonId)
@@ -292,7 +292,7 @@ export default function FlashcardsPage() {
                   <button
                     onClick={goPrev}
                     disabled={cardIndex === 0}
-                    className="bg-space-800 border border-slate-700 text-white font-bold px-4 py-2 rounded-xl disabled:opacity-30 transition-all hover:border-teal-500"
+                    className="bg-space-800 border border-slate-200 text-slate-900 font-bold px-4 py-2 rounded-xl disabled:opacity-30 transition-all hover:border-teal-500"
                   >
                     ← Prev
                   </button>
@@ -321,7 +321,7 @@ export default function FlashcardsPage() {
                   <button
                     onClick={goNext}
                     disabled={cardIndex === filteredCards.length - 1}
-                    className="bg-space-800 border border-slate-700 text-white font-bold px-4 py-2 rounded-xl disabled:opacity-30 transition-all hover:border-teal-500"
+                    className="bg-space-800 border border-slate-200 text-slate-900 font-bold px-4 py-2 rounded-xl disabled:opacity-30 transition-all hover:border-teal-500"
                   >
                     Next →
                   </button>
@@ -338,7 +338,7 @@ export default function FlashcardsPage() {
               <div className="text-center py-16">
                 <div className="text-4xl mb-3">☆</div>
                 <p className="text-slate-400 font-bold">No saved cards yet</p>
-                <p className="text-slate-500 text-sm mt-1">
+                <p className="text-slate-400 text-sm mt-1">
                   Tap the star on any flashcard to save it here
                 </p>
               </div>
@@ -368,13 +368,13 @@ export default function FlashcardsPage() {
                     >
                       {/* Front */}
                       <div
-                        className="absolute inset-0 bg-space-800 rounded-2xl border border-slate-700 p-4 flex flex-col items-center justify-center"
+                        className="absolute inset-0 bg-space-800 rounded-2xl border border-slate-200 p-4 flex flex-col items-center justify-center"
                         style={{ backfaceVisibility: "hidden" }}
                       >
-                        <h3 className="text-sm font-black text-white text-center">
+                        <h3 className="text-sm font-black text-slate-900 text-center">
                           {card.term}
                         </h3>
-                        <p className="text-[10px] text-slate-500 mt-2">
+                        <p className="text-[10px] text-slate-400 mt-2">
                           W{card.worldId} &middot;{" "}
                           {WORLDS.find((w) => w.id === card.worldId)
                             ?.lessons.find((l) => l.id === card.lessonId)
@@ -383,7 +383,7 @@ export default function FlashcardsPage() {
                       </div>
                       {/* Back */}
                       <div
-                        className="absolute inset-0 bg-space-800 rounded-2xl border border-teal-500/40 p-4 flex flex-col items-center justify-center"
+                        className="absolute inset-0 bg-space-800 rounded-2xl border border-sky-200 p-4 flex flex-col items-center justify-center"
                         style={{
                           backfaceVisibility: "hidden",
                           transform: "rotateY(180deg)",
@@ -405,7 +405,7 @@ export default function FlashcardsPage() {
         {tab === "quiz" && (
           <div className="text-center py-12">
             <div className="text-6xl mb-4">🧠</div>
-            <h2 className="text-xl font-black text-white mb-2">
+            <h2 className="text-xl font-black text-slate-900 mb-2">
               Test Your Knowledge
             </h2>
             <p className="text-slate-400 text-sm mb-6">
@@ -413,7 +413,7 @@ export default function FlashcardsPage() {
             </p>
             <Link
               href="/flashcards/quiz"
-              className="inline-block bg-gradient-to-r from-teal-500 to-cyan-400 hover:from-teal-400 hover:to-cyan-300 text-white font-black text-lg py-4 px-10 rounded-2xl btn-press transition-all shadow-lg"
+              className="inline-block bg-gradient-to-r from-sky-400 to-mint-300 hover:from-sky-300 hover:to-mint-200 text-slate-900 font-black text-lg py-4 px-10 rounded-2xl btn-press transition-all shadow-lg"
             >
               Start Quiz →
             </Link>

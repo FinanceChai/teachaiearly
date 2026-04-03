@@ -47,18 +47,18 @@ function HomeContent() {
     <div className="min-h-screen bg-space-900 stars-bg">
       {/* Checkout success banner */}
       {showCheckoutSuccess && (
-        <div className="fixed top-4 left-1/2 -translate-x-1/2 z-50 bg-teal-500 text-white font-black px-6 py-3 rounded-2xl shadow-lg shadow-teal-500/30 animate-float">
+        <div className="fixed top-4 left-1/2 -translate-x-1/2 z-50 bg-mint-400 text-white font-black px-6 py-3 rounded-2xl shadow-lg shadow-sky-400/30 animate-float">
           🎉 Welcome to Explorer Pro! All worlds unlocked.
         </div>
       )}
       {/* Header */}
-      <div className="sticky top-0 z-40 bg-space-900/90 backdrop-blur border-b border-slate-800">
+      <div className="sticky top-0 z-40 bg-space-900/90 backdrop-blur border-b border-slate-200">
         <div className="max-w-2xl mx-auto px-4 py-4">
           <div className="flex items-center justify-between mb-3">
             <div className="flex items-center gap-3">
               <div className="text-3xl">{profile?.avatar ?? "🚀"}</div>
               <div>
-                <div className="font-black text-white text-lg leading-tight">
+                <div className="font-black text-slate-900 text-lg leading-tight">
                   {profile?.name ?? "Explorer"}
                 </div>
                 <div className="text-xs text-slate-400 font-bold">
@@ -80,7 +80,7 @@ function HomeContent() {
               {/* Parent */}
               <Link
                 href="/parent"
-                className="flex flex-col items-center text-slate-500 hover:text-slate-300 transition-colors"
+                className="flex flex-col items-center text-slate-400 hover:text-slate-600 transition-colors"
               >
                 <span className="text-xl">👨‍👩‍👧</span>
                 <span className="text-xs font-bold">Parent</span>
@@ -89,9 +89,9 @@ function HomeContent() {
           </div>
           {/* XP Bar */}
           <div className="flex items-center gap-3">
-            <div className="flex-1 bg-slate-700 rounded-full h-3 overflow-hidden">
+            <div className="flex-1 bg-slate-200 rounded-full h-3 overflow-hidden">
               <div
-                className="h-full bg-gradient-to-r from-teal-500 to-cyan-400 rounded-full transition-all duration-700"
+                className="h-full bg-gradient-to-r from-sky-400 to-mint-300 rounded-full transition-all duration-700"
                 style={{ width: `${xpProgress}%` }}
               />
             </div>
@@ -105,7 +105,7 @@ function HomeContent() {
       {/* World Map */}
       <div className="max-w-2xl mx-auto px-4 py-8">
         <div className="text-center mb-10">
-          <h1 className="text-3xl font-black text-white">Your Journey</h1>
+          <h1 className="text-3xl font-black text-slate-900">Your Journey</h1>
           <p className="text-slate-400 mt-1">
             {progress.completedLessons.length} lessons completed ·{" "}
             {progress.earnedBadges.length} badges earned
@@ -193,10 +193,10 @@ function HomeContent() {
 
         {/* Completion message */}
         {progress.earnedBadges.length === WORLDS.length && (
-          <div className="mt-12 bg-gradient-to-br from-teal-500/20 to-cyan-500/10 rounded-3xl p-8 border border-teal-500/30 text-center">
+          <div className="mt-12 bg-gradient-to-br from-sky-400/20 to-mint-50 rounded-3xl p-8 border border-sky-200 text-center">
             <div className="text-5xl mb-4">🎉</div>
-            <h2 className="text-2xl font-black text-white mb-2">You're an AI Explorer!</h2>
-            <p className="text-slate-300">
+            <h2 className="text-2xl font-black text-slate-900 mb-2">You're an AI Explorer!</h2>
+            <p className="text-slate-600">
               You&apos;ve completed all {WORLDS.length} worlds and earned every badge. You now know more about
               AI than most adults!
             </p>
@@ -236,19 +236,19 @@ function WorldCard({
     <div
       className={`bg-space-800 rounded-2xl p-5 border transition-all ${
         isLocked
-          ? "border-slate-700 opacity-60"
-          : "border-slate-700 hover:border-slate-500 card-hover cursor-pointer"
+          ? "border-slate-200 opacity-60"
+          : "border-slate-200 hover:border-slate-500 card-hover cursor-pointer"
       } ${className}`}
     >
       <div className="flex items-start justify-between mb-3">
         <div>
-          <div className="text-xs font-black text-slate-500 mb-1">WORLD {world.id}</div>
-          <div className="font-black text-white text-base leading-tight">{world.title}</div>
+          <div className="text-xs font-black text-slate-400 mb-1">WORLD {world.id}</div>
+          <div className="font-black text-slate-900 text-base leading-tight">{world.title}</div>
           <div className="text-xs text-slate-400 mt-0.5">{world.subtitle}</div>
         </div>
         <div className="flex flex-col items-end gap-1">
           {world.tier === "free" ? (
-            <span className="bg-teal-500/20 text-teal-300 text-xs font-black px-2 py-0.5 rounded-full border border-teal-500/30">
+            <span className="bg-mint-400/20 text-sky-400 text-xs font-black px-2 py-0.5 rounded-full border border-sky-200">
               FREE
             </span>
           ) : (
@@ -265,7 +265,7 @@ function WorldCard({
       {!isLocked && (
         <>
           <div className="flex items-center gap-2 mb-2">
-            <div className="flex-1 bg-slate-700 rounded-full h-2 overflow-hidden">
+            <div className="flex-1 bg-slate-200 rounded-full h-2 overflow-hidden">
               <div
                 className="h-full rounded-full transition-all duration-500"
                 style={{
@@ -278,7 +278,7 @@ function WorldCard({
               {lessonsCompleted}/{totalLessons}
             </span>
           </div>
-          <div className="text-xs text-slate-500">
+          <div className="text-xs text-slate-400">
             {lessonsCompleted === 0
               ? "Not started"
               : lessonsCompleted === totalLessons
@@ -291,7 +291,7 @@ function WorldCard({
       )}
 
       {isLocked && (
-        <div className="text-xs text-slate-500 flex items-center gap-1">
+        <div className="text-xs text-slate-400 flex items-center gap-1">
           🔒 Unlock with Explorer Pro
         </div>
       )}

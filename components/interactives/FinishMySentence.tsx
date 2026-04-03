@@ -91,11 +91,11 @@ export function FinishMySentence({ onComplete }: { onComplete: () => void }) {
           💬
         </motion.div>
         <div>
-          <div className="text-4xl font-black text-white">
+          <div className="text-4xl font-black text-slate-900">
             {matches}/{SENTENCES.length}
           </div>
           <div className="text-slate-400 text-sm mt-1">times you matched AI&apos;s prediction</div>
-          <div className="text-slate-300 mt-3">
+          <div className="text-slate-600 mt-3">
             {matches >= 4
               ? "You think like a language model! Same patterns, same predictions."
               : matches >= 2
@@ -110,7 +110,7 @@ export function FinishMySentence({ onComplete }: { onComplete: () => void }) {
               className={`py-3 rounded-xl font-black text-lg ${
                 matched
                   ? "bg-purple-500/20 text-purple-300 border border-purple-500/30"
-                  : "bg-slate-700/50 text-slate-400 border border-slate-600"
+                  : "bg-slate-100 text-slate-400 border border-slate-300"
               }`}
             >
               {matched ? "=" : "≠"}
@@ -153,15 +153,15 @@ export function FinishMySentence({ onComplete }: { onComplete: () => void }) {
         </span>
       </div>
 
-      <div className="bg-space-800 rounded-2xl p-5 border border-slate-700">
+      <div className="bg-space-800 rounded-2xl p-5 border border-slate-200">
         <div className="text-xs font-black text-purple-400 mb-1">FINISH THE SENTENCE</div>
         <div className="text-sm text-slate-400 font-bold mb-5">
           Pick the word you think comes next — then see if AI agrees!
         </div>
 
         {/* Sentence with blank */}
-        <div className="bg-space-900 rounded-xl p-4 mb-5 border border-slate-600">
-          <span className="text-white text-lg font-bold">{sentence.start} </span>
+        <div className="bg-space-900 rounded-xl p-4 mb-5 border border-slate-300">
+          <span className="text-slate-900 text-lg font-bold">{sentence.start} </span>
           <AnimatePresence mode="wait">
             {picked === null ? (
               <motion.span
@@ -197,7 +197,7 @@ export function FinishMySentence({ onComplete }: { onComplete: () => void }) {
                 initial={{ opacity: 0, y: 6 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: i * 0.05 + 0.2 }}
-                className="py-4 rounded-xl border border-slate-700 bg-space-900 font-black text-white text-lg hover:border-purple-500/50 hover:bg-purple-500/10 transition-colors"
+                className="py-4 rounded-xl border border-slate-200 bg-space-900 font-black text-slate-900 text-lg hover:border-purple-500/50 hover:bg-purple-500/10 transition-colors"
               >
                 {opt}
               </motion.button>
@@ -218,7 +218,7 @@ export function FinishMySentence({ onComplete }: { onComplete: () => void }) {
                 </div>
               </div>
               <div className="flex items-center gap-3">
-                <span className="text-white font-black text-lg">
+                <span className="text-slate-900 font-black text-lg">
                   &quot;{sentence.aiPick}&quot;
                 </span>
                 <div className="flex-1">
@@ -238,13 +238,13 @@ export function FinishMySentence({ onComplete }: { onComplete: () => void }) {
             </div>
 
             {/* Explanation */}
-            <div className="p-4 rounded-xl bg-purple-500/10 border border-purple-500/30 text-sm text-slate-300">
+            <div className="p-4 rounded-xl bg-purple-500/10 border border-purple-500/30 text-sm text-slate-600">
               {sentence.explanation}
             </div>
 
             <button
               onClick={next}
-              className="w-full py-4 rounded-xl font-black text-white bg-purple-500 hover:bg-purple-400 btn-press transition-colors"
+              className="w-full py-4 rounded-xl font-black text-slate-900 bg-purple-500 hover:bg-purple-400 btn-press transition-colors"
             >
               {current < SENTENCES.length - 1 ? "Next Sentence →" : "See Results →"}
             </button>

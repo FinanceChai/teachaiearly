@@ -132,25 +132,25 @@ export function FeedbackLoop({ onComplete }: { onComplete: () => void }) {
   if (phase === "done") {
     const fixCount = fixAnswers.filter((a) => a === true).length;
     return (
-      <div className="p-6 bg-space-900 rounded-xl border border-slate-700 max-w-2xl mx-auto">
+      <div className="p-6 bg-space-900 rounded-xl border border-slate-200 max-w-2xl mx-auto">
         <motion.div initial={{ scale: 0.9, opacity: 0 }} animate={{ scale: 1, opacity: 1 }} className="text-center">
           <span className="text-5xl">🔄</span>
-          <h2 className="text-2xl font-bold text-white mt-2">Feedback Loop Complete!</h2>
+          <h2 className="text-2xl font-bold text-slate-900 mt-2">Feedback Loop Complete!</h2>
 
           <div className="grid grid-cols-2 gap-3 mt-4 mb-4">
             <div className="bg-space-800 rounded-lg p-3">
               <p className="text-3xl font-bold text-lime-400">{correctMatches}/3</p>
-              <p className="text-slate-300 text-xs">Problems Identified</p>
+              <p className="text-slate-600 text-xs">Problems Identified</p>
             </div>
             <div className="bg-space-800 rounded-lg p-3">
               <p className="text-3xl font-bold text-lime-400">{fixCount}/3</p>
-              <p className="text-slate-300 text-xs">Best Fixes Chosen</p>
+              <p className="text-slate-600 text-xs">Best Fixes Chosen</p>
             </div>
           </div>
 
           <div className="bg-space-800 rounded-lg p-4 text-left">
             <p className="text-lime-400 font-semibold mb-1">💡 What you learned:</p>
-            <p className="text-slate-300 text-sm">
+            <p className="text-slate-600 text-sm">
               User feedback is gold! Real testers will always find problems you missed.
               The key is: listen carefully, identify the real problem (not just the symptom),
               and pick fixes that are practical and helpful. This loop — build, test, get feedback,
@@ -163,7 +163,7 @@ export function FeedbackLoop({ onComplete }: { onComplete: () => void }) {
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
               onClick={handleComplete}
-              className="mt-4 px-6 py-3 bg-lime-500 text-white rounded-lg font-bold"
+              className="mt-4 px-6 py-3 bg-lime-500 text-slate-900 rounded-lg font-bold"
             >
               Complete Activity ✓
             </motion.button>
@@ -178,15 +178,15 @@ export function FeedbackLoop({ onComplete }: { onComplete: () => void }) {
   if (phase === "fix") {
     const problem = PROBLEMS[currentFix];
     return (
-      <div className="p-6 bg-space-900 rounded-xl border border-slate-700 max-w-2xl mx-auto">
-        <h2 className="text-xl font-bold text-white mb-1">🔧 Fix the Problems</h2>
-        <p className="text-slate-300 text-sm mb-4">
+      <div className="p-6 bg-space-900 rounded-xl border border-slate-200 max-w-2xl mx-auto">
+        <h2 className="text-xl font-bold text-slate-900 mb-1">🔧 Fix the Problems</h2>
+        <p className="text-slate-600 text-sm mb-4">
           Problem {currentFix + 1} of {PROBLEMS.length}: Pick the best fix!
         </p>
 
         <div className="bg-red-500/10 border border-red-500/30 rounded-lg p-3 mb-4">
           <p className="text-red-400 font-semibold text-sm">⚠️ {problem.name}</p>
-          <p className="text-slate-300 text-sm">{problem.description}</p>
+          <p className="text-slate-600 text-sm">{problem.description}</p>
         </div>
 
         <div className="space-y-2 mb-4">
@@ -202,11 +202,11 @@ export function FeedbackLoop({ onComplete }: { onComplete: () => void }) {
                 fixAnswers[currentFix] !== null
                   ? fix.correct
                     ? "bg-lime-500/20 border-lime-500"
-                    : "bg-space-800 border-slate-700 opacity-50"
-                  : "bg-space-800 border-slate-700 hover:border-lime-500"
+                    : "bg-space-800 border-slate-200 opacity-50"
+                  : "bg-space-800 border-slate-200 hover:border-lime-500"
               }`}
             >
-              <p className="text-white">{fix.text}</p>
+              <p className="text-slate-900">{fix.text}</p>
             </motion.button>
           ))}
         </div>
@@ -226,7 +226,7 @@ export function FeedbackLoop({ onComplete }: { onComplete: () => void }) {
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
               onClick={handleNextFix}
-              className="w-full px-5 py-2 bg-lime-500 text-white rounded-lg font-bold"
+              className="w-full px-5 py-2 bg-lime-500 text-slate-900 rounded-lg font-bold"
             >
               {currentFix < PROBLEMS.length - 1 ? "Next Problem →" : "See Results →"}
             </motion.button>
@@ -239,9 +239,9 @@ export function FeedbackLoop({ onComplete }: { onComplete: () => void }) {
   // Match phase
   const tester = TESTERS[currentTester];
   return (
-    <div className="p-6 bg-space-900 rounded-xl border border-slate-700 max-w-2xl mx-auto">
-      <h2 className="text-xl font-bold text-white mb-1">🔄 Feedback Loop</h2>
-      <p className="text-slate-300 text-sm mb-4">
+    <div className="p-6 bg-space-900 rounded-xl border border-slate-200 max-w-2xl mx-auto">
+      <h2 className="text-xl font-bold text-slate-900 mb-1">🔄 Feedback Loop</h2>
+      <p className="text-slate-600 text-sm mb-4">
         Read each tester&apos;s feedback and match it to the right problem. Tester {currentTester + 1} of {TESTERS.length}
       </p>
 
@@ -249,14 +249,14 @@ export function FeedbackLoop({ onComplete }: { onComplete: () => void }) {
         key={currentTester}
         initial={{ opacity: 0, y: 20 }}
         animate={{ opacity: 1, y: 0 }}
-        className="bg-space-800 rounded-xl p-4 border border-slate-700 mb-4"
+        className="bg-space-800 rounded-xl p-4 border border-slate-200 mb-4"
       >
         <div className="flex items-center gap-3 mb-2">
           <span className="text-3xl">{tester.emoji}</span>
-          <p className="text-white font-semibold">{tester.name}</p>
+          <p className="text-slate-900 font-semibold">{tester.name}</p>
         </div>
         <div className="bg-space-900 rounded-lg p-3">
-          <p className="text-slate-300 text-sm italic">&quot;{tester.feedback}&quot;</p>
+          <p className="text-slate-600 text-sm italic">&quot;{tester.feedback}&quot;</p>
         </div>
       </motion.div>
 
@@ -273,11 +273,11 @@ export function FeedbackLoop({ onComplete }: { onComplete: () => void }) {
               matches[currentTester] !== null
                 ? problem.id === tester.problemId
                   ? "bg-lime-500/20 border-lime-500"
-                  : "bg-space-800 border-slate-700 opacity-50"
-                : "bg-space-800 border-slate-700 hover:border-lime-500"
+                  : "bg-space-800 border-slate-200 opacity-50"
+                : "bg-space-800 border-slate-200 hover:border-lime-500"
             }`}
           >
-            <p className="text-white text-sm font-semibold">{problem.name}</p>
+            <p className="text-slate-900 text-sm font-semibold">{problem.name}</p>
             <p className="text-slate-400 text-xs">{problem.description}</p>
           </motion.button>
         ))}
@@ -302,7 +302,7 @@ export function FeedbackLoop({ onComplete }: { onComplete: () => void }) {
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
             onClick={handleNextTester}
-            className="w-full px-5 py-2 bg-lime-500 text-white rounded-lg font-bold"
+            className="w-full px-5 py-2 bg-lime-500 text-slate-900 rounded-lg font-bold"
           >
             {currentTester < TESTERS.length - 1 ? "Next Tester →" : "Now Fix the Problems →"}
           </motion.button>

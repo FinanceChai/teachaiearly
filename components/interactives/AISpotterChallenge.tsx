@@ -84,10 +84,10 @@ function FlipCard({
           style={{ backfaceVisibility: "hidden" }}
           className={`w-full px-4 py-4 rounded-xl border font-bold text-sm text-left transition-colors ${
             isPicked && !allRevealed
-              ? "bg-teal-500/30 border-teal-400 text-teal-200"
+              ? "bg-mint-400/30 border-teal-400 text-teal-200"
               : picked !== null && !allRevealed
-              ? "bg-space-900 border-slate-700 text-slate-500"
-              : "bg-space-900 border-slate-700 text-slate-300 hover:border-slate-500"
+              ? "bg-space-900 border-slate-200 text-slate-400"
+              : "bg-space-900 border-slate-200 text-slate-600 hover:border-slate-500"
           }`}
         >
           {option}
@@ -101,7 +101,7 @@ function FlipCard({
               ? "bg-green-500/25 border-green-500/60 text-green-300"
               : isPicked
               ? "bg-red-500/25 border-red-500/60 text-red-300"
-              : "bg-space-900 border-slate-700 text-slate-500"
+              : "bg-space-900 border-slate-200 text-slate-400"
           }`}
         >
           <span>{isCorrect ? "✓" : isPicked ? "✗" : ""}</span>
@@ -167,7 +167,7 @@ export function AISpotterChallenge({ onComplete }: { onComplete: (passed: boolea
           {passed ? "🔍" : "📚"}
         </motion.div>
         <div>
-          <div className="text-4xl font-black text-white">{finalScore}/5</div>
+          <div className="text-4xl font-black text-slate-900">{finalScore}/5</div>
           <div className="text-lg font-black mt-1" style={{ color: passed ? "#14b8a6" : "#f59e0b" }}>
             {passed ? "AI Spotter Badge Earned!" : "Almost — keep going!"}
           </div>
@@ -180,7 +180,7 @@ export function AISpotterChallenge({ onComplete }: { onComplete: (passed: boolea
             </div>
           ))}
         </div>
-        {passed && <div className="bg-teal-500/20 border border-teal-500/40 rounded-2xl p-4"><div className="font-black text-teal-300">Challenge Complete! 🎉</div></div>}
+        {passed && <div className="bg-mint-400/20 border border-sky-200 rounded-2xl p-4"><div className="font-black text-sky-400">Challenge Complete! 🎉</div></div>}
       </div>
     );
   }
@@ -188,10 +188,10 @@ export function AISpotterChallenge({ onComplete }: { onComplete: (passed: boolea
   return (
     <div className="space-y-5">
       {/* Score + streak header */}
-      <div className="flex items-center justify-between bg-space-800 rounded-2xl px-4 py-3 border border-slate-700">
+      <div className="flex items-center justify-between bg-space-800 rounded-2xl px-4 py-3 border border-slate-200">
         <div className="flex items-center gap-2">
           <span className="text-yellow-400 text-lg">⭐</span>
-          <span className="font-black text-white text-lg">{score}</span>
+          <span className="font-black text-slate-900 text-lg">{score}</span>
           <AnimatePresence>
             {scoreAnim !== null && (
               <motion.span
@@ -227,7 +227,7 @@ export function AISpotterChallenge({ onComplete }: { onComplete: (passed: boolea
       </div>
 
       {/* Question */}
-      <div className="bg-space-800 rounded-2xl p-5 border border-slate-700">
+      <div className="bg-space-800 rounded-2xl p-5 border border-slate-200">
         {multiplier > 1 && (
           <motion.div
             initial={{ opacity: 0, scale: 0.8 }} animate={{ opacity: 1, scale: 1 }}
@@ -236,7 +236,7 @@ export function AISpotterChallenge({ onComplete }: { onComplete: (passed: boolea
             {multiplierInfo.label} — each correct answer worth {multiplier * 100} pts!
           </motion.div>
         )}
-        <p className="text-white font-black text-base leading-snug mb-5">{q.question}</p>
+        <p className="text-slate-900 font-black text-base leading-snug mb-5">{q.question}</p>
         <div className="space-y-2.5">
           {q.options.map((opt, i) => (
             <FlipCard key={`${current}-${i}`} option={opt} idx={i} picked={picked} correctIdx={q.correct} allRevealed={allRevealed} onPick={handlePick} />
@@ -248,9 +248,9 @@ export function AISpotterChallenge({ onComplete }: { onComplete: (passed: boolea
             <motion.div initial={{ opacity: 0, y: 8 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.55 }} className="mt-4 space-y-3">
               <div className={`p-4 rounded-xl text-sm ${picked === q.correct ? "bg-green-500/20 text-green-300" : "bg-red-500/20 text-red-300"}`}>
                 <span className="font-black">{picked === q.correct ? "✓ Correct! " : "✗ Not quite. "}</span>
-                <span className="text-slate-300">{q.explanation}</span>
+                <span className="text-slate-600">{q.explanation}</span>
               </div>
-              <button onClick={handleNext} className="w-full py-4 rounded-xl font-black text-white bg-teal-500 hover:bg-teal-400 btn-press transition-colors">
+              <button onClick={handleNext} className="w-full py-4 rounded-xl font-black text-slate-900 bg-mint-400 hover:bg-mint-300 btn-press transition-colors">
                 {current < QUESTIONS.length - 1 ? "Next Question →" : "See Results →"}
               </button>
             </motion.div>

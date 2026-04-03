@@ -49,7 +49,7 @@ export default function ArticlePage({
       {/* Back */}
       <Link
         href="/blog"
-        className="inline-flex items-center gap-2 text-slate-400 hover:text-white transition-colors font-bold text-sm mb-10"
+        className="inline-flex items-center gap-2 text-slate-400 hover:text-sky-600 transition-colors font-bold text-sm mb-10"
       >
         ← All articles
       </Link>
@@ -62,15 +62,15 @@ export default function ArticlePage({
         >
           {post.category}
         </span>
-        <h1 className="text-3xl font-black text-white leading-tight mt-3 mb-4">
+        <h1 className="text-3xl font-black text-slate-900 leading-tight mt-3 mb-4">
           {post.title}
         </h1>
-        <div className="flex items-center gap-3 text-sm text-slate-500 font-bold">
+        <div className="flex items-center gap-3 text-sm text-slate-400 font-bold">
           <span>🕐 {post.readTime} min read</span>
           <span>·</span>
           <span>{post.date}</span>
         </div>
-        <div className="mt-6 border-t border-slate-800" />
+        <div className="mt-6 border-t border-slate-200" />
       </div>
 
       {/* Article body */}
@@ -81,9 +81,9 @@ export default function ArticlePage({
       </article>
 
       {/* CTA */}
-      <div className="mt-14 bg-gradient-to-br from-teal-500/15 to-cyan-500/10 border border-teal-500/30 rounded-2xl p-7 text-center">
+      <div className="mt-14 bg-gradient-to-br from-sky-400/15 to-mint-50 border border-sky-200 rounded-2xl p-7 text-center">
         <div className="text-3xl mb-3">🚀</div>
-        <h3 className="text-xl font-black text-white mb-2">
+        <h3 className="text-xl font-black text-slate-900 mb-2">
           Ready to explore AI with your child?
         </h3>
         <p className="text-slate-400 text-sm mb-5">
@@ -91,7 +91,7 @@ export default function ArticlePage({
         </p>
         <Link
           href="/"
-          className="inline-block px-6 py-3 rounded-xl font-black text-white bg-gradient-to-r from-teal-500 to-cyan-400 hover:from-teal-400 hover:to-cyan-300 transition-all"
+          className="inline-block px-6 py-3 rounded-xl font-black text-slate-900 bg-gradient-to-r from-sky-400 to-mint-300 hover:from-sky-300 hover:to-mint-200 transition-all"
         >
           Try Teach AI Early Free →
         </Link>
@@ -100,7 +100,7 @@ export default function ArticlePage({
       {/* Related articles */}
       {related.length > 0 && (
         <div className="mt-14">
-          <h2 className="text-xl font-black text-white mb-5">More articles</h2>
+          <h2 className="text-xl font-black text-slate-900 mb-5">More articles</h2>
           <div className="space-y-3">
             {related.map((p) => {
               const c = CATEGORY_COLORS[p.category];
@@ -108,16 +108,16 @@ export default function ArticlePage({
                 <Link
                   key={p.slug}
                   href={`/blog/${p.slug}`}
-                  className="flex items-start gap-4 bg-space-800 rounded-2xl border border-slate-700 p-4 card-hover group"
+                  className="flex items-start gap-4 bg-space-800 rounded-2xl border border-slate-200 p-4 card-hover group"
                 >
                   <span className="text-3xl flex-shrink-0">{p.emoji}</span>
                   <div className="flex-1 min-w-0">
                     <div className="flex items-center gap-2 mb-1">
                       <span className={`text-xs font-black ${c.text}`}>{p.category}</span>
                       <span className="text-slate-600">·</span>
-                      <span className="text-xs text-slate-500 font-bold">{p.readTime} min</span>
+                      <span className="text-xs text-slate-400 font-bold">{p.readTime} min</span>
                     </div>
-                    <p className="font-black text-white text-sm leading-snug group-hover:text-teal-300 transition-colors">
+                    <p className="font-black text-slate-900 text-sm leading-snug group-hover:text-sky-400 transition-colors">
                       {p.title}
                     </p>
                   </div>
@@ -135,22 +135,22 @@ function ContentRenderer({ block }: { block: ContentBlock }) {
   switch (block.type) {
     case "paragraph":
       return (
-        <p className="text-slate-300 leading-relaxed text-base">{block.text}</p>
+        <p className="text-slate-600 leading-relaxed text-base">{block.text}</p>
       );
     case "heading":
       return (
-        <h2 className="text-xl font-black text-white pt-4 pb-1">{block.text}</h2>
+        <h2 className="text-xl font-black text-slate-900 pt-4 pb-1">{block.text}</h2>
       );
     case "subheading":
       return (
-        <h3 className="text-base font-black text-teal-300 pt-2">{block.text}</h3>
+        <h3 className="text-base font-black text-sky-400 pt-2">{block.text}</h3>
       );
     case "list":
       return (
         <ul className="space-y-2 pl-1">
           {block.items.map((item, i) => (
-            <li key={i} className="flex items-start gap-3 text-slate-300 text-base">
-              <span className="text-teal-400 font-black mt-0.5 flex-shrink-0">→</span>
+            <li key={i} className="flex items-start gap-3 text-slate-600 text-base">
+              <span className="text-sky-500 font-black mt-0.5 flex-shrink-0">→</span>
               <span className="leading-relaxed">{item}</span>
             </li>
           ))}
@@ -158,17 +158,17 @@ function ContentRenderer({ block }: { block: ContentBlock }) {
       );
     case "callout":
       return (
-        <div className="bg-teal-500/10 border border-teal-500/30 rounded-2xl p-5 flex gap-4">
+        <div className="bg-mint-400/10 border border-sky-200 rounded-2xl p-5 flex gap-4">
           <span className="text-2xl flex-shrink-0">{block.emoji}</span>
-          <p className="text-slate-300 leading-relaxed text-sm">{block.text}</p>
+          <p className="text-slate-600 leading-relaxed text-sm">{block.text}</p>
         </div>
       );
     case "quote":
       return (
         <blockquote className="border-l-4 border-teal-500 pl-5 py-1">
-          <p className="text-white font-bold italic leading-relaxed">"{block.text}"</p>
+          <p className="text-slate-900 font-bold italic leading-relaxed">"{block.text}"</p>
           {block.attribution && (
-            <cite className="text-slate-500 text-sm not-italic mt-2 block">
+            <cite className="text-slate-400 text-sm not-italic mt-2 block">
               — {block.attribution}
             </cite>
           )}

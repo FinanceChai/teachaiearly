@@ -38,13 +38,13 @@ export function WhoDoesItBetter({ onComplete }: { onComplete: () => void }) {
     return (
       <div className="text-center space-y-5 py-4">
         <div className="text-6xl">🏆</div>
-        <div className="text-3xl font-black text-white">{score}/{TASKS.length}</div>
-        <p className="text-slate-300">{score >= 5 ? "You really understand AI strengths!" : "AI is surprising, right?"}</p>
-        <div className="bg-space-800 rounded-2xl p-5 border border-slate-700 text-left">
-          <div className="font-black text-white mb-3">The Pattern:</div>
+        <div className="text-3xl font-black text-slate-900">{score}/{TASKS.length}</div>
+        <p className="text-slate-600">{score >= 5 ? "You really understand AI strengths!" : "AI is surprising, right?"}</p>
+        <div className="bg-space-800 rounded-2xl p-5 border border-slate-200 text-left">
+          <div className="font-black text-slate-900 mb-3">The Pattern:</div>
           <div className="space-y-2 text-sm">
-            <div className="flex gap-2"><span>🤖</span><span className="text-teal-300 font-bold">AI wins at:</span><span className="text-slate-300">Speed, scale, patterns, data</span></div>
-            <div className="flex gap-2"><span>👤</span><span className="text-purple-300 font-bold">Humans win at:</span><span className="text-slate-300">Emotions, creativity, ethics, common sense</span></div>
+            <div className="flex gap-2"><span>🤖</span><span className="text-sky-400 font-bold">AI wins at:</span><span className="text-slate-600">Speed, scale, patterns, data</span></div>
+            <div className="flex gap-2"><span>👤</span><span className="text-purple-300 font-bold">Humans win at:</span><span className="text-slate-600">Emotions, creativity, ethics, common sense</span></div>
           </div>
         </div>
         <div className="bg-green-500/20 border border-green-500/40 rounded-2xl p-4">
@@ -78,13 +78,13 @@ export function WhoDoesItBetter({ onComplete }: { onComplete: () => void }) {
               className={`bg-space-800 rounded-2xl border overflow-hidden transition-colors ${
                 revealed
                   ? isCorrect ? "border-green-500/50" : "border-red-500/50"
-                  : userPick ? "border-teal-500/40" : "border-slate-700"
+                  : userPick ? "border-sky-200" : "border-slate-200"
               }`}
             >
               <div className="p-4">
                 <div className="flex items-center gap-3 mb-3">
                   <span className="text-2xl">{task.emoji}</span>
-                  <p className="text-white font-bold text-sm flex-1 leading-snug">{task.task}</p>
+                  <p className="text-slate-900 font-bold text-sm flex-1 leading-snug">{task.task}</p>
                   {revealed && (
                     <motion.span
                       initial={{ scale: 0 }} animate={{ scale: 1 }}
@@ -102,8 +102,8 @@ export function WhoDoesItBetter({ onComplete }: { onComplete: () => void }) {
                       onClick={() => pick(i, "ai")}
                       className={`py-2.5 rounded-xl font-black text-sm transition-all btn-press ${
                         userPick === "ai"
-                          ? "bg-teal-500 text-white"
-                          : "bg-space-900 text-teal-400 border border-teal-500/30 hover:border-teal-500/60"
+                          ? "bg-mint-400 text-white"
+                          : "bg-space-900 text-sky-500 border border-sky-200 hover:border-teal-500/60"
                       }`}
                     >
                       🤖 AI Wins
@@ -112,7 +112,7 @@ export function WhoDoesItBetter({ onComplete }: { onComplete: () => void }) {
                       onClick={() => pick(i, "human")}
                       className={`py-2.5 rounded-xl font-black text-sm transition-all btn-press ${
                         userPick === "human"
-                          ? "bg-purple-500 text-white"
+                          ? "bg-purple-500 text-slate-900"
                           : "bg-space-900 text-purple-400 border border-purple-500/30 hover:border-purple-500/60"
                       }`}
                     >
@@ -147,7 +147,7 @@ export function WhoDoesItBetter({ onComplete }: { onComplete: () => void }) {
           disabled={!allPicked}
           animate={allPicked ? { scale: [1, 1.04, 1] } : {}}
           transition={{ duration: 0.4 }}
-          className="w-full py-4 rounded-2xl font-black text-xl text-white btn-press transition-all disabled:opacity-40 disabled:cursor-not-allowed bg-gradient-to-r from-teal-500 to-purple-500 hover:from-teal-400 hover:to-purple-400 shadow-lg"
+          className="w-full py-4 rounded-2xl font-black text-xl text-slate-900 btn-press transition-all disabled:opacity-40 disabled:cursor-not-allowed bg-gradient-to-r from-sky-400 to-purple-500 hover:from-sky-300 hover:to-purple-400 shadow-lg"
         >
           {allPicked ? "Reveal All Answers!" : `Sort all 6 to continue (${Object.keys(picks).length}/6)`}
         </motion.button>
@@ -155,12 +155,12 @@ export function WhoDoesItBetter({ onComplete }: { onComplete: () => void }) {
 
       {revealed && !done && (
         <motion.div initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.6 }} className="space-y-3">
-          <div className={`p-4 rounded-2xl border text-center ${score >= 5 ? "bg-teal-500/20 border-teal-500/30" : "bg-purple-500/20 border-purple-500/30"}`}>
-            <div className={`text-2xl font-black ${score >= 5 ? "text-teal-300" : "text-purple-300"}`}>
+          <div className={`p-4 rounded-2xl border text-center ${score >= 5 ? "bg-mint-400/20 border-sky-200" : "bg-purple-500/20 border-purple-500/30"}`}>
+            <div className={`text-2xl font-black ${score >= 5 ? "text-sky-400" : "text-purple-300"}`}>
               {score}/6 Correct!
             </div>
           </div>
-          <button onClick={handleDone} className="w-full py-4 rounded-2xl font-black text-white bg-purple-500 hover:bg-purple-400 btn-press transition-colors">
+          <button onClick={handleDone} className="w-full py-4 rounded-2xl font-black text-slate-900 bg-purple-500 hover:bg-purple-400 btn-press transition-colors">
             Got it! →
           </button>
         </motion.div>

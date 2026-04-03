@@ -125,14 +125,14 @@ export function MelodyMaker({ onComplete }: { onComplete: () => void }) {
 
   if (phase === "done") {
     return (
-      <div className="p-4 sm:p-6 bg-space-900 rounded-xl border border-slate-700 space-y-4 text-center">
+      <div className="p-4 sm:p-6 bg-space-900 rounded-xl border border-slate-200 space-y-4 text-center">
         <motion.div initial={{ scale: 0.8, opacity: 0 }} animate={{ scale: 1, opacity: 1 }}>
           <p className="text-4xl mb-2">🎶</p>
-          <h3 className="text-xl font-bold text-white">Melody Created!</h3>
+          <h3 className="text-xl font-bold text-slate-900">Melody Created!</h3>
           <p className="text-violet-400 font-semibold mt-1">
             {countNotes(grid)} notes in your composition
           </p>
-          <p className="text-slate-300 text-sm mt-2">
+          <p className="text-slate-600 text-sm mt-2">
             {aiUsed
               ? "You collaborated with AI! Real music producers do the same — AI suggests patterns, humans make the creative choices."
               : "You composed this all on your own! AI can suggest patterns, but human creativity is what makes music special."}
@@ -147,10 +147,10 @@ export function MelodyMaker({ onComplete }: { onComplete: () => void }) {
   }
 
   return (
-    <div className="p-4 sm:p-6 bg-space-900 rounded-xl border border-slate-700 space-y-4">
+    <div className="p-4 sm:p-6 bg-space-900 rounded-xl border border-slate-200 space-y-4">
       <div className="text-center space-y-1">
-        <h3 className="text-xl font-bold text-white">Melody Maker</h3>
-        <p className="text-slate-300 text-sm">
+        <h3 className="text-xl font-bold text-slate-900">Melody Maker</h3>
+        <p className="text-slate-600 text-sm">
           Click cells to place notes, or let AI suggest a pattern! Then hit Play.
         </p>
       </div>
@@ -164,7 +164,7 @@ export function MelodyMaker({ onComplete }: { onComplete: () => void }) {
               <div
                 key={i}
                 className={`flex-1 text-center text-xs font-mono ${
-                  playCol === i ? "text-violet-400 font-bold" : "text-slate-500"
+                  playCol === i ? "text-violet-400 font-bold" : "text-slate-400"
                 }`}
               >
                 {i + 1}
@@ -188,8 +188,8 @@ export function MelodyMaker({ onComplete }: { onComplete: () => void }) {
                         ? `${NOTE_COLORS[note]} border-white/30 ${
                             isPlayHead ? "ring-2 ring-white scale-110" : ""
                           }`
-                        : `bg-space-800 border-slate-700 ${NOTE_HOVER[note]} ${
-                            isPlayHead ? "bg-slate-700/50" : ""
+                        : `bg-space-800 border-slate-200 ${NOTE_HOVER[note]} ${
+                            isPlayHead ? "bg-slate-100" : ""
                           }`
                     }`}
                   />
@@ -207,7 +207,7 @@ export function MelodyMaker({ onComplete }: { onComplete: () => void }) {
           whileTap={{ scale: 0.95 }}
           onClick={playMelody}
           disabled={playing || countNotes(grid) === 0}
-          className="px-4 py-2 bg-violet-600 hover:bg-violet-500 disabled:bg-slate-700 disabled:text-slate-500 text-white font-bold rounded-lg text-sm flex items-center gap-2"
+          className="px-4 py-2 bg-violet-600 hover:bg-violet-500 disabled:bg-slate-700 disabled:text-slate-400 text-slate-900 font-bold rounded-lg text-sm flex items-center gap-2"
         >
           {playing ? "♫ Playing..." : "▶ Play Melody"}
         </motion.button>
@@ -217,7 +217,7 @@ export function MelodyMaker({ onComplete }: { onComplete: () => void }) {
           whileTap={{ scale: 0.95 }}
           onClick={() => setShowAiMenu(!showAiMenu)}
           disabled={playing}
-          className="px-4 py-2 bg-purple-600 hover:bg-purple-500 disabled:bg-slate-700 text-white font-bold rounded-lg text-sm"
+          className="px-4 py-2 bg-purple-600 hover:bg-purple-500 disabled:bg-slate-700 text-slate-900 font-bold rounded-lg text-sm"
         >
           🤖 AI Suggest
         </motion.button>
@@ -227,7 +227,7 @@ export function MelodyMaker({ onComplete }: { onComplete: () => void }) {
           whileTap={{ scale: 0.95 }}
           onClick={clearGrid}
           disabled={playing}
-          className="px-4 py-2 bg-space-800 hover:bg-slate-700 border border-slate-700 text-slate-300 font-medium rounded-lg text-sm"
+          className="px-4 py-2 bg-space-800 hover:bg-slate-700 border border-slate-200 text-slate-600 font-medium rounded-lg text-sm"
         >
           Clear
         </motion.button>
@@ -238,14 +238,14 @@ export function MelodyMaker({ onComplete }: { onComplete: () => void }) {
         <motion.div
           initial={{ opacity: 0, y: -8 }}
           animate={{ opacity: 1, y: 0 }}
-          className="bg-space-800 rounded-lg border border-slate-700 p-3 space-y-2"
+          className="bg-space-800 rounded-lg border border-slate-200 p-3 space-y-2"
         >
           <p className="text-xs text-slate-400 text-center">Pick an AI pattern (you can edit it after!):</p>
           {AI_PATTERNS.map((pat, i) => (
             <button
               key={i}
               onClick={() => applyAiPattern(i)}
-              className="w-full text-left p-2 rounded-md border border-slate-700 hover:border-violet-400 bg-space-900 transition-all"
+              className="w-full text-left p-2 rounded-md border border-slate-200 hover:border-violet-400 bg-space-900 transition-all"
             >
               <p className="text-sm font-semibold text-violet-400">{pat.name}</p>
               <p className="text-xs text-slate-400">{pat.description}</p>
@@ -254,7 +254,7 @@ export function MelodyMaker({ onComplete }: { onComplete: () => void }) {
         </motion.div>
       )}
 
-      <p className="text-xs text-slate-500 text-center">
+      <p className="text-xs text-slate-400 text-center">
         Notes placed: {countNotes(grid)} — {countNotes(grid) === 0 ? "Click cells or use AI Suggest to get started!" : "Hit Play when you're ready!"}
       </p>
     </div>

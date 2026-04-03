@@ -142,10 +142,10 @@ export function WordMap({ onComplete }: { onComplete: () => void }) {
           🗺️
         </motion.div>
         <div>
-          <div className="text-4xl font-black text-white">
+          <div className="text-4xl font-black text-slate-900">
             {score}/{total}
           </div>
-          <div className="text-slate-300 mt-2">
+          <div className="text-slate-600 mt-2">
             {score >= total - 1
               ? "Amazing! You think in number-space like an AI!"
               : score >= total / 2
@@ -184,7 +184,7 @@ export function WordMap({ onComplete }: { onComplete: () => void }) {
         ))}
       </div>
 
-      <div className="bg-space-800 rounded-2xl p-5 border border-slate-700">
+      <div className="bg-space-800 rounded-2xl p-5 border border-slate-200">
         <div className="text-xs font-black text-purple-400 mb-1">
           {currentRound.title.toUpperCase()}
         </div>
@@ -204,10 +204,10 @@ export function WordMap({ onComplete }: { onComplete: () => void }) {
                   className={`relative p-4 rounded-xl border-2 text-left transition-all ${
                     revealedWords.has(item.word)
                       ? "border-purple-500/50 bg-purple-500/10"
-                      : "border-slate-700 bg-space-900 hover:border-purple-500/30"
+                      : "border-slate-200 bg-space-900 hover:border-purple-500/30"
                   }`}
                 >
-                  <div className="font-black text-white text-lg">{item.word}</div>
+                  <div className="font-black text-slate-900 text-lg">{item.word}</div>
                   <AnimatePresence>
                     {revealedWords.has(item.word) && (
                       <motion.div
@@ -242,7 +242,7 @@ export function WordMap({ onComplete }: { onComplete: () => void }) {
             {revealedWords.size >= 4 && (
               <button
                 onClick={nextRound}
-                className="w-full py-4 rounded-xl font-black text-white bg-purple-500 hover:bg-purple-400 btn-press transition-colors"
+                className="w-full py-4 rounded-xl font-black text-slate-900 bg-purple-500 hover:bg-purple-400 btn-press transition-colors"
               >
                 Next: Sort the Words →
               </button>
@@ -259,7 +259,7 @@ export function WordMap({ onComplete }: { onComplete: () => void }) {
                 {remainingWords.map((word) => (
                   <div
                     key={word}
-                    className="bg-space-900 border border-slate-600 rounded-lg px-3 py-2 font-bold text-white text-sm"
+                    className="bg-space-900 border border-slate-300 rounded-lg px-3 py-2 font-bold text-slate-900 text-sm"
                   >
                     {word}
                   </div>
@@ -288,7 +288,7 @@ export function WordMap({ onComplete }: { onComplete: () => void }) {
                     {sorted[cluster.label].map((word) => (
                       <span
                         key={word}
-                        className="rounded-lg px-2 py-1 text-sm font-bold text-white"
+                        className="rounded-lg px-2 py-1 text-sm font-bold text-slate-900"
                         style={{ background: cluster.color + "40" }}
                       >
                         {word}
@@ -300,7 +300,7 @@ export function WordMap({ onComplete }: { onComplete: () => void }) {
                           <button
                             key={word}
                             onClick={() => sortWord(word, cluster.label)}
-                            className="rounded-lg px-2 py-1 text-xs font-bold border border-dashed transition-colors hover:bg-white/10"
+                            className="rounded-lg px-2 py-1 text-xs font-bold border border-dashed transition-colors hover:bg-slate-100"
                             style={{ borderColor: cluster.color + "60", color: cluster.color }}
                           >
                             + {word}
@@ -326,7 +326,7 @@ export function WordMap({ onComplete }: { onComplete: () => void }) {
                 </div>
                 <button
                   onClick={nextRound}
-                  className="w-full py-4 rounded-xl font-black text-white bg-purple-500 hover:bg-purple-400 btn-press transition-colors"
+                  className="w-full py-4 rounded-xl font-black text-slate-900 bg-purple-500 hover:bg-purple-400 btn-press transition-colors"
                 >
                   Next: Spot the Odd One Out →
                 </button>
@@ -338,7 +338,7 @@ export function WordMap({ onComplete }: { onComplete: () => void }) {
         {/* Round 3: Odd one out */}
         {round === 2 && (
           <div className="space-y-4">
-            <div className="text-xs text-slate-500 font-bold text-right">
+            <div className="text-xs text-slate-400 font-bold text-right">
               {oddIdx + 1}/{ODD_ONE_OUT_QUESTIONS.length}
             </div>
             <div className="grid grid-cols-2 gap-3">
@@ -357,8 +357,8 @@ export function WordMap({ onComplete }: { onComplete: () => void }) {
                           ? "border-green-500 bg-green-500/20 text-green-300"
                           : word === selectedOdd
                           ? "border-red-500 bg-red-500/20 text-red-300"
-                          : "border-slate-700 bg-space-900 text-slate-500"
-                        : "border-slate-700 bg-space-900 text-white hover:border-purple-500/50"
+                          : "border-slate-200 bg-space-900 text-slate-400"
+                        : "border-slate-200 bg-space-900 text-slate-900 hover:border-purple-500/50"
                     }`}
                   >
                     {word}
@@ -377,13 +377,13 @@ export function WordMap({ onComplete }: { onComplete: () => void }) {
                   }`}
                 >
                   {selectedOdd === ODD_ONE_OUT_QUESTIONS[oddIdx].odd ? "Correct! " : `The odd one is "${ODD_ONE_OUT_QUESTIONS[oddIdx].odd}." `}
-                  <span className="font-normal text-slate-300">
+                  <span className="font-normal text-slate-600">
                     {ODD_ONE_OUT_QUESTIONS[oddIdx].explanation}
                   </span>
                 </div>
                 <button
                   onClick={nextRound}
-                  className="w-full py-4 rounded-xl font-black text-white bg-purple-500 hover:bg-purple-400 btn-press transition-colors"
+                  className="w-full py-4 rounded-xl font-black text-slate-900 bg-purple-500 hover:bg-purple-400 btn-press transition-colors"
                 >
                   {oddIdx < ODD_ONE_OUT_QUESTIONS.length - 1
                     ? "Next Question →"

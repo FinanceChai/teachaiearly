@@ -15,10 +15,10 @@ export function LockedInteractive({
   }, [onComplete]);
 
   return (
-    <div className="bg-space-800 rounded-2xl p-8 border border-slate-700 text-center space-y-4">
+    <div className="bg-space-800 rounded-2xl p-8 border border-slate-200 text-center space-y-4">
       <div className="text-5xl">🔒</div>
       <div>
-        <div className="font-black text-white text-xl">{title}</div>
+        <div className="font-black text-slate-900 text-xl">{title}</div>
         <div className="text-slate-400 text-sm mt-2">
           This interactive activity is part of Explorer Pro.
         </div>

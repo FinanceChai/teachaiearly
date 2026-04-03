@@ -81,18 +81,18 @@ export function AlgorithmAudit({ onComplete }: { onComplete: () => void }) {
       <motion.div
         initial={{ opacity: 0, scale: 0.9 }}
         animate={{ opacity: 1, scale: 1 }}
-        className="bg-space-800 rounded-2xl p-6 border border-slate-700 text-center"
+        className="bg-space-800 rounded-2xl p-6 border border-slate-200 text-center"
       >
         <div className="text-5xl mb-4">💡</div>
-        <h2 className="text-2xl font-bold text-white mb-3">The Algorithm Effect</h2>
+        <h2 className="text-2xl font-bold text-slate-900 mb-3">The Algorithm Effect</h2>
         <div className="bg-space-900 rounded-xl p-4 mb-5 text-left">
-          <p className="text-slate-300 text-sm mb-3">
+          <p className="text-slate-600 text-sm mb-3">
             What just happened to you is what happens to <span className="text-cyan-400 font-bold">billions of people every day</span>.
           </p>
-          <p className="text-slate-300 text-sm mb-3">
+          <p className="text-slate-600 text-sm mb-3">
             Algorithms watch what you click, like, and watch. Then they show you <span className="text-cyan-400 font-bold">more of the same</span> — creating a &ldquo;bubble&rdquo; where you only see things you already agree with.
           </p>
-          <p className="text-slate-300 text-sm">
+          <p className="text-slate-600 text-sm">
             This means you might <span className="text-cyan-500 font-bold">never discover</span> amazing things outside your bubble — unless you actively look for them!
           </p>
         </div>
@@ -109,9 +109,9 @@ export function AlgorithmAudit({ onComplete }: { onComplete: () => void }) {
   }
 
   return (
-    <div className="bg-space-800 rounded-2xl p-6 border border-slate-700">
+    <div className="bg-space-800 rounded-2xl p-6 border border-slate-200">
       <div className="flex justify-between items-center mb-4">
-        <h2 className="text-lg font-bold text-white">🔍 Algorithm Audit</h2>
+        <h2 className="text-lg font-bold text-slate-900">🔍 Algorithm Audit</h2>
         <span className="text-cyan-400 text-sm font-mono">
           {phase === "pick" ? `Selected: ${selected.length}/4` : phase === "results" ? "Your Bubble" : "Hidden Content"}
         </span>
@@ -120,7 +120,7 @@ export function AlgorithmAudit({ onComplete }: { onComplete: () => void }) {
       <AnimatePresence mode="wait">
         {phase === "pick" && (
           <motion.div key="pick" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}>
-            <p className="text-slate-300 text-sm mb-4">
+            <p className="text-slate-600 text-sm mb-4">
               Here&apos;s your social media feed! Pick <span className="text-cyan-400 font-bold">4 posts</span> you&apos;d actually like or watch:
             </p>
             <div className="grid grid-cols-2 gap-3 mb-4">
@@ -134,15 +134,15 @@ export function AlgorithmAudit({ onComplete }: { onComplete: () => void }) {
                     selected.includes(post.id)
                       ? "border-cyan-500 bg-cyan-500/10"
                       : selected.length >= 4
-                      ? "border-slate-700 bg-space-900 opacity-40"
-                      : "border-slate-700 bg-space-900 hover:border-slate-500"
+                      ? "border-slate-200 bg-space-900 opacity-40"
+                      : "border-slate-200 bg-space-900 hover:border-slate-500"
                   }`}
                 >
                   <div className="flex items-start gap-2">
                     <span className="text-2xl">{post.emoji}</span>
                     <div>
                       <div className="text-xs text-cyan-400">{post.category}</div>
-                      <div className="text-white text-sm">{post.description}</div>
+                      <div className="text-slate-900 text-sm">{post.description}</div>
                     </div>
                   </div>
                   {selected.includes(post.id) && (
@@ -157,7 +157,7 @@ export function AlgorithmAudit({ onComplete }: { onComplete: () => void }) {
               onClick={() => selected.length === 4 && setPhase("results")}
               disabled={selected.length !== 4}
               className={`w-full py-3 font-bold rounded-xl ${
-                selected.length === 4 ? "bg-cyan-500 text-space-900" : "bg-slate-700 text-slate-500 cursor-not-allowed"
+                selected.length === 4 ? "bg-cyan-500 text-space-900" : "bg-slate-700 text-slate-400 cursor-not-allowed"
               }`}
             >
               See What the Algorithm Does →
@@ -168,14 +168,14 @@ export function AlgorithmAudit({ onComplete }: { onComplete: () => void }) {
         {phase === "results" && (
           <motion.div key="results" initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0 }}>
             <div className="bg-space-900 rounded-xl p-4 mb-4">
-              <div className="text-xs text-slate-500 mb-1">🤖 ALGORITHM ANALYSIS</div>
-              <p className="text-slate-300 text-sm mb-2">
+              <div className="text-xs text-slate-400 mb-1">🤖 ALGORITHM ANALYSIS</div>
+              <p className="text-slate-600 text-sm mb-2">
                 Based on your likes, the AI thinks you enjoy:{" "}
                 <span className="text-cyan-400 font-bold">{topTags.join(", ")}</span>
               </p>
             </div>
 
-            <h3 className="text-white font-bold mb-2">📱 Your New Recommendations:</h3>
+            <h3 className="text-slate-900 font-bold mb-2">📱 Your New Recommendations:</h3>
             <div className="space-y-2 mb-4">
               {recommended.map((post) => (
                 <motion.div
@@ -187,7 +187,7 @@ export function AlgorithmAudit({ onComplete }: { onComplete: () => void }) {
                   <span className="text-2xl">{post.emoji}</span>
                   <div>
                     <div className="text-xs text-cyan-400">{post.category} — Recommended for you</div>
-                    <div className="text-white text-sm">{post.description}</div>
+                    <div className="text-slate-900 text-sm">{post.description}</div>
                   </div>
                 </motion.div>
               ))}
@@ -202,13 +202,13 @@ export function AlgorithmAudit({ onComplete }: { onComplete: () => void }) {
                   <span className="text-2xl">{rec.emoji}</span>
                   <div>
                     <div className="text-xs text-cyan-400">{rec.category} — Recommended for you</div>
-                    <div className="text-white text-sm">{rec.description}</div>
+                    <div className="text-slate-900 text-sm">{rec.description}</div>
                   </div>
                 </motion.div>
               ))}
             </div>
 
-            <p className="text-slate-300 text-sm mb-4">
+            <p className="text-slate-600 text-sm mb-4">
               Notice how everything looks similar? The algorithm is showing you <span className="text-cyan-400 font-bold">more of what you already like</span>.
               But what about everything else?
             </p>
@@ -228,7 +228,7 @@ export function AlgorithmAudit({ onComplete }: { onComplete: () => void }) {
           <motion.div key="hidden" initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0 }}>
             <div className="bg-red-500/10 border border-red-500/30 rounded-xl p-4 mb-4">
               <h3 className="text-red-400 font-bold mb-2">🚫 Hidden from Your Feed:</h3>
-              <p className="text-slate-300 text-sm mb-3">
+              <p className="text-slate-600 text-sm mb-3">
                 The algorithm decided you wouldn&apos;t be interested in these — so you&apos;d <span className="text-red-400 font-bold">never see them</span>:
               </p>
               <div className="space-y-2">
@@ -242,7 +242,7 @@ export function AlgorithmAudit({ onComplete }: { onComplete: () => void }) {
                     <span className="text-2xl">{post.emoji}</span>
                     <div>
                       <div className="text-xs text-red-400/60">{post.category} — Filtered out</div>
-                      <div className="text-white text-sm">{post.description}</div>
+                      <div className="text-slate-900 text-sm">{post.description}</div>
                     </div>
                   </motion.div>
                 ))}
@@ -251,9 +251,9 @@ export function AlgorithmAudit({ onComplete }: { onComplete: () => void }) {
 
             <div className="bg-space-900 rounded-xl p-4 mb-4">
               <h3 className="text-cyan-400 font-bold mb-2">🫧 You&apos;re in a Filter Bubble!</h3>
-              <p className="text-slate-300 text-sm">
+              <p className="text-slate-600 text-sm">
                 The algorithm only showed you things matching your interests. That means you&apos;d miss out on awesome content about{" "}
-                <span className="text-white font-bold">{hidden.map((h) => h.category.toLowerCase()).join(" and ")}</span>.
+                <span className="text-slate-900 font-bold">{hidden.map((h) => h.category.toLowerCase()).join(" and ")}</span>.
                 Imagine this happening every day for years — your world gets smaller and smaller!
               </p>
             </div>

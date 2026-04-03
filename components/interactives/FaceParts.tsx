@@ -86,8 +86,8 @@ export function FaceParts({ onComplete }: { onComplete: () => void }) {
       <div className="text-center space-y-5 py-4">
         <motion.div initial={{ scale: 0 }} animate={{ scale: 1 }} transition={{ type: "spring", stiffness: 300, damping: 18 }} className="text-7xl">🔬</motion.div>
         <div>
-          <div className="text-4xl font-black text-white">{score}/{MATCH_ROUNDS.length}</div>
-          <div className="text-slate-300 mt-2">
+          <div className="text-4xl font-black text-slate-900">{score}/{MATCH_ROUNDS.length}</div>
+          <div className="text-slate-600 mt-2">
             {score >= MATCH_ROUNDS.length - 1 ? "Excellent! You understand both the power and problems of face AI." : score >= MATCH_ROUNDS.length / 2 ? "Good understanding of facial recognition!" : "Face AI is complex — power comes with responsibility."}
           </div>
         </div>
@@ -108,14 +108,14 @@ export function FaceParts({ onComplete }: { onComplete: () => void }) {
             <div key={i} className={`flex-1 h-2 rounded-full transition-all ${i < factIdx ? "bg-pink-500" : i === factIdx ? "bg-pink-400" : "bg-slate-700"}`} />
           ))}
         </div>
-        <div className="bg-space-800 rounded-2xl p-5 border border-slate-700">
+        <div className="bg-space-800 rounded-2xl p-5 border border-slate-200">
           <div className="text-xs font-black text-pink-400 mb-1">FACE GEOMETRY</div>
           <div className="text-sm text-slate-400 font-bold mb-4">AI measures your face like a map — here&apos;s what it looks for:</div>
 
-          <motion.div key={factIdx} initial={{ opacity: 0, x: 20 }} animate={{ opacity: 1, x: 0 }} className="bg-space-900 rounded-xl p-5 border border-slate-600 text-center mb-4">
+          <motion.div key={factIdx} initial={{ opacity: 0, x: 20 }} animate={{ opacity: 1, x: 0 }} className="bg-space-900 rounded-xl p-5 border border-slate-300 text-center mb-4">
             <div className="text-5xl mb-3">{fact.icon}</div>
-            <div className="text-xl font-black text-white mb-2">{fact.part}</div>
-            <div className="text-slate-300 text-sm mb-3">{fact.description}</div>
+            <div className="text-xl font-black text-slate-900 mb-2">{fact.part}</div>
+            <div className="text-slate-600 text-sm mb-3">{fact.description}</div>
             <div className="inline-block bg-pink-500/20 border border-pink-500/30 rounded-lg px-3 py-1 text-xs font-bold text-pink-300">
               Typical: {fact.measurement}
             </div>
@@ -135,7 +135,7 @@ export function FaceParts({ onComplete }: { onComplete: () => void }) {
               if (factIdx < FACE_FACTS.length - 1) setFactIdx((f) => f + 1);
               else setPhase("match");
             }}
-            className="w-full py-4 rounded-xl font-black text-white bg-pink-500 hover:bg-pink-400 btn-press transition-colors"
+            className="w-full py-4 rounded-xl font-black text-slate-900 bg-pink-500 hover:bg-pink-400 btn-press transition-colors"
           >
             {factIdx < FACE_FACTS.length - 1 ? "Next Measurement →" : "Test Your Knowledge →"}
           </button>
@@ -156,18 +156,18 @@ export function FaceParts({ onComplete }: { onComplete: () => void }) {
         <span className="text-xs font-bold text-yellow-400">Score: {score}</span>
       </div>
 
-      <div className="bg-space-800 rounded-2xl p-5 border border-slate-700">
+      <div className="bg-space-800 rounded-2xl p-5 border border-slate-200">
         <div className="text-xs font-black text-pink-400 mb-3">FACE RECOGNITION SCENARIOS</div>
 
-        <div className="bg-space-900 rounded-xl p-4 border border-slate-600 mb-4">
+        <div className="bg-space-900 rounded-xl p-4 border border-slate-300 mb-4">
           <div className="text-sm text-slate-400 mb-2 italic">{round.scenario}</div>
-          <div className="text-white font-black">{round.question}</div>
+          <div className="text-slate-900 font-black">{round.question}</div>
         </div>
 
         {picked === null ? (
           <div className="space-y-2">
             {round.options.map((opt, i) => (
-              <motion.button key={i} onClick={() => pickAnswer(i)} whileTap={{ scale: 0.98 }} className="w-full text-left p-3 rounded-xl border border-slate-700 bg-space-900 font-bold text-white text-sm hover:border-pink-500/50 transition-colors">
+              <motion.button key={i} onClick={() => pickAnswer(i)} whileTap={{ scale: 0.98 }} className="w-full text-left p-3 rounded-xl border border-slate-200 bg-space-900 font-bold text-slate-900 text-sm hover:border-pink-500/50 transition-colors">
                 {opt}
               </motion.button>
             ))}
@@ -176,9 +176,9 @@ export function FaceParts({ onComplete }: { onComplete: () => void }) {
           <motion.div initial={{ opacity: 0, y: 8 }} animate={{ opacity: 1, y: 0 }} className="space-y-3">
             <div className={`p-4 rounded-xl text-sm font-bold ${picked === round.correct ? "bg-green-500/20 text-green-300" : "bg-red-500/20 text-red-300"}`}>
               {picked === round.correct ? "Correct! " : `Answer: "${round.options[round.correct]}." `}
-              <span className="font-normal text-slate-300">{round.explanation}</span>
+              <span className="font-normal text-slate-600">{round.explanation}</span>
             </div>
-            <button onClick={nextRound} className="w-full py-4 rounded-xl font-black text-white bg-pink-500 hover:bg-pink-400 btn-press transition-colors">
+            <button onClick={nextRound} className="w-full py-4 rounded-xl font-black text-slate-900 bg-pink-500 hover:bg-pink-400 btn-press transition-colors">
               {roundIdx < MATCH_ROUNDS.length - 1 ? "Next Scenario →" : "See Results →"}
             </button>
           </motion.div>

@@ -112,8 +112,8 @@ export function BeatBuilder({ onComplete }: { onComplete: () => void }) {
           {score >= QUIZ.length - 1 ? "🎵" : "🎶"}
         </motion.div>
         <div>
-          <div className="text-4xl font-black text-white">{score}/{QUIZ.length}</div>
-          <div className="text-slate-300 mt-2">
+          <div className="text-4xl font-black text-slate-900">{score}/{QUIZ.length}</div>
+          <div className="text-slate-600 mt-2">
             {score === QUIZ.length ? "Perfect! You understand AI music generation." : score >= 2 ? "Great understanding of AI and music!" : "Music AI is fascinating — now you know the basics!"}
           </div>
         </div>
@@ -134,13 +134,13 @@ export function BeatBuilder({ onComplete }: { onComplete: () => void }) {
             <div key={i} className={`flex-1 h-2 rounded-full transition-all ${i < quizIdx ? "bg-blue-500" : i === quizIdx ? "bg-blue-400" : "bg-slate-700"}`} />
           ))}
         </div>
-        <div className="bg-space-800 rounded-2xl p-5 border border-slate-700">
+        <div className="bg-space-800 rounded-2xl p-5 border border-slate-200">
           <div className="text-xs font-black text-blue-400 mb-1">MUSIC AI QUIZ</div>
-          <div className="text-white font-black text-lg mb-4">{q.question}</div>
+          <div className="text-slate-900 font-black text-lg mb-4">{q.question}</div>
           {picked === null ? (
             <div className="space-y-2">
               {q.options.map((opt, i) => (
-                <motion.button key={i} onClick={() => pickAnswer(i)} whileTap={{ scale: 0.98 }} className="w-full text-left p-3 rounded-xl border border-slate-700 bg-space-900 font-bold text-white text-sm hover:border-blue-500/50 transition-colors">
+                <motion.button key={i} onClick={() => pickAnswer(i)} whileTap={{ scale: 0.98 }} className="w-full text-left p-3 rounded-xl border border-slate-200 bg-space-900 font-bold text-slate-900 text-sm hover:border-blue-500/50 transition-colors">
                   {opt}
                 </motion.button>
               ))}
@@ -149,9 +149,9 @@ export function BeatBuilder({ onComplete }: { onComplete: () => void }) {
             <motion.div initial={{ opacity: 0, y: 8 }} animate={{ opacity: 1, y: 0 }} className="space-y-3">
               <div className={`p-4 rounded-xl text-sm font-bold ${picked === q.correct ? "bg-green-500/20 text-green-300" : "bg-red-500/20 text-red-300"}`}>
                 {picked === q.correct ? "Correct! " : `Answer: "${q.options[q.correct]}." `}
-                <span className="font-normal text-slate-300">{q.explanation}</span>
+                <span className="font-normal text-slate-600">{q.explanation}</span>
               </div>
-              <button onClick={nextQuiz} className="w-full py-4 rounded-xl font-black text-white bg-blue-500 hover:bg-blue-400 btn-press transition-colors">
+              <button onClick={nextQuiz} className="w-full py-4 rounded-xl font-black text-slate-900 bg-blue-500 hover:bg-blue-400 btn-press transition-colors">
                 {quizIdx < QUIZ.length - 1 ? "Next Question" : "See Results"} &rarr;
               </button>
             </motion.div>
@@ -170,13 +170,13 @@ export function BeatBuilder({ onComplete }: { onComplete: () => void }) {
             <div key={i} className={`flex-1 h-2 rounded-full transition-all ${i < factIdx ? "bg-blue-500" : i === factIdx ? "bg-blue-400" : "bg-slate-700"}`} />
           ))}
         </div>
-        <div className="bg-space-800 rounded-2xl p-5 border border-slate-700">
+        <div className="bg-space-800 rounded-2xl p-5 border border-slate-200">
           <div className="text-xs font-black text-blue-400 mb-1">HOW AI MAKES MUSIC</div>
 
-          <motion.div key={factIdx} initial={{ opacity: 0, x: 20 }} animate={{ opacity: 1, x: 0 }} className="bg-space-900 rounded-xl p-5 border border-slate-600 text-center mb-4">
+          <motion.div key={factIdx} initial={{ opacity: 0, x: 20 }} animate={{ opacity: 1, x: 0 }} className="bg-space-900 rounded-xl p-5 border border-slate-300 text-center mb-4">
             <div className="text-5xl mb-3">{fact.icon}</div>
-            <div className="text-xl font-black text-white mb-2">{fact.title}</div>
-            <div className="text-slate-300 text-sm">{fact.text}</div>
+            <div className="text-xl font-black text-slate-900 mb-2">{fact.title}</div>
+            <div className="text-slate-600 text-sm">{fact.text}</div>
           </motion.div>
 
           <button
@@ -184,7 +184,7 @@ export function BeatBuilder({ onComplete }: { onComplete: () => void }) {
               if (factIdx < FACTS.length - 1) setFactIdx((f) => f + 1);
               else setPhase("quiz");
             }}
-            className="w-full py-4 rounded-xl font-black text-white bg-blue-500 hover:bg-blue-400 btn-press transition-colors"
+            className="w-full py-4 rounded-xl font-black text-slate-900 bg-blue-500 hover:bg-blue-400 btn-press transition-colors"
           >
             {factIdx < FACTS.length - 1 ? "Next" : "Test Your Knowledge"} &rarr;
           </button>
@@ -197,7 +197,7 @@ export function BeatBuilder({ onComplete }: { onComplete: () => void }) {
   const pattern = PATTERNS[beatIdx];
   return (
     <div className="space-y-5">
-      <div className="bg-space-800 rounded-2xl p-5 border border-slate-700">
+      <div className="bg-space-800 rounded-2xl p-5 border border-slate-200">
         <div className="text-xs font-black text-blue-400 mb-1">BEAT BUILDER</div>
         <div className="text-sm text-slate-400 font-bold mb-4">
           Tap cells to toggle beats. AI learns patterns like these from thousands of songs.
@@ -206,14 +206,14 @@ export function BeatBuilder({ onComplete }: { onComplete: () => void }) {
         {/* Pattern selector */}
         <div className="flex gap-2 mb-4">
           {PATTERNS.map((p, i) => (
-            <button key={i} onClick={() => loadPattern(i)} className={`px-3 py-2 rounded-xl text-sm font-bold transition-colors ${i === beatIdx ? "bg-blue-500/20 text-blue-300 border border-blue-500/40" : "bg-space-900 text-slate-400 border border-slate-700"}`}>
+            <button key={i} onClick={() => loadPattern(i)} className={`px-3 py-2 rounded-xl text-sm font-bold transition-colors ${i === beatIdx ? "bg-blue-500/20 text-blue-300 border border-blue-500/40" : "bg-space-900 text-slate-400 border border-slate-200"}`}>
               {p.emoji} {p.name}
             </button>
           ))}
         </div>
 
         {/* Beat grid */}
-        <div className="bg-space-900 rounded-xl p-4 border border-slate-600 mb-4">
+        <div className="bg-space-900 rounded-xl p-4 border border-slate-300 mb-4">
           {pattern.grid.map((row, rIdx) => (
             <div key={rIdx} className="flex items-center gap-2 mb-2 last:mb-0">
               <div className="w-14 text-xs font-bold text-slate-400 text-right">{row.instrument}</div>
@@ -224,7 +224,7 @@ export function BeatBuilder({ onComplete }: { onComplete: () => void }) {
                     onClick={() => toggleCell(rIdx, cIdx)}
                     whileTap={{ scale: 0.85 }}
                     className={`flex-1 h-10 rounded-lg font-black text-sm transition-all ${
-                      hit ? "bg-blue-500 text-white border border-blue-400" : "bg-space-800 border border-slate-700 text-slate-600"
+                      hit ? "bg-blue-500 text-slate-900 border border-blue-400" : "bg-space-800 border border-slate-200 text-slate-600"
                     }`}
                   >
                     {hit ? "●" : "○"}
@@ -235,11 +235,11 @@ export function BeatBuilder({ onComplete }: { onComplete: () => void }) {
           ))}
         </div>
 
-        <div className="bg-blue-500/10 border border-blue-500/30 rounded-xl p-3 text-sm text-slate-300 mb-4">
+        <div className="bg-blue-500/10 border border-blue-500/30 rounded-xl p-3 text-sm text-slate-600 mb-4">
           <strong className="text-blue-300">{pattern.name}: </strong>{pattern.description}
         </div>
 
-        <button onClick={() => setPhase("facts")} className="w-full py-4 rounded-xl font-black text-white bg-blue-500 hover:bg-blue-400 btn-press transition-colors">
+        <button onClick={() => setPhase("facts")} className="w-full py-4 rounded-xl font-black text-slate-900 bg-blue-500 hover:bg-blue-400 btn-press transition-colors">
           How AI Makes Music &rarr;
         </button>
       </div>

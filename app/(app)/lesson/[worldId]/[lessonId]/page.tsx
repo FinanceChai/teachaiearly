@@ -356,11 +356,11 @@ export default function LessonPage() {
   return (
     <div className="min-h-screen bg-space-900">
       {/* Top bar */}
-      <div className="sticky top-0 z-40 bg-space-900/90 backdrop-blur border-b border-slate-800">
+      <div className="sticky top-0 z-40 bg-space-900/90 backdrop-blur border-b border-slate-200">
         <div className="max-w-2xl mx-auto px-4 py-3 flex items-center gap-4">
           <button
             onClick={() => router.push(`/world/${worldId}`)}
-            className="text-slate-400 hover:text-white font-bold text-sm transition-colors"
+            className="text-slate-400 hover:text-sky-600 font-bold text-sm transition-colors"
           >
             ✕
           </button>
@@ -396,7 +396,7 @@ export default function LessonPage() {
               <div className="text-xs font-black mb-2" style={{ color: world.hex }}>
                 {isChallenge ? "CHALLENGE" : `WORLD ${world.id} · LESSON`}
               </div>
-              <h1 className="text-3xl font-black text-white leading-tight">{title}</h1>
+              <h1 className="text-3xl font-black text-slate-900 leading-tight">{title}</h1>
             </div>
 
             <div
@@ -404,15 +404,15 @@ export default function LessonPage() {
               style={{ background: world.hex + "15", borderColor: world.hex + "40" }}
             >
               <div className="text-xs font-black text-slate-400 mb-3">THE BIG IDEA</div>
-              <p className="text-white text-lg leading-relaxed font-semibold">{concept}</p>
+              <p className="text-slate-900 text-lg leading-relaxed font-semibold">{concept}</p>
             </div>
 
-            <div className="bg-space-800 rounded-2xl p-5 border border-slate-700">
+            <div className="bg-space-800 rounded-2xl p-5 border border-slate-200">
               <div className="text-xs font-black text-slate-400 mb-2">COMING UP</div>
               <div className="flex items-center gap-3">
                 <span className="text-2xl">🎮</span>
                 <div>
-                  <div className="font-black text-white">{interactiveTitle}</div>
+                  <div className="font-black text-slate-900">{interactiveTitle}</div>
                   <div className="text-xs text-slate-400">Interactive activity</div>
                 </div>
               </div>
@@ -420,7 +420,7 @@ export default function LessonPage() {
 
             <button
               onClick={handleContinue}
-              className="w-full py-5 rounded-2xl font-black text-xl text-white btn-press transition-all"
+              className="w-full py-5 rounded-2xl font-black text-xl text-slate-900 btn-press transition-all"
               style={{ background: `linear-gradient(135deg, ${world.hex}, ${world.hex}bb)` }}
             >
               Let's Go! →
@@ -435,7 +435,7 @@ export default function LessonPage() {
               <div className="text-xs font-black mb-2" style={{ color: world.hex }}>
                 INTERACTIVE
               </div>
-              <h2 className="text-2xl font-black text-white">{interactiveTitle}</h2>
+              <h2 className="text-2xl font-black text-slate-900">{interactiveTitle}</h2>
             </div>
 
             {renderInteractive()}
@@ -443,7 +443,7 @@ export default function LessonPage() {
             {interactiveDone && (
               <button
                 onClick={handleContinue}
-                className="w-full py-5 rounded-2xl font-black text-xl text-white btn-press transition-all mt-4"
+                className="w-full py-5 rounded-2xl font-black text-xl text-slate-900 btn-press transition-all mt-4"
                 style={{ background: `linear-gradient(135deg, ${world.hex}, ${world.hex}bb)` }}
               >
                 Continue →
@@ -457,7 +457,7 @@ export default function LessonPage() {
           <div className="space-y-6">
             <div className="text-center py-4">
               <div className="text-7xl mb-4 animate-float inline-block">🍽️</div>
-              <h2 className="text-2xl font-black text-white">Dinner Table Takeaway</h2>
+              <h2 className="text-2xl font-black text-slate-900">Dinner Table Takeaway</h2>
               <p className="text-slate-400 mt-2">Tell someone in your family tonight:</p>
             </div>
 
@@ -465,14 +465,14 @@ export default function LessonPage() {
               className="p-7 rounded-3xl text-center border"
               style={{ background: world.hex + "15", borderColor: world.hex + "40" }}
             >
-              <p className="text-xl font-black text-white leading-relaxed">
+              <p className="text-xl font-black text-slate-900 leading-relaxed">
                 "{takeaway}"
               </p>
             </div>
 
             <button
               onClick={handleContinue}
-              className="w-full py-5 rounded-2xl font-black text-xl text-white btn-press transition-all"
+              className="w-full py-5 rounded-2xl font-black text-xl text-slate-900 btn-press transition-all"
               style={{ background: `linear-gradient(135deg, ${world.hex}, ${world.hex}bb)` }}
             >
               I'll share it! →
@@ -487,11 +487,11 @@ export default function LessonPage() {
               {isChallenge ? world.challenge.badgeEmoji : "⭐"}
             </div>
             <div>
-              <h2 className="text-3xl font-black text-white">
+              <h2 className="text-3xl font-black text-slate-900">
                 {isChallenge ? "Badge Earned!" : "Lesson Complete!"}
               </h2>
               {isChallenge && (
-                <p className="text-slate-300 mt-2 text-lg">
+                <p className="text-slate-600 mt-2 text-lg">
                   You earned the <strong style={{ color: world.hex }}>{world.challenge.badgeName}</strong> badge!
                 </p>
               )}
@@ -518,7 +518,7 @@ export default function LessonPage() {
                     }),
                   });
                 }}
-                className="w-full py-4 rounded-2xl font-bold text-lg text-teal-400 bg-teal-500/10 hover:bg-teal-500/20 border border-teal-500/30 btn-press transition-all"
+                className="w-full py-4 rounded-2xl font-bold text-lg text-sky-500 bg-mint-400/10 hover:bg-mint-400/20 border border-sky-200 btn-press transition-all"
               >
                 Download Certificate
               </button>
@@ -526,7 +526,7 @@ export default function LessonPage() {
 
             <button
               onClick={() => router.push(`/world/${worldId}`)}
-              className="w-full py-5 rounded-2xl font-black text-xl text-white btn-press transition-all"
+              className="w-full py-5 rounded-2xl font-black text-xl text-slate-900 btn-press transition-all"
               style={{ background: `linear-gradient(135deg, ${world.hex}, ${world.hex}bb)` }}
             >
               Back to World {worldId} →

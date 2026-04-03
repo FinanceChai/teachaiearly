@@ -79,8 +79,8 @@ export function GuessTheNext({ onComplete }: { onComplete: () => void }) {
           🔮
         </motion.div>
         <div>
-          <div className="text-4xl font-black text-white">{finalScore}/5</div>
-          <div className="text-slate-300 mt-2">{finalScore >= 4 ? "Excellent pattern spotter! You think like an AI." : finalScore >= 3 ? "Good job — patterns can be tricky!" : "Patterns are AI's superpower. Keep practicing!"}</div>
+          <div className="text-4xl font-black text-slate-900">{finalScore}/5</div>
+          <div className="text-slate-600 mt-2">{finalScore >= 4 ? "Excellent pattern spotter! You think like an AI." : finalScore >= 3 ? "Good job — patterns can be tricky!" : "Patterns are AI's superpower. Keep practicing!"}</div>
         </div>
         <div className="grid grid-cols-5 gap-2">
           {answers.map((correct, i) => (
@@ -116,7 +116,7 @@ export function GuessTheNext({ onComplete }: { onComplete: () => void }) {
         <span className="text-xs text-slate-400 font-bold">{current + 1}/5</span>
       </div>
 
-      <div className="bg-space-800 rounded-2xl p-5 border border-slate-700">
+      <div className="bg-space-800 rounded-2xl p-5 border border-slate-200">
         <div className="text-xs font-black text-green-400 mb-1">{seq.title.toUpperCase()}</div>
         <div className="text-sm text-slate-400 font-bold mb-4">Tap the answer that comes next in the sequence</div>
 
@@ -128,7 +128,7 @@ export function GuessTheNext({ onComplete }: { onComplete: () => void }) {
               initial={{ opacity: 0, y: 8 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ delay: i * 0.06 }}
-              className="bg-space-900 border border-slate-600 rounded-xl px-3 py-3 font-black text-white text-lg min-w-[48px] text-center"
+              className="bg-space-900 border border-slate-300 rounded-xl px-3 py-3 font-black text-slate-900 text-lg min-w-[48px] text-center"
             >
               {item}
             </motion.div>
@@ -179,7 +179,7 @@ export function GuessTheNext({ onComplete }: { onComplete: () => void }) {
                 initial={{ opacity: 0, y: 6 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: i * 0.05 + 0.25 }}
-                className="py-4 rounded-xl border border-slate-700 bg-space-900 font-black text-white text-lg hover:border-green-500/50 hover:bg-green-500/10 transition-colors"
+                className="py-4 rounded-xl border border-slate-200 bg-space-900 font-black text-slate-900 text-lg hover:border-green-500/50 hover:bg-green-500/10 transition-colors"
               >
                 {opt}
               </motion.button>
@@ -190,9 +190,9 @@ export function GuessTheNext({ onComplete }: { onComplete: () => void }) {
             <motion.div initial={{ opacity: 0, y: 8 }} animate={{ opacity: 1, y: 0 }} className="space-y-3">
               <div className={`p-4 rounded-xl text-sm font-bold ${isCorrect ? "bg-green-500/20 text-green-300" : "bg-red-500/20 text-red-300"}`}>
                 {isCorrect ? "✓ Correct! " : `✗ The answer is ${seq.correct}. `}
-                <span className="font-normal text-slate-300">{seq.explanation}</span>
+                <span className="font-normal text-slate-600">{seq.explanation}</span>
               </div>
-              <button onClick={next} className="w-full py-4 rounded-xl font-black text-white bg-green-500 hover:bg-green-400 btn-press transition-colors">
+              <button onClick={next} className="w-full py-4 rounded-xl font-black text-slate-900 bg-green-500 hover:bg-green-400 btn-press transition-colors">
                 {current < SEQUENCES.length - 1 ? "Next Sequence →" : "See Results →"}
               </button>
             </motion.div>

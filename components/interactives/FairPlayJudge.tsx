@@ -146,19 +146,19 @@ export function FairPlayJudge({ onComplete }: { onComplete: () => void }) {
   if (finished) {
     const fairCount = answers.filter((a) => a.vote === "fair").length;
     return (
-      <div className="bg-space-800 rounded-xl border border-slate-700 p-6 text-center">
+      <div className="bg-space-800 rounded-xl border border-slate-200 p-6 text-center">
         <motion.div initial={{ scale: 0.8, opacity: 0 }} animate={{ scale: 1, opacity: 1 }}>
           <div className="text-4xl mb-4">⚖️</div>
-          <h3 className="text-2xl font-bold text-white mb-2">Fair Play Judge Complete!</h3>
-          <p className="text-slate-300 mb-2">
+          <h3 className="text-2xl font-bold text-slate-900 mb-2">Fair Play Judge Complete!</h3>
+          <p className="text-slate-600 mb-2">
             You judged {fairCount} scenarios as Fair and {SCENARIOS.length - fairCount} as Unfair.
           </p>
-          <p className="text-slate-300 text-sm mb-4">
+          <p className="text-slate-600 text-sm mb-4">
             There are no perfect answers — AI in games raises real ethical questions about fairness, transparency, and manipulation. The important thing is thinking critically about these issues!
           </p>
           <button
             onClick={onComplete}
-            className="px-6 py-3 bg-red-500 hover:bg-red-400 text-white rounded-lg font-bold transition-colors"
+            className="px-6 py-3 bg-red-500 hover:bg-red-400 text-slate-900 rounded-lg font-bold transition-colors"
           >
             Complete Activity
           </button>
@@ -168,10 +168,10 @@ export function FairPlayJudge({ onComplete }: { onComplete: () => void }) {
   }
 
   return (
-    <div className="bg-space-800 rounded-xl border border-slate-700 p-6">
+    <div className="bg-space-800 rounded-xl border border-slate-200 p-6">
       <div className="flex justify-between items-center mb-4">
-        <h3 className="text-lg font-bold text-white">⚖️ Fair Play Judge</h3>
-        <span className="text-sm text-slate-300">
+        <h3 className="text-lg font-bold text-slate-900">⚖️ Fair Play Judge</h3>
+        <span className="text-sm text-slate-600">
           {scenarioIdx + 1}/{SCENARIOS.length}
         </span>
       </div>
@@ -193,12 +193,12 @@ export function FairPlayJudge({ onComplete }: { onComplete: () => void }) {
       </div>
 
       <motion.div key={scenarioIdx} initial={{ opacity: 0, x: 20 }} animate={{ opacity: 1, x: 0 }}>
-        <div className="bg-space-900 rounded-lg p-4 mb-4 border border-slate-700">
+        <div className="bg-space-900 rounded-lg p-4 mb-4 border border-slate-200">
           <div className="flex items-center gap-2 mb-2">
             <span className="text-2xl">{scenario.icon}</span>
-            <h4 className="text-white font-bold">{scenario.title}</h4>
+            <h4 className="text-slate-900 font-bold">{scenario.title}</h4>
           </div>
-          <p className="text-slate-300 text-sm">{scenario.description}</p>
+          <p className="text-slate-600 text-sm">{scenario.description}</p>
         </div>
 
         {phase === "vote" && (
@@ -207,7 +207,7 @@ export function FairPlayJudge({ onComplete }: { onComplete: () => void }) {
               whileHover={{ scale: 1.02 }}
               whileTap={{ scale: 0.98 }}
               onClick={() => handleVote("fair")}
-              className="flex-1 px-4 py-4 bg-green-900/20 border border-green-600/40 hover:border-green-400 rounded-lg text-white font-bold transition-colors"
+              className="flex-1 px-4 py-4 bg-green-900/20 border border-green-600/40 hover:border-green-400 rounded-lg text-slate-900 font-bold transition-colors"
             >
               ✅ Fair
             </motion.button>
@@ -215,7 +215,7 @@ export function FairPlayJudge({ onComplete }: { onComplete: () => void }) {
               whileHover={{ scale: 1.02 }}
               whileTap={{ scale: 0.98 }}
               onClick={() => handleVote("unfair")}
-              className="flex-1 px-4 py-4 bg-red-900/20 border border-red-600/40 hover:border-red-400 rounded-lg text-white font-bold transition-colors"
+              className="flex-1 px-4 py-4 bg-red-900/20 border border-red-600/40 hover:border-red-400 rounded-lg text-slate-900 font-bold transition-colors"
             >
               ❌ Unfair
             </motion.button>
@@ -224,7 +224,7 @@ export function FairPlayJudge({ onComplete }: { onComplete: () => void }) {
 
         {phase === "reason" && (
           <div>
-            <p className="text-white text-sm font-semibold mb-3">
+            <p className="text-slate-900 text-sm font-semibold mb-3">
               You voted {vote === "fair" ? "✅ Fair" : "❌ Unfair"}. Why?
             </p>
             <div className="space-y-2">
@@ -234,7 +234,7 @@ export function FairPlayJudge({ onComplete }: { onComplete: () => void }) {
                     key={i}
                     whileHover={{ scale: 1.01 }}
                     onClick={() => handleReason(reason)}
-                    className="w-full text-left px-4 py-3 bg-space-900 border border-slate-700 hover:border-red-500 text-slate-300 rounded-lg text-sm transition-colors"
+                    className="w-full text-left px-4 py-3 bg-space-900 border border-slate-200 hover:border-red-500 text-slate-600 rounded-lg text-sm transition-colors"
                   >
                     {reason}
                   </motion.button>
@@ -246,8 +246,8 @@ export function FairPlayJudge({ onComplete }: { onComplete: () => void }) {
 
         {phase === "results" && (
           <motion.div initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }}>
-            <div className="bg-space-900 rounded-lg p-4 mb-4 border border-slate-700">
-              <p className="text-white text-sm font-semibold mb-3">What others think:</p>
+            <div className="bg-space-900 rounded-lg p-4 mb-4 border border-slate-200">
+              <p className="text-slate-900 text-sm font-semibold mb-3">What others think:</p>
               <div className="flex items-center gap-3 mb-2">
                 <div className="flex-1">
                   <div className="flex justify-between text-xs mb-1">
@@ -262,17 +262,17 @@ export function FairPlayJudge({ onComplete }: { onComplete: () => void }) {
                   </div>
                 </div>
               </div>
-              <p className="text-slate-300 text-xs mt-2 italic">Your reason: &quot;{selectedReason}&quot;</p>
+              <p className="text-slate-600 text-xs mt-2 italic">Your reason: &quot;{selectedReason}&quot;</p>
             </div>
 
             <div className="bg-red-900/10 border border-red-500/20 rounded-lg p-3 mb-4">
               <p className="text-red-400 text-xs font-semibold mb-1">💡 Discussion Point</p>
-              <p className="text-slate-300 text-sm">{scenario.discussion}</p>
+              <p className="text-slate-600 text-sm">{scenario.discussion}</p>
             </div>
 
             <button
               onClick={handleNext}
-              className="w-full px-6 py-3 bg-red-500 hover:bg-red-400 text-white rounded-lg font-bold transition-colors"
+              className="w-full px-6 py-3 bg-red-500 hover:bg-red-400 text-slate-900 rounded-lg font-bold transition-colors"
             >
               {scenarioIdx + 1 >= SCENARIOS.length ? "See Summary" : "Next Scenario"}
             </button>

@@ -38,7 +38,7 @@ export default function BadgesPage() {
     <div className="min-h-screen bg-space-900">
       <div className="max-w-2xl mx-auto px-4 py-8">
         <div className="text-center mb-8">
-          <h1 className="text-3xl font-black text-white">Badges</h1>
+          <h1 className="text-3xl font-black text-slate-900">Badges</h1>
           <p className="text-slate-400 mt-1">
             {progress.earnedBadges.length} of {WORLDS.length} earned
           </p>
@@ -53,13 +53,13 @@ export default function BadgesPage() {
                 className={`bg-space-800 rounded-2xl p-5 border text-center transition-all ${
                   earned
                     ? "border-yellow-500/40"
-                    : "border-slate-700 opacity-50"
+                    : "border-slate-200 opacity-50"
                 }`}
               >
                 <div className="text-5xl mb-3">
                   {earned ? world.challenge.badgeEmoji : "🔒"}
                 </div>
-                <div className="font-black text-white text-sm">
+                <div className="font-black text-slate-900 text-sm">
                   {world.challenge.badgeName}
                 </div>
                 <div className="text-xs text-slate-400 mt-1">{world.title}</div>
@@ -70,7 +70,7 @@ export default function BadgesPage() {
                     </div>
                     <button
                       onClick={() => handleDownloadCertificate(world.id)}
-                      className="text-xs font-bold text-teal-400 hover:text-teal-300 transition-colors"
+                      className="text-xs font-bold text-sky-500 hover:text-sky-400 transition-colors"
                     >
                       Download Certificate
                     </button>

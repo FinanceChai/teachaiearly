@@ -149,24 +149,24 @@ export function SmartHomeMapper({ onComplete }: { onComplete: () => void }) {
       <motion.div
         initial={{ opacity: 0, scale: 0.9 }}
         animate={{ opacity: 1, scale: 1 }}
-        className="bg-space-800 rounded-2xl p-6 border border-slate-700 text-center"
+        className="bg-space-800 rounded-2xl p-6 border border-slate-200 text-center"
       >
         <div className="text-5xl mb-4">🏠</div>
-        <h2 className="text-2xl font-bold text-white mb-3">Home Fully Mapped!</h2>
+        <h2 className="text-2xl font-bold text-slate-900 mb-3">Home Fully Mapped!</h2>
 
         <div className="bg-space-900 rounded-xl p-4 mb-4">
           <div className="text-4xl font-bold text-cyan-400 mb-1">{totalDataPoints}</div>
-          <div className="text-slate-300 text-sm">data points collected by devices in just ONE home</div>
+          <div className="text-slate-600 text-sm">data points collected by devices in just ONE home</div>
         </div>
 
         <div className="bg-space-900 rounded-xl p-4 mb-5 text-left">
-          <p className="text-slate-300 text-sm mb-2">
+          <p className="text-slate-600 text-sm mb-2">
             Every smart device in your home is collecting data about you — <span className="text-cyan-400 font-bold">all day, every day</span>.
           </p>
-          <p className="text-slate-300 text-sm mb-2">
+          <p className="text-slate-600 text-sm mb-2">
             Combined together, these devices know your sleep schedule, eating habits, who visits you, your health, what you watch, and when you&apos;re home.
           </p>
-          <p className="text-slate-300 text-sm">
+          <p className="text-slate-600 text-sm">
             That&apos;s more information than your best friend knows about you! 🤯
           </p>
         </div>
@@ -184,9 +184,9 @@ export function SmartHomeMapper({ onComplete }: { onComplete: () => void }) {
   }
 
   return (
-    <div className="bg-space-800 rounded-2xl p-6 border border-slate-700">
+    <div className="bg-space-800 rounded-2xl p-6 border border-slate-200">
       <div className="flex justify-between items-center mb-4">
-        <h2 className="text-lg font-bold text-white">🏠 Smart Home Mapper</h2>
+        <h2 className="text-lg font-bold text-slate-900">🏠 Smart Home Mapper</h2>
         <span className="text-cyan-400 text-sm font-mono">{exploredRooms.length}/{ROOMS.length} rooms</span>
       </div>
 
@@ -199,7 +199,7 @@ export function SmartHomeMapper({ onComplete }: { onComplete: () => void }) {
 
       {!activeRoom ? (
         <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }}>
-          <p className="text-slate-300 text-sm mb-4">
+          <p className="text-slate-600 text-sm mb-4">
             Tap each room to discover the hidden AI devices and what data they collect!
           </p>
           <div className="grid grid-cols-3 gap-3 mb-4">
@@ -212,11 +212,11 @@ export function SmartHomeMapper({ onComplete }: { onComplete: () => void }) {
                 className={`p-4 rounded-xl border-2 text-center transition-colors ${
                   exploredRooms.includes(r.id)
                     ? "border-cyan-500/50 bg-cyan-500/10"
-                    : "border-slate-700 bg-space-900 hover:border-cyan-500 animate-pulse"
+                    : "border-slate-200 bg-space-900 hover:border-cyan-500 animate-pulse"
                 }`}
               >
                 <div className="text-3xl mb-1">{r.emoji}</div>
-                <div className="text-white text-xs font-bold">{r.name}</div>
+                <div className="text-slate-900 text-xs font-bold">{r.name}</div>
                 {exploredRooms.includes(r.id) && (
                   <div className="text-cyan-400 text-xs mt-1">✓ Explored</div>
                 )}
@@ -248,12 +248,12 @@ export function SmartHomeMapper({ onComplete }: { onComplete: () => void }) {
             <div className="flex items-center gap-2 mb-4">
               <button
                 onClick={() => setActiveRoom(null)}
-                className="text-slate-300 hover:text-white text-sm"
+                className="text-slate-600 hover:text-sky-600 text-sm"
               >
                 ← Back to map
               </button>
               <span className="text-2xl ml-auto">{room!.emoji}</span>
-              <span className="text-white font-bold">{room!.name}</span>
+              <span className="text-slate-900 font-bold">{room!.name}</span>
             </div>
 
             <div className="space-y-3">
@@ -269,13 +269,13 @@ export function SmartHomeMapper({ onComplete }: { onComplete: () => void }) {
                     className={`w-full p-4 rounded-xl border-2 text-left transition-colors ${
                       activeDevice === idx
                         ? "border-cyan-500 bg-cyan-500/10"
-                        : "border-slate-700 bg-space-900 hover:border-slate-500"
+                        : "border-slate-200 bg-space-900 hover:border-slate-500"
                     }`}
                   >
                     <div className="flex items-center gap-2">
                       <span className="text-2xl">{device.emoji}</span>
-                      <span className="text-white font-bold">{device.name}</span>
-                      <span className="ml-auto text-slate-500 text-sm">
+                      <span className="text-slate-900 font-bold">{device.name}</span>
+                      <span className="ml-auto text-slate-400 text-sm">
                         {activeDevice === idx ? "▼" : "▶"}
                       </span>
                     </div>
@@ -288,16 +288,16 @@ export function SmartHomeMapper({ onComplete }: { onComplete: () => void }) {
                           exit={{ height: 0, opacity: 0 }}
                           className="overflow-hidden"
                         >
-                          <div className="mt-3 pt-3 border-t border-slate-700">
+                          <div className="mt-3 pt-3 border-t border-slate-200">
                             <div className="mb-2">
                               <div className="text-xs text-cyan-400 font-bold mb-1">What it does:</div>
-                              <p className="text-slate-300 text-sm">{device.whatItDoes}</p>
+                              <p className="text-slate-600 text-sm">{device.whatItDoes}</p>
                             </div>
                             <div className="mb-2">
                               <div className="text-xs text-cyan-400 font-bold mb-1">Data it collects:</div>
                               <ul className="space-y-1">
                                 {device.dataCollected.map((d, i) => (
-                                  <li key={i} className="text-slate-300 text-sm flex items-start gap-1">
+                                  <li key={i} className="text-slate-600 text-sm flex items-start gap-1">
                                     <span className="text-cyan-500">•</span> {d}
                                   </li>
                                 ))}
@@ -305,7 +305,7 @@ export function SmartHomeMapper({ onComplete }: { onComplete: () => void }) {
                             </div>
                             <div className="bg-cyan-500/10 rounded-lg p-2 mt-2">
                               <div className="text-xs text-cyan-400 font-bold mb-1">😮 Surprise fact:</div>
-                              <p className="text-slate-300 text-sm">{device.surpriseFact}</p>
+                              <p className="text-slate-600 text-sm">{device.surpriseFact}</p>
                             </div>
                           </div>
                         </motion.div>
@@ -318,7 +318,7 @@ export function SmartHomeMapper({ onComplete }: { onComplete: () => void }) {
 
             <button
               onClick={() => setActiveRoom(null)}
-              className="w-full mt-4 py-3 bg-space-900 text-cyan-400 font-bold rounded-xl border border-slate-700 hover:border-cyan-500 transition-colors"
+              className="w-full mt-4 py-3 bg-space-900 text-cyan-400 font-bold rounded-xl border border-slate-200 hover:border-cyan-500 transition-colors"
             >
               ← Back to House Map
             </button>

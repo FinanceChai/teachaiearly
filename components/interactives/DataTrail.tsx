@@ -106,8 +106,8 @@ export function DataTrail({ onComplete }: { onComplete: () => void }) {
           {score >= QUIZ.length - 1 ? "🛡️" : "👁️"}
         </motion.div>
         <div>
-          <div className="text-4xl font-black text-white">{score}/{QUIZ.length}</div>
-          <div className="text-slate-300 mt-2">
+          <div className="text-4xl font-black text-slate-900">{score}/{QUIZ.length}</div>
+          <div className="text-slate-600 mt-2">
             {score >= QUIZ.length - 1 ? "Privacy pro! You understand your data trail." : score >= QUIZ.length / 2 ? "Good privacy awareness!" : "Now you know — your data trail is longer than you thought!"}
           </div>
         </div>
@@ -128,13 +128,13 @@ export function DataTrail({ onComplete }: { onComplete: () => void }) {
             <div key={i} className={`flex-1 h-2 rounded-full transition-all ${i < quizIdx ? "bg-orange-500" : i === quizIdx ? "bg-orange-400" : "bg-slate-700"}`} />
           ))}
         </div>
-        <div className="bg-space-800 rounded-2xl p-5 border border-slate-700">
+        <div className="bg-space-800 rounded-2xl p-5 border border-slate-200">
           <div className="text-xs font-black text-orange-400 mb-1">PRIVACY QUIZ</div>
-          <div className="text-white font-black text-lg mb-4">{q.question}</div>
+          <div className="text-slate-900 font-black text-lg mb-4">{q.question}</div>
           {picked === null ? (
             <div className="space-y-2">
               {q.options.map((opt, i) => (
-                <motion.button key={i} onClick={() => pickAnswer(i)} whileTap={{ scale: 0.98 }} className="w-full text-left p-3 rounded-xl border border-slate-700 bg-space-900 font-bold text-white text-sm hover:border-orange-500/50 transition-colors">
+                <motion.button key={i} onClick={() => pickAnswer(i)} whileTap={{ scale: 0.98 }} className="w-full text-left p-3 rounded-xl border border-slate-200 bg-space-900 font-bold text-slate-900 text-sm hover:border-orange-500/50 transition-colors">
                   {opt}
                 </motion.button>
               ))}
@@ -143,9 +143,9 @@ export function DataTrail({ onComplete }: { onComplete: () => void }) {
             <motion.div initial={{ opacity: 0, y: 8 }} animate={{ opacity: 1, y: 0 }} className="space-y-3">
               <div className={`p-4 rounded-xl text-sm font-bold ${picked === q.correct ? "bg-green-500/20 text-green-300" : "bg-red-500/20 text-red-300"}`}>
                 {picked === q.correct ? "Correct! " : `Answer: "${q.options[q.correct]}." `}
-                <span className="font-normal text-slate-300">{q.explanation}</span>
+                <span className="font-normal text-slate-600">{q.explanation}</span>
               </div>
-              <button onClick={nextQuiz} className="w-full py-4 rounded-xl font-black text-white bg-orange-500 hover:bg-orange-400 btn-press transition-colors">
+              <button onClick={nextQuiz} className="w-full py-4 rounded-xl font-black text-slate-900 bg-orange-500 hover:bg-orange-400 btn-press transition-colors">
                 {quizIdx < QUIZ.length - 1 ? "Next Question" : "See Results"} &rarr;
               </button>
             </motion.div>
@@ -168,19 +168,19 @@ export function DataTrail({ onComplete }: { onComplete: () => void }) {
         <span className="text-xs text-slate-400 font-bold">{appIdx + 1}/{APPS.length}</span>
       </div>
 
-      <div className="bg-space-800 rounded-2xl p-5 border border-slate-700">
+      <div className="bg-space-800 rounded-2xl p-5 border border-slate-200">
         <div className="text-xs font-black text-orange-400 mb-1">DATA TRAIL</div>
         <div className="text-sm text-slate-400 font-bold mb-4">See what data apps collect about you:</div>
 
         <motion.div key={appIdx} initial={{ opacity: 0, x: 20 }} animate={{ opacity: 1, x: 0 }}>
-          <div className="bg-space-900 rounded-xl p-4 border border-slate-600 mb-3">
+          <div className="bg-space-900 rounded-xl p-4 border border-slate-300 mb-3">
             <div className="text-3xl mb-2">{app.icon}</div>
-            <div className="text-white font-black mb-1">{app.app}</div>
+            <div className="text-slate-900 font-black mb-1">{app.app}</div>
             <div className="text-sm text-slate-400 italic">{app.action}</div>
           </div>
 
           {!revealed ? (
-            <button onClick={() => setRevealed(true)} className="w-full py-4 rounded-xl font-black text-white bg-orange-500 hover:bg-orange-400 btn-press transition-colors">
+            <button onClick={() => setRevealed(true)} className="w-full py-4 rounded-xl font-black text-slate-900 bg-orange-500 hover:bg-orange-400 btn-press transition-colors">
               Reveal What&apos;s Collected &rarr;
             </button>
           ) : (
@@ -189,16 +189,16 @@ export function DataTrail({ onComplete }: { onComplete: () => void }) {
                 <div className="text-xs font-black text-orange-400 mb-2">DATA COLLECTED:</div>
                 <ul className="space-y-1.5">
                   {app.dataCollected.map((d, i) => (
-                    <motion.li key={i} initial={{ opacity: 0, x: -10 }} animate={{ opacity: 1, x: 0 }} transition={{ delay: i * 0.1 }} className="text-sm text-slate-300 flex items-start gap-2">
+                    <motion.li key={i} initial={{ opacity: 0, x: -10 }} animate={{ opacity: 1, x: 0 }} transition={{ delay: i * 0.1 }} className="text-sm text-slate-600 flex items-start gap-2">
                       <span className="text-orange-400">&#x2022;</span> {d}
                     </motion.li>
                   ))}
                 </ul>
               </div>
-              <div className="bg-space-900 rounded-xl p-3 border border-slate-600 text-sm text-slate-300">
-                <strong className="text-white">Used for: </strong>{app.usedFor}
+              <div className="bg-space-900 rounded-xl p-3 border border-slate-300 text-sm text-slate-600">
+                <strong className="text-slate-900">Used for: </strong>{app.usedFor}
               </div>
-              <div className="bg-red-500/10 border border-red-500/30 rounded-xl p-3 text-sm text-slate-300">
+              <div className="bg-red-500/10 border border-red-500/30 rounded-xl p-3 text-sm text-slate-600">
                 <strong className="text-red-300">Surprise: </strong>{app.surprise}
               </div>
               <button
@@ -207,7 +207,7 @@ export function DataTrail({ onComplete }: { onComplete: () => void }) {
                   if (appIdx < APPS.length - 1) setAppIdx((a) => a + 1);
                   else setPhase("quiz");
                 }}
-                className="w-full py-4 rounded-xl font-black text-white bg-orange-500 hover:bg-orange-400 btn-press transition-colors"
+                className="w-full py-4 rounded-xl font-black text-slate-900 bg-orange-500 hover:bg-orange-400 btn-press transition-colors"
               >
                 {appIdx < APPS.length - 1 ? "Next App" : "Test Your Knowledge"} &rarr;
               </button>

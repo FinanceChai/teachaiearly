@@ -90,8 +90,8 @@ export function StyleMixer({ onComplete }: { onComplete: () => void }) {
           {score >= SCENARIOS.length - 1 ? "⚖️" : "🎨"}
         </motion.div>
         <div>
-          <div className="text-4xl font-black text-white">{score}/{SCENARIOS.length}</div>
-          <div className="text-slate-300 mt-2">
+          <div className="text-4xl font-black text-slate-900">{score}/{SCENARIOS.length}</div>
+          <div className="text-slate-600 mt-2">
             {score >= SCENARIOS.length - 1 ? "Excellent ethical reasoning! You think deeply about AI and art." : score >= SCENARIOS.length / 2 ? "Good thinking about AI art ethics!" : "These are hard questions — there are no easy answers!"}
           </div>
         </div>
@@ -115,20 +115,20 @@ export function StyleMixer({ onComplete }: { onComplete: () => void }) {
         <span className="text-xs font-bold text-yellow-400">Score: {score}</span>
       </div>
 
-      <div className="bg-space-800 rounded-2xl p-5 border border-slate-700">
+      <div className="bg-space-800 rounded-2xl p-5 border border-slate-200">
         <div className="text-xs font-black text-blue-400 mb-3">THE REMIX QUESTION</div>
 
         <motion.div key={idx} initial={{ opacity: 0, x: 20 }} animate={{ opacity: 1, x: 0 }}>
-          <div className="bg-space-900 rounded-xl p-4 border border-slate-600 mb-4">
-            <div className="text-white font-black mb-2">{s.title}</div>
+          <div className="bg-space-900 rounded-xl p-4 border border-slate-300 mb-4">
+            <div className="text-slate-900 font-black mb-2">{s.title}</div>
             <div className="text-sm text-slate-400 mb-3">{s.description}</div>
-            <div className="text-white font-black text-sm">{s.question}</div>
+            <div className="text-slate-900 font-black text-sm">{s.question}</div>
           </div>
 
           {picked === null ? (
             <div className="space-y-2">
               {s.options.map((opt, i) => (
-                <motion.button key={i} onClick={() => pickAnswer(i)} whileTap={{ scale: 0.98 }} className="w-full text-left p-3 rounded-xl border border-slate-700 bg-space-900 font-bold text-white text-sm hover:border-blue-500/50 transition-colors">
+                <motion.button key={i} onClick={() => pickAnswer(i)} whileTap={{ scale: 0.98 }} className="w-full text-left p-3 rounded-xl border border-slate-200 bg-space-900 font-bold text-slate-900 text-sm hover:border-blue-500/50 transition-colors">
                   {opt}
                 </motion.button>
               ))}
@@ -137,12 +137,12 @@ export function StyleMixer({ onComplete }: { onComplete: () => void }) {
             <motion.div initial={{ opacity: 0, y: 8 }} animate={{ opacity: 1, y: 0 }} className="space-y-3">
               <div className={`p-4 rounded-xl text-sm font-bold ${picked === s.correct ? "bg-green-500/20 text-green-300" : "bg-red-500/20 text-red-300"}`}>
                 {picked === s.correct ? "Well reasoned! " : `Best answer: "${s.options[s.correct]}." `}
-                <span className="font-normal text-slate-300">{s.explanation}</span>
+                <span className="font-normal text-slate-600">{s.explanation}</span>
               </div>
-              <div className="bg-blue-500/10 border border-blue-500/30 rounded-xl p-3 text-sm text-slate-300">
+              <div className="bg-blue-500/10 border border-blue-500/30 rounded-xl p-3 text-sm text-slate-600">
                 <strong className="text-blue-300">Real World: </strong>{s.perspective}
               </div>
-              <button onClick={next} className="w-full py-4 rounded-xl font-black text-white bg-blue-500 hover:bg-blue-400 btn-press transition-colors">
+              <button onClick={next} className="w-full py-4 rounded-xl font-black text-slate-900 bg-blue-500 hover:bg-blue-400 btn-press transition-colors">
                 {idx < SCENARIOS.length - 1 ? "Next Scenario" : "See Results"} &rarr;
               </button>
             </motion.div>

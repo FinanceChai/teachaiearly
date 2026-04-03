@@ -109,11 +109,11 @@ export function BubbleBreaker({ onComplete }: { onComplete: () => void }) {
       <motion.div
         initial={{ opacity: 0, scale: 0.9 }}
         animate={{ opacity: 1, scale: 1 }}
-        className="bg-space-800 rounded-2xl p-6 border border-slate-700 text-center"
+        className="bg-space-800 rounded-2xl p-6 border border-slate-200 text-center"
       >
         <div className="text-5xl mb-4">🫧</div>
-        <h2 className="text-2xl font-bold text-white mb-3">Bubble Breaker Complete!</h2>
-        <p className="text-slate-300 mb-5">
+        <h2 className="text-2xl font-bold text-slate-900 mb-3">Bubble Breaker Complete!</h2>
+        <p className="text-slate-600 mb-5">
           Now you know how filter bubbles work — and more importantly, how to break free from them!
           Stay curious and keep exploring different perspectives.
         </p>
@@ -130,9 +130,9 @@ export function BubbleBreaker({ onComplete }: { onComplete: () => void }) {
   }
 
   return (
-    <div className="bg-space-800 rounded-2xl p-6 border border-slate-700">
+    <div className="bg-space-800 rounded-2xl p-6 border border-slate-200">
       <div className="flex justify-between items-center mb-4">
-        <h2 className="text-lg font-bold text-white">🫧 Bubble Breaker</h2>
+        <h2 className="text-lg font-bold text-slate-900">🫧 Bubble Breaker</h2>
         <span className="text-cyan-400 text-sm font-mono">
           {phase === "compare"
             ? `Search ${searchIdx + 1}/${SEARCHES.length}`
@@ -149,20 +149,20 @@ export function BubbleBreaker({ onComplete }: { onComplete: () => void }) {
             <div className="flex gap-3 mb-3">
               <div className="flex-1 bg-space-900 rounded-lg p-2 text-center">
                 <span className="text-lg">⚽</span>
-                <div className="text-white text-xs font-bold">Alex</div>
-                <div className="text-slate-500 text-xs">Sports Fan</div>
+                <div className="text-slate-900 text-xs font-bold">Alex</div>
+                <div className="text-slate-400 text-xs">Sports Fan</div>
               </div>
               <div className="flex-1 bg-space-900 rounded-lg p-2 text-center">
                 <span className="text-lg">🎨</span>
-                <div className="text-white text-xs font-bold">Sam</div>
-                <div className="text-slate-500 text-xs">Art Lover</div>
+                <div className="text-slate-900 text-xs font-bold">Sam</div>
+                <div className="text-slate-400 text-xs">Art Lover</div>
               </div>
             </div>
 
             {/* Search bar */}
             <div className="bg-space-900 rounded-xl p-3 mb-4 text-center">
-              <div className="text-xs text-slate-500 mb-1">Both searched:</div>
-              <div className="text-white font-bold">
+              <div className="text-xs text-slate-400 mb-1">Both searched:</div>
+              <div className="text-slate-900 font-bold">
                 {search.emoji} &ldquo;{search.query}&rdquo;
               </div>
             </div>
@@ -178,7 +178,7 @@ export function BubbleBreaker({ onComplete }: { onComplete: () => void }) {
                       initial={{ opacity: 0, y: 10 }}
                       animate={{ opacity: 1, y: 0 }}
                       transition={{ delay: i * 0.15 }}
-                      className="bg-space-900 rounded-lg p-2 text-xs text-slate-300"
+                      className="bg-space-900 rounded-lg p-2 text-xs text-slate-600"
                     >
                       <span className="text-base mr-1">{r.emoji}</span> {r.title}
                     </motion.div>
@@ -194,7 +194,7 @@ export function BubbleBreaker({ onComplete }: { onComplete: () => void }) {
                       initial={{ opacity: 0, y: 10 }}
                       animate={{ opacity: 1, y: 0 }}
                       transition={{ delay: i * 0.15 + 0.1 }}
-                      className="bg-space-900 rounded-lg p-2 text-xs text-slate-300"
+                      className="bg-space-900 rounded-lg p-2 text-xs text-slate-600"
                     >
                       <span className="text-base mr-1">{r.emoji}</span> {r.title}
                     </motion.div>
@@ -204,7 +204,7 @@ export function BubbleBreaker({ onComplete }: { onComplete: () => void }) {
             </div>
 
             <div className="bg-cyan-500/10 border border-cyan-500/30 rounded-xl p-3 mb-4">
-              <p className="text-slate-300 text-sm">💡 {search.whyDifferent}</p>
+              <p className="text-slate-600 text-sm">💡 {search.whyDifferent}</p>
             </div>
 
             <motion.button
@@ -228,7 +228,7 @@ export function BubbleBreaker({ onComplete }: { onComplete: () => void }) {
           <motion.div key="quiz" initial={{ opacity: 0, x: 40 }} animate={{ opacity: 1, x: 0 }} exit={{ opacity: 0, x: -40 }}>
             <div className="bg-space-900 rounded-xl p-5 mb-4 text-center">
               <div className="text-4xl mb-3">❓</div>
-              <h3 className="text-white font-bold text-lg">
+              <h3 className="text-slate-900 font-bold text-lg">
                 Why do Alex and Sam see completely different results?
               </h3>
             </div>
@@ -243,11 +243,11 @@ export function BubbleBreaker({ onComplete }: { onComplete: () => void }) {
                   className={`w-full p-3 rounded-xl border-2 text-left text-sm transition-colors ${
                     quizRevealed
                       ? i === CORRECT_ANSWER
-                        ? "border-emerald-500 bg-emerald-500/10 text-white"
+                        ? "border-emerald-500 bg-emerald-500/10 text-slate-900"
                         : i === quizAnswer
-                        ? "border-red-500 bg-red-500/10 text-white"
-                        : "border-slate-700 bg-space-900 text-slate-500"
-                      : "border-slate-700 bg-space-900 text-white hover:border-cyan-500"
+                        ? "border-red-500 bg-red-500/10 text-slate-900"
+                        : "border-slate-200 bg-space-900 text-slate-400"
+                      : "border-slate-200 bg-space-900 text-slate-900 hover:border-cyan-500"
                   }`}
                 >
                   {opt}
@@ -258,7 +258,7 @@ export function BubbleBreaker({ onComplete }: { onComplete: () => void }) {
             {quizRevealed && (
               <motion.div initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }}>
                 <div className="bg-space-900 rounded-xl p-4 mb-4">
-                  <p className="text-slate-300 text-sm">
+                  <p className="text-slate-600 text-sm">
                     {quizAnswer === CORRECT_ANSWER ? "✅ Exactly right! " : "❌ Not quite — the answer is personalization. "}
                     Algorithms track what you search, click, and spend time on. Then they create a &ldquo;profile&rdquo; of you and filter everything through it. This is called a <span className="text-cyan-400 font-bold">filter bubble</span>.
                   </p>
@@ -278,7 +278,7 @@ export function BubbleBreaker({ onComplete }: { onComplete: () => void }) {
 
         {phase === "tips" && (
           <motion.div key="tips" initial={{ opacity: 0, x: 40 }} animate={{ opacity: 1, x: 0 }} exit={{ opacity: 0, x: -40 }}>
-            <h3 className="text-white font-bold mb-4 text-center text-lg">
+            <h3 className="text-slate-900 font-bold mb-4 text-center text-lg">
               🫧 5 Ways to Break Your Filter Bubble
             </h3>
             <div className="space-y-3 mb-5">
@@ -291,7 +291,7 @@ export function BubbleBreaker({ onComplete }: { onComplete: () => void }) {
                   className="bg-space-900 rounded-xl p-4 flex items-start gap-3"
                 >
                   <span className="text-2xl">{tip.emoji}</span>
-                  <p className="text-slate-300 text-sm">{tip.tip}</p>
+                  <p className="text-slate-600 text-sm">{tip.tip}</p>
                 </motion.div>
               ))}
             </div>

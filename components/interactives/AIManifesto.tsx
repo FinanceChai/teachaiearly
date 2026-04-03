@@ -80,8 +80,8 @@ export function AIManifesto({ onComplete }: { onComplete: () => void }) {
   // Final manifesto
   if (step === 4) {
     return (
-      <div className="p-6 bg-space-900 rounded-xl border border-slate-700 max-w-2xl mx-auto">
-        <h2 className="text-2xl font-bold text-white mb-4 text-center">📜 Your AI Manifesto</h2>
+      <div className="p-6 bg-space-900 rounded-xl border border-slate-200 max-w-2xl mx-auto">
+        <h2 className="text-2xl font-bold text-slate-900 mb-4 text-center">📜 Your AI Manifesto</h2>
 
         <motion.div
           initial={{ scale: 0.8, opacity: 0 }}
@@ -92,7 +92,7 @@ export function AIManifesto({ onComplete }: { onComplete: () => void }) {
           {/* Title banner */}
           <div className="bg-amber-500/20 p-4 text-center border-b border-amber-500/20">
             <p className="text-amber-400 text-xs font-semibold">📜 MANIFESTO</p>
-            <h3 className="text-2xl font-bold text-white mt-1">{title}</h3>
+            <h3 className="text-2xl font-bold text-slate-900 mt-1">{title}</h3>
           </div>
 
           <div className="p-5 space-y-4">
@@ -112,7 +112,7 @@ export function AIManifesto({ onComplete }: { onComplete: () => void }) {
                   >
                     <span className="text-lg">{p.icon}</span>
                     <div>
-                      <p className="text-white text-sm font-semibold">{p.name}</p>
+                      <p className="text-slate-900 text-sm font-semibold">{p.name}</p>
                       <p className="text-slate-400 text-xs">{p.description}</p>
                     </div>
                   </motion.div>
@@ -123,13 +123,13 @@ export function AIManifesto({ onComplete }: { onComplete: () => void }) {
             {/* Build commitment */}
             <div className="bg-space-900/60 rounded-lg p-3">
               <p className="text-amber-400 text-xs font-semibold">I WILL BUILD OR CONTRIBUTE:</p>
-              <p className="text-white text-sm mt-1">🚀 {finalBuild}</p>
+              <p className="text-slate-900 text-sm mt-1">🚀 {finalBuild}</p>
             </div>
 
             {/* Promise */}
             <div className="bg-space-900/60 rounded-lg p-3">
               <p className="text-amber-400 text-xs font-semibold">MY PROMISE:</p>
-              <p className="text-white text-sm mt-1">✋ {finalPromise}</p>
+              <p className="text-slate-900 text-sm mt-1">✋ {finalPromise}</p>
             </div>
           </div>
 
@@ -143,7 +143,7 @@ export function AIManifesto({ onComplete }: { onComplete: () => void }) {
 
         <div className="bg-space-800 rounded-lg p-4 mt-4">
           <p className="text-amber-400 font-semibold mb-1">🎓 Challenge Complete!</p>
-          <p className="text-slate-300 text-sm">
+          <p className="text-slate-600 text-sm">
             You&apos;ve created your own AI Manifesto — a set of principles and promises that
             guide how you&apos;ll interact with AI. The world&apos;s biggest tech companies have
             manifestos like this too. The difference? Yours comes from a place of genuine
@@ -156,7 +156,7 @@ export function AIManifesto({ onComplete }: { onComplete: () => void }) {
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
             onClick={handleComplete}
-            className="w-full mt-4 px-6 py-3 bg-amber-500 text-white rounded-lg font-bold"
+            className="w-full mt-4 px-6 py-3 bg-amber-500 text-slate-900 rounded-lg font-bold"
           >
             Complete Manifesto ✓
           </motion.button>
@@ -175,9 +175,9 @@ export function AIManifesto({ onComplete }: { onComplete: () => void }) {
   ];
 
   return (
-    <div className="p-6 bg-space-900 rounded-xl border border-slate-700 max-w-2xl mx-auto">
+    <div className="p-6 bg-space-900 rounded-xl border border-slate-200 max-w-2xl mx-auto">
       <div className="flex items-center gap-2 mb-1">
-        <h2 className="text-xl font-bold text-white">📜 AI Manifesto Builder</h2>
+        <h2 className="text-xl font-bold text-slate-900">📜 AI Manifesto Builder</h2>
         <span className="bg-amber-500/20 text-amber-400 text-xs px-2 py-0.5 rounded font-semibold">CHALLENGE</span>
       </div>
 
@@ -189,7 +189,7 @@ export function AIManifesto({ onComplete }: { onComplete: () => void }) {
 
       <motion.div key={step} initial={{ opacity: 0, x: 30 }} animate={{ opacity: 1, x: 0 }}>
         <h3 className="text-lg font-bold text-amber-400 mb-1">{stepConfigs[step].title}</h3>
-        <p className="text-slate-300 text-sm mb-4">{stepConfigs[step].subtitle}</p>
+        <p className="text-slate-600 text-sm mb-4">{stepConfigs[step].subtitle}</p>
 
         {step === 0 && (
           <div>
@@ -214,13 +214,13 @@ export function AIManifesto({ onComplete }: { onComplete: () => void }) {
                     selectedPrinciples[i]
                       ? "bg-amber-500/20 border-amber-500"
                       : principleCount >= 3
-                      ? "bg-space-800 border-slate-700 opacity-50"
-                      : "bg-space-800 border-slate-700 hover:border-slate-500"
+                      ? "bg-space-800 border-slate-200 opacity-50"
+                      : "bg-space-800 border-slate-200 hover:border-slate-500"
                   }`}
                 >
                   <span className="text-xl">{p.icon}</span>
                   <div>
-                    <p className="text-white font-semibold text-sm">{p.name}</p>
+                    <p className="text-slate-900 font-semibold text-sm">{p.name}</p>
                     <p className="text-slate-400 text-xs">{p.description}</p>
                   </div>
                 </motion.button>
@@ -236,7 +236,7 @@ export function AIManifesto({ onComplete }: { onComplete: () => void }) {
                 key={opt}
                 onClick={() => { setBuildChoice(opt); setCustomBuild(""); }}
                 className={`w-full p-2 rounded-lg border text-sm text-left ${
-                  buildChoice === opt ? "bg-amber-500/20 border-amber-500 text-white" : "bg-space-800 border-slate-700 text-slate-300 hover:border-slate-500"
+                  buildChoice === opt ? "bg-amber-500/20 border-amber-500 text-slate-900" : "bg-space-800 border-slate-200 text-slate-600 hover:border-slate-500"
                 }`}
               >
                 {opt}
@@ -247,7 +247,7 @@ export function AIManifesto({ onComplete }: { onComplete: () => void }) {
               placeholder="Or write your own..."
               value={customBuild}
               onChange={(e) => { setCustomBuild(e.target.value); setBuildChoice("__custom"); }}
-              className="w-full bg-space-800 border border-slate-700 rounded-lg px-3 py-2 text-white text-sm focus:border-amber-500 outline-none"
+              className="w-full bg-space-800 border border-slate-200 rounded-lg px-3 py-2 text-slate-900 text-sm focus:border-amber-500 outline-none"
               maxLength={100}
             />
           </div>
@@ -260,7 +260,7 @@ export function AIManifesto({ onComplete }: { onComplete: () => void }) {
                 key={p}
                 onClick={() => { setPromise(p); setCustomPromise(""); }}
                 className={`w-full p-2 rounded-lg border text-sm text-left ${
-                  promise === p ? "bg-amber-500/20 border-amber-500 text-white" : "bg-space-800 border-slate-700 text-slate-300 hover:border-slate-500"
+                  promise === p ? "bg-amber-500/20 border-amber-500 text-slate-900" : "bg-space-800 border-slate-200 text-slate-600 hover:border-slate-500"
                 }`}
               >
                 {p}
@@ -271,7 +271,7 @@ export function AIManifesto({ onComplete }: { onComplete: () => void }) {
               placeholder="Or write your own..."
               value={customPromise}
               onChange={(e) => { setCustomPromise(e.target.value); setPromise("__custom"); }}
-              className="w-full bg-space-800 border border-slate-700 rounded-lg px-3 py-2 text-white text-sm focus:border-amber-500 outline-none"
+              className="w-full bg-space-800 border border-slate-200 rounded-lg px-3 py-2 text-slate-900 text-sm focus:border-amber-500 outline-none"
               maxLength={100}
             />
           </div>
@@ -286,10 +286,10 @@ export function AIManifesto({ onComplete }: { onComplete: () => void }) {
                 whileTap={{ scale: 0.97 }}
                 onClick={() => setTitle(t)}
                 className={`p-3 rounded-lg border text-center ${
-                  title === t ? "bg-amber-500/20 border-amber-500" : "bg-space-800 border-slate-700 hover:border-slate-500"
+                  title === t ? "bg-amber-500/20 border-amber-500" : "bg-space-800 border-slate-200 hover:border-slate-500"
                 }`}
               >
-                <p className="text-white text-sm font-semibold">{t}</p>
+                <p className="text-slate-900 text-sm font-semibold">{t}</p>
               </motion.button>
             ))}
           </div>
@@ -302,7 +302,7 @@ export function AIManifesto({ onComplete }: { onComplete: () => void }) {
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
             onClick={() => setStep(step + 1)}
-            className="w-full mt-4 px-5 py-2 bg-amber-500 text-white rounded-lg font-bold"
+            className="w-full mt-4 px-5 py-2 bg-amber-500 text-slate-900 rounded-lg font-bold"
           >
             {step < 3 ? "Next Step →" : "Generate Manifesto →"}
           </motion.button>

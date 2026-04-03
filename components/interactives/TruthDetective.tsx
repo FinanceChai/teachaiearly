@@ -101,8 +101,8 @@ export function TruthDetective({ onComplete }: { onComplete: () => void }) {
           {score >= ITEMS.length - 1 ? "🕵️" : "🔎"}
         </motion.div>
         <div>
-          <div className="text-4xl font-black text-white">{score}/{ITEMS.length}</div>
-          <div className="text-slate-300 mt-2">
+          <div className="text-4xl font-black text-slate-900">{score}/{ITEMS.length}</div>
+          <div className="text-slate-600 mt-2">
             {score >= ITEMS.length - 1 ? "Master detective! You can spot fakes with ease." : score >= ITEMS.length / 2 ? "Good instincts for spotting fakes!" : "Fakes are getting harder to spot — stay vigilant!"}
           </div>
         </div>
@@ -123,14 +123,14 @@ export function TruthDetective({ onComplete }: { onComplete: () => void }) {
             <div key={i} className={`flex-1 h-2 rounded-full transition-all ${i < stratIdx ? "bg-orange-500" : i === stratIdx ? "bg-orange-400" : "bg-slate-700"}`} />
           ))}
         </div>
-        <div className="bg-space-800 rounded-2xl p-5 border border-slate-700">
+        <div className="bg-space-800 rounded-2xl p-5 border border-slate-200">
           <div className="text-xs font-black text-orange-400 mb-1">YOUR DETECTION TOOLKIT</div>
           <div className="text-sm text-slate-400 font-bold mb-4">5 strategies to spot AI-generated fakes:</div>
 
-          <motion.div key={stratIdx} initial={{ opacity: 0, x: 20 }} animate={{ opacity: 1, x: 0 }} className="bg-space-900 rounded-xl p-5 border border-slate-600 text-center mb-4">
+          <motion.div key={stratIdx} initial={{ opacity: 0, x: 20 }} animate={{ opacity: 1, x: 0 }} className="bg-space-900 rounded-xl p-5 border border-slate-300 text-center mb-4">
             <div className="text-5xl mb-3">{strat.icon}</div>
-            <div className="text-xl font-black text-white mb-2">{strat.name}</div>
-            <div className="text-slate-300 text-sm">{strat.tip}</div>
+            <div className="text-xl font-black text-slate-900 mb-2">{strat.name}</div>
+            <div className="text-slate-600 text-sm">{strat.tip}</div>
           </motion.div>
 
           <button
@@ -138,7 +138,7 @@ export function TruthDetective({ onComplete }: { onComplete: () => void }) {
               if (stratIdx < STRATEGIES.length - 1) setStratIdx((s) => s + 1);
               else { setDone(true); onComplete(); }
             }}
-            className="w-full py-4 rounded-xl font-black text-white bg-orange-500 hover:bg-orange-400 btn-press transition-colors"
+            className="w-full py-4 rounded-xl font-black text-slate-900 bg-orange-500 hover:bg-orange-400 btn-press transition-colors"
           >
             {stratIdx < STRATEGIES.length - 1 ? "Next Strategy" : "See Results"} &rarr;
           </button>
@@ -159,27 +159,27 @@ export function TruthDetective({ onComplete }: { onComplete: () => void }) {
         <span className="text-xs font-bold text-yellow-400">Score: {score}</span>
       </div>
 
-      <div className="bg-space-800 rounded-2xl p-5 border border-slate-700">
+      <div className="bg-space-800 rounded-2xl p-5 border border-slate-200">
         <div className="text-xs font-black text-orange-400 mb-3">TRUTH DETECTIVE</div>
 
         <motion.div key={idx} initial={{ opacity: 0, x: 20 }} animate={{ opacity: 1, x: 0 }}>
-          <div className="bg-space-900 rounded-xl p-4 border border-slate-600 mb-3">
-            <div className="text-xs font-black text-slate-500 mb-2">{item.type.toUpperCase()}</div>
-            <div className="text-white font-bold mb-3 italic">&quot;{item.content}&quot;</div>
+          <div className="bg-space-900 rounded-xl p-4 border border-slate-300 mb-3">
+            <div className="text-xs font-black text-slate-400 mb-2">{item.type.toUpperCase()}</div>
+            <div className="text-slate-900 font-bold mb-3 italic">&quot;{item.content}&quot;</div>
             <div className="text-sm text-slate-400">{item.details}</div>
             <div className="flex flex-wrap gap-1.5 mt-3">
               {item.clues.map((clue, i) => (
-                <span key={i} className="bg-space-800 rounded-lg px-2 py-1 text-xs text-slate-400 font-bold border border-slate-700">{clue}</span>
+                <span key={i} className="bg-space-800 rounded-lg px-2 py-1 text-xs text-slate-400 font-bold border border-slate-200">{clue}</span>
               ))}
             </div>
           </div>
 
           {picked === null ? (
             <div className="grid grid-cols-2 gap-3">
-              <motion.button onClick={() => pickAnswer(true)} whileTap={{ scale: 0.95 }} className="py-5 rounded-xl border border-slate-700 bg-space-900 font-black text-white text-lg hover:border-green-500/50 transition-colors">
+              <motion.button onClick={() => pickAnswer(true)} whileTap={{ scale: 0.95 }} className="py-5 rounded-xl border border-slate-200 bg-space-900 font-black text-slate-900 text-lg hover:border-green-500/50 transition-colors">
                 Real
               </motion.button>
-              <motion.button onClick={() => pickAnswer(false)} whileTap={{ scale: 0.95 }} className="py-5 rounded-xl border border-slate-700 bg-space-900 font-black text-white text-lg hover:border-red-500/50 transition-colors">
+              <motion.button onClick={() => pickAnswer(false)} whileTap={{ scale: 0.95 }} className="py-5 rounded-xl border border-slate-200 bg-space-900 font-black text-slate-900 text-lg hover:border-red-500/50 transition-colors">
                 Fake
               </motion.button>
             </div>
@@ -187,9 +187,9 @@ export function TruthDetective({ onComplete }: { onComplete: () => void }) {
             <motion.div initial={{ opacity: 0, y: 8 }} animate={{ opacity: 1, y: 0 }} className="space-y-3">
               <div className={`p-4 rounded-xl text-sm font-bold ${picked === item.isReal ? "bg-green-500/20 text-green-300" : "bg-red-500/20 text-red-300"}`}>
                 {picked === item.isReal ? "Correct! " : `It was ${item.isReal ? "real" : "fake"}. `}
-                <span className="font-normal text-slate-300">{item.explanation}</span>
+                <span className="font-normal text-slate-600">{item.explanation}</span>
               </div>
-              <button onClick={next} className="w-full py-4 rounded-xl font-black text-white bg-orange-500 hover:bg-orange-400 btn-press transition-colors">
+              <button onClick={next} className="w-full py-4 rounded-xl font-black text-slate-900 bg-orange-500 hover:bg-orange-400 btn-press transition-colors">
                 {idx < ITEMS.length - 1 ? "Next Content" : "Detection Strategies"} &rarr;
               </button>
             </motion.div>

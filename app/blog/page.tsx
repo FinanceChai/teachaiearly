@@ -29,7 +29,7 @@ export default function BlogPage() {
       {/* Hero */}
       <div className="text-center mb-12">
         <div className="text-5xl mb-4">📖</div>
-        <h1 className="text-4xl font-black text-white mb-3">The Teach AI Early Blog</h1>
+        <h1 className="text-4xl font-black text-slate-900 mb-3">The Teach AI Early Blog</h1>
         <p className="text-slate-400 text-lg max-w-xl mx-auto">
           Practical guides for parents and educators navigating AI with kids — no jargon, no hype.
         </p>
@@ -47,9 +47,9 @@ export default function BlogPage() {
               className={`px-4 py-1.5 rounded-full text-sm font-black border transition-all ${
                 isActive
                   ? cat === "All"
-                    ? "bg-teal-500 border-teal-400 text-white"
+                    ? "bg-mint-400 border-teal-400 text-slate-900"
                     : `${colors?.pill} ${colors?.text} border-current`
-                  : "bg-space-800 border-slate-700 text-slate-400 hover:border-slate-500"
+                  : "bg-space-800 border-slate-200 text-slate-400 hover:border-slate-500"
               }`}
             >
               {cat}
@@ -66,7 +66,7 @@ export default function BlogPage() {
             <Link
               key={post.slug}
               href={`/blog/${post.slug}`}
-              className="bg-space-800 rounded-2xl border border-slate-700 p-6 card-hover flex flex-col gap-3 group"
+              className="bg-space-800 rounded-2xl border border-slate-200 p-6 card-hover flex flex-col gap-3 group"
             >
               <div className="flex items-start justify-between gap-3">
                 <span className="text-4xl">{post.emoji}</span>
@@ -78,7 +78,7 @@ export default function BlogPage() {
               </div>
 
               <div>
-                <h2 className="font-black text-white text-base leading-snug group-hover:text-teal-300 transition-colors">
+                <h2 className="font-black text-slate-900 text-base leading-snug group-hover:text-sky-400 transition-colors">
                   {post.title}
                 </h2>
                 <p className="text-slate-400 text-sm mt-1.5 leading-relaxed line-clamp-2">
@@ -86,7 +86,7 @@ export default function BlogPage() {
                 </p>
               </div>
 
-              <div className="flex items-center gap-3 mt-auto pt-2 border-t border-slate-700/60 text-xs text-slate-500 font-bold">
+              <div className="flex items-center gap-3 mt-auto pt-2 border-t border-slate-200/60 text-xs text-slate-400 font-bold">
                 <span>🕐 {post.readTime} min read</span>
                 <span>·</span>
                 <span>{post.date}</span>
@@ -97,7 +97,7 @@ export default function BlogPage() {
       </div>
 
       {filtered.length === 0 && (
-        <div className="text-center py-16 text-slate-500">
+        <div className="text-center py-16 text-slate-400">
           <div className="text-4xl mb-3">🔍</div>
           <p className="font-bold">No articles in this category yet.</p>
         </div>

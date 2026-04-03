@@ -147,9 +147,9 @@ export function CreativeShowcase({ onComplete }: { onComplete: (passed: boolean)
           {pct >= 75 ? "🎬" : "🎥"}
         </motion.div>
         <div>
-          <div className="text-4xl font-black text-white">{score}/{maxScore}</div>
+          <div className="text-4xl font-black text-slate-900">{score}/{maxScore}</div>
           <div className="text-slate-400 text-sm mt-1">creative direction score</div>
-          <div className="text-slate-300 mt-3">
+          <div className="text-slate-600 mt-3">
             {pct >= 90 ? "Creative Director level! You know how to lead AI to great results." : pct >= 60 ? "Strong creative vision! You understand the human-AI partnership." : "Keep practicing — great creative direction is a skill that grows!"}
           </div>
         </div>
@@ -173,22 +173,22 @@ export function CreativeShowcase({ onComplete }: { onComplete: (passed: boolean)
         <span className="text-xs text-slate-400 font-bold">{idx + 1}/{CHALLENGES.length}</span>
       </div>
 
-      <div className="bg-space-800 rounded-2xl p-5 border border-slate-700">
+      <div className="bg-space-800 rounded-2xl p-5 border border-slate-200">
         <div className="flex items-center gap-2 mb-1">
           <div className="text-xs font-black text-blue-400">CREATIVE SHOWCASE</div>
-          <div className="text-xs font-bold text-slate-500">— {challenge.category}</div>
+          <div className="text-xs font-bold text-slate-400">— {challenge.category}</div>
         </div>
 
-        <div className="bg-space-900 rounded-xl p-4 border border-slate-600 mb-4">
+        <div className="bg-space-900 rounded-xl p-4 border border-slate-300 mb-4">
           <div className="text-2xl mb-2">{challenge.icon}</div>
-          <div className="text-white font-black">{challenge.brief}</div>
+          <div className="text-slate-900 font-black">{challenge.brief}</div>
         </div>
 
         {picked === null ? (
           <div className="space-y-3">
             {challenge.options.map((opt, i) => (
-              <motion.button key={i} onClick={() => pickOption(i)} whileTap={{ scale: 0.98 }} className="w-full text-left p-4 rounded-xl border border-slate-700 bg-space-900 hover:border-blue-500/50 transition-colors">
-                <div className="font-black text-white text-sm mb-1">{opt.label}</div>
+              <motion.button key={i} onClick={() => pickOption(i)} whileTap={{ scale: 0.98 }} className="w-full text-left p-4 rounded-xl border border-slate-200 bg-space-900 hover:border-blue-500/50 transition-colors">
+                <div className="font-black text-slate-900 text-sm mb-1">{opt.label}</div>
                 <div className="text-xs text-slate-400">{opt.description}</div>
               </motion.button>
             ))}
@@ -203,9 +203,9 @@ export function CreativeShowcase({ onComplete }: { onComplete: (passed: boolean)
               {challenge.options[picked].quality === "great" ? "Excellent choice! " :
                challenge.options[picked].quality === "ok" ? "Decent, but could be stronger. " :
                "This won't get great results. "}
-              <span className="font-normal text-slate-300">{challenge.options[picked].feedback}</span>
+              <span className="font-normal text-slate-600">{challenge.options[picked].feedback}</span>
             </div>
-            <button onClick={next} className="w-full py-4 rounded-xl font-black text-white bg-blue-500 hover:bg-blue-400 btn-press transition-colors">
+            <button onClick={next} className="w-full py-4 rounded-xl font-black text-slate-900 bg-blue-500 hover:bg-blue-400 btn-press transition-colors">
               {idx < CHALLENGES.length - 1 ? "Next Challenge" : "See Final Score"} &rarr;
             </button>
           </motion.div>

@@ -117,10 +117,10 @@ export function TranslationTelephone({ onComplete }: { onComplete: () => void })
           🌍
         </motion.div>
         <div>
-          <div className="text-4xl font-black text-white">
+          <div className="text-4xl font-black text-slate-900">
             {correct}/{ROUNDS.length}
           </div>
-          <div className="text-slate-300 mt-2">
+          <div className="text-slate-600 mt-2">
             {correct === ROUNDS.length
               ? "Perfect! You spotted every meaning shift."
               : correct >= ROUNDS.length - 1
@@ -164,7 +164,7 @@ export function TranslationTelephone({ onComplete }: { onComplete: () => void })
         </span>
       </div>
 
-      <div className="bg-space-800 rounded-2xl p-5 border border-slate-700">
+      <div className="bg-space-800 rounded-2xl p-5 border border-slate-200">
         <div className="text-xs font-black text-purple-400 mb-1">TRANSLATION TELEPHONE</div>
         <div className="text-sm text-slate-400 font-bold mb-5">
           Watch a phrase travel through languages — does the meaning survive?
@@ -173,7 +173,7 @@ export function TranslationTelephone({ onComplete }: { onComplete: () => void })
         {/* Original */}
         <div className="bg-space-900 rounded-xl p-4 border-2 border-purple-500/40 mb-3">
           <div className="text-xs font-bold text-purple-400 mb-1">🇬🇧 ORIGINAL ({round.language})</div>
-          <div className="text-white font-black text-lg">&quot;{round.original}&quot;</div>
+          <div className="text-slate-900 font-black text-lg">&quot;{round.original}&quot;</div>
         </div>
 
         {/* Chain */}
@@ -183,12 +183,12 @@ export function TranslationTelephone({ onComplete }: { onComplete: () => void })
               key={i}
               initial={{ opacity: 0, x: -20 }}
               animate={{ opacity: 1, x: 0 }}
-              className="bg-space-900 rounded-xl p-3 border border-slate-600"
+              className="bg-space-900 rounded-xl p-3 border border-slate-300"
             >
-              <div className="text-xs font-bold text-slate-500 mb-1">
+              <div className="text-xs font-bold text-slate-400 mb-1">
                 {step.flag} {step.lang}
               </div>
-              <div className="text-white font-bold text-sm">&quot;{step.text}&quot;</div>
+              <div className="text-slate-900 font-bold text-sm">&quot;{step.text}&quot;</div>
             </motion.div>
           ))}
 
@@ -216,7 +216,7 @@ export function TranslationTelephone({ onComplete }: { onComplete: () => void })
                 <div className="text-xs font-bold text-amber-400 mb-1">
                   🇬🇧 BACK TO ENGLISH
                 </div>
-                <div className="text-white font-black text-lg">
+                <div className="text-slate-900 font-black text-lg">
                   &quot;{round.finalBack}&quot;
                 </div>
               </div>
@@ -229,13 +229,13 @@ export function TranslationTelephone({ onComplete }: { onComplete: () => void })
                   <div className="grid grid-cols-2 gap-3">
                     <button
                       onClick={() => guess("same")}
-                      className="py-4 rounded-xl border border-slate-700 bg-space-900 font-black text-white hover:border-green-500/50 hover:bg-green-500/10 transition-colors"
+                      className="py-4 rounded-xl border border-slate-200 bg-space-900 font-black text-slate-900 hover:border-green-500/50 hover:bg-green-500/10 transition-colors"
                     >
                       Same meaning
                     </button>
                     <button
                       onClick={() => guess("different")}
-                      className="py-4 rounded-xl border border-slate-700 bg-space-900 font-black text-white hover:border-red-500/50 hover:bg-red-500/10 transition-colors"
+                      className="py-4 rounded-xl border border-slate-200 bg-space-900 font-black text-slate-900 hover:border-red-500/50 hover:bg-red-500/10 transition-colors"
                     >
                       Meaning changed
                     </button>
@@ -260,13 +260,13 @@ export function TranslationTelephone({ onComplete }: { onComplete: () => void })
                   </div>
                   <div className="bg-purple-500/10 border border-purple-500/30 rounded-xl p-4 space-y-2">
                     <div className="text-xs font-black text-purple-400">WHAT CHANGED</div>
-                    <div className="text-sm text-slate-300">{round.whatChanged}</div>
+                    <div className="text-sm text-slate-600">{round.whatChanged}</div>
                     <div className="text-xs font-black text-purple-400 mt-2">WHY</div>
-                    <div className="text-sm text-slate-300">{round.whyItHappened}</div>
+                    <div className="text-sm text-slate-600">{round.whyItHappened}</div>
                   </div>
                   <button
                     onClick={next}
-                    className="w-full py-4 rounded-xl font-black text-white bg-purple-500 hover:bg-purple-400 btn-press transition-colors"
+                    className="w-full py-4 rounded-xl font-black text-slate-900 bg-purple-500 hover:bg-purple-400 btn-press transition-colors"
                   >
                     {current < ROUNDS.length - 1
                       ? "Next Phrase →"

@@ -127,19 +127,19 @@ export function LevelGenerator({ onComplete }: { onComplete: () => void }) {
   if (finished) {
     const avgRating = levels.reduce((s, l) => s + (l.rating || 0), 0) / levels.length;
     return (
-      <div className="bg-space-800 rounded-xl border border-slate-700 p-6 text-center">
+      <div className="bg-space-800 rounded-xl border border-slate-200 p-6 text-center">
         <motion.div initial={{ scale: 0.8, opacity: 0 }} animate={{ scale: 1, opacity: 1 }}>
           <div className="text-4xl mb-4">🎮</div>
-          <h3 className="text-2xl font-bold text-white mb-2">Level Designer Complete!</h3>
-          <p className="text-slate-300 mb-2">
+          <h3 className="text-2xl font-bold text-slate-900 mb-2">Level Designer Complete!</h3>
+          <p className="text-slate-600 mb-2">
             You generated {levels.length} levels with an average rating of {avgRating.toFixed(1)}/5.
           </p>
-          <p className="text-slate-300 text-sm mb-4">
+          <p className="text-slate-600 text-sm mb-4">
             Real games use AI like this to create procedurally generated levels — adjusting parameters to create unique experiences every time!
           </p>
           <button
             onClick={onComplete}
-            className="px-6 py-3 bg-red-500 hover:bg-red-400 text-white rounded-lg font-bold transition-colors"
+            className="px-6 py-3 bg-red-500 hover:bg-red-400 text-slate-900 rounded-lg font-bold transition-colors"
           >
             Complete Activity
           </button>
@@ -149,22 +149,22 @@ export function LevelGenerator({ onComplete }: { onComplete: () => void }) {
   }
 
   return (
-    <div className="bg-space-800 rounded-xl border border-slate-700 p-6">
+    <div className="bg-space-800 rounded-xl border border-slate-200 p-6">
       <div className="flex justify-between items-center mb-4">
-        <h3 className="text-lg font-bold text-white">🏗️ Level Generator</h3>
-        <span className="text-sm text-slate-300">
+        <h3 className="text-lg font-bold text-slate-900">🏗️ Level Generator</h3>
+        <span className="text-sm text-slate-600">
           {levels.length}/3 levels generated
         </span>
       </div>
 
-      <p className="text-slate-300 text-sm mb-4">
+      <p className="text-slate-600 text-sm mb-4">
         Adjust the sliders and generate AI-powered game levels! Create at least 3 and rate each one.
       </p>
 
       {/* Controls */}
       <div className="space-y-4 mb-6">
         <div>
-          <label className="text-white text-sm font-semibold flex justify-between">
+          <label className="text-slate-900 text-sm font-semibold flex justify-between">
             <span>Difficulty</span>
             <span className="text-red-400">{DIFFICULTY_LABELS[difficulty - 1]}</span>
           </label>
@@ -178,7 +178,7 @@ export function LevelGenerator({ onComplete }: { onComplete: () => void }) {
           />
         </div>
         <div>
-          <label className="text-white text-sm font-semibold flex justify-between">
+          <label className="text-slate-900 text-sm font-semibold flex justify-between">
             <span>Size</span>
             <span className="text-red-400">{SIZE_LABELS[size]}</span>
           </label>
@@ -192,7 +192,7 @@ export function LevelGenerator({ onComplete }: { onComplete: () => void }) {
           />
         </div>
         <div>
-          <label className="text-white text-sm font-semibold flex justify-between">
+          <label className="text-slate-900 text-sm font-semibold flex justify-between">
             <span>Enemies</span>
             <span className="text-red-400">{ENEMY_LABELS[enemies]}</span>
           </label>
@@ -209,7 +209,7 @@ export function LevelGenerator({ onComplete }: { onComplete: () => void }) {
 
       <button
         onClick={handleGenerate}
-        className="w-full px-6 py-3 bg-red-500 hover:bg-red-400 text-white rounded-lg font-bold transition-colors mb-4"
+        className="w-full px-6 py-3 bg-red-500 hover:bg-red-400 text-slate-900 rounded-lg font-bold transition-colors mb-4"
       >
         ⚡ Generate Level
       </button>
@@ -223,8 +223,8 @@ export function LevelGenerator({ onComplete }: { onComplete: () => void }) {
               onClick={() => setViewing(i)}
               className={`px-3 py-1 rounded text-sm font-semibold transition-colors ${
                 viewing === i
-                  ? "bg-red-500 text-white"
-                  : "bg-space-900 border border-slate-700 text-slate-300"
+                  ? "bg-red-500 text-slate-900"
+                  : "bg-space-900 border border-slate-200 text-slate-600"
               }`}
             >
               Level {i + 1} {levels[i].rating ? `(${"⭐".repeat(levels[i].rating!)})` : ""}
@@ -259,7 +259,7 @@ export function LevelGenerator({ onComplete }: { onComplete: () => void }) {
           </div>
 
           <div className="flex items-center gap-2 mb-2">
-            <span className="text-slate-300 text-sm">Rate this level:</span>
+            <span className="text-slate-600 text-sm">Rate this level:</span>
             {[1, 2, 3, 4, 5].map((star) => (
               <button
                 key={star}
@@ -287,7 +287,7 @@ export function LevelGenerator({ onComplete }: { onComplete: () => void }) {
       {allRated && (
         <button
           onClick={() => setFinished(true)}
-          className="w-full px-6 py-3 bg-green-600 hover:bg-green-500 text-white rounded-lg font-bold transition-colors"
+          className="w-full px-6 py-3 bg-green-600 hover:bg-green-500 text-slate-900 rounded-lg font-bold transition-colors"
         >
           Finish & Review
         </button>

@@ -85,23 +85,23 @@ export function VoiceLineup({ onComplete }: { onComplete: () => void }) {
   // --- FINAL RESULTS ---
   if (done) {
     return (
-      <div className="p-4 sm:p-6 bg-space-900 rounded-xl border border-slate-700 space-y-4 text-center">
+      <div className="p-4 sm:p-6 bg-space-900 rounded-xl border border-slate-200 space-y-4 text-center">
         <motion.div initial={{ scale: 0.8, opacity: 0 }} animate={{ scale: 1, opacity: 1 }}>
           <p className="text-4xl mb-2">🕵️</p>
-          <h3 className="text-xl font-bold text-white">Voice Detective Complete!</h3>
+          <h3 className="text-xl font-bold text-slate-900">Voice Detective Complete!</h3>
           <p className="text-violet-400 font-bold text-lg mt-1">
             Score: {score} / {CLIPS.length}
           </p>
-          <p className="text-slate-300 text-sm mt-2">
+          <p className="text-slate-600 text-sm mt-2">
             {score === CLIPS.length
               ? "Perfect! You have an incredible ear — you can tell real from AI every time!"
               : score >= 3
               ? "Great job! You've got a good sense for what makes a voice sound human."
               : "AI voices are getting really convincing! Don't worry — even experts get tricked sometimes."}
           </p>
-          <div className="mt-4 p-3 bg-space-800 rounded-lg border border-slate-700 text-left">
+          <div className="mt-4 p-3 bg-space-800 rounded-lg border border-slate-200 text-left">
             <p className="text-violet-400 text-sm font-bold mb-1">Key Takeaways:</p>
-            <ul className="text-xs text-slate-300 space-y-1">
+            <ul className="text-xs text-slate-600 space-y-1">
               <li>• Human voices have natural imperfections — breaths, stumbles, pitch wobbles</li>
               <li>• AI voices tend to be too perfect and evenly paced</li>
               <li>• AI is getting better fast — in a few years, it may be impossible to tell!</li>
@@ -116,9 +116,9 @@ export function VoiceLineup({ onComplete }: { onComplete: () => void }) {
   // --- REVEAL ALL ---
   if (revealed) {
     return (
-      <div className="p-4 sm:p-6 bg-space-900 rounded-xl border border-slate-700 space-y-4">
+      <div className="p-4 sm:p-6 bg-space-900 rounded-xl border border-slate-200 space-y-4">
         <div className="text-center space-y-1">
-          <h3 className="text-xl font-bold text-white">Results Revealed!</h3>
+          <h3 className="text-xl font-bold text-slate-900">Results Revealed!</h3>
           <p className="text-violet-400 font-bold">
             You got {score} out of {CLIPS.length} correct!
           </p>
@@ -142,8 +142,8 @@ export function VoiceLineup({ onComplete }: { onComplete: () => void }) {
                 <div className="flex items-start gap-2">
                   <span className="text-lg">{correct ? "✅" : "❌"}</span>
                   <div className="flex-1">
-                    <p className="text-white text-sm font-semibold">{clip.label}</p>
-                    <p className="text-xs text-slate-300 mt-1">{clip.reveal}</p>
+                    <p className="text-slate-900 text-sm font-semibold">{clip.label}</p>
+                    <p className="text-xs text-slate-600 mt-1">{clip.reveal}</p>
                     <p className="text-xs text-violet-400 mt-1 italic">{clip.funFact}</p>
                   </div>
                 </div>
@@ -155,7 +155,7 @@ export function VoiceLineup({ onComplete }: { onComplete: () => void }) {
         <div className="text-center">
           <button
             onClick={finish}
-            className="px-5 py-2 bg-violet-600 hover:bg-violet-500 text-white font-bold rounded-lg text-sm"
+            className="px-5 py-2 bg-violet-600 hover:bg-violet-500 text-slate-900 font-bold rounded-lg text-sm"
           >
             Complete!
           </button>
@@ -169,13 +169,13 @@ export function VoiceLineup({ onComplete }: { onComplete: () => void }) {
   const hasVoted = votes[currentClip] !== undefined;
 
   return (
-    <div className="p-4 sm:p-6 bg-space-900 rounded-xl border border-slate-700 space-y-5">
+    <div className="p-4 sm:p-6 bg-space-900 rounded-xl border border-slate-200 space-y-5">
       <div className="text-center space-y-1">
-        <h3 className="text-xl font-bold text-white">Voice Lineup</h3>
-        <p className="text-slate-300 text-sm">
+        <h3 className="text-xl font-bold text-slate-900">Voice Lineup</h3>
+        <p className="text-slate-600 text-sm">
           Read the voice description — is it a real human or AI generated?
         </p>
-        <p className="text-xs text-slate-500">
+        <p className="text-xs text-slate-400">
           Clip {currentClip + 1} of {CLIPS.length}
         </p>
       </div>
@@ -201,15 +201,15 @@ export function VoiceLineup({ onComplete }: { onComplete: () => void }) {
         key={currentClip}
         initial={{ opacity: 0, x: 30 }}
         animate={{ opacity: 1, x: 0 }}
-        className="bg-space-800 rounded-xl border border-slate-700 p-4 space-y-3"
+        className="bg-space-800 rounded-xl border border-slate-200 p-4 space-y-3"
       >
         <div className="flex items-center gap-2">
           <span className="text-2xl">{clip.emoji}</span>
-          <span className="text-white font-bold">{clip.label}</span>
+          <span className="text-slate-900 font-bold">{clip.label}</span>
         </div>
 
-        <div className="bg-space-900 rounded-lg p-3 border border-slate-700">
-          <p className="text-sm text-slate-300 leading-relaxed">{clip.description}</p>
+        <div className="bg-space-900 rounded-lg p-3 border border-slate-200">
+          <p className="text-sm text-slate-600 leading-relaxed">{clip.description}</p>
         </div>
 
         {/* Vote buttons */}
@@ -219,7 +219,7 @@ export function VoiceLineup({ onComplete }: { onComplete: () => void }) {
               whileHover={{ scale: 1.03 }}
               whileTap={{ scale: 0.97 }}
               onClick={() => castVote("human")}
-              className="flex-1 py-3 bg-space-900 border-2 border-slate-700 hover:border-green-400 rounded-lg text-white font-bold text-sm transition-all"
+              className="flex-1 py-3 bg-space-900 border-2 border-slate-200 hover:border-green-400 rounded-lg text-slate-900 font-bold text-sm transition-all"
             >
               🧑 Real Human
             </motion.button>
@@ -227,7 +227,7 @@ export function VoiceLineup({ onComplete }: { onComplete: () => void }) {
               whileHover={{ scale: 1.03 }}
               whileTap={{ scale: 0.97 }}
               onClick={() => castVote("ai")}
-              className="flex-1 py-3 bg-space-900 border-2 border-slate-700 hover:border-violet-400 rounded-lg text-white font-bold text-sm transition-all"
+              className="flex-1 py-3 bg-space-900 border-2 border-slate-200 hover:border-violet-400 rounded-lg text-slate-900 font-bold text-sm transition-all"
             >
               🤖 AI Generated
             </motion.button>
@@ -243,7 +243,7 @@ export function VoiceLineup({ onComplete }: { onComplete: () => void }) {
             <div className="text-center">
               <button
                 onClick={nextClip}
-                className="px-5 py-2 bg-violet-600 hover:bg-violet-500 text-white font-bold rounded-lg text-sm"
+                className="px-5 py-2 bg-violet-600 hover:bg-violet-500 text-slate-900 font-bold rounded-lg text-sm"
               >
                 {currentClip < CLIPS.length - 1 ? "Next Clip" : "Reveal Answers!"}
               </button>

@@ -87,13 +87,13 @@ export function PhotoCoach({ onComplete }: { onComplete: () => void }) {
       <div className="text-center space-y-5 py-4">
         <motion.div initial={{ scale: 0 }} animate={{ scale: 1 }} transition={{ type: "spring", stiffness: 300, damping: 18 }} className="text-7xl">📸</motion.div>
         <div>
-          <div className="text-4xl font-black text-white">{correct}/{totalImages}</div>
+          <div className="text-4xl font-black text-slate-900">{correct}/{totalImages}</div>
           <div className="text-slate-400 text-sm mt-1">images labeled correctly</div>
-          <div className="mt-3 bg-space-800 rounded-xl p-3 border border-slate-700 inline-block">
+          <div className="mt-3 bg-space-800 rounded-xl p-3 border border-slate-200 inline-block">
             <span className="text-pink-300 font-black">{edgeCaseCorrect}/{edgeCaseTotal}</span>
             <span className="text-slate-400 text-sm ml-2">edge cases nailed</span>
           </div>
-          <div className="text-slate-300 mt-3">
+          <div className="text-slate-600 mt-3">
             {correct >= totalImages - 1 ? "Amazing coach! Your training data would build a great classifier." : correct >= totalImages / 2 ? "Good labeling! Edge cases are the real challenge for AI." : "Labeling is harder than it looks — now you see why AI needs thousands of examples!"}
           </div>
         </div>
@@ -118,7 +118,7 @@ export function PhotoCoach({ onComplete }: { onComplete: () => void }) {
         <span className="text-xs text-slate-400 font-bold">{globalImg + 1}/{totalImages}</span>
       </div>
 
-      <div className="bg-space-800 rounded-2xl p-5 border border-slate-700">
+      <div className="bg-space-800 rounded-2xl p-5 border border-slate-200">
         <div className="flex items-center justify-between mb-1">
           <div className="text-xs font-black text-pink-400">PHOTO COACH — {set.category.toUpperCase()}</div>
           {img.isEdgeCase && <div className="text-xs font-black text-amber-400 bg-amber-500/20 px-2 py-0.5 rounded-full">EDGE CASE</div>}
@@ -126,16 +126,16 @@ export function PhotoCoach({ onComplete }: { onComplete: () => void }) {
         <div className="text-sm text-slate-400 font-bold mb-4">Label this training image for AI:</div>
 
         {/* Image card */}
-        <div className="bg-space-900 rounded-xl p-6 border border-slate-600 text-center mb-4">
+        <div className="bg-space-900 rounded-xl p-6 border border-slate-300 text-center mb-4">
           <div className="text-6xl mb-3">{img.emoji}</div>
-          <div className="text-white font-bold">{img.description}</div>
+          <div className="text-slate-900 font-bold">{img.description}</div>
         </div>
 
         {/* Label buttons */}
         {picked === null ? (
           <div className="grid grid-cols-2 gap-2">
             {set.labels.map((label) => (
-              <motion.button key={label} onClick={() => pickLabel(label)} whileTap={{ scale: 0.95 }} className="py-4 rounded-xl border border-slate-700 bg-space-900 font-black text-white hover:border-pink-500/50 hover:bg-pink-500/10 transition-colors">
+              <motion.button key={label} onClick={() => pickLabel(label)} whileTap={{ scale: 0.95 }} className="py-4 rounded-xl border border-slate-200 bg-space-900 font-black text-slate-900 hover:border-pink-500/50 hover:bg-pink-500/10 transition-colors">
                 {label}
               </motion.button>
             ))}
@@ -144,9 +144,9 @@ export function PhotoCoach({ onComplete }: { onComplete: () => void }) {
           <motion.div initial={{ opacity: 0, y: 8 }} animate={{ opacity: 1, y: 0 }} className="space-y-3">
             <div className={`p-4 rounded-xl text-sm font-bold ${picked === img.correctLabel ? "bg-green-500/20 text-green-300" : "bg-red-500/20 text-red-300"}`}>
               {picked === img.correctLabel ? "Correct label!" : `The right label is "${img.correctLabel}."`}
-              {img.edgeCaseNote && <div className="font-normal text-slate-300 mt-2">{img.edgeCaseNote}</div>}
+              {img.edgeCaseNote && <div className="font-normal text-slate-600 mt-2">{img.edgeCaseNote}</div>}
             </div>
-            <button onClick={next} className="w-full py-4 rounded-xl font-black text-white bg-pink-500 hover:bg-pink-400 btn-press transition-colors">
+            <button onClick={next} className="w-full py-4 rounded-xl font-black text-slate-900 bg-pink-500 hover:bg-pink-400 btn-press transition-colors">
               {imgIdx >= set.images.length - 1 && setIdx >= TRAINING_SETS.length - 1 ? "See Results →" : "Next Image →"}
             </button>
           </motion.div>

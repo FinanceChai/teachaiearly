@@ -102,42 +102,42 @@ export function HealthTrackerSim({ onComplete }: { onComplete: () => void }) {
       <motion.div
         initial={{ opacity: 0, scale: 0.9 }}
         animate={{ opacity: 1, scale: 1 }}
-        className="bg-space-800 rounded-2xl p-6 border border-slate-700 text-center"
+        className="bg-space-800 rounded-2xl p-6 border border-slate-200 text-center"
       >
         <div className="text-5xl mb-4">📊</div>
-        <h2 className="text-2xl font-bold text-white mb-3">Analysis Complete!</h2>
+        <h2 className="text-2xl font-bold text-slate-900 mb-3">Analysis Complete!</h2>
 
         <div className="bg-space-900 rounded-xl p-4 mb-4">
-          <div className="text-sm text-slate-300 mb-3">Your ratings:</div>
+          <div className="text-sm text-slate-600 mb-3">Your ratings:</div>
           <div className="flex justify-center gap-4">
             <div className="text-center">
-              <div className="text-2xl font-bold text-emerald-400">{helpfulCount}</div>
-              <div className="text-xs text-slate-300">Helpful</div>
+              <div className="text-2xl font-bold text-emerald-500">{helpfulCount}</div>
+              <div className="text-xs text-slate-600">Helpful</div>
             </div>
             <div className="text-center">
               <div className="text-2xl font-bold text-red-400">{creepyCount}</div>
-              <div className="text-xs text-slate-300">Creepy</div>
+              <div className="text-xs text-slate-600">Creepy</div>
             </div>
             <div className="text-center">
               <div className="text-2xl font-bold text-yellow-400">{bothCount}</div>
-              <div className="text-xs text-slate-300">Both</div>
+              <div className="text-xs text-slate-600">Both</div>
             </div>
           </div>
         </div>
 
         <div className="bg-space-900 rounded-xl p-4 mb-5 text-left">
-          <h3 className="text-white font-bold mb-2">💡 The Big Question:</h3>
-          <p className="text-slate-300 text-sm mb-2">
+          <h3 className="text-slate-900 font-bold mb-2">💡 The Big Question:</h3>
+          <p className="text-slate-600 text-sm mb-2">
             Health AI can genuinely help people stay healthy and catch problems early. But it also knows incredibly personal things about your body and habits.
           </p>
-          <p className="text-slate-300 text-sm mb-2">
+          <p className="text-slate-600 text-sm mb-2">
             {bothCount >= 2
               ? "You rated many insights as \"both\" — and that's the perfect answer! Most AI health tools ARE both helpful AND a little creepy."
               : helpfulCount > creepyCount
               ? "You found most insights helpful! Just remember — helpful data is still personal data that someone is storing."
               : "You found many insights creepy! Trust your instincts — it IS a lot of personal information."}
           </p>
-          <p className="text-slate-300 text-sm">
+          <p className="text-slate-600 text-sm">
             The key is deciding: <span className="text-cyan-400 font-bold">who gets to see this data, and what can they do with it?</span>
           </p>
         </div>
@@ -155,9 +155,9 @@ export function HealthTrackerSim({ onComplete }: { onComplete: () => void }) {
   }
 
   return (
-    <div className="bg-space-800 rounded-2xl p-6 border border-slate-700">
+    <div className="bg-space-800 rounded-2xl p-6 border border-slate-200">
       <div className="flex justify-between items-center mb-4">
-        <h2 className="text-lg font-bold text-white">📊 Health Tracker Sim</h2>
+        <h2 className="text-lg font-bold text-slate-900">📊 Health Tracker Sim</h2>
         <span className="text-cyan-400 text-sm font-mono">
           {phase === "charts" ? "Your Week" : `Insight ${insightIdx + 1}/${INSIGHTS.length}`}
         </span>
@@ -166,7 +166,7 @@ export function HealthTrackerSim({ onComplete }: { onComplete: () => void }) {
       <AnimatePresence mode="wait">
         {phase === "charts" && (
           <motion.div key="charts" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}>
-            <p className="text-slate-300 text-sm mb-3">
+            <p className="text-slate-600 text-sm mb-3">
               Here&apos;s a simulated week of health data from a smartwatch. Explore the charts!
             </p>
 
@@ -183,7 +183,7 @@ export function HealthTrackerSim({ onComplete }: { onComplete: () => void }) {
                   className={`flex-1 py-2 rounded-lg text-sm font-bold transition-colors ${
                     chartView === tab.key
                       ? "bg-cyan-500/20 text-cyan-400 border border-cyan-500/40"
-                      : "bg-space-900 text-slate-300 border border-slate-700"
+                      : "bg-space-900 text-slate-600 border border-slate-200"
                   }`}
                 >
                   {tab.label}
@@ -199,7 +199,7 @@ export function HealthTrackerSim({ onComplete }: { onComplete: () => void }) {
                   return (
                     <div key={day} className="flex-1 flex flex-col items-center justify-end h-full">
                       <motion.div
-                        className="text-xs text-slate-300 mb-1"
+                        className="text-xs text-slate-600 mb-1"
                         initial={{ opacity: 0 }}
                         animate={{ opacity: 1 }}
                         transition={{ delay: i * 0.05 }}
@@ -216,14 +216,14 @@ export function HealthTrackerSim({ onComplete }: { onComplete: () => void }) {
                         animate={{ height: `${pct}%` }}
                         transition={{ duration: 0.5, delay: i * 0.08 }}
                       />
-                      <div className="text-xs text-slate-500 mt-1">{day}</div>
+                      <div className="text-xs text-slate-400 mt-1">{day}</div>
                     </div>
                   );
                 })}
               </div>
             </div>
 
-            <p className="text-slate-300 text-sm mb-4">
+            <p className="text-slate-600 text-sm mb-4">
               Can you spot any patterns? The AI can — let&apos;s see what it found!
             </p>
 
@@ -254,17 +254,17 @@ export function HealthTrackerSim({ onComplete }: { onComplete: () => void }) {
 
             <div className="bg-space-900 rounded-xl p-5 mb-4">
               <div className="text-4xl text-center mb-3">{insight.emoji}</div>
-              <h3 className="text-white font-bold text-lg mb-2 text-center">{insight.title}</h3>
-              <p className="text-slate-300 text-sm mb-3">{insight.text}</p>
+              <h3 className="text-slate-900 font-bold text-lg mb-2 text-center">{insight.title}</h3>
+              <p className="text-slate-600 text-sm mb-3">{insight.text}</p>
               <div className="bg-space-800 rounded-lg p-2">
                 <div className="text-xs text-cyan-400">📊 Data used:</div>
-                <div className="text-xs text-slate-500">{insight.dataUsed}</div>
+                <div className="text-xs text-slate-400">{insight.dataUsed}</div>
               </div>
             </div>
 
             {!rated ? (
               <div>
-                <p className="text-white font-bold text-sm mb-3 text-center">
+                <p className="text-slate-900 font-bold text-sm mb-3 text-center">
                   How does this insight make you feel?
                 </p>
                 <div className="grid grid-cols-3 gap-3">
@@ -272,7 +272,7 @@ export function HealthTrackerSim({ onComplete }: { onComplete: () => void }) {
                     whileHover={{ scale: 1.05 }}
                     whileTap={{ scale: 0.95 }}
                     onClick={() => handleRate("helpful")}
-                    className="p-3 bg-emerald-500/10 border-2 border-emerald-500/30 rounded-xl text-white text-sm font-bold hover:border-emerald-500"
+                    className="p-3 bg-emerald-500/10 border-2 border-emerald-500/30 rounded-xl text-slate-900 text-sm font-bold hover:border-emerald-500"
                   >
                     <span className="text-2xl block mb-1">👍</span>
                     Helpful!
@@ -281,7 +281,7 @@ export function HealthTrackerSim({ onComplete }: { onComplete: () => void }) {
                     whileHover={{ scale: 1.05 }}
                     whileTap={{ scale: 0.95 }}
                     onClick={() => handleRate("creepy")}
-                    className="p-3 bg-red-500/10 border-2 border-red-500/30 rounded-xl text-white text-sm font-bold hover:border-red-500"
+                    className="p-3 bg-red-500/10 border-2 border-red-500/30 rounded-xl text-slate-900 text-sm font-bold hover:border-red-500"
                   >
                     <span className="text-2xl block mb-1">😬</span>
                     Creepy!
@@ -290,7 +290,7 @@ export function HealthTrackerSim({ onComplete }: { onComplete: () => void }) {
                     whileHover={{ scale: 1.05 }}
                     whileTap={{ scale: 0.95 }}
                     onClick={() => handleRate("both")}
-                    className="p-3 bg-yellow-500/10 border-2 border-yellow-500/30 rounded-xl text-white text-sm font-bold hover:border-yellow-500"
+                    className="p-3 bg-yellow-500/10 border-2 border-yellow-500/30 rounded-xl text-slate-900 text-sm font-bold hover:border-yellow-500"
                   >
                     <span className="text-2xl block mb-1">🤔</span>
                     Both!
@@ -300,11 +300,11 @@ export function HealthTrackerSim({ onComplete }: { onComplete: () => void }) {
             ) : (
               <motion.div initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }}>
                 <div className="bg-space-900 rounded-xl p-3 mb-3 text-center">
-                  <span className="text-slate-300 text-sm">
+                  <span className="text-slate-600 text-sm">
                     You rated this insight as{" "}
                     <span className={
                       ratings[ratings.length - 1] === "helpful"
-                        ? "text-emerald-400 font-bold"
+                        ? "text-emerald-500 font-bold"
                         : ratings[ratings.length - 1] === "creepy"
                         ? "text-red-400 font-bold"
                         : "text-yellow-400 font-bold"

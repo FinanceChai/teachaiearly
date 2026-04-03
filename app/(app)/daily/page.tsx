@@ -45,7 +45,7 @@ const CATEGORY_COLORS: Record<string, string> = {
   "AI Basics": "bg-blue-500/20 text-blue-300 border-blue-500/30",
   "Machine Learning": "bg-purple-500/20 text-purple-300 border-purple-500/30",
   "Ethics": "bg-rose-500/20 text-rose-300 border-rose-500/30",
-  "AI in Life": "bg-teal-500/20 text-teal-300 border-teal-500/30",
+  "AI in Life": "bg-mint-400/20 text-sky-400 border-sky-200",
   "Future AI": "bg-amber-500/20 text-amber-300 border-amber-500/30",
   "Creative AI": "bg-pink-500/20 text-pink-300 border-pink-500/30",
 };
@@ -173,7 +173,7 @@ export default function DailyChallengePage() {
 
   function getOptionStyle(index: number): string {
     if (!revealed) {
-      return "bg-space-800 border-slate-700 hover:border-teal-500/50 hover:bg-space-700 cursor-pointer";
+      return "bg-space-800 border-slate-200 hover:border-sky-300 hover:bg-space-700 cursor-pointer";
     }
 
     const isSelected = selectedAnswer === index;
@@ -182,19 +182,19 @@ export default function DailyChallengePage() {
     if (hasCorrect) {
       // Quiz, spot, estimate — show correct/wrong
       if (index === challenge?.correctIndex) {
-        return "bg-emerald-500/20 border-emerald-400 text-emerald-300";
+        return "bg-emerald-500/20 border-emerald-400 text-emerald-500";
       }
       if (isSelected && index !== challenge?.correctIndex) {
         return "bg-red-500/20 border-red-400 text-red-300";
       }
-      return "bg-space-800 border-slate-700 opacity-50";
+      return "bg-space-800 border-slate-200 opacity-50";
     }
 
     // Poll/think — highlight user's pick
     if (isSelected) {
-      return "bg-teal-500/20 border-teal-400";
+      return "bg-mint-400/20 border-teal-400";
     }
-    return "bg-space-800 border-slate-700 opacity-70";
+    return "bg-space-800 border-slate-200 opacity-70";
   }
 
   if (!mounted || !challenge) {
@@ -206,7 +206,7 @@ export default function DailyChallengePage() {
   }
 
   const typeInfo = TYPE_LABELS[challenge.type];
-  const catColor = CATEGORY_COLORS[challenge.category] || "bg-slate-500/20 text-slate-300 border-slate-500/30";
+  const catColor = CATEGORY_COLORS[challenge.category] || "bg-slate-500/20 text-slate-600 border-slate-500/30";
   const hasCorrect = challenge.correctIndex !== undefined;
   const isCorrect = hasCorrect && selectedAnswer === challenge.correctIndex;
 
@@ -219,7 +219,7 @@ export default function DailyChallengePage() {
           animate={{ opacity: 1, y: 0 }}
           className="text-center mb-6"
         >
-          <h1 className="text-3xl font-black text-white">Daily Challenge</h1>
+          <h1 className="text-3xl font-black text-slate-900">Daily Challenge</h1>
           <div className="flex items-center justify-center gap-4 mt-2">
             <span className="text-sm text-slate-400">
               {new Date().toLocaleDateString("en-US", {
@@ -231,7 +231,7 @@ export default function DailyChallengePage() {
             <span className="text-sm font-bold text-orange-400">
               🔥 {progress.streak} day streak
             </span>
-            <span className="text-sm font-bold text-teal-400">⚡ +{challenge.xpReward} XP</span>
+            <span className="text-sm font-bold text-sky-500">⚡ +{challenge.xpReward} XP</span>
           </div>
         </motion.div>
 
@@ -240,14 +240,14 @@ export default function DailyChallengePage() {
           <motion.div
             initial={{ opacity: 0, scale: 0.95 }}
             animate={{ opacity: 1, scale: 1 }}
-            className="mb-6 bg-space-800 rounded-2xl p-4 border border-teal-500/30 text-center"
+            className="mb-6 bg-space-800 rounded-2xl p-4 border border-sky-200 text-center"
           >
-            <p className="text-teal-400 font-bold text-lg">
+            <p className="text-sky-500 font-bold text-lg">
               {countdown ? "Come Back Tomorrow!" : "Challenge Complete!"}
             </p>
             {countdown && (
               <p className="text-slate-400 text-sm mt-1">
-                Next challenge in <span className="text-white font-bold">{countdown}</span>
+                Next challenge in <span className="text-slate-900 font-bold">{countdown}</span>
               </p>
             )}
           </motion.div>
@@ -286,7 +286,7 @@ export default function DailyChallengePage() {
             </div>
 
             {/* Question */}
-            <h2 className="text-xl font-black text-white text-center leading-snug">
+            <h2 className="text-xl font-black text-slate-900 text-center leading-snug">
               {challenge.question}
             </h2>
           </div>
@@ -306,21 +306,21 @@ export default function DailyChallengePage() {
             >
               <div className="flex items-center justify-between">
                 <div className="flex items-center gap-3">
-                  <span className="text-sm font-bold text-slate-500 w-6">
+                  <span className="text-sm font-bold text-slate-400 w-6">
                     {String.fromCharCode(65 + index)}
                   </span>
-                  <span className="text-white font-medium text-sm">{option}</span>
+                  <span className="text-slate-900 font-medium text-sm">{option}</span>
                 </div>
 
                 {/* Result indicators */}
                 {revealed && hasCorrect && index === challenge.correctIndex && (
-                  <span className="text-emerald-400 text-lg">✓</span>
+                  <span className="text-emerald-500 text-lg">✓</span>
                 )}
                 {revealed && hasCorrect && selectedAnswer === index && index !== challenge.correctIndex && (
                   <span className="text-red-400 text-lg">✗</span>
                 )}
                 {revealed && !hasCorrect && selectedAnswer === index && (
-                  <span className="text-teal-400 text-sm font-bold">Your pick</span>
+                  <span className="text-sky-500 text-sm font-bold">Your pick</span>
                 )}
               </div>
 
@@ -365,7 +365,7 @@ export default function DailyChallengePage() {
                   animate={{ scale: 1 }}
                   className={`text-center py-3 rounded-xl font-black text-lg ${
                     isCorrect
-                      ? "bg-emerald-500/20 text-emerald-400"
+                      ? "bg-emerald-500/20 text-emerald-500"
                       : "bg-red-500/20 text-red-400"
                   }`}
                 >
@@ -374,12 +374,12 @@ export default function DailyChallengePage() {
               )}
 
               {/* Explanation */}
-              <div className="bg-space-800 rounded-2xl p-5 border border-slate-700">
-                <h3 className="text-teal-400 font-bold text-sm mb-2">💡 Did you know?</h3>
-                <p className="text-slate-300 text-sm leading-relaxed">{challenge.explanation}</p>
+              <div className="bg-space-800 rounded-2xl p-5 border border-slate-200">
+                <h3 className="text-sky-500 font-bold text-sm mb-2">💡 Did you know?</h3>
+                <p className="text-slate-600 text-sm leading-relaxed">{challenge.explanation}</p>
 
                 {challenge.funFact && (
-                  <div className="mt-3 pt-3 border-t border-slate-700">
+                  <div className="mt-3 pt-3 border-t border-slate-200">
                     <p className="text-amber-300 text-sm">
                       <span className="font-bold">🌟 Fun Fact:</span> {challenge.funFact}
                     </p>
@@ -395,7 +395,7 @@ export default function DailyChallengePage() {
                     animate={{ opacity: 1, scale: 1, y: 0 }}
                     className="text-center"
                   >
-                    <span className="inline-block bg-teal-500/20 border border-teal-500/30 text-teal-300 font-black text-lg px-6 py-2 rounded-full">
+                    <span className="inline-block bg-mint-400/20 border border-sky-200 text-sky-400 font-black text-lg px-6 py-2 rounded-full">
                       ⚡ +10 XP earned!
                     </span>
                   </motion.div>
@@ -404,7 +404,7 @@ export default function DailyChallengePage() {
 
               {/* Share prompt */}
               <div className="text-center">
-                <p className="text-slate-500 text-sm">
+                <p className="text-slate-400 text-sm">
                   🗣️ Challenge your friends — ask them the same question!
                 </p>
               </div>
@@ -416,7 +416,7 @@ export default function DailyChallengePage() {
                 </p>
                 <Link
                   href="/home"
-                  className="inline-block mt-4 bg-teal-600 hover:bg-teal-500 text-white font-bold px-6 py-3 rounded-xl transition-colors"
+                  className="inline-block mt-4 bg-sky-500 hover:bg-mint-400 text-white font-bold px-6 py-3 rounded-xl transition-colors"
                 >
                   Back to Worlds
                 </Link>
@@ -483,18 +483,18 @@ function WildJournal() {
   const visibleEntries = showAll ? entries : entries.slice(0, 5);
 
   return (
-    <div className="mt-10 pt-8 border-t border-slate-800">
+    <div className="mt-10 pt-8 border-t border-slate-200">
       <div className="text-center mb-6">
-        <h2 className="text-2xl font-black text-white">AI in the Wild</h2>
+        <h2 className="text-2xl font-black text-slate-900">AI in the Wild</h2>
         <p className="text-slate-400 text-sm mt-1">
           Spot AI in your daily life and earn 5 XP per entry (up to 3/day)
         </p>
       </div>
 
       {/* Daily prompt */}
-      <div className="bg-space-800 rounded-2xl p-4 border border-slate-700 mb-4">
-        <p className="text-xs font-bold text-teal-400 mb-1">Today&apos;s prompt</p>
-        <p className="text-slate-300 text-sm">{todayPrompt}</p>
+      <div className="bg-space-800 rounded-2xl p-4 border border-slate-200 mb-4">
+        <p className="text-xs font-bold text-sky-500 mb-1">Today&apos;s prompt</p>
+        <p className="text-slate-600 text-sm">{todayPrompt}</p>
       </div>
 
       {/* Input */}
@@ -507,19 +507,19 @@ function WildJournal() {
             onKeyDown={(e) => e.key === "Enter" && handleAddEntry()}
             placeholder="I noticed AI when..."
             maxLength={200}
-            className="flex-1 bg-space-800 border-2 border-slate-700 rounded-xl px-4 py-3 text-white text-sm font-medium placeholder-slate-600 focus:outline-none focus:border-teal-400 transition-colors"
+            className="flex-1 bg-space-800 border-2 border-slate-200 rounded-xl px-4 py-3 text-slate-900 text-sm font-medium placeholder-slate-400 focus:outline-none focus:border-sky-400 transition-colors"
           />
           <button
             onClick={handleAddEntry}
             disabled={!newEntry.trim()}
-            className="bg-teal-500 hover:bg-teal-400 disabled:opacity-40 disabled:cursor-not-allowed text-white font-bold px-5 py-3 rounded-xl btn-press transition-colors text-sm"
+            className="bg-mint-400 hover:bg-mint-300 disabled:opacity-40 disabled:cursor-not-allowed text-slate-900 font-bold px-5 py-3 rounded-xl btn-press transition-colors text-sm"
           >
             Log
           </button>
         </div>
       ) : (
-        <div className="text-center mb-6 bg-teal-500/10 border border-teal-500/20 rounded-xl py-3 px-4">
-          <p className="text-teal-400 text-sm font-bold">
+        <div className="text-center mb-6 bg-mint-400/10 border border-teal-500/20 rounded-xl py-3 px-4">
+          <p className="text-sky-500 text-sm font-bold">
             Great spotting! You&apos;ve logged 3 entries today. Come back tomorrow!
           </p>
         </div>
@@ -534,7 +534,7 @@ function WildJournal() {
             exit={{ opacity: 0, scale: 0.5 }}
             className="text-center mb-4"
           >
-            <span className="inline-block bg-teal-500/20 border border-teal-500/30 text-teal-300 font-black text-sm px-4 py-1.5 rounded-full">
+            <span className="inline-block bg-mint-400/20 border border-sky-200 text-sky-400 font-black text-sm px-4 py-1.5 rounded-full">
               +5 XP earned!
             </span>
           </motion.div>
@@ -544,7 +544,7 @@ function WildJournal() {
       {/* Entries */}
       {entries.length > 0 && (
         <div className="space-y-2">
-          <p className="text-xs font-bold text-slate-500 uppercase mb-2">
+          <p className="text-xs font-bold text-slate-400 uppercase mb-2">
             Your sightings ({entries.length} total)
           </p>
           {visibleEntries.map((entry) => (
@@ -552,11 +552,11 @@ function WildJournal() {
               key={entry.id}
               initial={{ opacity: 0, x: -10 }}
               animate={{ opacity: 1, x: 0 }}
-              className="bg-space-800 rounded-xl px-4 py-3 border border-slate-700/50 flex items-start gap-3"
+              className="bg-space-800 rounded-xl px-4 py-3 border border-slate-200/50 flex items-start gap-3"
             >
               <span className="text-lg mt-0.5">👁️</span>
               <div className="flex-1 min-w-0">
-                <p className="text-slate-300 text-sm">{entry.text}</p>
+                <p className="text-slate-600 text-sm">{entry.text}</p>
                 <p className="text-slate-600 text-xs mt-1">{entry.date}</p>
               </div>
               <span className="text-xs text-teal-500 font-bold whitespace-nowrap">+5 XP</span>
@@ -565,7 +565,7 @@ function WildJournal() {
           {entries.length > 5 && !showAll && (
             <button
               onClick={() => setShowAll(true)}
-              className="w-full text-center text-teal-400 hover:text-teal-300 text-sm font-bold py-2 transition-colors"
+              className="w-full text-center text-sky-500 hover:text-sky-400 text-sm font-bold py-2 transition-colors"
             >
               Show all {entries.length} entries &rarr;
             </button>
@@ -576,7 +576,7 @@ function WildJournal() {
       {entries.length === 0 && (
         <div className="text-center py-6">
           <div className="text-4xl mb-3">👁️</div>
-          <p className="text-slate-500 text-sm">
+          <p className="text-slate-400 text-sm">
             No sightings yet. Start noticing AI around you!
           </p>
         </div>

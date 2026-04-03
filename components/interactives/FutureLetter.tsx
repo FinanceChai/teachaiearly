@@ -83,11 +83,11 @@ export function FutureLetter({ onComplete }: { onComplete: () => void }) {
   // Sealed letter
   if (step === 4) {
     return (
-      <div className="p-6 bg-space-900 rounded-xl border border-slate-700 max-w-2xl mx-auto">
+      <div className="p-6 bg-space-900 rounded-xl border border-slate-200 max-w-2xl mx-auto">
         {!sealed ? (
           <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="text-center">
-            <h2 className="text-2xl font-bold text-white mb-4">✉️ Your Letter is Ready!</h2>
-            <p className="text-slate-300 mb-4">Click to seal it and send it to future you:</p>
+            <h2 className="text-2xl font-bold text-slate-900 mb-4">✉️ Your Letter is Ready!</h2>
+            <p className="text-slate-600 mb-4">Click to seal it and send it to future you:</p>
             <motion.button
               whileHover={{ scale: 1.1 }}
               whileTap={{ scale: 0.9 }}
@@ -107,7 +107,7 @@ export function FutureLetter({ onComplete }: { onComplete: () => void }) {
               {/* Envelope header */}
               <div className="text-center mb-4 pb-3 border-b border-amber-500/20">
                 <p className="text-amber-400 text-xs">📬 TO BE OPENED IN</p>
-                <p className="text-2xl font-bold text-white">{futureYear}</p>
+                <p className="text-2xl font-bold text-slate-900">{futureYear}</p>
                 <p className="text-amber-400/60 text-xs">A letter from your younger self</p>
               </div>
 
@@ -116,28 +116,28 @@ export function FutureLetter({ onComplete }: { onComplete: () => void }) {
                   <p className="text-amber-400 text-xs font-semibold">
                     Right now, the coolest AI thing I know about is...
                   </p>
-                  <p className="text-white mt-1">{coolest}</p>
+                  <p className="text-slate-900 mt-1">{coolest}</p>
                 </div>
 
                 <div>
                   <p className="text-amber-400 text-xs font-semibold">
                     By the time I&apos;m older, I hope AI can...
                   </p>
-                  <p className="text-white mt-1">{finalHope}</p>
+                  <p className="text-slate-900 mt-1">{finalHope}</p>
                 </div>
 
                 <div>
                   <p className="text-amber-400 text-xs font-semibold">
                     One thing I&apos;ll do to help shape AI is...
                   </p>
-                  <p className="text-white mt-1">{finalContribution}</p>
+                  <p className="text-slate-900 mt-1">{finalContribution}</p>
                 </div>
 
                 <div>
                   <p className="text-amber-400 text-xs font-semibold">
                     One AI rule I&apos;d make is...
                   </p>
-                  <p className="text-white mt-1">{finalRule}</p>
+                  <p className="text-slate-900 mt-1">{finalRule}</p>
                 </div>
               </div>
 
@@ -151,7 +151,7 @@ export function FutureLetter({ onComplete }: { onComplete: () => void }) {
 
             <div className="bg-space-800 rounded-lg p-4 mt-4">
               <p className="text-amber-400 font-semibold mb-1">💡 Your voice matters!</p>
-              <p className="text-slate-300 text-sm">
+              <p className="text-slate-600 text-sm">
                 The future of AI isn&apos;t just decided by tech companies — it&apos;s shaped by
                 everyone who uses it, talks about it, and stands up for what&apos;s right.
                 Your generation will decide how AI is used. Remember what you wrote here!
@@ -163,7 +163,7 @@ export function FutureLetter({ onComplete }: { onComplete: () => void }) {
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
                 onClick={handleComplete}
-                className="w-full mt-4 px-6 py-3 bg-amber-500 text-white rounded-lg font-bold"
+                className="w-full mt-4 px-6 py-3 bg-amber-500 text-slate-900 rounded-lg font-bold"
               >
                 Complete Letter ✓
               </motion.button>
@@ -190,8 +190,8 @@ export function FutureLetter({ onComplete }: { onComplete: () => void }) {
   const setCustomValue = step === 1 ? setCustomHope : step === 2 ? setCustomContribution : setCustomRule;
 
   return (
-    <div className="p-6 bg-space-900 rounded-xl border border-slate-700 max-w-2xl mx-auto">
-      <h2 className="text-xl font-bold text-white mb-1">✉️ Letter to Future Me</h2>
+    <div className="p-6 bg-space-900 rounded-xl border border-slate-200 max-w-2xl mx-auto">
+      <h2 className="text-xl font-bold text-slate-900 mb-1">✉️ Letter to Future Me</h2>
 
       <div className="flex gap-1 mb-4">
         {stepConfigs.map((_, i) => (
@@ -204,7 +204,7 @@ export function FutureLetter({ onComplete }: { onComplete: () => void }) {
 
       <motion.div key={step} initial={{ opacity: 0, x: 30 }} animate={{ opacity: 1, x: 0 }}>
         <h3 className="text-lg font-bold text-amber-400 mb-1">{stepConfigs[step].title}</h3>
-        <p className="text-slate-300 text-sm mb-4 italic">&quot;{stepConfigs[step].prompt}&quot;</p>
+        <p className="text-slate-600 text-sm mb-4 italic">&quot;{stepConfigs[step].prompt}&quot;</p>
 
         <div className="space-y-1.5 mb-3 max-h-52 overflow-y-auto pr-1">
           {currentOptions.map((option) => (
@@ -216,8 +216,8 @@ export function FutureLetter({ onComplete }: { onComplete: () => void }) {
               }}
               className={`w-full p-2 rounded-lg border text-sm text-left ${
                 currentValue === option
-                  ? "bg-amber-500/20 border-amber-500 text-white"
-                  : "bg-space-800 border-slate-700 text-slate-300 hover:border-slate-500"
+                  ? "bg-amber-500/20 border-amber-500 text-slate-900"
+                  : "bg-space-800 border-slate-200 text-slate-600 hover:border-slate-500"
               }`}
             >
               {option}
@@ -234,7 +234,7 @@ export function FutureLetter({ onComplete }: { onComplete: () => void }) {
               setCustomValue(e.target.value);
               setCurrentValue("__custom");
             }}
-            className="w-full bg-space-800 border border-slate-700 rounded-lg px-3 py-2 text-white text-sm focus:border-amber-500 outline-none mb-3"
+            className="w-full bg-space-800 border border-slate-200 rounded-lg px-3 py-2 text-slate-900 text-sm focus:border-amber-500 outline-none mb-3"
             maxLength={100}
           />
         )}
@@ -246,7 +246,7 @@ export function FutureLetter({ onComplete }: { onComplete: () => void }) {
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
             onClick={() => setStep(step + 1)}
-            className="w-full px-5 py-2 bg-amber-500 text-white rounded-lg font-bold"
+            className="w-full px-5 py-2 bg-amber-500 text-slate-900 rounded-lg font-bold"
           >
             {step < 3 ? "Next →" : "Seal the Letter! 📨"}
           </motion.button>

@@ -93,12 +93,12 @@ export function ProjectScoper({ onComplete }: { onComplete: () => void }) {
     const selectedFeatures = MVP_FEATURES.filter((_, i) => features[i]);
 
     return (
-      <div className="p-6 bg-space-900 rounded-xl border border-slate-700 max-w-2xl mx-auto">
+      <div className="p-6 bg-space-900 rounded-xl border border-slate-200 max-w-2xl mx-auto">
         <motion.div
           initial={{ scale: 0.9, opacity: 0 }}
           animate={{ scale: 1, opacity: 1 }}
         >
-          <h2 className="text-2xl font-bold text-white mb-4 text-center">
+          <h2 className="text-2xl font-bold text-slate-900 mb-4 text-center">
             📋 Your Project Brief
           </h2>
 
@@ -106,17 +106,17 @@ export function ProjectScoper({ onComplete }: { onComplete: () => void }) {
             <div className="text-center mb-4">
               <span className="text-4xl">{cat.icon}</span>
               <h3 className="text-xl font-bold text-lime-400 mt-1">{uc.name}</h3>
-              <p className="text-slate-300 text-sm">{uc.description}</p>
+              <p className="text-slate-600 text-sm">{uc.description}</p>
             </div>
 
             <div className="grid grid-cols-2 gap-3 mb-4">
               <div className="bg-space-900/60 rounded-lg p-3">
                 <p className="text-lime-400 text-xs font-semibold">Category</p>
-                <p className="text-white text-sm">{cat.icon} {cat.name}</p>
+                <p className="text-slate-900 text-sm">{cat.icon} {cat.name}</p>
               </div>
               <div className="bg-space-900/60 rounded-lg p-3">
                 <p className="text-lime-400 text-xs font-semibold">Audience</p>
-                <p className="text-white text-sm">{aud.icon} {aud.name}</p>
+                <p className="text-slate-900 text-sm">{aud.icon} {aud.name}</p>
               </div>
             </div>
 
@@ -137,7 +137,7 @@ export function ProjectScoper({ onComplete }: { onComplete: () => void }) {
 
           <div className="bg-space-800 rounded-lg p-4 mt-4">
             <p className="text-lime-400 font-semibold mb-1">💡 What you learned:</p>
-            <p className="text-slate-300 text-sm">
+            <p className="text-slate-600 text-sm">
               You just turned a vague idea (&quot;I want to build an AI app&quot;) into a specific,
               buildable project! Real developers do this exact process — it&apos;s called &quot;scoping.&quot;
               Starting small with an MVP is the secret to actually finishing projects!
@@ -149,7 +149,7 @@ export function ProjectScoper({ onComplete }: { onComplete: () => void }) {
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
               onClick={handleComplete}
-              className="w-full mt-4 px-6 py-3 bg-lime-500 text-white rounded-lg font-bold"
+              className="w-full mt-4 px-6 py-3 bg-lime-500 text-slate-900 rounded-lg font-bold"
             >
               Complete Scoping ✓
             </motion.button>
@@ -169,8 +169,8 @@ export function ProjectScoper({ onComplete }: { onComplete: () => void }) {
   ];
 
   return (
-    <div className="p-6 bg-space-900 rounded-xl border border-slate-700 max-w-2xl mx-auto">
-      <h2 className="text-2xl font-bold text-white mb-1">🎯 Project Scoper</h2>
+    <div className="p-6 bg-space-900 rounded-xl border border-slate-200 max-w-2xl mx-auto">
+      <h2 className="text-2xl font-bold text-slate-900 mb-1">🎯 Project Scoper</h2>
 
       <div className="flex gap-1 mb-4">
         {[0, 1, 2, 3].map((s) => (
@@ -183,13 +183,13 @@ export function ProjectScoper({ onComplete }: { onComplete: () => void }) {
 
       <motion.div key={step} initial={{ opacity: 0, x: 30 }} animate={{ opacity: 1, x: 0 }}>
         <h3 className="text-lg font-bold text-lime-400 mb-1">{stepTitles[step].title}</h3>
-        <p className="text-slate-300 text-sm mb-4">{stepTitles[step].subtitle}</p>
+        <p className="text-slate-600 text-sm mb-4">{stepTitles[step].subtitle}</p>
 
         {step === 0 && (
           <div className="space-y-3">
-            <div className="bg-space-800 rounded-lg p-4 border border-slate-700 text-center">
+            <div className="bg-space-800 rounded-lg p-4 border border-slate-200 text-center">
               <span className="text-4xl">💡</span>
-              <p className="text-white font-bold mt-2">&quot;I want to build an AI app!&quot;</p>
+              <p className="text-slate-900 font-bold mt-2">&quot;I want to build an AI app!&quot;</p>
               <p className="text-slate-400 text-sm mt-1">
                 Cool idea! But which kind? Let&apos;s figure it out step by step.
               </p>
@@ -198,7 +198,7 @@ export function ProjectScoper({ onComplete }: { onComplete: () => void }) {
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
               onClick={() => setStep(1)}
-              className="w-full px-5 py-2 bg-lime-500 text-white rounded-lg font-bold"
+              className="w-full px-5 py-2 bg-lime-500 text-slate-900 rounded-lg font-bold"
             >
               Let&apos;s Narrow It Down →
             </motion.button>
@@ -220,17 +220,17 @@ export function ProjectScoper({ onComplete }: { onComplete: () => void }) {
                 className={`w-full p-3 rounded-lg border text-left ${
                   category === i
                     ? "bg-lime-500/20 border-lime-500"
-                    : "bg-space-800 border-slate-700 hover:border-slate-500"
+                    : "bg-space-800 border-slate-200 hover:border-slate-500"
                 }`}
               >
                 <span className="text-xl">{cat.icon}</span>
-                <span className="text-white font-semibold ml-2">{cat.name}</span>
+                <span className="text-slate-900 font-semibold ml-2">{cat.name}</span>
               </motion.button>
             ))}
 
             {category !== null && (
               <div className="mt-3">
-                <p className="text-slate-300 text-sm mb-2">Now pick a specific project:</p>
+                <p className="text-slate-600 text-sm mb-2">Now pick a specific project:</p>
                 {CATEGORIES[category].useCases.map((uc, i) => (
                   <motion.button
                     key={uc.name}
@@ -241,10 +241,10 @@ export function ProjectScoper({ onComplete }: { onComplete: () => void }) {
                     className={`w-full p-2 rounded-lg border text-left mb-1 ${
                       useCase === i
                         ? "bg-lime-500/20 border-lime-500"
-                        : "bg-space-800 border-slate-700 hover:border-slate-500"
+                        : "bg-space-800 border-slate-200 hover:border-slate-500"
                     }`}
                   >
-                    <p className="text-white text-sm font-semibold">{uc.name}</p>
+                    <p className="text-slate-900 text-sm font-semibold">{uc.name}</p>
                     <p className="text-slate-400 text-xs">{uc.description}</p>
                   </motion.button>
                 ))}
@@ -258,7 +258,7 @@ export function ProjectScoper({ onComplete }: { onComplete: () => void }) {
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
                 onClick={() => setStep(2)}
-                className="w-full mt-2 px-5 py-2 bg-lime-500 text-white rounded-lg font-bold"
+                className="w-full mt-2 px-5 py-2 bg-lime-500 text-slate-900 rounded-lg font-bold"
               >
                 Next: Pick Audience →
               </motion.button>
@@ -278,11 +278,11 @@ export function ProjectScoper({ onComplete }: { onComplete: () => void }) {
                 className={`w-full p-3 rounded-lg border text-left ${
                   audience === i
                     ? "bg-lime-500/20 border-lime-500"
-                    : "bg-space-800 border-slate-700 hover:border-slate-500"
+                    : "bg-space-800 border-slate-200 hover:border-slate-500"
                 }`}
               >
                 <span className="text-xl">{aud.icon}</span>
-                <span className="text-white font-semibold ml-2">{aud.name}</span>
+                <span className="text-slate-900 font-semibold ml-2">{aud.name}</span>
                 <span className="text-slate-400 text-sm ml-2">— {aud.description}</span>
               </motion.button>
             ))}
@@ -294,7 +294,7 @@ export function ProjectScoper({ onComplete }: { onComplete: () => void }) {
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
                 onClick={() => setStep(3)}
-                className="w-full mt-2 px-5 py-2 bg-lime-500 text-white rounded-lg font-bold"
+                className="w-full mt-2 px-5 py-2 bg-lime-500 text-slate-900 rounded-lg font-bold"
               >
                 Next: Pick Features →
               </motion.button>
@@ -322,11 +322,11 @@ export function ProjectScoper({ onComplete }: { onComplete: () => void }) {
                   className={`p-2 rounded-lg border text-left ${
                     features[i]
                       ? "bg-lime-500/20 border-lime-500"
-                      : "bg-space-800 border-slate-700 hover:border-slate-500"
+                      : "bg-space-800 border-slate-200 hover:border-slate-500"
                   }`}
                 >
                   <span className="text-lg">{f.icon}</span>
-                  <p className="text-white text-xs font-semibold">{f.name}</p>
+                  <p className="text-slate-900 text-xs font-semibold">{f.name}</p>
                 </motion.button>
               ))}
             </div>
@@ -338,7 +338,7 @@ export function ProjectScoper({ onComplete }: { onComplete: () => void }) {
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
                 onClick={() => setStep(4)}
-                className="w-full px-5 py-2 bg-lime-500 text-white rounded-lg font-bold"
+                className="w-full px-5 py-2 bg-lime-500 text-slate-900 rounded-lg font-bold"
               >
                 Generate Project Brief →
               </motion.button>

@@ -45,9 +45,9 @@ export function DataChef({ onComplete }: { onComplete: () => void }) {
   const badCount = selected.filter((i) => !i.good).length;
   const quality = bowl.length === 0 ? 0 : Math.round((goodCount / selected.length) * 100);
 
-  let result = { emoji: "🤖", label: "Decent AI", color: "text-teal-300", bg: "bg-teal-500/20 border-teal-500/30" };
+  let result = { emoji: "🤖", label: "Decent AI", color: "text-sky-400", bg: "bg-mint-400/20 border-sky-200" };
   if (bowl.length === 0) {
-    result = { emoji: "❓", label: "No data, no AI!", color: "text-slate-400", bg: "bg-slate-700/50 border-slate-600" };
+    result = { emoji: "❓", label: "No data, no AI!", color: "text-slate-400", bg: "bg-slate-100 border-slate-300" };
   } else if (quality === 100) {
     result = { emoji: "🏆", label: "Perfect AI Model!", color: "text-yellow-300", bg: "bg-yellow-500/20 border-yellow-500/30" };
   } else if (quality >= 75) {
@@ -63,7 +63,7 @@ export function DataChef({ onComplete }: { onComplete: () => void }) {
       <div className="bg-space-800 rounded-2xl p-5 border border-green-500/30">
         <div className="text-center mb-4">
           <div className="text-3xl mb-2">👨‍🍳</div>
-          <div className="font-black text-white">Data Chef</div>
+          <div className="font-black text-slate-900">Data Chef</div>
           <div className="text-sm text-slate-400 mt-1">
             Pick your training data ingredients and cook the AI!
           </div>
@@ -82,7 +82,7 @@ export function DataChef({ onComplete }: { onComplete: () => void }) {
                     ? ing.good
                       ? "bg-green-500/20 border-green-500/50 text-green-300"
                       : "bg-red-500/20 border-red-500/50 text-red-300"
-                    : "bg-space-900 border-slate-700 text-slate-400 hover:border-slate-500"
+                    : "bg-space-900 border-slate-200 text-slate-400 hover:border-slate-500"
                 } ${cooked ? "opacity-70 cursor-default" : ""}`}
               >
                 <span className="text-xl flex-shrink-0">{ing.emoji}</span>
@@ -109,7 +109,7 @@ export function DataChef({ onComplete }: { onComplete: () => void }) {
           <button
             onClick={cook}
             disabled={bowl.length === 0}
-            className="w-full py-4 rounded-2xl font-black text-white bg-green-500 hover:bg-green-400 btn-press transition-colors disabled:opacity-40 disabled:cursor-not-allowed"
+            className="w-full py-4 rounded-2xl font-black text-slate-900 bg-green-500 hover:bg-green-400 btn-press transition-colors disabled:opacity-40 disabled:cursor-not-allowed"
           >
             🍳 Cook the AI!
           </button>
@@ -143,7 +143,7 @@ export function DataChef({ onComplete }: { onComplete: () => void }) {
             {!completed && (
               <button
                 onClick={handleDone}
-                className="w-full py-4 rounded-2xl font-black text-white bg-green-500 hover:bg-green-400 btn-press transition-colors"
+                className="w-full py-4 rounded-2xl font-black text-slate-900 bg-green-500 hover:bg-green-400 btn-press transition-colors"
               >
                 Got it! ✓
               </button>

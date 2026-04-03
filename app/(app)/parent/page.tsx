@@ -54,7 +54,7 @@ export default function ParentPage() {
     <div className="min-h-screen bg-space-900">
       <div className="max-w-2xl mx-auto px-4 py-8">
         <div className="text-center mb-8">
-          <h1 className="text-3xl font-black text-white">Parent Dashboard</h1>
+          <h1 className="text-3xl font-black text-slate-900">Parent Dashboard</h1>
           <p className="text-slate-400 mt-1">
             Track {profile?.name ?? "your child"}&apos;s progress
           </p>
@@ -62,26 +62,26 @@ export default function ParentPage() {
 
         {/* Summary cards */}
         <div className="grid grid-cols-3 gap-4 mb-8">
-          <div className="bg-space-800 rounded-2xl p-4 border border-slate-700 text-center">
+          <div className="bg-space-800 rounded-2xl p-4 border border-slate-200 text-center">
             <div className="text-3xl font-black text-yellow-400">{progress.xp}</div>
             <div className="text-xs text-slate-400 mt-1 font-bold">XP Earned</div>
           </div>
-          <div className="bg-space-800 rounded-2xl p-4 border border-slate-700 text-center">
-            <div className="text-3xl font-black text-teal-400">{lessonsCompleted}</div>
+          <div className="bg-space-800 rounded-2xl p-4 border border-slate-200 text-center">
+            <div className="text-3xl font-black text-sky-500">{lessonsCompleted}</div>
             <div className="text-xs text-slate-400 mt-1 font-bold">Lessons Done</div>
           </div>
-          <div className="bg-space-800 rounded-2xl p-4 border border-slate-700 text-center">
+          <div className="bg-space-800 rounded-2xl p-4 border border-slate-200 text-center">
             <div className="text-3xl font-black text-purple-400">{badgesEarned}</div>
             <div className="text-xs text-slate-400 mt-1 font-bold">Badges</div>
           </div>
         </div>
 
         {/* Level */}
-        <div className="bg-space-800 rounded-2xl p-5 border border-slate-700 mb-4">
-          <div className="font-black text-white mb-2">Level {xpInfo.level} — {xpInfo.title}</div>
-          <div className="bg-slate-700 rounded-full h-3 overflow-hidden">
+        <div className="bg-space-800 rounded-2xl p-5 border border-slate-200 mb-4">
+          <div className="font-black text-slate-900 mb-2">Level {xpInfo.level} — {xpInfo.title}</div>
+          <div className="bg-slate-200 rounded-full h-3 overflow-hidden">
             <div
-              className="h-full bg-gradient-to-r from-teal-500 to-cyan-400 rounded-full transition-all"
+              className="h-full bg-gradient-to-r from-sky-400 to-mint-300 rounded-full transition-all"
               style={{ width: `${Math.min((progress.xp / xpInfo.nextLevelXp) * 100, 100)}%` }}
             />
           </div>
@@ -89,8 +89,8 @@ export default function ParentPage() {
         </div>
 
         {/* World progress */}
-        <div className="bg-space-800 rounded-2xl p-5 border border-slate-700">
-          <div className="font-black text-white mb-4">World Progress</div>
+        <div className="bg-space-800 rounded-2xl p-5 border border-slate-200">
+          <div className="font-black text-slate-900 mb-4">World Progress</div>
           <div className="space-y-3">
             {WORLDS.map((world) => {
               const done = world.lessons.filter((l) =>
@@ -101,13 +101,13 @@ export default function ParentPage() {
               return (
                 <div key={world.id}>
                   <div className="flex justify-between text-sm mb-1">
-                    <span className="font-bold text-white">{world.emoji} {world.title}</span>
+                    <span className="font-bold text-slate-900">{world.emoji} {world.title}</span>
                     <span className="text-slate-400 font-bold">
                       {done}/{world.lessons.length}
                       {challengeDone && " + badge"}
                     </span>
                   </div>
-                  <div className="bg-slate-700 rounded-full h-2 overflow-hidden">
+                  <div className="bg-slate-200 rounded-full h-2 overflow-hidden">
                     <div
                       className="h-full rounded-full transition-all"
                       style={{ width: `${pct}%`, background: world.hex }}
@@ -124,7 +124,7 @@ export default function ParentPage() {
           <button
             onClick={handleManageSubscription}
             disabled={portalLoading}
-            className="w-full mt-4 py-3 rounded-2xl font-black text-teal-400 border border-teal-500/30 bg-teal-500/10 hover:bg-teal-500/20 transition-colors disabled:opacity-60"
+            className="w-full mt-4 py-3 rounded-2xl font-black text-sky-500 border border-sky-200 bg-mint-400/10 hover:bg-mint-400/20 transition-colors disabled:opacity-60"
           >
             {portalLoading ? "Loading..." : "Manage Subscription"}
           </button>
@@ -134,7 +134,7 @@ export default function ParentPage() {
         {user && (
           <button
             onClick={handleSignOut}
-            className="w-full mt-4 py-3 rounded-2xl font-black text-slate-400 border border-slate-600 bg-slate-700/30 hover:bg-slate-700/50 transition-colors"
+            className="w-full mt-4 py-3 rounded-2xl font-black text-slate-400 border border-slate-300 bg-slate-700/30 hover:bg-slate-100 transition-colors"
           >
             Sign Out
           </button>

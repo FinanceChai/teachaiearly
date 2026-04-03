@@ -94,8 +94,8 @@ export function FeatureFinder({ onComplete }: { onComplete: () => void }) {
       <div className="text-center space-y-5 py-4">
         <motion.div initial={{ scale: 0 }} animate={{ scale: 1 }} transition={{ type: "spring", stiffness: 300, damping: 18 }} className="text-7xl">🔍</motion.div>
         <div>
-          <div className="text-4xl font-black text-white">{score}/{total}</div>
-          <div className="text-slate-300 mt-2">
+          <div className="text-4xl font-black text-slate-900">{score}/{total}</div>
+          <div className="text-slate-600 mt-2">
             {score >= total - 2 ? "Amazing detective work! You think in layers like a neural network." : score >= total / 2 ? "Good job! AI builds up from edges to objects, layer by layer." : "Keep exploring — AI vision is all about building up from simple to complex!"}
           </div>
         </div>
@@ -116,26 +116,26 @@ export function FeatureFinder({ onComplete }: { onComplete: () => void }) {
             <div key={i} className={`flex-1 h-2 rounded-full transition-all ${i < layerIdx ? "bg-pink-500" : i === layerIdx ? "bg-pink-400" : "bg-slate-700"}`} />
           ))}
         </div>
-        <div className="bg-space-800 rounded-2xl p-5 border border-slate-700">
+        <div className="bg-space-800 rounded-2xl p-5 border border-slate-200">
           <div className="text-xs font-black text-pink-400 mb-1">HOW AI SEES — LAYER BY LAYER</div>
           <AnimatePresence mode="wait">
             <motion.div key={layerIdx} initial={{ opacity: 0, x: 20 }} animate={{ opacity: 1, x: 0 }} exit={{ opacity: 0, x: -20 }}>
               <div className="text-center py-4">
                 <div className="text-5xl mb-3">{layer.icon}</div>
-                <h3 className="text-xl font-black text-white">{layer.name}</h3>
+                <h3 className="text-xl font-black text-slate-900">{layer.name}</h3>
                 <p className="text-slate-400 text-sm mt-2">{layer.description}</p>
               </div>
               <div className="grid grid-cols-2 gap-2 mb-4">
                 {layer.features.map((f, i) => (
-                  <motion.div key={f} initial={{ opacity: 0, y: 8 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: i * 0.1 }} className="bg-space-900 rounded-xl p-3 border border-slate-600 text-center">
-                    <div className="text-white font-bold text-sm">{f}</div>
+                  <motion.div key={f} initial={{ opacity: 0, y: 8 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: i * 0.1 }} className="bg-space-900 rounded-xl p-3 border border-slate-300 text-center">
+                    <div className="text-slate-900 font-bold text-sm">{f}</div>
                   </motion.div>
                 ))}
               </div>
               {/* Visual layer stack */}
               <div className="flex items-center gap-2 mb-4">
                 {LAYERS.map((l, i) => (
-                  <div key={i} className={`flex-1 h-8 rounded-lg flex items-center justify-center text-xs font-black transition-all ${i <= layerIdx ? "text-white" : "text-slate-600 border border-slate-700"}`} style={{ background: i <= layerIdx ? l.color + "40" : "transparent", borderColor: i <= layerIdx ? l.color : undefined }}>
+                  <div key={i} className={`flex-1 h-8 rounded-lg flex items-center justify-center text-xs font-black transition-all ${i <= layerIdx ? "text-slate-900" : "text-slate-600 border border-slate-200"}`} style={{ background: i <= layerIdx ? l.color + "40" : "transparent", borderColor: i <= layerIdx ? l.color : undefined }}>
                     {l.icon}
                   </div>
                 ))}
@@ -147,7 +147,7 @@ export function FeatureFinder({ onComplete }: { onComplete: () => void }) {
               if (layerIdx < LAYERS.length - 1) setLayerIdx((l) => l + 1);
               else setPhase("detect");
             }}
-            className="w-full py-4 rounded-xl font-black text-white bg-pink-500 hover:bg-pink-400 btn-press transition-colors"
+            className="w-full py-4 rounded-xl font-black text-slate-900 bg-pink-500 hover:bg-pink-400 btn-press transition-colors"
           >
             {layerIdx < LAYERS.length - 1 ? "Next Layer →" : "Play Detective →"}
           </button>
@@ -171,10 +171,10 @@ export function FeatureFinder({ onComplete }: { onComplete: () => void }) {
         <span className="text-xs font-bold text-yellow-400">Score: {score}</span>
       </div>
 
-      <div className="bg-space-800 rounded-2xl p-5 border border-slate-700">
+      <div className="bg-space-800 rounded-2xl p-5 border border-slate-200">
         <div className="flex items-center justify-between mb-1">
           <div className="text-xs font-black text-pink-400">FEATURE DETECTIVE</div>
-          <div className="text-xs font-bold text-slate-500">{round.emoji} Object {roundIdx + 1}/{DETECTIVE_ROUNDS.length}</div>
+          <div className="text-xs font-bold text-slate-400">{round.emoji} Object {roundIdx + 1}/{DETECTIVE_ROUNDS.length}</div>
         </div>
 
         {/* Layer progress */}
@@ -193,7 +193,7 @@ export function FeatureFinder({ onComplete }: { onComplete: () => void }) {
         {picked === null ? (
           <div className="space-y-2">
             {step.options.map((opt, i) => (
-              <motion.button key={i} onClick={() => pickAnswer(i)} whileTap={{ scale: 0.98 }} className="w-full text-left p-3 rounded-xl border border-slate-700 bg-space-900 font-bold text-white text-sm hover:border-pink-500/50 transition-colors">
+              <motion.button key={i} onClick={() => pickAnswer(i)} whileTap={{ scale: 0.98 }} className="w-full text-left p-3 rounded-xl border border-slate-200 bg-space-900 font-bold text-slate-900 text-sm hover:border-pink-500/50 transition-colors">
                 {opt}
               </motion.button>
             ))}
@@ -203,7 +203,7 @@ export function FeatureFinder({ onComplete }: { onComplete: () => void }) {
             <div className={`p-3 rounded-xl text-sm font-bold ${picked === step.correct ? "bg-green-500/20 text-green-300" : "bg-red-500/20 text-red-300"}`}>
               {picked === step.correct ? "Correct!" : `Answer: "${step.options[step.correct]}"`}
             </div>
-            <button onClick={nextStep} className="w-full py-4 rounded-xl font-black text-white bg-pink-500 hover:bg-pink-400 btn-press transition-colors">
+            <button onClick={nextStep} className="w-full py-4 rounded-xl font-black text-slate-900 bg-pink-500 hover:bg-pink-400 btn-press transition-colors">
               {stepIdx >= 3 && roundIdx >= DETECTIVE_ROUNDS.length - 1 ? "See Results →" : "Continue →"}
             </button>
           </motion.div>

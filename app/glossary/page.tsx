@@ -31,13 +31,13 @@ export default function GlossaryPage() {
       <div className="max-w-4xl mx-auto px-6 py-16">
         <Link
           href="/"
-          className="text-teal-400 hover:text-teal-300 text-sm font-bold mb-8 inline-block"
+          className="text-sky-500 hover:text-sky-400 text-sm font-bold mb-8 inline-block"
         >
           &larr; Back to home
         </Link>
 
         <div className="text-center mb-10">
-          <h1 className="text-4xl font-black text-white mb-2">AI Glossary</h1>
+          <h1 className="text-4xl font-black text-slate-900 mb-2">AI Glossary</h1>
           <p className="text-slate-400 max-w-xl mx-auto">
             Every AI term kids learn on Teach AI Early — searchable,
             organized by world. Perfect for review, homework help, or
@@ -52,7 +52,7 @@ export default function GlossaryPage() {
             value={search}
             onChange={(e) => setSearch(e.target.value)}
             placeholder="Search terms or definitions..."
-            className="w-full bg-space-800 border-2 border-slate-700 rounded-xl px-5 py-3 text-white font-medium placeholder-slate-600 focus:outline-none focus:border-teal-400 transition-colors"
+            className="w-full bg-space-800 border-2 border-slate-200 rounded-xl px-5 py-3 text-slate-900 font-medium placeholder-slate-400 focus:outline-none focus:border-sky-400 transition-colors"
           />
         </div>
 
@@ -62,8 +62,8 @@ export default function GlossaryPage() {
             onClick={() => setActiveWorld(null)}
             className={`text-xs font-bold px-3 py-1.5 rounded-full border transition-colors ${
               activeWorld === null
-                ? "bg-teal-500/20 text-teal-300 border-teal-500/30"
-                : "text-slate-400 border-slate-700 hover:border-slate-500"
+                ? "bg-mint-400/20 text-sky-400 border-sky-200"
+                : "text-slate-400 border-slate-200 hover:border-slate-500"
             }`}
           >
             All Worlds
@@ -74,8 +74,8 @@ export default function GlossaryPage() {
               onClick={() => setActiveWorld(activeWorld === world.id ? null : world.id)}
               className={`text-xs font-bold px-3 py-1.5 rounded-full border transition-colors ${
                 activeWorld === world.id
-                  ? "bg-teal-500/20 text-teal-300 border-teal-500/30"
-                  : "text-slate-400 border-slate-700 hover:border-slate-500"
+                  ? "bg-mint-400/20 text-sky-400 border-sky-200"
+                  : "text-slate-400 border-slate-200 hover:border-slate-500"
               }`}
             >
               {world.emoji} {world.title}
@@ -84,7 +84,7 @@ export default function GlossaryPage() {
         </div>
 
         {/* Results count */}
-        <p className="text-xs font-bold text-slate-500 mb-6 uppercase">
+        <p className="text-xs font-bold text-slate-400 mb-6 uppercase">
           {filtered.length} term{filtered.length !== 1 ? "s" : ""}
           {search && ` matching "${search}"`}
         </p>
@@ -93,7 +93,7 @@ export default function GlossaryPage() {
         {filtered.length === 0 ? (
           <div className="text-center py-12">
             <div className="text-4xl mb-3">🔍</div>
-            <p className="text-slate-500">No terms found. Try a different search.</p>
+            <p className="text-slate-400">No terms found. Try a different search.</p>
           </div>
         ) : (
           <div className="space-y-10">
@@ -106,7 +106,7 @@ export default function GlossaryPage() {
                   <div key={worldId}>
                     <div className="flex items-center gap-2 mb-4">
                       <span className="text-xl">{world.emoji}</span>
-                      <h2 className="text-lg font-black text-white">
+                      <h2 className="text-lg font-black text-slate-900">
                         World {world.id}: {world.title}
                       </h2>
                     </div>
@@ -117,18 +117,18 @@ export default function GlossaryPage() {
                           <Link
                             key={fc.id}
                             href={`/glossary/${termToSlug(fc.term)}`}
-                            className="bg-space-800 rounded-xl p-4 border border-slate-700 hover:border-teal-500/40 transition-colors block group"
+                            className="bg-space-800 rounded-xl p-4 border border-slate-200 hover:border-sky-200 transition-colors block group"
                           >
                             <div className="flex items-start justify-between gap-4">
                               <div>
-                                <h3 className="font-black text-white group-hover:text-teal-400 transition-colors">
+                                <h3 className="font-black text-slate-900 group-hover:text-sky-500 transition-colors">
                                   {fc.term}
                                 </h3>
                                 <p className="text-slate-400 text-sm mt-1 leading-relaxed">
                                   {fc.definition}
                                 </p>
                               </div>
-                              <span className="text-slate-600 group-hover:text-teal-400 transition-colors mt-1 shrink-0">
+                              <span className="text-slate-600 group-hover:text-sky-500 transition-colors mt-1 shrink-0">
                                 &rarr;
                               </span>
                             </div>

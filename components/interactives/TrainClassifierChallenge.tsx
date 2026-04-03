@@ -108,7 +108,7 @@ export function TrainClassifierChallenge({ onComplete }: { onComplete: (passed: 
         <div className="bg-space-800 rounded-2xl p-5 border border-green-500/30">
           <div className="text-center mb-5">
             <div className="text-3xl mb-2">🏗️</div>
-            <div className="font-black text-white">Build Your Classifier!</div>
+            <div className="font-black text-slate-900">Build Your Classifier!</div>
             <div className="text-sm text-slate-400 mt-1">
               Pick a category to classify. You'll train the AI, then test it.
             </div>
@@ -118,11 +118,11 @@ export function TrainClassifierChallenge({ onComplete }: { onComplete: (passed: 
               <button
                 key={cat.id}
                 onClick={() => pickCategory(cat)}
-                className="w-full flex items-center gap-4 bg-space-900 hover:bg-slate-700 border border-slate-700 hover:border-green-500/50 rounded-xl p-4 text-left transition-all btn-press"
+                className="w-full flex items-center gap-4 bg-space-900 hover:bg-slate-700 border border-slate-200 hover:border-green-500/50 rounded-xl p-4 text-left transition-all btn-press"
               >
                 <span className="text-3xl">{cat.emoji}</span>
                 <div>
-                  <div className="font-black text-white">{cat.label}</div>
+                  <div className="font-black text-slate-900">{cat.label}</div>
                   <div className="text-xs text-slate-400 mt-0.5">
                     {cat.examples.length} training examples · {cat.testItems.length} test items
                   </div>
@@ -142,7 +142,7 @@ export function TrainClassifierChallenge({ onComplete }: { onComplete: (passed: 
         <div className="bg-space-800 rounded-2xl p-5 border border-green-500/30">
           <div className="text-center mb-4">
             <div className="text-xs font-black text-green-400 mb-1">TRAINING PHASE</div>
-            <div className="font-black text-white">{selectedCategory.label}</div>
+            <div className="font-black text-slate-900">{selectedCategory.label}</div>
           </div>
 
           <div className="bg-space-900 rounded-xl p-4 mb-4">
@@ -164,7 +164,7 @@ export function TrainClassifierChallenge({ onComplete }: { onComplete: (passed: 
               )}
             </div>
             {/* Progress bar */}
-            <div className="mt-3 bg-slate-700 rounded-full h-2 overflow-hidden">
+            <div className="mt-3 bg-slate-200 rounded-full h-2 overflow-hidden">
               <div
                 className="h-full bg-green-500 rounded-full transition-all duration-500"
                 style={{ width: `${(trainedCount / selectedCategory.examples.length) * 100}%` }}
@@ -179,14 +179,14 @@ export function TrainClassifierChallenge({ onComplete }: { onComplete: (passed: 
             <button
               onClick={addExample}
               disabled={training}
-              className="w-full py-4 rounded-2xl font-black text-white bg-green-500 hover:bg-green-400 btn-press transition-all disabled:opacity-60"
+              className="w-full py-4 rounded-2xl font-black text-slate-900 bg-green-500 hover:bg-green-400 btn-press transition-all disabled:opacity-60"
             >
               {training ? "Learning... ⚙️" : "Add Training Example →"}
             </button>
           ) : (
             <button
               onClick={() => setPhase("test")}
-              className="w-full py-4 rounded-2xl font-black text-white bg-teal-500 hover:bg-teal-400 btn-press transition-colors"
+              className="w-full py-4 rounded-2xl font-black text-slate-900 bg-mint-400 hover:bg-mint-300 btn-press transition-colors"
             >
               Training Complete — Test It! 🧪
             </button>
@@ -227,7 +227,7 @@ export function TrainClassifierChallenge({ onComplete }: { onComplete: (passed: 
 
           <div className="bg-space-900 rounded-xl p-6 text-center mb-4">
             <div className="text-6xl mb-3">{item.emoji}</div>
-            <div className="font-black text-white text-xl">{item.label}</div>
+            <div className="font-black text-slate-900 text-xl">{item.label}</div>
             <div className="text-sm text-slate-400 mt-1">Is this "{posLabel}" or "{negLabel}"?</div>
           </div>
 
@@ -264,7 +264,7 @@ export function TrainClassifierChallenge({ onComplete }: { onComplete: (passed: 
               </div>
               <button
                 onClick={nextTest}
-                className="w-full py-4 rounded-xl font-black text-white bg-teal-500 hover:bg-teal-400 btn-press transition-colors"
+                className="w-full py-4 rounded-xl font-black text-slate-900 bg-mint-400 hover:bg-mint-300 btn-press transition-colors"
               >
                 {currentTest < selectedCategory.testItems.length - 1 ? "Next Test →" : "See Results →"}
               </button>
@@ -283,7 +283,7 @@ export function TrainClassifierChallenge({ onComplete }: { onComplete: (passed: 
       <div className="text-center space-y-5 py-4">
         <div className="text-7xl">{passed ? "📊" : "📉"}</div>
         <div>
-          <div className="text-4xl font-black text-white">{score}/{total}</div>
+          <div className="text-4xl font-black text-slate-900">{score}/{total}</div>
           <div className={`text-xl font-bold mt-2 ${passed ? "text-green-300" : "text-amber-300"}`}>
             {passed ? "Data Trainer Badge Earned!" : "Keep practicing!"}
           </div>

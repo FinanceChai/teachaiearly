@@ -130,9 +130,9 @@ export function RewardTrainer({ onComplete }: { onComplete: () => void }) {
     currentPath[currentPath.length - 1].c === GRID - 1;
 
   return (
-    <div className="bg-space-800 rounded-xl border border-slate-700 p-6">
+    <div className="bg-space-800 rounded-xl border border-slate-200 p-6">
       <div className="flex justify-between items-center mb-4">
-        <h3 className="text-lg font-bold text-white">🎯 Reward Trainer</h3>
+        <h3 className="text-lg font-bold text-slate-900">🎯 Reward Trainer</h3>
         {phase === "training" && (
           <span className="text-sm text-red-400 font-semibold">
             Training round {trainingRound + 1}/5
@@ -142,7 +142,7 @@ export function RewardTrainer({ onComplete }: { onComplete: () => void }) {
 
       {phase === "setup" && (
         <div className="mb-4">
-          <p className="text-slate-300 text-sm mb-3">
+          <p className="text-slate-600 text-sm mb-3">
             Place treats (rewards) and walls (penalties) on the grid, then train the AI to find the best path from 🚀 to ⭐!
           </p>
           <div className="flex gap-2 mb-3">
@@ -150,8 +150,8 @@ export function RewardTrainer({ onComplete }: { onComplete: () => void }) {
               onClick={() => setTool("treat")}
               className={`px-4 py-2 rounded-lg text-sm font-semibold transition-colors ${
                 tool === "treat"
-                  ? "bg-green-600 text-white"
-                  : "bg-space-900 border border-slate-700 text-slate-300"
+                  ? "bg-green-600 text-slate-900"
+                  : "bg-space-900 border border-slate-200 text-slate-600"
               }`}
             >
               🍎 Place Treat
@@ -160,8 +160,8 @@ export function RewardTrainer({ onComplete }: { onComplete: () => void }) {
               onClick={() => setTool("wall")}
               className={`px-4 py-2 rounded-lg text-sm font-semibold transition-colors ${
                 tool === "wall"
-                  ? "bg-red-600 text-white"
-                  : "bg-space-900 border border-slate-700 text-slate-300"
+                  ? "bg-red-600 text-slate-900"
+                  : "bg-space-900 border border-slate-200 text-slate-600"
               }`}
             >
               🧱 Place Wall
@@ -172,7 +172,7 @@ export function RewardTrainer({ onComplete }: { onComplete: () => void }) {
 
       {phase === "training" && (
         <div className="mb-4">
-          <p className="text-slate-300 text-sm">
+          <p className="text-slate-600 text-sm">
             Watch the AI learn! It gets smarter each round...
             {reachedGoal ? " ✅ Reached the goal!" : " 🔄 Still exploring..."}
           </p>
@@ -210,7 +210,7 @@ export function RewardTrainer({ onComplete }: { onComplete: () => void }) {
                     ? "bg-blue-900/30 border-blue-500"
                     : cell === "goal"
                     ? "bg-yellow-900/30 border-yellow-500"
-                    : "bg-space-900 border-slate-700"
+                    : "bg-space-900 border-slate-200"
                 }`}
               >
                 {onPath && cell === "empty" ? "🤖" : CELL_ICONS[cell]}
@@ -223,7 +223,7 @@ export function RewardTrainer({ onComplete }: { onComplete: () => void }) {
       {phase === "setup" && (
         <button
           onClick={handleTrain}
-          className="w-full px-6 py-3 bg-red-500 hover:bg-red-400 text-white rounded-lg font-bold transition-colors"
+          className="w-full px-6 py-3 bg-red-500 hover:bg-red-400 text-slate-900 rounded-lg font-bold transition-colors"
         >
           🚀 Start Training
         </button>
@@ -232,12 +232,12 @@ export function RewardTrainer({ onComplete }: { onComplete: () => void }) {
       {phase === "done" && (
         <motion.div initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }} className="text-center">
           <p className="text-green-400 font-bold mb-2">Training Complete!</p>
-          <p className="text-slate-300 text-sm mb-4">
+          <p className="text-slate-600 text-sm mb-4">
             The AI learned to follow rewards and avoid penalties — just like reinforcement learning in real games!
           </p>
           <button
             onClick={onComplete}
-            className="px-6 py-3 bg-red-500 hover:bg-red-400 text-white rounded-lg font-bold transition-colors"
+            className="px-6 py-3 bg-red-500 hover:bg-red-400 text-slate-900 rounded-lg font-bold transition-colors"
           >
             Complete Activity
           </button>

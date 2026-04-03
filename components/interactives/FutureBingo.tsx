@@ -149,9 +149,9 @@ export function FutureBingo({ onComplete }: { onComplete: () => void }) {
   };
 
   return (
-    <div className="p-6 bg-space-900 rounded-xl border border-slate-700 max-w-2xl mx-auto">
-      <h2 className="text-2xl font-bold text-white mb-1">🎯 Future Bingo</h2>
-      <p className="text-slate-300 text-sm mb-4">
+    <div className="p-6 bg-space-900 rounded-xl border border-slate-200 max-w-2xl mx-auto">
+      <h2 className="text-2xl font-bold text-slate-900 mb-1">🎯 Future Bingo</h2>
+      <p className="text-slate-600 text-sm mb-4">
         {revealed
           ? "Here's what experts think! Green = already happening, Amber = likely, Red = unlikely."
           : `Click the AI predictions you think will happen by 2030! (${selectedCount} selected)`}
@@ -172,14 +172,14 @@ export function FutureBingo({ onComplete }: { onComplete: () => void }) {
                     ? item.expertVerdict === "unlikely"
                       ? "bg-red-500/15 border-red-500/50"
                       : "bg-green-500/15 border-green-500/50"
-                    : "bg-space-800 border-slate-700 opacity-60"
+                    : "bg-space-800 border-slate-200 opacity-60"
                   : selections[i]
                   ? "bg-amber-500/20 border-amber-500"
-                  : "bg-space-800 border-slate-700 hover:border-slate-500"
+                  : "bg-space-800 border-slate-200 hover:border-slate-500"
               }`}
             >
               <span className="text-lg">{item.icon}</span>
-              <p className="text-white text-[10px] leading-tight mt-0.5">{item.prediction}</p>
+              <p className="text-slate-900 text-[10px] leading-tight mt-0.5">{item.prediction}</p>
               {revealed && (
                 <motion.span
                   initial={{ scale: 0 }}
@@ -201,7 +201,7 @@ export function FutureBingo({ onComplete }: { onComplete: () => void }) {
           whileHover={{ scale: 1.05 }}
           whileTap={{ scale: 0.95 }}
           onClick={handleReveal}
-          className="w-full px-5 py-2 bg-amber-500 text-white rounded-lg font-bold"
+          className="w-full px-5 py-2 bg-amber-500 text-slate-900 rounded-lg font-bold"
         >
           Reveal Expert Predictions! 🔮
         </motion.button>
@@ -213,7 +213,7 @@ export function FutureBingo({ onComplete }: { onComplete: () => void }) {
             <p className="text-amber-400 font-bold text-lg">
               You got {correctPredictions} out of {selectedCount} right!
             </p>
-            <p className="text-slate-300 text-sm mt-1">
+            <p className="text-slate-600 text-sm mt-1">
               {correctPredictions === selectedCount
                 ? "Amazing! You really understand where AI is headed!"
                 : correctPredictions > selectedCount / 2
@@ -226,15 +226,15 @@ export function FutureBingo({ onComplete }: { onComplete: () => void }) {
             {BINGO_ITEMS.filter((_, i) => selections[i]).map((item) => {
               const verdict = verdictColors[item.expertVerdict];
               return (
-                <div key={item.prediction} className={`${verdict.bg} rounded-lg p-2 border border-slate-700`}>
+                <div key={item.prediction} className={`${verdict.bg} rounded-lg p-2 border border-slate-200`}>
                   <div className="flex items-center gap-2">
                     <span>{item.icon}</span>
-                    <p className="text-white text-xs font-semibold">{item.prediction}</p>
+                    <p className="text-slate-900 text-xs font-semibold">{item.prediction}</p>
                     <span className={`${verdict.text} text-xs font-bold ml-auto whitespace-nowrap`}>
                       {verdict.label}
                     </span>
                   </div>
-                  <p className="text-slate-300 text-xs mt-1">{item.explanation}</p>
+                  <p className="text-slate-600 text-xs mt-1">{item.explanation}</p>
                 </div>
               );
             })}
@@ -245,7 +245,7 @@ export function FutureBingo({ onComplete }: { onComplete: () => void }) {
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
               onClick={handleComplete}
-              className="w-full px-6 py-3 bg-amber-500 text-white rounded-lg font-bold"
+              className="w-full px-6 py-3 bg-amber-500 text-slate-900 rounded-lg font-bold"
             >
               Complete Bingo ✓
             </motion.button>

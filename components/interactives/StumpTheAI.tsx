@@ -54,7 +54,7 @@ function VerdictSlider({
       </div>
 
       {/* Track */}
-      <div className="relative h-14 rounded-full overflow-hidden bg-gradient-to-r from-red-500/20 via-slate-700/40 to-green-500/20 border border-slate-600">
+      <div className="relative h-14 rounded-full overflow-hidden bg-gradient-to-r from-red-500/20 via-slate-700/40 to-green-500/20 border border-slate-300">
         {/* Thumb */}
         <motion.div
           drag="x"
@@ -66,7 +66,7 @@ function VerdictSlider({
           onDragEnd={handleDragEnd}
           className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-12 h-12 rounded-full shadow-lg cursor-grab active:cursor-grabbing z-10 flex items-center justify-center"
         >
-          <span className="text-white font-black text-lg pointer-events-none">⚖️</span>
+          <span className="text-slate-900 font-black text-lg pointer-events-none">⚖️</span>
         </motion.div>
 
         {/* Center line */}
@@ -75,7 +75,7 @@ function VerdictSlider({
 
       <AnimatePresence>
         {hint && (
-          <motion.p initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} className="text-xs text-slate-500 text-center font-bold">
+          <motion.p initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }} className="text-xs text-slate-400 text-center font-bold">
             Drag left = I think AI is wrong · Drag right = I think AI is right
           </motion.p>
         )}
@@ -118,8 +118,8 @@ export function StumpTheAI({ onComplete }: { onComplete: () => void }) {
           🧐
         </motion.div>
         <div>
-          <div className="text-4xl font-black text-white">{finalScore}/5</div>
-          <div className="text-slate-300 mt-2">{finalScore >= 4 ? "Critical thinker! You cannot be fooled by confident AI." : finalScore >= 3 ? "Good instincts — AI overconfidence is hard to spot." : "Remember: AI confidence does not equal AI correctness!"}</div>
+          <div className="text-4xl font-black text-slate-900">{finalScore}/5</div>
+          <div className="text-slate-600 mt-2">{finalScore >= 4 ? "Critical thinker! You cannot be fooled by confident AI." : finalScore >= 3 ? "Good instincts — AI overconfidence is hard to spot." : "Remember: AI confidence does not equal AI correctness!"}</div>
         </div>
         <div className="grid grid-cols-5 gap-2">
           {answers.map((correct, i) => (
@@ -148,11 +148,11 @@ export function StumpTheAI({ onComplete }: { onComplete: () => void }) {
         <span className="text-xs font-black text-slate-400">{score}/{current} right</span>
       </div>
 
-      <div className="bg-space-800 rounded-2xl p-5 border border-slate-700 space-y-4">
+      <div className="bg-space-800 rounded-2xl p-5 border border-slate-200 space-y-4">
         {/* Question */}
         <div>
           <div className="text-xs font-black text-amber-400 mb-2">THE QUESTION</div>
-          <p className="text-white font-bold text-sm leading-snug">{scenario.question}</p>
+          <p className="text-slate-900 font-bold text-sm leading-snug">{scenario.question}</p>
         </div>
 
         {/* AI answer card */}
@@ -161,8 +161,8 @@ export function StumpTheAI({ onComplete }: { onComplete: () => void }) {
             <div className="text-xs font-black text-slate-400">🤖 AI SAYS</div>
             <div className="text-xs font-black text-amber-400">{scenario.aiConfidence}% confident</div>
           </div>
-          <p className="text-white font-bold text-sm mb-3">{scenario.aiAnswer}</p>
-          <div className="bg-slate-700 rounded-full h-2 overflow-hidden">
+          <p className="text-slate-900 font-bold text-sm mb-3">{scenario.aiAnswer}</p>
+          <div className="bg-slate-200 rounded-full h-2 overflow-hidden">
             <motion.div
               initial={{ width: 0 }}
               animate={{ width: `${scenario.aiConfidence}%` }}
@@ -194,10 +194,10 @@ export function StumpTheAI({ onComplete }: { onComplete: () => void }) {
                 >
                   {userCorrect ? "✓ Good judgment!" : "✗ Tricked by AI confidence!"}
                 </motion.div>
-                <div className="font-bold text-white text-sm mb-1">{scenario.truth}</div>
-                <div className="text-slate-300 text-xs">{scenario.why}</div>
+                <div className="font-bold text-slate-900 text-sm mb-1">{scenario.truth}</div>
+                <div className="text-slate-600 text-xs">{scenario.why}</div>
               </div>
-              <button onClick={next} className="w-full py-4 rounded-xl font-black text-white bg-amber-500 hover:bg-amber-400 btn-press transition-colors">
+              <button onClick={next} className="w-full py-4 rounded-xl font-black text-slate-900 bg-amber-500 hover:bg-amber-400 btn-press transition-colors">
                 {current < SCENARIOS.length - 1 ? "Next Scenario →" : "See Results →"}
               </button>
             </motion.div>

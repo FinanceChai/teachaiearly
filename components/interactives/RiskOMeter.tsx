@@ -100,12 +100,12 @@ export function RiskOMeter({ onComplete }: { onComplete: () => void }) {
       avgWorry < 1 ? "Chill about AI" : avgWorry < 2 ? "Cautiously Optimistic" : avgWorry < 2.5 ? "Thoughtfully Concerned" : "AI Watchdog";
 
     return (
-      <div className="p-6 bg-space-900 rounded-xl border border-slate-700 max-w-2xl mx-auto">
-        <h2 className="text-2xl font-bold text-white mb-2 text-center">📊 Your Risk Profile</h2>
+      <div className="p-6 bg-space-900 rounded-xl border border-slate-200 max-w-2xl mx-auto">
+        <h2 className="text-2xl font-bold text-slate-900 mb-2 text-center">📊 Your Risk Profile</h2>
 
         <div className="bg-space-800 rounded-xl p-4 mb-4 text-center">
           <p className="text-amber-400 font-bold text-lg">{worryLabel}</p>
-          <p className="text-slate-300 text-sm">
+          <p className="text-slate-600 text-sm">
             Your average worry level: {avgWorry.toFixed(1)} / 3
           </p>
         </div>
@@ -123,7 +123,7 @@ export function RiskOMeter({ onComplete }: { onComplete: () => void }) {
                 >
                   <div className="flex items-center gap-2 mb-2">
                     <span className="text-lg">{scenario.icon}</span>
-                    <p className="text-white text-sm font-semibold flex-1">
+                    <p className="text-slate-900 text-sm font-semibold flex-1">
                       {scenario.title}
                     </p>
                   </div>
@@ -136,7 +136,7 @@ export function RiskOMeter({ onComplete }: { onComplete: () => void }) {
                       </div>
                       <div className="flex items-center gap-1 text-xs mt-0.5">
                         <span className="text-slate-400">Class avg:</span>
-                        <span className="text-slate-300">{RISK_LEVELS[scenario.classAverage].emoji} {RISK_LEVELS[scenario.classAverage].label}</span>
+                        <span className="text-slate-600">{RISK_LEVELS[scenario.classAverage].emoji} {RISK_LEVELS[scenario.classAverage].label}</span>
                       </div>
                     </div>
                     <div className={`px-2 py-0.5 rounded text-xs font-semibold ${
@@ -162,7 +162,7 @@ export function RiskOMeter({ onComplete }: { onComplete: () => void }) {
                     className="mt-2 bg-amber-500/10 rounded-lg p-2 border border-amber-500/20"
                   >
                     <p className="text-amber-400 text-xs font-semibold">💬 Discussion:</p>
-                    <p className="text-slate-300 text-xs mt-1">{scenario.discussionPrompt}</p>
+                    <p className="text-slate-600 text-xs mt-1">{scenario.discussionPrompt}</p>
                   </motion.div>
                 )}
               </div>
@@ -172,7 +172,7 @@ export function RiskOMeter({ onComplete }: { onComplete: () => void }) {
 
         <div className="bg-space-800 rounded-lg p-4 mb-4">
           <p className="text-amber-400 font-semibold mb-1">💡 What this means:</p>
-          <p className="text-slate-300 text-sm">
+          <p className="text-slate-600 text-sm">
             There are no &quot;wrong&quot; answers here! Some people worry more about AI risks,
             and some are more optimistic. The important thing is thinking critically about
             each situation. Tap any scenario above to see a discussion question!
@@ -184,7 +184,7 @@ export function RiskOMeter({ onComplete }: { onComplete: () => void }) {
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
             onClick={handleComplete}
-            className="w-full px-6 py-3 bg-amber-500 text-white rounded-lg font-bold"
+            className="w-full px-6 py-3 bg-amber-500 text-slate-900 rounded-lg font-bold"
           >
             Complete Activity ✓
           </motion.button>
@@ -198,9 +198,9 @@ export function RiskOMeter({ onComplete }: { onComplete: () => void }) {
   // Rating phase
   const scenario = SCENARIOS[currentScenario];
   return (
-    <div className="p-6 bg-space-900 rounded-xl border border-slate-700 max-w-2xl mx-auto">
-      <h2 className="text-xl font-bold text-white mb-1">⚖️ Risk-O-Meter</h2>
-      <p className="text-slate-300 text-sm mb-2">
+    <div className="p-6 bg-space-900 rounded-xl border border-slate-200 max-w-2xl mx-auto">
+      <h2 className="text-xl font-bold text-slate-900 mb-1">⚖️ Risk-O-Meter</h2>
+      <p className="text-slate-600 text-sm mb-2">
         How worried are you about each AI scenario? ({ratedCount}/{SCENARIOS.length})
       </p>
 
@@ -224,12 +224,12 @@ export function RiskOMeter({ onComplete }: { onComplete: () => void }) {
         initial={{ opacity: 0, x: 30 }}
         animate={{ opacity: 1, x: 0 }}
       >
-        <div className="bg-space-800 rounded-xl p-5 border border-slate-700 mb-4">
+        <div className="bg-space-800 rounded-xl p-5 border border-slate-200 mb-4">
           <div className="flex items-center gap-3 mb-3">
             <span className="text-3xl">{scenario.icon}</span>
-            <h3 className="text-lg font-bold text-white">{scenario.title}</h3>
+            <h3 className="text-lg font-bold text-slate-900">{scenario.title}</h3>
           </div>
-          <p className="text-slate-300 text-sm">{scenario.description}</p>
+          <p className="text-slate-600 text-sm">{scenario.description}</p>
         </div>
 
         <p className="text-amber-400 text-sm font-semibold mb-2">How worried does this make you?</p>
@@ -243,11 +243,11 @@ export function RiskOMeter({ onComplete }: { onComplete: () => void }) {
               className={`p-3 rounded-lg border text-center ${
                 ratings[currentScenario] === i
                   ? "bg-amber-500/20 border-amber-500"
-                  : "bg-space-800 border-slate-700 hover:border-slate-500"
+                  : "bg-space-800 border-slate-200 hover:border-slate-500"
               }`}
             >
               <span className="text-2xl">{level.emoji}</span>
-              <p className="text-white text-xs font-semibold mt-1">{level.label}</p>
+              <p className="text-slate-900 text-xs font-semibold mt-1">{level.label}</p>
             </motion.button>
           ))}
         </div>
@@ -259,7 +259,7 @@ export function RiskOMeter({ onComplete }: { onComplete: () => void }) {
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
             onClick={handleNext}
-            className="w-full px-5 py-2 bg-amber-500 text-white rounded-lg font-bold"
+            className="w-full px-5 py-2 bg-amber-500 text-slate-900 rounded-lg font-bold"
           >
             {currentScenario < SCENARIOS.length - 1
               ? "Next Scenario →"

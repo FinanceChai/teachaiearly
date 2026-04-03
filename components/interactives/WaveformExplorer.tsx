@@ -119,10 +119,10 @@ export function WaveformExplorer({ onComplete }: { onComplete: () => void }) {
   // --- EXPLORE PHASE ---
   if (phase === "explore") {
     return (
-      <div className="p-4 sm:p-6 bg-space-900 rounded-xl border border-slate-700 space-y-5">
+      <div className="p-4 sm:p-6 bg-space-900 rounded-xl border border-slate-200 space-y-5">
         <div className="text-center space-y-1">
-          <h3 className="text-xl font-bold text-white">Waveform Explorer</h3>
-          <p className="text-slate-300 text-sm">
+          <h3 className="text-xl font-bold text-slate-900">Waveform Explorer</h3>
+          <p className="text-slate-600 text-sm">
             Tap each sound to see what its waveform looks like! Explore all {SOUNDS.length} to unlock the quiz.
           </p>
         </div>
@@ -140,11 +140,11 @@ export function WaveformExplorer({ onComplete }: { onComplete: () => void }) {
                   ? "border-violet-400 bg-violet-500/20"
                   : explored.has(i)
                   ? "border-violet-500/50 bg-space-800"
-                  : "border-slate-700 bg-space-800"
+                  : "border-slate-200 bg-space-800"
               }`}
             >
               <span className="text-2xl">{s.emoji}</span>
-              <span className="text-xs font-medium text-white">{s.name}</span>
+              <span className="text-xs font-medium text-slate-900">{s.name}</span>
               {explored.has(i) && <span className="text-[10px] text-violet-400">✓</span>}
             </motion.button>
           ))}
@@ -155,7 +155,7 @@ export function WaveformExplorer({ onComplete }: { onComplete: () => void }) {
           <motion.div
             initial={{ opacity: 0, y: 10 }}
             animate={{ opacity: 1, y: 0 }}
-            className="bg-space-800 rounded-xl p-4 border border-slate-700 space-y-3"
+            className="bg-space-800 rounded-xl p-4 border border-slate-200 space-y-3"
           >
             <p className="text-sm text-violet-300 font-semibold text-center">
               {SOUNDS[activeSound].emoji} {SOUNDS[activeSound].name} — {SOUNDS[activeSound].description}
@@ -192,7 +192,7 @@ export function WaveformExplorer({ onComplete }: { onComplete: () => void }) {
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
               onClick={() => setPhase("quiz")}
-              className="px-6 py-2 bg-violet-600 hover:bg-violet-500 text-white font-bold rounded-lg"
+              className="px-6 py-2 bg-violet-600 hover:bg-violet-500 text-slate-900 font-bold rounded-lg"
             >
               Start the Quiz!
             </motion.button>
@@ -206,19 +206,19 @@ export function WaveformExplorer({ onComplete }: { onComplete: () => void }) {
   if (phase === "quiz") {
     const q = QUIZ_QUESTIONS[quizIdx];
     return (
-      <div className="p-4 sm:p-6 bg-space-900 rounded-xl border border-slate-700 space-y-5">
+      <div className="p-4 sm:p-6 bg-space-900 rounded-xl border border-slate-200 space-y-5">
         <div className="text-center space-y-1">
-          <h3 className="text-xl font-bold text-white">Waveform Quiz</h3>
+          <h3 className="text-xl font-bold text-slate-900">Waveform Quiz</h3>
           <p className="text-xs text-slate-400">
             Question {quizIdx + 1} of {QUIZ_QUESTIONS.length}
           </p>
         </div>
 
-        <p className="text-white font-semibold text-center">{q.question}</p>
+        <p className="text-slate-900 font-semibold text-center">{q.question}</p>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
           {q.options.map((opt, i) => {
-            let cls = "border-slate-700 bg-space-800 hover:border-violet-400";
+            let cls = "border-slate-200 bg-space-800 hover:border-violet-400";
             if (picked !== null) {
               if (i === q.correctIdx) cls = "border-green-400 bg-green-500/20";
               else if (i === picked) cls = "border-red-400 bg-red-500/20";
@@ -228,7 +228,7 @@ export function WaveformExplorer({ onComplete }: { onComplete: () => void }) {
                 key={i}
                 whileTap={{ scale: 0.97 }}
                 onClick={() => handleQuizAnswer(i)}
-                className={`p-3 rounded-lg border-2 text-white text-sm font-medium transition-all ${cls}`}
+                className={`p-3 rounded-lg border-2 text-slate-900 text-sm font-medium transition-all ${cls}`}
               >
                 {opt}
               </motion.button>
@@ -245,11 +245,11 @@ export function WaveformExplorer({ onComplete }: { onComplete: () => void }) {
             <p className={`text-sm font-semibold text-center ${picked === q.correctIdx ? "text-green-400" : "text-red-400"}`}>
               {picked === q.correctIdx ? "Correct!" : "Not quite!"}
             </p>
-            <p className="text-xs text-slate-300 text-center">{q.explanation}</p>
+            <p className="text-xs text-slate-600 text-center">{q.explanation}</p>
             <div className="text-center">
               <button
                 onClick={nextQuiz}
-                className="px-5 py-2 bg-violet-600 hover:bg-violet-500 text-white font-bold rounded-lg text-sm"
+                className="px-5 py-2 bg-violet-600 hover:bg-violet-500 text-slate-900 font-bold rounded-lg text-sm"
               >
                 {quizIdx < QUIZ_QUESTIONS.length - 1 ? "Next Question" : "See Results"}
               </button>
@@ -262,14 +262,14 @@ export function WaveformExplorer({ onComplete }: { onComplete: () => void }) {
 
   // --- RESULTS ---
   return (
-    <div className="p-4 sm:p-6 bg-space-900 rounded-xl border border-slate-700 space-y-5 text-center">
+    <div className="p-4 sm:p-6 bg-space-900 rounded-xl border border-slate-200 space-y-5 text-center">
       <motion.div initial={{ scale: 0.8, opacity: 0 }} animate={{ scale: 1, opacity: 1 }}>
         <p className="text-4xl mb-2">🎧</p>
-        <h3 className="text-xl font-bold text-white">Waveform Explorer Complete!</h3>
+        <h3 className="text-xl font-bold text-slate-900">Waveform Explorer Complete!</h3>
         <p className="text-violet-400 font-bold text-lg mt-2">
           Score: {score} / {QUIZ_QUESTIONS.length}
         </p>
-        <p className="text-slate-300 text-sm mt-2">
+        <p className="text-slate-600 text-sm mt-2">
           {score === QUIZ_QUESTIONS.length
             ? "Perfect score! You really understand how sound waves work!"
             : score >= 2

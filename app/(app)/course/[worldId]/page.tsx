@@ -26,7 +26,7 @@ export default function CoursePage() {
         <div className="max-w-2xl mx-auto px-4 pt-6 pb-10">
           <button
             onClick={() => router.back()}
-            className="text-slate-400 hover:text-white flex items-center gap-2 mb-6 font-bold text-sm transition-colors"
+            className="text-slate-400 hover:text-sky-600 flex items-center gap-2 mb-6 font-bold text-sm transition-colors"
           >
             ← Back
           </button>
@@ -48,7 +48,7 @@ export default function CoursePage() {
               >
                 COURSE {world.id}
               </div>
-              <h1 className="text-3xl font-black text-white leading-tight">
+              <h1 className="text-3xl font-black text-slate-900 leading-tight">
                 {world.title}
               </h1>
               <p className="text-slate-400 mt-1 text-sm">{world.subtitle}</p>
@@ -60,8 +60,8 @@ export default function CoursePage() {
       {/* Content */}
       <div className="max-w-2xl mx-auto px-4 pb-32">
         {/* Intro */}
-        <div className="mt-8 p-5 rounded-2xl border border-slate-700 bg-space-800">
-          <p className="text-slate-300 leading-relaxed text-sm">
+        <div className="mt-8 p-5 rounded-2xl border border-slate-200 bg-space-800">
+          <p className="text-slate-600 leading-relaxed text-sm">
             {content.intro}
           </p>
         </div>
@@ -81,7 +81,7 @@ export default function CoursePage() {
                 >
                   {idx + 1}
                 </div>
-                <h2 className="text-xl font-black text-white">
+                <h2 className="text-xl font-black text-slate-900">
                   {section.title}
                 </h2>
               </div>
@@ -90,7 +90,7 @@ export default function CoursePage() {
                 {section.body.split("\n\n").map((paragraph, pIdx) => (
                   <p
                     key={pIdx}
-                    className="text-slate-300 leading-relaxed text-sm mb-3"
+                    className="text-slate-600 leading-relaxed text-sm mb-3"
                   >
                     {paragraph}
                   </p>
@@ -110,7 +110,7 @@ export default function CoursePage() {
                     >
                       FUN FACT
                     </div>
-                    <p className="text-slate-300 text-sm leading-relaxed">
+                    <p className="text-slate-600 text-sm leading-relaxed">
                       {section.funFact}
                     </p>
                   </div>
@@ -134,7 +134,7 @@ export default function CoursePage() {
           >
             WRAP-UP
           </div>
-          <p className="text-slate-300 leading-relaxed text-sm">
+          <p className="text-slate-600 leading-relaxed text-sm">
             {content.wrapUp}
           </p>
         </div>
@@ -143,12 +143,12 @@ export default function CoursePage() {
         <div className="mt-8 flex flex-col items-center gap-4">
           <Link
             href={`/world/${world.id}`}
-            className="w-full text-center py-4 rounded-2xl font-black text-white text-lg transition-all hover:scale-[1.02] active:scale-[0.98]"
+            className="w-full text-center py-4 rounded-2xl font-black text-slate-900 text-lg transition-all hover:scale-[1.02] active:scale-[0.98]"
             style={{ background: world.hex }}
           >
             Start the Lessons →
           </Link>
-          <p className="text-slate-500 text-xs">
+          <p className="text-slate-400 text-xs">
             {world.lessons.length} interactive lessons + 1 world challenge
           </p>
         </div>

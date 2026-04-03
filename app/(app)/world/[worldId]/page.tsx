@@ -41,7 +41,7 @@ export default function WorldPage() {
         <div className="max-w-2xl mx-auto px-4 pt-6 pb-10">
           <button
             onClick={() => router.back()}
-            className="text-slate-400 hover:text-white flex items-center gap-2 mb-6 font-bold text-sm transition-colors"
+            className="text-slate-400 hover:text-sky-600 flex items-center gap-2 mb-6 font-bold text-sm transition-colors"
           >
             ← Back to Map
           </button>
@@ -55,7 +55,7 @@ export default function WorldPage() {
             </div>
             <div>
               <div className="text-xs font-black text-slate-400 mb-1">WORLD {world.id}</div>
-              <h1 className="text-3xl font-black text-white leading-tight">{world.title}</h1>
+              <h1 className="text-3xl font-black text-slate-900 leading-tight">{world.title}</h1>
               <p className="text-slate-400 mt-1 text-sm">{world.theme}</p>
               <div className="flex items-center gap-3 mt-3">
                 <span
@@ -64,7 +64,7 @@ export default function WorldPage() {
                 >
                   {world.lessons.length} lessons
                 </span>
-                <span className="text-xs text-slate-500 font-bold">
+                <span className="text-xs text-slate-400 font-bold">
                   {lessonsCompleted}/{world.lessons.length} complete
                 </span>
               </div>
@@ -72,7 +72,7 @@ export default function WorldPage() {
           </div>
 
           {/* Progress bar */}
-          <div className="mt-6 bg-slate-700 rounded-full h-3 overflow-hidden">
+          <div className="mt-6 bg-slate-200 rounded-full h-3 overflow-hidden">
             <div
               className="h-full rounded-full transition-all duration-700"
               style={{
@@ -88,7 +88,7 @@ export default function WorldPage() {
       <div className="max-w-2xl mx-auto px-4 pt-2">
         <Link
           href={`/course/${world.id}`}
-          className="flex items-center gap-4 p-4 rounded-2xl border border-slate-600 bg-space-800 hover:border-slate-400 transition-all group"
+          className="flex items-center gap-4 p-4 rounded-2xl border border-slate-300 bg-space-800 hover:border-slate-400 transition-all group"
         >
           <div
             className="w-12 h-12 rounded-xl flex items-center justify-center text-2xl flex-shrink-0"
@@ -97,18 +97,18 @@ export default function WorldPage() {
             📖
           </div>
           <div className="flex-1">
-            <div className="font-black text-white text-sm">Read the Course</div>
+            <div className="font-black text-slate-900 text-sm">Read the Course</div>
             <div className="text-xs text-slate-400 mt-0.5">
               A short written lesson covering everything in World {world.id}
             </div>
           </div>
-          <span className="text-slate-400 group-hover:text-white transition-colors text-lg">›</span>
+          <span className="text-slate-400 group-hover:text-sky-600 transition-colors text-lg">›</span>
         </Link>
       </div>
 
       {/* Lessons */}
       <div className="max-w-2xl mx-auto px-4 pb-8 mt-6">
-        <h2 className="text-xl font-black text-white mb-4">Lessons</h2>
+        <h2 className="text-xl font-black text-slate-900 mb-4">Lessons</h2>
         <div className="space-y-3">
           {world.lessons.map((lesson, idx) => {
             const completed = progress.completedLessons.includes(lesson.id);
@@ -153,7 +153,7 @@ export default function WorldPage() {
 
         {/* Challenge */}
         <div className="mt-8">
-          <h2 className="text-xl font-black text-white mb-4">World Challenge</h2>
+          <h2 className="text-xl font-black text-slate-900 mb-4">World Challenge</h2>
           <Link href={`/lesson/${world.id}/challenge`}>
             <ChallengeCard world={world} unlocked challengeDone={challengeDone} />
           </Link>
@@ -188,12 +188,12 @@ function LessonRow({
     <div
       className={`flex items-center gap-4 p-4 rounded-2xl border transition-all ${
         locked
-          ? "border-slate-700 bg-space-800 opacity-50"
+          ? "border-slate-200 bg-space-800 opacity-50"
           : isNext
           ? "border-slate-500 bg-space-800 hover:border-slate-400"
           : completed
-          ? "border-slate-700 bg-space-800"
-          : "border-slate-700 bg-space-800 hover:border-slate-600"
+          ? "border-slate-200 bg-space-800"
+          : "border-slate-200 bg-space-800 hover:border-slate-300"
       }`}
     >
       <div
@@ -211,10 +211,10 @@ function LessonRow({
         {locked ? "🔒" : completed ? "✓" : number}
       </div>
       <div className="flex-1 min-w-0">
-        <div className={`font-black text-sm leading-tight ${locked ? "text-slate-500" : "text-white"}`}>
+        <div className={`font-black text-sm leading-tight ${locked ? "text-slate-400" : "text-slate-900"}`}>
           {title}
         </div>
-        <div className="text-xs text-slate-500 mt-0.5 truncate">{interactive}</div>
+        <div className="text-xs text-slate-400 mt-0.5 truncate">{interactive}</div>
       </div>
       <div className="flex items-center gap-2 flex-shrink-0">
         {isNext && (
@@ -249,7 +249,7 @@ function ChallengeCard({
           ? "border-yellow-500/30 bg-yellow-500/10"
           : unlocked
           ? "border-slate-500 bg-space-800 hover:border-slate-400 cursor-pointer"
-          : "border-slate-700 bg-space-800 opacity-50"
+          : "border-slate-200 bg-space-800 opacity-50"
       }`}
     >
       <div className="flex items-center gap-4">
@@ -266,13 +266,13 @@ function ChallengeCard({
           {challengeDone ? world.challenge.badgeEmoji : unlocked ? "🎯" : "🔒"}
         </div>
         <div className="flex-1">
-          <div className="font-black text-white">{world.challenge.title}</div>
+          <div className="font-black text-slate-900">{world.challenge.title}</div>
           <div className="text-sm text-slate-400 mt-0.5">{world.challenge.description}</div>
           <div className="flex items-center gap-3 mt-2">
             <span className="text-xs text-yellow-400 font-bold">
               +{world.challenge.xpReward} XP
             </span>
-            <span className="text-xs text-slate-500">
+            <span className="text-xs text-slate-400">
               Badge: {world.challenge.badgeEmoji} {world.challenge.badgeName}
             </span>
           </div>
@@ -283,7 +283,7 @@ function ChallengeCard({
         )}
       </div>
       {!unlocked && (
-        <div className="mt-3 text-xs text-slate-500">
+        <div className="mt-3 text-xs text-slate-400">
           Complete all lessons to unlock the challenge
         </div>
       )}

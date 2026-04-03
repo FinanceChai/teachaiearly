@@ -154,10 +154,10 @@ export function AIForGood({ onComplete }: { onComplete: () => void }) {
   if (phase === "done") {
     const selectedComps = SOLUTION_COMPONENTS.filter((_, i) => components[i]);
     return (
-      <div className="p-6 bg-space-900 rounded-xl border border-slate-700 max-w-2xl mx-auto">
+      <div className="p-6 bg-space-900 rounded-xl border border-slate-200 max-w-2xl mx-auto">
         <motion.div initial={{ scale: 0.9, opacity: 0 }} animate={{ scale: 1, opacity: 1 }} className="text-center">
           <span className="text-5xl">🌟</span>
-          <h2 className="text-2xl font-bold text-white mt-2">Your AI For Good Plan!</h2>
+          <h2 className="text-2xl font-bold text-slate-900 mt-2">Your AI For Good Plan!</h2>
 
           <div className="bg-gradient-to-br from-amber-500/10 to-yellow-500/10 rounded-xl p-5 border border-amber-500/30 mt-4 text-left">
             <div className="text-center mb-3">
@@ -167,7 +167,7 @@ export function AIForGood({ onComplete }: { onComplete: () => void }) {
 
             <div className="bg-space-900/60 rounded-lg p-3 mb-3">
               <p className="text-amber-400 text-xs font-semibold">Most Impactful Project</p>
-              <p className="text-white text-sm">{problem?.projects[impactRating!]?.icon} {problem?.projects[impactRating!]?.name}</p>
+              <p className="text-slate-900 text-sm">{problem?.projects[impactRating!]?.icon} {problem?.projects[impactRating!]?.name}</p>
             </div>
 
             <div className="bg-space-900/60 rounded-lg p-3">
@@ -184,7 +184,7 @@ export function AIForGood({ onComplete }: { onComplete: () => void }) {
 
           <div className="bg-space-800 rounded-lg p-4 mt-4 text-left">
             <p className="text-amber-400 font-semibold mb-1">💡 Remember:</p>
-            <p className="text-slate-300 text-sm">
+            <p className="text-slate-600 text-sm">
               AI is just a tool — it&apos;s the people who decide to use it for good that make the difference.
               You don&apos;t need to be an expert to start thinking about how AI can solve real problems.
               The best solutions come from people who care about the problem!
@@ -196,7 +196,7 @@ export function AIForGood({ onComplete }: { onComplete: () => void }) {
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
               onClick={handleComplete}
-              className="mt-4 px-6 py-3 bg-amber-500 text-white rounded-lg font-bold"
+              className="mt-4 px-6 py-3 bg-amber-500 text-slate-900 rounded-lg font-bold"
             >
               Complete Activity ✓
             </motion.button>
@@ -210,9 +210,9 @@ export function AIForGood({ onComplete }: { onComplete: () => void }) {
 
   if (phase === "brainstorm") {
     return (
-      <div className="p-6 bg-space-900 rounded-xl border border-slate-700 max-w-2xl mx-auto">
-        <h2 className="text-xl font-bold text-white mb-1">💡 Your Turn: Brainstorm!</h2>
-        <p className="text-slate-300 text-sm mb-4">
+      <div className="p-6 bg-space-900 rounded-xl border border-slate-200 max-w-2xl mx-auto">
+        <h2 className="text-xl font-bold text-slate-900 mb-1">💡 Your Turn: Brainstorm!</h2>
+        <p className="text-slate-600 text-sm mb-4">
           What AI solution would YOU create for {problem?.name}?
           Pick 2-4 components to build with:
         </p>
@@ -232,11 +232,11 @@ export function AIForGood({ onComplete }: { onComplete: () => void }) {
               className={`p-2 rounded-lg border text-left ${
                 components[i]
                   ? "bg-amber-500/20 border-amber-500"
-                  : "bg-space-800 border-slate-700 hover:border-slate-500"
+                  : "bg-space-800 border-slate-200 hover:border-slate-500"
               }`}
             >
               <span className="text-lg">{comp.icon}</span>
-              <p className="text-white text-xs">{comp.name}</p>
+              <p className="text-slate-900 text-xs">{comp.name}</p>
             </motion.button>
           ))}
         </div>
@@ -250,7 +250,7 @@ export function AIForGood({ onComplete }: { onComplete: () => void }) {
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
             onClick={() => setPhase("done")}
-            className="w-full px-5 py-2 bg-amber-500 text-white rounded-lg font-bold"
+            className="w-full px-5 py-2 bg-amber-500 text-slate-900 rounded-lg font-bold"
           >
             See My Plan →
           </motion.button>
@@ -261,9 +261,9 @@ export function AIForGood({ onComplete }: { onComplete: () => void }) {
 
   if (phase === "rate") {
     return (
-      <div className="p-6 bg-space-900 rounded-xl border border-slate-700 max-w-2xl mx-auto">
-        <h2 className="text-xl font-bold text-white mb-1">⭐ Rate Impact</h2>
-        <p className="text-slate-300 text-sm mb-4">
+      <div className="p-6 bg-space-900 rounded-xl border border-slate-200 max-w-2xl mx-auto">
+        <h2 className="text-xl font-bold text-slate-900 mb-1">⭐ Rate Impact</h2>
+        <p className="text-slate-600 text-sm mb-4">
           Which project do you think will have the biggest impact on {problem?.name}?
         </p>
 
@@ -277,13 +277,13 @@ export function AIForGood({ onComplete }: { onComplete: () => void }) {
               className={`w-full p-3 rounded-lg border text-left ${
                 impactRating === i
                   ? "bg-amber-500/20 border-amber-500"
-                  : "bg-space-800 border-slate-700 hover:border-slate-500"
+                  : "bg-space-800 border-slate-200 hover:border-slate-500"
               }`}
             >
               <div className="flex items-center gap-2">
                 <span className="text-xl">{proj.icon}</span>
                 <div>
-                  <p className="text-white font-semibold text-sm">{proj.name}</p>
+                  <p className="text-slate-900 font-semibold text-sm">{proj.name}</p>
                   <p className="text-slate-400 text-xs">{proj.impact}</p>
                 </div>
               </div>
@@ -298,7 +298,7 @@ export function AIForGood({ onComplete }: { onComplete: () => void }) {
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
             onClick={() => setPhase("brainstorm")}
-            className="w-full px-5 py-2 bg-amber-500 text-white rounded-lg font-bold"
+            className="w-full px-5 py-2 bg-amber-500 text-slate-900 rounded-lg font-bold"
           >
             Now Brainstorm Your Own! →
           </motion.button>
@@ -309,15 +309,15 @@ export function AIForGood({ onComplete }: { onComplete: () => void }) {
 
   if (phase === "explore") {
     return (
-      <div className="p-6 bg-space-900 rounded-xl border border-slate-700 max-w-2xl mx-auto">
-        <button onClick={() => setPhase("pick")} className="text-slate-400 text-sm hover:text-white mb-2">
+      <div className="p-6 bg-space-900 rounded-xl border border-slate-200 max-w-2xl mx-auto">
+        <button onClick={() => setPhase("pick")} className="text-slate-400 text-sm hover:text-sky-600 mb-2">
           ← Back
         </button>
         <div className="flex items-center gap-2 mb-1">
           <span className="text-2xl">{problem?.icon}</span>
-          <h2 className="text-xl font-bold text-white">{problem?.name}</h2>
+          <h2 className="text-xl font-bold text-slate-900">{problem?.name}</h2>
         </div>
-        <p className="text-slate-300 text-sm mb-4">{problem?.description}</p>
+        <p className="text-slate-600 text-sm mb-4">{problem?.description}</p>
 
         <p className="text-amber-400 text-sm font-semibold mb-2">
           Real AI projects tackling this problem ({exploredProjects.filter(Boolean).length}/3 explored):
@@ -331,7 +331,7 @@ export function AIForGood({ onComplete }: { onComplete: () => void }) {
               animate={{ opacity: 1, x: 0 }}
               transition={{ delay: i * 0.1 }}
               className={`rounded-lg border transition-colors ${
-                exploredProjects[i] ? "border-amber-500/40" : "border-slate-700"
+                exploredProjects[i] ? "border-amber-500/40" : "border-slate-200"
               }`}
             >
               <button
@@ -345,7 +345,7 @@ export function AIForGood({ onComplete }: { onComplete: () => void }) {
               >
                 <div className="flex items-center gap-2">
                   <span className="text-xl">{proj.icon}</span>
-                  <p className="text-white font-semibold text-sm">{proj.name}</p>
+                  <p className="text-slate-900 font-semibold text-sm">{proj.name}</p>
                   {exploredProjects[i] && <span className="text-amber-400 text-xs ml-auto">✓</span>}
                 </div>
               </button>
@@ -356,7 +356,7 @@ export function AIForGood({ onComplete }: { onComplete: () => void }) {
                   className="px-3 pb-3"
                 >
                   <div className="bg-space-900 rounded-lg p-3">
-                    <p className="text-slate-300 text-sm">{proj.description}</p>
+                    <p className="text-slate-600 text-sm">{proj.description}</p>
                     <p className="text-amber-400 text-xs mt-2 font-semibold">
                       Impact: {proj.impact}
                     </p>
@@ -374,7 +374,7 @@ export function AIForGood({ onComplete }: { onComplete: () => void }) {
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
             onClick={() => setPhase("rate")}
-            className="w-full px-5 py-2 bg-amber-500 text-white rounded-lg font-bold"
+            className="w-full px-5 py-2 bg-amber-500 text-slate-900 rounded-lg font-bold"
           >
             Rate Which Has Most Impact →
           </motion.button>
@@ -385,9 +385,9 @@ export function AIForGood({ onComplete }: { onComplete: () => void }) {
 
   // Pick problem
   return (
-    <div className="p-6 bg-space-900 rounded-xl border border-slate-700 max-w-2xl mx-auto">
-      <h2 className="text-2xl font-bold text-white mb-1">🌟 AI For Good</h2>
-      <p className="text-slate-300 text-sm mb-4">
+    <div className="p-6 bg-space-900 rounded-xl border border-slate-200 max-w-2xl mx-auto">
+      <h2 className="text-2xl font-bold text-slate-900 mb-1">🌟 AI For Good</h2>
+      <p className="text-slate-600 text-sm mb-4">
         AI can help solve the world&apos;s biggest problems! Pick one to explore:
       </p>
 
@@ -406,10 +406,10 @@ export function AIForGood({ onComplete }: { onComplete: () => void }) {
               setExploredProjects([false, false, false]);
               setExpandedProject(null);
             }}
-            className="p-4 bg-space-800 rounded-xl border border-slate-700 hover:border-amber-500 text-center"
+            className="p-4 bg-space-800 rounded-xl border border-slate-200 hover:border-amber-500 text-center"
           >
             <span className="text-4xl">{prob.icon}</span>
-            <p className="text-white font-bold mt-2">{prob.name}</p>
+            <p className="text-slate-900 font-bold mt-2">{prob.name}</p>
             <p className="text-slate-400 text-xs mt-1">{prob.description.slice(0, 60)}...</p>
           </motion.button>
         ))}

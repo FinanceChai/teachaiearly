@@ -38,7 +38,7 @@ export default function AppLayout({ children }: { children: React.ReactNode }) {
     <div className="min-h-screen bg-space-900 pb-20">
       {children}
       {/* Bottom nav */}
-      <nav className="fixed bottom-0 left-0 right-0 bg-space-800/95 backdrop-blur border-t border-slate-700 z-50">
+      <nav className="fixed bottom-0 left-0 right-0 bg-space-800/95 backdrop-blur border-t border-slate-200 z-50">
         <div className="max-w-lg mx-auto flex items-center justify-around py-3 px-4">
           <NavItem href="/home" label="Worlds" icon="🗺️" active={pathname === "/home"} />
           <NavItem href="/flashcards" label="Cards" icon="🃏" active={pathname?.startsWith("/flashcards")} />
@@ -46,7 +46,7 @@ export default function AppLayout({ children }: { children: React.ReactNode }) {
           <NavItem href="/badges" label="Badges" icon="🏆" active={pathname === "/badges"} />
           <button
             onClick={handleLogout}
-            className="flex flex-col items-center gap-1 px-4 py-1 rounded-xl transition-colors text-slate-500 hover:text-red-400"
+            className="flex flex-col items-center gap-1 px-4 py-1 rounded-xl transition-colors text-slate-400 hover:text-red-400"
           >
             <span className="text-2xl">🚪</span>
             <span className="text-xs font-bold">Log Out</span>
@@ -72,7 +72,7 @@ function NavItem({
     <Link
       href={href}
       className={`flex flex-col items-center gap-1 px-4 py-1 rounded-xl transition-colors ${
-        active ? "text-teal-400" : "text-slate-500 hover:text-slate-300"
+        active ? "text-sky-500" : "text-slate-400 hover:text-slate-600"
       }`}
     >
       <span className="text-2xl">{icon}</span>

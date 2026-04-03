@@ -214,9 +214,9 @@ export function AILifeAudit({ onComplete }: { onComplete: () => void }) {
     allSelected.forEach((item) => trustCounts[item.trustLevel]++);
 
     return (
-      <div className="p-6 bg-space-900 rounded-xl border border-slate-700 max-w-2xl mx-auto">
+      <div className="p-6 bg-space-900 rounded-xl border border-slate-200 max-w-2xl mx-auto">
         <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }}>
-          <h2 className="text-2xl font-bold text-white mb-2 text-center">
+          <h2 className="text-2xl font-bold text-slate-900 mb-2 text-center">
             📋 Your AI Life Audit
           </h2>
 
@@ -231,7 +231,7 @@ export function AILifeAudit({ onComplete }: { onComplete: () => void }) {
                 <div className="text-4xl font-bold text-cyan-400">
                   {totalAISystems}
                 </div>
-                <div className="text-xs text-slate-300">AI systems</div>
+                <div className="text-xs text-slate-600">AI systems</div>
               </div>
             </div>
             <p className="text-cyan-400 mt-3 font-semibold">
@@ -256,7 +256,7 @@ export function AILifeAudit({ onComplete }: { onComplete: () => void }) {
 
           <div className="bg-space-800 rounded-lg p-4 mb-6">
             <p className="text-cyan-400 font-semibold mb-2">💡 Key Takeaway:</p>
-            <p className="text-slate-300 text-sm">
+            <p className="text-slate-600 text-sm">
               AI is woven into almost everything we do — from the moment we wake up to when we go to sleep.
               Most of it is helpful, but being aware of it puts YOU in control. The more you know,
               the better choices you can make about your digital life!
@@ -268,7 +268,7 @@ export function AILifeAudit({ onComplete }: { onComplete: () => void }) {
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
               onClick={handleComplete}
-              className="w-full px-6 py-3 bg-cyan-500 text-white rounded-lg font-bold"
+              className="w-full px-6 py-3 bg-cyan-500 text-slate-900 rounded-lg font-bold"
             >
               Complete Audit ✓
             </motion.button>
@@ -290,9 +290,9 @@ export function AILifeAudit({ onComplete }: { onComplete: () => void }) {
     const trust = TRUST_COLORS[current.trustLevel];
 
     return (
-      <div className="p-6 bg-space-900 rounded-xl border border-slate-700 max-w-2xl mx-auto">
-        <h2 className="text-xl font-bold text-white mb-1">🔍 What AI is Really Doing</h2>
-        <p className="text-slate-300 text-sm mb-4">
+      <div className="p-6 bg-space-900 rounded-xl border border-slate-200 max-w-2xl mx-auto">
+        <h2 className="text-xl font-bold text-slate-900 mb-1">🔍 What AI is Really Doing</h2>
+        <p className="text-slate-600 text-sm mb-4">
           Reveal {revealItem + 1} of {allSelected.length}
         </p>
 
@@ -301,12 +301,12 @@ export function AILifeAudit({ onComplete }: { onComplete: () => void }) {
           initial={{ rotateY: 90, opacity: 0 }}
           animate={{ rotateY: 0, opacity: 1 }}
           transition={{ duration: 0.4 }}
-          className="bg-space-800 rounded-xl p-5 border border-slate-700 mb-4"
+          className="bg-space-800 rounded-xl p-5 border border-slate-200 mb-4"
         >
           <div className="flex items-center gap-3 mb-3">
             <span className="text-3xl">{current.icon}</span>
             <div>
-              <p className="text-white font-bold">{current.name}</p>
+              <p className="text-slate-900 font-bold">{current.name}</p>
               <p className="text-slate-400 text-xs">{current.time}</p>
             </div>
           </div>
@@ -333,7 +333,7 @@ export function AILifeAudit({ onComplete }: { onComplete: () => void }) {
           whileHover={{ scale: 1.05 }}
           whileTap={{ scale: 0.95 }}
           onClick={handleNextReveal}
-          className="w-full px-5 py-2 bg-cyan-500 text-white rounded-lg font-bold"
+          className="w-full px-5 py-2 bg-cyan-500 text-slate-900 rounded-lg font-bold"
         >
           {revealItem < allSelected.length - 1 ? "Next Reveal →" : "See Full Summary →"}
         </motion.button>
@@ -343,12 +343,12 @@ export function AILifeAudit({ onComplete }: { onComplete: () => void }) {
 
   // Selection phases
   return (
-    <div className="p-6 bg-space-900 rounded-xl border border-slate-700 max-w-2xl mx-auto">
+    <div className="p-6 bg-space-900 rounded-xl border border-slate-200 max-w-2xl mx-auto">
       <div className="flex items-center gap-3 mb-1">
         <span className="text-3xl">{currentTime.emoji}</span>
-        <h2 className="text-2xl font-bold text-white">{currentTime.label}</h2>
+        <h2 className="text-2xl font-bold text-slate-900">{currentTime.label}</h2>
       </div>
-      <p className="text-slate-300 text-sm mb-4">{currentTime.description}</p>
+      <p className="text-slate-600 text-sm mb-4">{currentTime.description}</p>
 
       <div className="flex gap-1 mb-4">
         {TIMES_OF_DAY.map((_, i) => (
@@ -370,11 +370,11 @@ export function AILifeAudit({ onComplete }: { onComplete: () => void }) {
             className={`p-3 rounded-lg border text-left transition-colors ${
               selections[phase][i]
                 ? "bg-cyan-500/20 border-cyan-500"
-                : "bg-space-800 border-slate-700 hover:border-slate-500"
+                : "bg-space-800 border-slate-200 hover:border-slate-500"
             }`}
           >
             <span className="text-xl">{item.icon}</span>
-            <p className="text-white text-sm font-semibold mt-1">{item.name}</p>
+            <p className="text-slate-900 text-sm font-semibold mt-1">{item.name}</p>
           </motion.button>
         ))}
       </div>
@@ -386,7 +386,7 @@ export function AILifeAudit({ onComplete }: { onComplete: () => void }) {
         disabled={!hasSelection}
         className={`w-full px-5 py-2 rounded-lg font-bold ${
           hasSelection
-            ? "bg-cyan-500 text-white"
+            ? "bg-cyan-500 text-slate-900"
             : "bg-slate-700 text-slate-400 cursor-not-allowed"
         }`}
       >

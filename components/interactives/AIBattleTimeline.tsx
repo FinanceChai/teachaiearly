@@ -114,9 +114,9 @@ export function AIBattleTimeline({ onComplete }: { onComplete: () => void }) {
   const allRevealed = revealedIdx >= MILESTONES.length - 1;
 
   return (
-    <div className="bg-space-800 rounded-xl border border-slate-700 p-6">
+    <div className="bg-space-800 rounded-xl border border-slate-200 p-6">
       <div className="flex justify-between items-center mb-4">
-        <h3 className="text-lg font-bold text-white">⚔️ AI Battle Timeline</h3>
+        <h3 className="text-lg font-bold text-slate-900">⚔️ AI Battle Timeline</h3>
         {checked && (
           <span className="text-sm text-red-400 font-semibold">
             {score}/{MILESTONES.length} correct
@@ -124,7 +124,7 @@ export function AIBattleTimeline({ onComplete }: { onComplete: () => void }) {
         )}
       </div>
 
-      <p className="text-slate-300 text-sm mb-4">
+      <p className="text-slate-600 text-sm mb-4">
         {checked
           ? "Here is the correct order with fun facts! Click each to reveal."
           : "Place these AI vs Human milestones in chronological order (earliest first). Click events to add them to the timeline."}
@@ -140,13 +140,13 @@ export function AIBattleTimeline({ onComplete }: { onComplete: () => void }) {
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
                 onClick={() => handlePlace(m)}
-                className="px-3 py-2 bg-space-900 border border-slate-700 hover:border-red-500 text-white rounded-lg text-sm transition-colors"
+                className="px-3 py-2 bg-space-900 border border-slate-200 hover:border-red-500 text-slate-900 rounded-lg text-sm transition-colors"
               >
                 {m.icon} {m.event}
               </motion.button>
             ))}
             {remaining.length === 0 && (
-              <span className="text-slate-500 text-sm italic">All events placed!</span>
+              <span className="text-slate-400 text-sm italic">All events placed!</span>
             )}
           </div>
 
@@ -162,14 +162,14 @@ export function AIBattleTimeline({ onComplete }: { onComplete: () => void }) {
               >
                 <span className="text-red-400 font-mono text-sm w-6">{i + 1}.</span>
                 <span className="text-xl">{m.icon}</span>
-                <span className="text-white text-sm">{m.event}</span>
-                <span className="ml-auto text-slate-500 text-xs">click to remove</span>
+                <span className="text-slate-900 text-sm">{m.event}</span>
+                <span className="ml-auto text-slate-400 text-xs">click to remove</span>
               </motion.div>
             ))}
             {Array.from({ length: MILESTONES.length - placed.length }, (_, i) => (
               <div
                 key={`empty-${i}`}
-                className="flex items-center gap-3 px-4 py-2 border border-dashed border-slate-700 rounded-lg"
+                className="flex items-center gap-3 px-4 py-2 border border-dashed border-slate-200 rounded-lg"
               >
                 <span className="text-slate-600 font-mono text-sm w-6">{placed.length + i + 1}.</span>
                 <span className="text-slate-600 text-sm">—</span>
@@ -180,7 +180,7 @@ export function AIBattleTimeline({ onComplete }: { onComplete: () => void }) {
           {allPlaced && (
             <button
               onClick={handleCheck}
-              className="w-full px-6 py-3 bg-red-500 hover:bg-red-400 text-white rounded-lg font-bold transition-colors"
+              className="w-full px-6 py-3 bg-red-500 hover:bg-red-400 text-slate-900 rounded-lg font-bold transition-colors"
             >
               Check My Order
             </button>
@@ -205,21 +205,21 @@ export function AIBattleTimeline({ onComplete }: { onComplete: () => void }) {
                     ? isCorrect
                       ? "bg-green-900/20 border-green-500/40"
                       : "bg-red-900/20 border-red-500/40"
-                    : "bg-space-900 border-slate-700 cursor-pointer hover:border-slate-500"
+                    : "bg-space-900 border-slate-200 cursor-pointer hover:border-slate-500"
                 }`}
                 onClick={() => !isRevealed && i === revealedIdx + 1 && setRevealedIdx(i)}
               >
                 <div className="flex items-center gap-3">
                   <span className="text-red-400 font-mono text-sm font-bold">{m.year}</span>
                   <span className="text-xl">{m.icon}</span>
-                  <span className="text-white text-sm font-semibold">{m.event}</span>
+                  <span className="text-slate-900 text-sm font-semibold">{m.event}</span>
                   <span className="text-slate-400 text-xs ml-auto">{m.game}</span>
                 </div>
                 {isRevealed && (
                   <motion.p
                     initial={{ opacity: 0, height: 0 }}
                     animate={{ opacity: 1, height: "auto" }}
-                    className="text-slate-300 text-xs mt-2 pl-16"
+                    className="text-slate-600 text-xs mt-2 pl-16"
                   >
                     {m.funFact}
                   </motion.p>
@@ -232,7 +232,7 @@ export function AIBattleTimeline({ onComplete }: { onComplete: () => void }) {
             {!allRevealed && (
               <button
                 onClick={handleRevealNext}
-                className="flex-1 px-4 py-2 bg-space-900 border border-slate-700 hover:border-red-500 text-white rounded-lg text-sm transition-colors"
+                className="flex-1 px-4 py-2 bg-space-900 border border-slate-200 hover:border-red-500 text-slate-900 rounded-lg text-sm transition-colors"
               >
                 Reveal Next Fact
               </button>
@@ -240,7 +240,7 @@ export function AIBattleTimeline({ onComplete }: { onComplete: () => void }) {
             {allRevealed && (
               <button
                 onClick={onComplete}
-                className="flex-1 px-6 py-3 bg-red-500 hover:bg-red-400 text-white rounded-lg font-bold transition-colors"
+                className="flex-1 px-6 py-3 bg-red-500 hover:bg-red-400 text-slate-900 rounded-lg font-bold transition-colors"
               >
                 Complete Activity
               </button>

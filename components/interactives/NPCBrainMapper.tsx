@@ -124,16 +124,16 @@ export function NPCBrainMapper({ onComplete }: { onComplete: () => void }) {
 
   if (finished) {
     return (
-      <div className="bg-space-800 rounded-xl border border-slate-700 p-6 text-center">
+      <div className="bg-space-800 rounded-xl border border-slate-200 p-6 text-center">
         <motion.div initial={{ scale: 0.8, opacity: 0 }} animate={{ scale: 1, opacity: 1 }}>
           <div className="text-4xl mb-4">🧠</div>
-          <h3 className="text-2xl font-bold text-white mb-2">NPC Brain Mapper Complete!</h3>
-          <p className="text-slate-300 mb-4">
+          <h3 className="text-2xl font-bold text-slate-900 mb-2">NPC Brain Mapper Complete!</h3>
+          <p className="text-slate-600 mb-4">
             You scored {score}/{ROUNDS.length} — you figured out how the NPCs think!
           </p>
           <button
             onClick={onComplete}
-            className="px-6 py-3 bg-red-500 hover:bg-red-400 text-white rounded-lg font-bold transition-colors"
+            className="px-6 py-3 bg-red-500 hover:bg-red-400 text-slate-900 rounded-lg font-bold transition-colors"
           >
             Complete Activity
           </button>
@@ -143,15 +143,15 @@ export function NPCBrainMapper({ onComplete }: { onComplete: () => void }) {
   }
 
   return (
-    <div className="bg-space-800 rounded-xl border border-slate-700 p-6">
+    <div className="bg-space-800 rounded-xl border border-slate-200 p-6">
       <div className="flex justify-between items-center mb-4">
-        <h3 className="text-lg font-bold text-white">🧠 NPC Brain Mapper</h3>
-        <span className="text-sm text-slate-300">
+        <h3 className="text-lg font-bold text-slate-900">🧠 NPC Brain Mapper</h3>
+        <span className="text-sm text-slate-600">
           Round {roundIdx + 1}/{ROUNDS.length} | Score: {score}
         </span>
       </div>
 
-      <p className="text-slate-300 text-sm mb-4">{round.description}</p>
+      <p className="text-slate-600 text-sm mb-4">{round.description}</p>
 
       {phase === "observe" && (
         <p className="text-red-400 text-xs mb-2">
@@ -176,7 +176,7 @@ export function NPCBrainMapper({ onComplete }: { onComplete: () => void }) {
                     ? "bg-green-700 border-green-500"
                     : isNpc
                     ? "bg-red-700 border-red-500"
-                    : "bg-space-900 border-slate-700 hover:border-slate-500"
+                    : "bg-space-900 border-slate-200 hover:border-slate-500"
                 }`}
               >
                 {isPlayer && isNpc ? "💥" : isPlayer ? "🟢" : isNpc ? "👾" : ""}
@@ -188,13 +188,13 @@ export function NPCBrainMapper({ onComplete }: { onComplete: () => void }) {
 
       {phase === "guess" && (
         <motion.div initial={{ opacity: 0, y: 10 }} animate={{ opacity: 1, y: 0 }}>
-          <p className="text-white font-semibold mb-3">What rule was the NPC following?</p>
+          <p className="text-slate-900 font-semibold mb-3">What rule was the NPC following?</p>
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
             {round.options.map((opt, i) => (
               <button
                 key={i}
                 onClick={() => handleGuess(i)}
-                className="px-4 py-3 bg-space-900 border border-slate-700 hover:border-red-500 text-white rounded-lg text-sm transition-colors"
+                className="px-4 py-3 bg-space-900 border border-slate-200 hover:border-red-500 text-slate-900 rounded-lg text-sm transition-colors"
               >
                 {opt}
               </button>
@@ -208,10 +208,10 @@ export function NPCBrainMapper({ onComplete }: { onComplete: () => void }) {
           <p className={`text-lg font-bold mb-2 ${selected === round.correctIndex ? "text-green-400" : "text-red-400"}`}>
             {selected === round.correctIndex ? "✅ Correct!" : "❌ Not quite!"}
           </p>
-          <p className="text-slate-300 text-sm mb-4">{round.explanation}</p>
+          <p className="text-slate-600 text-sm mb-4">{round.explanation}</p>
           <button
             onClick={handleNext}
-            className="px-6 py-2 bg-red-500 hover:bg-red-400 text-white rounded-lg font-bold transition-colors"
+            className="px-6 py-2 bg-red-500 hover:bg-red-400 text-slate-900 rounded-lg font-bold transition-colors"
           >
             {roundIdx + 1 >= ROUNDS.length ? "See Results" : "Next Round"}
           </button>

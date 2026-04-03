@@ -141,21 +141,21 @@ export default function QuizPage() {
           {/* Back link */}
           <button
             onClick={() => router.push("/flashcards")}
-            className="text-slate-400 hover:text-white text-sm font-bold mb-6 inline-block"
+            className="text-slate-400 hover:text-sky-600 text-sm font-bold mb-6 inline-block"
           >
             ← Back to Cards
           </button>
 
           <div className="text-center mb-8">
-            <h1 className="text-3xl font-black text-white">🧠 Quiz Setup</h1>
+            <h1 className="text-3xl font-black text-slate-900">🧠 Quiz Setup</h1>
             <p className="text-slate-400 mt-1">
               Choose your worlds and card count
             </p>
           </div>
 
           {/* World selection */}
-          <div className="bg-space-800 rounded-2xl border border-slate-700 p-5 mb-6">
-            <h2 className="text-sm font-black text-white mb-3">
+          <div className="bg-space-800 rounded-2xl border border-slate-200 p-5 mb-6">
+            <h2 className="text-sm font-black text-slate-900 mb-3">
               Select Worlds
             </h2>
             <div className="space-y-2">
@@ -169,7 +169,7 @@ export default function QuizPage() {
                 <span
                   className={`text-sm font-bold ${
                     selectedWorlds.length === 0
-                      ? "text-teal-400"
+                      ? "text-sky-500"
                       : "text-slate-400"
                   }`}
                 >
@@ -191,7 +191,7 @@ export default function QuizPage() {
                     <span
                       className={`text-sm font-bold ${
                         selectedWorlds.includes(w.id)
-                          ? "text-white"
+                          ? "text-slate-900"
                           : "text-slate-400"
                       }`}
                     >
@@ -204,8 +204,8 @@ export default function QuizPage() {
           </div>
 
           {/* Card count */}
-          <div className="bg-space-800 rounded-2xl border border-slate-700 p-5 mb-6">
-            <h2 className="text-sm font-black text-white mb-3">
+          <div className="bg-space-800 rounded-2xl border border-slate-200 p-5 mb-6">
+            <h2 className="text-sm font-black text-slate-900 mb-3">
               Number of Questions
             </h2>
             <div className="flex gap-3">
@@ -215,15 +215,15 @@ export default function QuizPage() {
                   onClick={() => setCardCount(n)}
                   className={`flex-1 py-3 rounded-xl text-sm font-black transition-all ${
                     cardCount === n
-                      ? "bg-teal-500 text-white shadow-lg"
-                      : "bg-space-900 text-slate-400 border border-slate-700 hover:text-white"
+                      ? "bg-mint-400 text-white shadow-lg"
+                      : "bg-space-900 text-slate-400 border border-slate-200 hover:text-sky-600"
                   }`}
                 >
                   {n}
                 </button>
               ))}
             </div>
-            <p className="text-xs text-slate-500 mt-3">
+            <p className="text-xs text-slate-400 mt-3">
               {availableCards.length} cards available
             </p>
           </div>
@@ -232,7 +232,7 @@ export default function QuizPage() {
           <button
             onClick={startQuiz}
             disabled={cardCount > availableCards.length}
-            className="w-full bg-gradient-to-r from-teal-500 to-cyan-400 hover:from-teal-400 hover:to-cyan-300 text-white font-black text-lg py-4 rounded-2xl btn-press transition-all shadow-lg disabled:opacity-40 disabled:cursor-not-allowed"
+            className="w-full bg-gradient-to-r from-sky-400 to-mint-300 hover:from-sky-300 hover:to-mint-200 text-slate-900 font-black text-lg py-4 rounded-2xl btn-press transition-all shadow-lg disabled:opacity-40 disabled:cursor-not-allowed"
           >
             {cardCount > availableCards.length
               ? `Not enough cards (need ${cardCount}, have ${availableCards.length})`
@@ -263,7 +263,7 @@ export default function QuizPage() {
             </div>
             <div className="h-2 bg-space-800 rounded-full overflow-hidden">
               <motion.div
-                className="h-full bg-gradient-to-r from-teal-500 to-cyan-400 rounded-full"
+                className="h-full bg-gradient-to-r from-sky-400 to-mint-300 rounded-full"
                 initial={{ width: 0 }}
                 animate={{ width: `${progress}%` }}
                 transition={{ duration: 0.3 }}
@@ -276,12 +276,12 @@ export default function QuizPage() {
             key={currentQ}
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
-            className="bg-space-800 rounded-3xl border border-slate-700 p-8 mb-6 text-center"
+            className="bg-space-800 rounded-3xl border border-slate-200 p-8 mb-6 text-center"
           >
-            <p className="text-xs text-teal-400 font-bold uppercase tracking-wider mb-3">
+            <p className="text-xs text-sky-500 font-bold uppercase tracking-wider mb-3">
               What is the definition of...
             </p>
-            <h2 className="text-2xl font-black text-white">{q.card.term}</h2>
+            <h2 className="text-2xl font-black text-slate-900">{q.card.term}</h2>
           </motion.div>
 
           {/* Options */}
@@ -292,16 +292,16 @@ export default function QuizPage() {
 
               if (picked === null) {
                 classes +=
-                  "bg-space-800 border-slate-700 text-slate-200 hover:border-teal-500 hover:text-white cursor-pointer";
+                  "bg-space-800 border-slate-200 text-slate-200 hover:border-teal-500 hover:text-sky-600 cursor-pointer";
               } else if (idx === q.correctIndex) {
                 classes +=
-                  "bg-teal-500/20 border-teal-500 text-teal-300";
+                  "bg-mint-400/20 border-teal-500 text-sky-400";
               } else if (idx === picked) {
                 classes +=
                   "bg-red-500/20 border-red-500 text-red-300";
               } else {
                 classes +=
-                  "bg-space-800 border-slate-700 text-slate-500";
+                  "bg-space-800 border-slate-200 text-slate-400";
               }
 
               return (
@@ -314,7 +314,7 @@ export default function QuizPage() {
                   disabled={picked !== null}
                   className={classes}
                 >
-                  <span className="mr-2 text-slate-500">
+                  <span className="mr-2 text-slate-400">
                     {String.fromCharCode(65 + idx)}.
                   </span>
                   {option}
@@ -329,7 +329,7 @@ export default function QuizPage() {
               initial={{ opacity: 0, y: 10 }}
               animate={{ opacity: 1, y: 0 }}
               onClick={nextQuestion}
-              className="w-full bg-gradient-to-r from-teal-500 to-cyan-400 hover:from-teal-400 hover:to-cyan-300 text-white font-black text-lg py-4 rounded-2xl btn-press transition-all shadow-lg"
+              className="w-full bg-gradient-to-r from-sky-400 to-mint-300 hover:from-sky-300 hover:to-mint-200 text-slate-900 font-black text-lg py-4 rounded-2xl btn-press transition-all shadow-lg"
             >
               {currentQ < questions.length - 1 ? "Next Question →" : "See Results"}
             </motion.button>
@@ -352,7 +352,7 @@ export default function QuizPage() {
           className="text-center mb-8"
         >
           <div className="text-6xl mb-3">{getScoreEmoji()}</div>
-          <h1 className="text-4xl font-black text-white mb-1">
+          <h1 className="text-4xl font-black text-slate-900 mb-1">
             {score}/{questions.length}
           </h1>
           <p className="text-slate-400 font-bold">
@@ -368,8 +368,8 @@ export default function QuizPage() {
 
         {/* Missed cards */}
         {missed.length > 0 && (
-          <div className="bg-space-800 rounded-2xl border border-slate-700 p-5 mb-6">
-            <h2 className="text-sm font-black text-white mb-3">
+          <div className="bg-space-800 rounded-2xl border border-slate-200 p-5 mb-6">
+            <h2 className="text-sm font-black text-slate-900 mb-3">
               Cards to Review ({missed.length})
             </h2>
             <div className="space-y-3">
@@ -378,7 +378,7 @@ export default function QuizPage() {
                   key={i}
                   className="bg-space-900 rounded-xl p-4 border border-red-500/20"
                 >
-                  <p className="text-sm font-black text-white mb-1">
+                  <p className="text-sm font-black text-slate-900 mb-1">
                     {q.card.term}
                   </p>
                   <p className="text-xs text-slate-400">
@@ -392,7 +392,7 @@ export default function QuizPage() {
                 saveMissedCards();
                 alert("Missed cards saved!");
               }}
-              className="w-full mt-4 bg-teal-500/20 hover:bg-teal-500/30 text-teal-300 font-black text-sm py-3 rounded-xl transition-all border border-teal-500/30"
+              className="w-full mt-4 bg-mint-400/20 hover:bg-mint-400/30 text-sky-400 font-black text-sm py-3 rounded-xl transition-all border border-sky-200"
             >
               ★ Save Missed Cards
             </button>
@@ -409,13 +409,13 @@ export default function QuizPage() {
               setScore(0);
               setMissed([]);
             }}
-            className="w-full bg-gradient-to-r from-teal-500 to-cyan-400 hover:from-teal-400 hover:to-cyan-300 text-white font-black text-lg py-4 rounded-2xl btn-press transition-all shadow-lg"
+            className="w-full bg-gradient-to-r from-sky-400 to-mint-300 hover:from-sky-300 hover:to-mint-200 text-slate-900 font-black text-lg py-4 rounded-2xl btn-press transition-all shadow-lg"
           >
             Try Again
           </button>
           <button
             onClick={() => router.push("/flashcards")}
-            className="w-full bg-space-800 border border-slate-700 hover:border-teal-500 text-white font-black text-sm py-3 rounded-2xl transition-all"
+            className="w-full bg-space-800 border border-slate-200 hover:border-teal-500 text-slate-900 font-black text-sm py-3 rounded-2xl transition-all"
           >
             Back to Cards
           </button>

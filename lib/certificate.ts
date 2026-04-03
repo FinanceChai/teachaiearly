@@ -17,30 +17,30 @@ export function generateCertificate(data: CertificateData): void {
   canvas.height = H;
   const ctx = canvas.getContext("2d")!;
 
-  // Background
-  ctx.fillStyle = "#0f172a";
+  // Background — white
+  ctx.fillStyle = "#ffffff";
   ctx.fillRect(0, 0, W, H);
 
   // Subtle gradient overlay
   const grad = ctx.createLinearGradient(0, 0, W, H);
-  grad.addColorStop(0, "rgba(20, 184, 166, 0.08)");
-  grad.addColorStop(1, "rgba(6, 182, 212, 0.05)");
+  grad.addColorStop(0, "rgba(91, 184, 245, 0.06)");
+  grad.addColorStop(1, "rgba(52, 211, 153, 0.04)");
   ctx.fillStyle = grad;
   ctx.fillRect(0, 0, W, H);
 
-  // Border
-  ctx.strokeStyle = "rgba(20, 184, 166, 0.4)";
+  // Border — sky blue
+  ctx.strokeStyle = "rgba(91, 184, 245, 0.4)";
   ctx.lineWidth = 3;
   ctx.strokeRect(30, 30, W - 60, H - 60);
 
   // Inner border
-  ctx.strokeStyle = "rgba(20, 184, 166, 0.15)";
+  ctx.strokeStyle = "rgba(91, 184, 245, 0.15)";
   ctx.lineWidth = 1;
   ctx.strokeRect(40, 40, W - 80, H - 80);
 
   // Corner accents
   const cornerSize = 20;
-  ctx.strokeStyle = "#14b8a6";
+  ctx.strokeStyle = "#5BB8F5";
   ctx.lineWidth = 3;
   const corners = [
     [30, 30, cornerSize, 0, 0, cornerSize],
@@ -57,8 +57,8 @@ export function generateCertificate(data: CertificateData): void {
   });
 
   // "CERTIFICATE OF ACHIEVEMENT" header
-  ctx.fillStyle = "rgba(20, 184, 166, 0.6)";
-  ctx.font = "bold 14px system-ui, -apple-system, sans-serif";
+  ctx.fillStyle = "rgba(91, 184, 245, 0.7)";
+  ctx.font = "bold 14px Fredoka, system-ui, sans-serif";
   ctx.textAlign = "center";
   ctx.letterSpacing = "6px";
   ctx.fillText("CERTIFICATE OF ACHIEVEMENT", W / 2, 100);
@@ -69,22 +69,22 @@ export function generateCertificate(data: CertificateData): void {
   ctx.fillText(data.badgeEmoji, W / 2, 200);
 
   // Badge name
-  ctx.fillStyle = "#14b8a6";
-  ctx.font = "bold 42px system-ui, -apple-system, sans-serif";
+  ctx.fillStyle = "#5BB8F5";
+  ctx.font = "bold 42px Fredoka, system-ui, sans-serif";
   ctx.fillText(data.badgeName, W / 2, 270);
 
   // "Awarded to"
   ctx.fillStyle = "#94a3b8";
-  ctx.font = "18px system-ui, -apple-system, sans-serif";
+  ctx.font = "18px Nunito, system-ui, sans-serif";
   ctx.fillText("Awarded to", W / 2, 330);
 
   // Student name
-  ctx.fillStyle = "#ffffff";
-  ctx.font = "bold 48px system-ui, -apple-system, sans-serif";
+  ctx.fillStyle = "#1e293b";
+  ctx.font = "bold 48px Fredoka, system-ui, sans-serif";
   ctx.fillText(data.studentName, W / 2, 385);
 
   // Decorative line
-  ctx.strokeStyle = "rgba(20, 184, 166, 0.3)";
+  ctx.strokeStyle = "rgba(52, 211, 153, 0.4)";
   ctx.lineWidth = 1;
   ctx.beginPath();
   ctx.moveTo(W / 2 - 150, 410);
@@ -92,8 +92,8 @@ export function generateCertificate(data: CertificateData): void {
   ctx.stroke();
 
   // Description
-  ctx.fillStyle = "#cbd5e1";
-  ctx.font = "20px system-ui, -apple-system, sans-serif";
+  ctx.fillStyle = "#475569";
+  ctx.font = "20px Nunito, system-ui, sans-serif";
   ctx.fillText(
     `For successfully completing World ${data.worldNumber}: ${data.worldTitle}`,
     W / 2,
@@ -102,28 +102,28 @@ export function generateCertificate(data: CertificateData): void {
   ctx.fillText("and demonstrating understanding of AI concepts", W / 2, 490);
 
   // Date
-  ctx.fillStyle = "#64748b";
-  ctx.font = "16px system-ui, -apple-system, sans-serif";
+  ctx.fillStyle = "#94a3b8";
+  ctx.font = "16px Nunito, system-ui, sans-serif";
   ctx.fillText(data.date, W / 2, 550);
 
   // Footer line
-  ctx.strokeStyle = "rgba(20, 184, 166, 0.2)";
+  ctx.strokeStyle = "rgba(91, 184, 245, 0.2)";
   ctx.beginPath();
   ctx.moveTo(100, 620);
   ctx.lineTo(W - 100, 620);
   ctx.stroke();
 
   // Teach AI Early branding
-  ctx.fillStyle = "#14b8a6";
-  ctx.font = "bold 22px system-ui, -apple-system, sans-serif";
+  ctx.fillStyle = "#34D399";
+  ctx.font = "bold 22px Fredoka, system-ui, sans-serif";
   ctx.fillText("Teach AI Early", W / 2, 670);
 
-  ctx.fillStyle = "#475569";
-  ctx.font = "14px system-ui, -apple-system, sans-serif";
+  ctx.fillStyle = "#94a3b8";
+  ctx.font = "14px Nunito, system-ui, sans-serif";
   ctx.fillText("AI Literacy for Kids — teachaiearly.com", W / 2, 700);
 
-  // Stars decoration
-  ctx.fillStyle = "rgba(20, 184, 166, 0.15)";
+  // Stars decoration — warm yellow
+  ctx.fillStyle = "rgba(251, 191, 36, 0.25)";
   ctx.font = "24px serif";
   const starPositions = [
     [80, 80], [W - 80, 80], [80, H - 80], [W - 80, H - 80],

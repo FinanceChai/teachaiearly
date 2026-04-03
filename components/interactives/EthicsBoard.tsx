@@ -109,9 +109,9 @@ export function EthicsBoard({ onComplete }: { onComplete: (passed: boolean) => v
           {pct >= 70 ? "🛡️" : "⚖️"}
         </motion.div>
         <div>
-          <div className="text-4xl font-black text-white">{score}/{maxScore}</div>
+          <div className="text-4xl font-black text-slate-900">{score}/{maxScore}</div>
           <div className="text-slate-400 text-sm mt-1">ethics reasoning score</div>
-          <div className="text-slate-300 mt-3">
+          <div className="text-slate-600 mt-3">
             {pct >= 90 ? "Ethics Guardian level! Your reasoning is nuanced and balanced." : pct >= 60 ? "Strong ethical thinking! You consider multiple perspectives." : "Ethics is hard — the fact that you're thinking about it matters most!"}
           </div>
         </div>
@@ -135,30 +135,30 @@ export function EthicsBoard({ onComplete }: { onComplete: (passed: boolean) => v
         <span className="text-xs text-slate-400 font-bold">Case {idx + 1}/{CASES.length}</span>
       </div>
 
-      <div className="bg-space-800 rounded-2xl p-5 border border-slate-700">
+      <div className="bg-space-800 rounded-2xl p-5 border border-slate-200">
         <div className="text-xs font-black text-orange-400 mb-3">ETHICS BOARD</div>
 
         <motion.div key={idx} initial={{ opacity: 0, x: 20 }} animate={{ opacity: 1, x: 0 }}>
-          <div className="bg-space-900 rounded-xl p-4 border border-slate-600 mb-3">
+          <div className="bg-space-900 rounded-xl p-4 border border-slate-300 mb-3">
             <div className="flex items-center gap-2 mb-2">
               <span className="text-2xl">{c.icon}</span>
-              <span className="text-white font-black">{c.title}</span>
+              <span className="text-slate-900 font-black">{c.title}</span>
             </div>
             <div className="text-sm text-slate-400 mb-3">{c.scenario}</div>
             <div className="flex flex-wrap gap-1.5">
               {c.stakeholders.map((s, i) => (
-                <span key={i} className="bg-space-800 rounded-lg px-2 py-1 text-xs text-slate-400 font-bold border border-slate-700">{s}</span>
+                <span key={i} className="bg-space-800 rounded-lg px-2 py-1 text-xs text-slate-400 font-bold border border-slate-200">{s}</span>
               ))}
             </div>
           </div>
 
-          <div className="text-white font-black text-sm mb-3">{c.question}</div>
+          <div className="text-slate-900 font-black text-sm mb-3">{c.question}</div>
 
           {picked === null ? (
             <div className="space-y-3">
               {c.options.map((opt, i) => (
-                <motion.button key={i} onClick={() => pickOption(i)} whileTap={{ scale: 0.98 }} className="w-full text-left p-4 rounded-xl border border-slate-700 bg-space-900 hover:border-orange-500/50 transition-colors">
-                  <div className="font-bold text-white text-sm">{opt.label}</div>
+                <motion.button key={i} onClick={() => pickOption(i)} whileTap={{ scale: 0.98 }} className="w-full text-left p-4 rounded-xl border border-slate-200 bg-space-900 hover:border-orange-500/50 transition-colors">
+                  <div className="font-bold text-slate-900 text-sm">{opt.label}</div>
                 </motion.button>
               ))}
             </div>
@@ -172,9 +172,9 @@ export function EthicsBoard({ onComplete }: { onComplete: (passed: boolean) => v
                 {c.options[picked].quality === "strong" ? "Strong reasoning! " :
                  c.options[picked].quality === "moderate" ? "Partial credit — good thinking but consider more angles. " :
                  "This perspective misses key considerations. "}
-                <span className="font-normal text-slate-300">{c.options[picked].reasoning}</span>
+                <span className="font-normal text-slate-600">{c.options[picked].reasoning}</span>
               </div>
-              <button onClick={next} className="w-full py-4 rounded-xl font-black text-white bg-orange-500 hover:bg-orange-400 btn-press transition-colors">
+              <button onClick={next} className="w-full py-4 rounded-xl font-black text-slate-900 bg-orange-500 hover:bg-orange-400 btn-press transition-colors">
                 {idx < CASES.length - 1 ? "Next Case" : "See Final Score"} &rarr;
               </button>
             </motion.div>

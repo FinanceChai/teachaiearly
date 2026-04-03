@@ -105,8 +105,8 @@ export function ZoomIn({ onComplete }: { onComplete: () => void }) {
           👁️
         </motion.div>
         <div>
-          <div className="text-4xl font-black text-white">{score}/{QUIZ.length}</div>
-          <div className="text-slate-300 mt-2">
+          <div className="text-4xl font-black text-slate-900">{score}/{QUIZ.length}</div>
+          <div className="text-slate-600 mt-2">
             {score === QUIZ.length ? "Perfect! You see the world like AI does." : score >= 2 ? "Great job understanding how AI sees!" : "Pixels are tricky — now you know how AI starts!"}
           </div>
         </div>
@@ -127,13 +127,13 @@ export function ZoomIn({ onComplete }: { onComplete: () => void }) {
             <div key={i} className={`flex-1 h-2 rounded-full transition-all ${i < quizIdx ? "bg-pink-500" : i === quizIdx ? "bg-pink-400" : "bg-slate-700"}`} />
           ))}
         </div>
-        <div className="bg-space-800 rounded-2xl p-5 border border-slate-700">
+        <div className="bg-space-800 rounded-2xl p-5 border border-slate-200">
           <div className="text-xs font-black text-pink-400 mb-1">PIXEL QUIZ</div>
-          <div className="text-white font-black text-lg mb-4">{q.question}</div>
+          <div className="text-slate-900 font-black text-lg mb-4">{q.question}</div>
           {picked === null ? (
             <div className="space-y-3">
               {q.options.map((opt, i) => (
-                <motion.button key={i} onClick={() => pickAnswer(i)} whileTap={{ scale: 0.98 }} className="w-full text-left p-4 rounded-xl border border-slate-700 bg-space-900 font-bold text-white hover:border-pink-500/50 transition-colors">
+                <motion.button key={i} onClick={() => pickAnswer(i)} whileTap={{ scale: 0.98 }} className="w-full text-left p-4 rounded-xl border border-slate-200 bg-space-900 font-bold text-slate-900 hover:border-pink-500/50 transition-colors">
                   {opt}
                 </motion.button>
               ))}
@@ -142,9 +142,9 @@ export function ZoomIn({ onComplete }: { onComplete: () => void }) {
             <motion.div initial={{ opacity: 0, y: 8 }} animate={{ opacity: 1, y: 0 }} className="space-y-3">
               <div className={`p-4 rounded-xl text-sm font-bold ${picked === q.correct ? "bg-green-500/20 text-green-300" : "bg-red-500/20 text-red-300"}`}>
                 {picked === q.correct ? "Correct! " : `The answer is: "${q.options[q.correct]}." `}
-                <span className="font-normal text-slate-300">{q.explanation}</span>
+                <span className="font-normal text-slate-600">{q.explanation}</span>
               </div>
-              <button onClick={nextQuiz} className="w-full py-4 rounded-xl font-black text-white bg-pink-500 hover:bg-pink-400 btn-press transition-colors">
+              <button onClick={nextQuiz} className="w-full py-4 rounded-xl font-black text-slate-900 bg-pink-500 hover:bg-pink-400 btn-press transition-colors">
                 {quizIdx < QUIZ.length - 1 ? "Next Question →" : "See Results →"}
               </button>
             </motion.div>
@@ -158,7 +158,7 @@ export function ZoomIn({ onComplete }: { onComplete: () => void }) {
 
   return (
     <div className="space-y-5">
-      <div className="bg-space-800 rounded-2xl p-5 border border-slate-700">
+      <div className="bg-space-800 rounded-2xl p-5 border border-slate-200">
         <div className="text-xs font-black text-pink-400 mb-1">ZOOM INTO PIXELS</div>
         <div className="text-sm text-slate-400 font-bold mb-4">
           This is what AI sees — not a picture, but a grid of colored squares (pixels).
@@ -167,14 +167,14 @@ export function ZoomIn({ onComplete }: { onComplete: () => void }) {
         {/* Image selector */}
         <div className="flex gap-2 mb-4">
           {IMAGES.map((im, i) => (
-            <button key={i} onClick={() => { setImgIdx(i); setZoomLevel(1); setShowNumbers(false); }} className={`px-3 py-2 rounded-xl text-sm font-bold transition-colors ${i === imgIdx ? "bg-pink-500/20 text-pink-300 border border-pink-500/40" : "bg-space-900 text-slate-400 border border-slate-700"}`}>
+            <button key={i} onClick={() => { setImgIdx(i); setZoomLevel(1); setShowNumbers(false); }} className={`px-3 py-2 rounded-xl text-sm font-bold transition-colors ${i === imgIdx ? "bg-pink-500/20 text-pink-300 border border-pink-500/40" : "bg-space-900 text-slate-400 border border-slate-200"}`}>
               {im.emoji} {im.name}
             </button>
           ))}
         </div>
 
         {/* Pixel grid */}
-        <div className="flex justify-center mb-4 overflow-hidden rounded-xl border border-slate-600 bg-space-900 p-2">
+        <div className="flex justify-center mb-4 overflow-hidden rounded-xl border border-slate-300 bg-space-900 p-2">
           <div style={{ display: "grid", gridTemplateColumns: `repeat(8, ${cellSize}px)`, gap: zoomLevel >= 2 ? "2px" : "1px" }}>
             {img.grid.flat().map((color, i) => (
               <motion.div
@@ -185,7 +185,7 @@ export function ZoomIn({ onComplete }: { onComplete: () => void }) {
                 style={{ width: cellSize, height: cellSize, backgroundColor: color, borderRadius: zoomLevel >= 3 ? 4 : 2, fontSize: 7 }}
                 className="flex items-center justify-center"
               >
-                {showNumbers && <span className="text-white/80 font-mono leading-none" style={{ fontSize: zoomLevel >= 3 ? 7 : 6 }}>{color.slice(1, 4)}</span>}
+                {showNumbers && <span className="text-slate-900/80 font-mono leading-none" style={{ fontSize: zoomLevel >= 3 ? 7 : 6 }}>{color.slice(1, 4)}</span>}
               </motion.div>
             ))}
           </div>
@@ -193,24 +193,24 @@ export function ZoomIn({ onComplete }: { onComplete: () => void }) {
 
         {/* Controls */}
         <div className="flex items-center gap-3 mb-4">
-          <div className="text-xs font-bold text-slate-500">ZOOM:</div>
+          <div className="text-xs font-bold text-slate-400">ZOOM:</div>
           {[1, 2, 3].map((z) => (
-            <button key={z} onClick={() => setZoomLevel(z)} className={`px-3 py-1.5 rounded-lg text-xs font-black transition-colors ${z === zoomLevel ? "bg-pink-500 text-white" : "bg-space-900 text-slate-400 border border-slate-700"}`}>
+            <button key={z} onClick={() => setZoomLevel(z)} className={`px-3 py-1.5 rounded-lg text-xs font-black transition-colors ${z === zoomLevel ? "bg-pink-500 text-slate-900" : "bg-space-900 text-slate-400 border border-slate-200"}`}>
               {z}x
             </button>
           ))}
           <div className="flex-1" />
-          <button onClick={() => setShowNumbers(!showNumbers)} className={`px-3 py-1.5 rounded-lg text-xs font-black transition-colors ${showNumbers ? "bg-pink-500 text-white" : "bg-space-900 text-slate-400 border border-slate-700"}`}>
+          <button onClick={() => setShowNumbers(!showNumbers)} className={`px-3 py-1.5 rounded-lg text-xs font-black transition-colors ${showNumbers ? "bg-pink-500 text-slate-900" : "bg-space-900 text-slate-400 border border-slate-200"}`}>
             {showNumbers ? "Hide #" : "Show #"}
           </button>
         </div>
 
         {/* Info */}
-        <div className="bg-pink-500/10 border border-pink-500/30 rounded-xl p-3 text-sm text-slate-300 mb-4">
+        <div className="bg-pink-500/10 border border-pink-500/30 rounded-xl p-3 text-sm text-slate-600 mb-4">
           <strong className="text-pink-300">This 8×8 grid = 64 pixels.</strong> A real photo has millions! AI processes every single one as a number.
         </div>
 
-        <button onClick={() => setPhase("quiz")} className="w-full py-4 rounded-xl font-black text-white bg-pink-500 hover:bg-pink-400 btn-press transition-colors">
+        <button onClick={() => setPhase("quiz")} className="w-full py-4 rounded-xl font-black text-slate-900 bg-pink-500 hover:bg-pink-400 btn-press transition-colors">
           Test Your Knowledge →
         </button>
       </div>

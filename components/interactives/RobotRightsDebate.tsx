@@ -95,24 +95,24 @@ export function RobotRightsDebate({ onComplete }: { onComplete: () => void }) {
       <motion.div
         initial={{ opacity: 0, scale: 0.9 }}
         animate={{ opacity: 1, scale: 1 }}
-        className="bg-space-800 rounded-2xl p-6 border border-slate-700 text-center"
+        className="bg-space-800 rounded-2xl p-6 border border-slate-200 text-center"
       >
         <div className="text-5xl mb-4">🤔</div>
-        <h2 className="text-2xl font-bold text-white mb-3">Debate Complete!</h2>
-        <p className="text-slate-300 mb-2">
+        <h2 className="text-2xl font-bold text-slate-900 mb-3">Debate Complete!</h2>
+        <p className="text-slate-600 mb-2">
           You agreed with <span className="text-zinc-400 font-bold">{agreeCount}</span> out of{" "}
           <span className="text-zinc-400 font-bold">{STATEMENTS.length}</span> statements about robot rights.
         </p>
 
         <div className="bg-space-900 rounded-xl p-4 my-5 text-left">
-          <h3 className="text-white font-bold mb-2">💡 Big Takeaway:</h3>
-          <p className="text-slate-300 text-sm mb-2">
+          <h3 className="text-slate-900 font-bold mb-2">💡 Big Takeaway:</h3>
+          <p className="text-slate-600 text-sm mb-2">
             There are no easy answers here! As robots get smarter, these questions will become more and more important.
           </p>
-          <p className="text-slate-300 text-sm mb-2">
+          <p className="text-slate-600 text-sm mb-2">
             The fact that you thought carefully about each statement means you&apos;re already ahead of most people in thinking about the future of AI.
           </p>
-          <p className="text-slate-300 text-sm">
+          <p className="text-slate-600 text-sm">
             Remember: the people who grow up today (that&apos;s you!) will be the ones making these big decisions. Your opinion matters!
           </p>
         </div>
@@ -130,9 +130,9 @@ export function RobotRightsDebate({ onComplete }: { onComplete: () => void }) {
   }
 
   return (
-    <div className="bg-space-800 rounded-2xl p-6 border border-slate-700">
+    <div className="bg-space-800 rounded-2xl p-6 border border-slate-200">
       <div className="flex justify-between items-center mb-4">
-        <h2 className="text-lg font-bold text-white">⚖️ Robot Rights Debate</h2>
+        <h2 className="text-lg font-bold text-slate-900">⚖️ Robot Rights Debate</h2>
         <span className="text-zinc-400 text-sm font-mono">{current + 1}/{STATEMENTS.length}</span>
       </div>
 
@@ -152,7 +152,7 @@ export function RobotRightsDebate({ onComplete }: { onComplete: () => void }) {
         >
           <div className="bg-space-900 rounded-xl p-6 mb-5 text-center">
             <div className="text-5xl mb-4">{statement.emoji}</div>
-            <p className="text-white text-xl font-bold leading-relaxed">
+            <p className="text-slate-900 text-xl font-bold leading-relaxed">
               &ldquo;{statement.text}&rdquo;
             </p>
           </div>
@@ -163,7 +163,7 @@ export function RobotRightsDebate({ onComplete }: { onComplete: () => void }) {
                 whileHover={{ scale: 1.03 }}
                 whileTap={{ scale: 0.97 }}
                 onClick={() => handleVote("agree")}
-                className="p-4 bg-emerald-500/10 border-2 border-emerald-500/30 rounded-xl text-white font-bold hover:border-emerald-500 transition-colors"
+                className="p-4 bg-emerald-500/10 border-2 border-emerald-500/30 rounded-xl text-slate-900 font-bold hover:border-emerald-500 transition-colors"
               >
                 <span className="text-2xl block mb-1">👍</span>
                 I Agree
@@ -172,7 +172,7 @@ export function RobotRightsDebate({ onComplete }: { onComplete: () => void }) {
                 whileHover={{ scale: 1.03 }}
                 whileTap={{ scale: 0.97 }}
                 onClick={() => handleVote("disagree")}
-                className="p-4 bg-red-500/10 border-2 border-red-500/30 rounded-xl text-white font-bold hover:border-red-500 transition-colors"
+                className="p-4 bg-red-500/10 border-2 border-red-500/30 rounded-xl text-slate-900 font-bold hover:border-red-500 transition-colors"
               >
                 <span className="text-2xl block mb-1">👎</span>
                 I Disagree
@@ -181,9 +181,9 @@ export function RobotRightsDebate({ onComplete }: { onComplete: () => void }) {
           ) : (
             <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }}>
               <div className="bg-space-900 rounded-xl p-4 mb-3">
-                <div className="text-xs text-slate-500 mb-2">MOCK POLL RESULTS (from other students)</div>
+                <div className="text-xs text-slate-400 mb-2">MOCK POLL RESULTS (from other students)</div>
                 <div className="flex items-center gap-3 mb-2">
-                  <span className="text-sm text-white w-16">Agree</span>
+                  <span className="text-sm text-slate-900 w-16">Agree</span>
                   <div className="flex-1 bg-space-800 rounded-full h-5 overflow-hidden">
                     <motion.div
                       initial={{ width: 0 }}
@@ -191,12 +191,12 @@ export function RobotRightsDebate({ onComplete }: { onComplete: () => void }) {
                       transition={{ duration: 0.8 }}
                       className="h-full bg-emerald-500/60 rounded-full flex items-center justify-end pr-2"
                     >
-                      <span className="text-xs text-white font-bold">{statement.mockAgree}%</span>
+                      <span className="text-xs text-slate-900 font-bold">{statement.mockAgree}%</span>
                     </motion.div>
                   </div>
                 </div>
                 <div className="flex items-center gap-3">
-                  <span className="text-sm text-white w-16">Disagree</span>
+                  <span className="text-sm text-slate-900 w-16">Disagree</span>
                   <div className="flex-1 bg-space-800 rounded-full h-5 overflow-hidden">
                     <motion.div
                       initial={{ width: 0 }}
@@ -204,17 +204,17 @@ export function RobotRightsDebate({ onComplete }: { onComplete: () => void }) {
                       transition={{ duration: 0.8 }}
                       className="h-full bg-red-500/60 rounded-full flex items-center justify-end pr-2"
                     >
-                      <span className="text-xs text-white font-bold">{100 - statement.mockAgree}%</span>
+                      <span className="text-xs text-slate-900 font-bold">{100 - statement.mockAgree}%</span>
                     </motion.div>
                   </div>
                 </div>
-                <p className="text-xs text-slate-500 mt-2">
-                  You voted: <span className={vote === "agree" ? "text-emerald-400" : "text-red-400"}>{vote === "agree" ? "👍 Agree" : "👎 Disagree"}</span>
+                <p className="text-xs text-slate-400 mt-2">
+                  You voted: <span className={vote === "agree" ? "text-emerald-500" : "text-red-400"}>{vote === "agree" ? "👍 Agree" : "👎 Disagree"}</span>
                 </p>
               </div>
 
               <div className="bg-space-900 rounded-xl p-4 mb-4">
-                <div className="text-xs text-slate-500 mb-2">💭 THINGS TO THINK ABOUT:</div>
+                <div className="text-xs text-slate-400 mb-2">💭 THINGS TO THINK ABOUT:</div>
                 <ul className="space-y-2">
                   {statement.discussionPoints.map((point, i) => (
                     <motion.li
@@ -222,7 +222,7 @@ export function RobotRightsDebate({ onComplete }: { onComplete: () => void }) {
                       initial={{ opacity: 0, x: -10 }}
                       animate={{ opacity: 1, x: 0 }}
                       transition={{ delay: i * 0.2 }}
-                      className="text-slate-300 text-sm flex items-start gap-2"
+                      className="text-slate-600 text-sm flex items-start gap-2"
                     >
                       <span className="text-zinc-400 mt-0.5">•</span>
                       {point}

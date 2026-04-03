@@ -104,14 +104,14 @@ export function RobotOrPuppet({ onComplete }: { onComplete: () => void }) {
       <motion.div
         initial={{ opacity: 0, scale: 0.9 }}
         animate={{ opacity: 1, scale: 1 }}
-        className="bg-space-800 rounded-2xl p-6 border border-slate-700 text-center"
+        className="bg-space-800 rounded-2xl p-6 border border-slate-200 text-center"
       >
         <div className="text-5xl mb-4">🏆</div>
-        <h2 className="text-2xl font-bold text-white mb-2">Challenge Complete!</h2>
-        <p className="text-slate-300 mb-4">
+        <h2 className="text-2xl font-bold text-slate-900 mb-2">Challenge Complete!</h2>
+        <p className="text-slate-600 mb-4">
           You scored <span className="text-zinc-400 font-bold">{score}/{SCENARIOS.length}</span> ({pct}%)
         </p>
-        <p className="text-slate-300 mb-6">
+        <p className="text-slate-600 mb-6">
           {pct >= 75
             ? "Amazing! You really know the difference between AI and simple machines!"
             : pct >= 50
@@ -131,9 +131,9 @@ export function RobotOrPuppet({ onComplete }: { onComplete: () => void }) {
   }
 
   return (
-    <div className="bg-space-800 rounded-2xl p-6 border border-slate-700">
+    <div className="bg-space-800 rounded-2xl p-6 border border-slate-200">
       <div className="flex justify-between items-center mb-4">
-        <h2 className="text-lg font-bold text-white">Robot or Just a Machine?</h2>
+        <h2 className="text-lg font-bold text-slate-900">Robot or Just a Machine?</h2>
         <span className="text-zinc-400 text-sm font-mono">{current + 1}/{SCENARIOS.length}</span>
       </div>
 
@@ -155,8 +155,8 @@ export function RobotOrPuppet({ onComplete }: { onComplete: () => void }) {
         >
           <div className="bg-space-900 rounded-xl p-5 mb-5 text-center">
             <div className="text-5xl mb-3">{scenario.emoji}</div>
-            <h3 className="text-xl font-bold text-white mb-2">{scenario.name}</h3>
-            <p className="text-slate-300">{scenario.description}</p>
+            <h3 className="text-xl font-bold text-slate-900 mb-2">{scenario.name}</h3>
+            <p className="text-slate-600">{scenario.description}</p>
           </div>
 
           {!revealed ? (
@@ -165,21 +165,21 @@ export function RobotOrPuppet({ onComplete }: { onComplete: () => void }) {
                 whileHover={{ scale: 1.03 }}
                 whileTap={{ scale: 0.97 }}
                 onClick={() => handleAnswer(true)}
-                className="p-4 bg-space-900 border-2 border-zinc-400/30 rounded-xl text-white font-bold hover:border-zinc-400 transition-colors"
+                className="p-4 bg-space-900 border-2 border-zinc-400/30 rounded-xl text-slate-900 font-bold hover:border-zinc-400 transition-colors"
               >
                 <span className="text-2xl block mb-1">🧠</span>
                 Robot with AI
-                <span className="block text-xs text-slate-300 mt-1">Adapts &amp; learns</span>
+                <span className="block text-xs text-slate-600 mt-1">Adapts &amp; learns</span>
               </motion.button>
               <motion.button
                 whileHover={{ scale: 1.03 }}
                 whileTap={{ scale: 0.97 }}
                 onClick={() => handleAnswer(false)}
-                className="p-4 bg-space-900 border-2 border-slate-500/30 rounded-xl text-white font-bold hover:border-slate-500 transition-colors"
+                className="p-4 bg-space-900 border-2 border-slate-500/30 rounded-xl text-slate-900 font-bold hover:border-slate-500 transition-colors"
               >
                 <span className="text-2xl block mb-1">⚙️</span>
                 Just a Machine
-                <span className="block text-xs text-slate-300 mt-1">Fixed rules only</span>
+                <span className="block text-xs text-slate-600 mt-1">Fixed rules only</span>
               </motion.button>
             </div>
           ) : (
@@ -196,14 +196,14 @@ export function RobotOrPuppet({ onComplete }: { onComplete: () => void }) {
               >
                 <div className="flex items-center gap-2 mb-2">
                   <span className="text-xl">{answer === scenario.isAI ? "✅" : "❌"}</span>
-                  <span className="text-white font-bold">
+                  <span className="text-slate-900 font-bold">
                     {answer === scenario.isAI ? "Correct!" : "Not quite!"}
                   </span>
-                  <span className="ml-auto text-sm text-slate-300">
+                  <span className="ml-auto text-sm text-slate-600">
                     Answer: {scenario.isAI ? "🧠 Robot with AI" : "⚙️ Just a Machine"}
                   </span>
                 </div>
-                <p className="text-slate-300 text-sm">{scenario.explanation}</p>
+                <p className="text-slate-600 text-sm">{scenario.explanation}</p>
               </div>
               <motion.button
                 whileHover={{ scale: 1.03 }}
@@ -218,7 +218,7 @@ export function RobotOrPuppet({ onComplete }: { onComplete: () => void }) {
         </motion.div>
       </AnimatePresence>
 
-      <div className="mt-4 text-center text-slate-500 text-sm">
+      <div className="mt-4 text-center text-slate-400 text-sm">
         Score: {score}/{current + (revealed ? 1 : 0)}
       </div>
     </div>

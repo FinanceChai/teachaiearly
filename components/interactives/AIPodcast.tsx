@@ -91,10 +91,10 @@ export function AIPodcast({ onComplete }: { onComplete: () => void }) {
   // --- STEP 1: TOPIC ---
   if (step === "topic") {
     return (
-      <div className="p-4 sm:p-6 bg-space-900 rounded-xl border border-slate-700 space-y-5">
+      <div className="p-4 sm:p-6 bg-space-900 rounded-xl border border-slate-200 space-y-5">
         <div className="text-center space-y-1">
-          <h3 className="text-xl font-bold text-white">AI Podcast Studio</h3>
-          <p className="text-slate-300 text-sm">
+          <h3 className="text-xl font-bold text-slate-900">AI Podcast Studio</h3>
+          <p className="text-slate-600 text-sm">
             Create your own podcast episode! First, pick a topic:
           </p>
           <div className="flex gap-1 justify-center">
@@ -111,10 +111,10 @@ export function AIPodcast({ onComplete }: { onComplete: () => void }) {
               whileHover={{ scale: 1.02 }}
               whileTap={{ scale: 0.98 }}
               onClick={() => { setTopic(t.id); setStep("intro"); }}
-              className="text-left p-4 bg-space-800 border-2 border-slate-700 hover:border-violet-400 rounded-xl transition-all"
+              className="text-left p-4 bg-space-800 border-2 border-slate-200 hover:border-violet-400 rounded-xl transition-all"
             >
               <span className="text-2xl">{t.emoji}</span>
-              <p className="text-white font-bold text-sm mt-1">{t.title}</p>
+              <p className="text-slate-900 font-bold text-sm mt-1">{t.title}</p>
               <p className="text-xs text-slate-400 mt-1">{t.description}</p>
             </motion.button>
           ))}
@@ -130,12 +130,12 @@ export function AIPodcast({ onComplete }: { onComplete: () => void }) {
   // --- STEP 2: INTRO ---
   if (step === "intro") {
     return (
-      <div className="p-4 sm:p-6 bg-space-900 rounded-xl border border-slate-700 space-y-5">
+      <div className="p-4 sm:p-6 bg-space-900 rounded-xl border border-slate-200 space-y-5">
         <div className="text-center space-y-1">
-          <h3 className="text-xl font-bold text-white">
+          <h3 className="text-xl font-bold text-slate-900">
             {topicData.emoji} Write Your Intro
           </h3>
-          <p className="text-slate-300 text-sm">
+          <p className="text-slate-600 text-sm">
             Pick an AI-suggested intro or write your own!
           </p>
           <div className="flex gap-1 justify-center">
@@ -154,8 +154,8 @@ export function AIPodcast({ onComplete }: { onComplete: () => void }) {
               onClick={() => { setSelectedIntro(i); setUseCustom(false); }}
               className={`w-full text-left p-3 rounded-lg border-2 transition-all text-sm ${
                 !useCustom && selectedIntro === i
-                  ? "border-violet-400 bg-violet-500/20 text-white"
-                  : "border-slate-700 bg-space-800 text-slate-300 hover:border-slate-600"
+                  ? "border-violet-400 bg-violet-500/20 text-slate-900"
+                  : "border-slate-200 bg-space-800 text-slate-600 hover:border-slate-300"
               }`}
             >
               {intro}
@@ -169,18 +169,18 @@ export function AIPodcast({ onComplete }: { onComplete: () => void }) {
             value={customIntro}
             onChange={(e) => { setCustomIntro(e.target.value); setUseCustom(true); setSelectedIntro(null); }}
             placeholder="Type your custom intro here..."
-            className="w-full p-3 bg-space-800 border border-slate-700 rounded-lg text-white text-sm placeholder-slate-500 focus:outline-none focus:border-violet-400 resize-none h-20"
+            className="w-full p-3 bg-space-800 border border-slate-200 rounded-lg text-slate-900 text-sm placeholder-slate-500 focus:outline-none focus:border-violet-400 resize-none h-20"
           />
         </div>
 
         <div className="flex gap-3 justify-center">
-          <button onClick={() => setStep("topic")} className="px-4 py-2 bg-space-800 border border-slate-700 text-slate-300 rounded-lg text-sm">
+          <button onClick={() => setStep("topic")} className="px-4 py-2 bg-space-800 border border-slate-200 text-slate-600 rounded-lg text-sm">
             Back
           </button>
           <button
             onClick={() => setStep("effects")}
             disabled={selectedIntro === null && !customIntro.trim()}
-            className="px-5 py-2 bg-violet-600 hover:bg-violet-500 disabled:bg-slate-700 disabled:text-slate-500 text-white font-bold rounded-lg text-sm"
+            className="px-5 py-2 bg-violet-600 hover:bg-violet-500 disabled:bg-slate-700 disabled:text-slate-400 text-slate-900 font-bold rounded-lg text-sm"
           >
             Next: Sound Effects
           </button>
@@ -192,10 +192,10 @@ export function AIPodcast({ onComplete }: { onComplete: () => void }) {
   // --- STEP 3: EFFECTS & MUSIC ---
   if (step === "effects") {
     return (
-      <div className="p-4 sm:p-6 bg-space-900 rounded-xl border border-slate-700 space-y-5">
+      <div className="p-4 sm:p-6 bg-space-900 rounded-xl border border-slate-200 space-y-5">
         <div className="text-center space-y-1">
-          <h3 className="text-xl font-bold text-white">Choose Your Sounds</h3>
-          <p className="text-slate-300 text-sm">Pick sound effects and background music!</p>
+          <h3 className="text-xl font-bold text-slate-900">Choose Your Sounds</h3>
+          <p className="text-slate-600 text-sm">Pick sound effects and background music!</p>
           <div className="flex gap-1 justify-center">
             {["topic", "intro", "effects", "arrange", "produce"].map((s, i) => (
               <div key={s} className={`h-1.5 w-8 rounded-full ${i <= 2 ? "bg-violet-500" : "bg-slate-700"}`} />
@@ -218,11 +218,11 @@ export function AIPodcast({ onComplete }: { onComplete: () => void }) {
                     setSelectedEffects(next);
                   }}
                   className={`text-left p-3 rounded-lg border-2 transition-all ${
-                    selected ? "border-violet-400 bg-violet-500/20" : "border-slate-700 bg-space-800 hover:border-slate-600"
+                    selected ? "border-violet-400 bg-violet-500/20" : "border-slate-200 bg-space-800 hover:border-slate-300"
                   }`}
                 >
                   <span className="text-lg">{fx.emoji}</span>
-                  <p className="text-white text-sm font-medium">{fx.name}</p>
+                  <p className="text-slate-900 text-sm font-medium">{fx.name}</p>
                   <p className="text-xs text-slate-400">{fx.description}</p>
                 </motion.button>
               );
@@ -239,11 +239,11 @@ export function AIPodcast({ onComplete }: { onComplete: () => void }) {
                 whileTap={{ scale: 0.97 }}
                 onClick={() => setSelectedMusic(m.id)}
                 className={`text-left p-3 rounded-lg border-2 transition-all ${
-                  selectedMusic === m.id ? "border-violet-400 bg-violet-500/20" : "border-slate-700 bg-space-800 hover:border-slate-600"
+                  selectedMusic === m.id ? "border-violet-400 bg-violet-500/20" : "border-slate-200 bg-space-800 hover:border-slate-300"
                 }`}
               >
                 <span className="text-lg">{m.emoji}</span>
-                <p className="text-white text-xs font-medium">{m.name}</p>
+                <p className="text-slate-900 text-xs font-medium">{m.name}</p>
                 <p className="text-[10px] text-slate-400">{m.description}</p>
               </motion.button>
             ))}
@@ -258,7 +258,7 @@ export function AIPodcast({ onComplete }: { onComplete: () => void }) {
                 key={i}
                 onClick={() => setSelectedConclusion(i)}
                 className={`w-full text-left p-2 rounded-lg border-2 text-sm transition-all ${
-                  selectedConclusion === i ? "border-violet-400 bg-violet-500/20 text-white" : "border-slate-700 bg-space-800 text-slate-300"
+                  selectedConclusion === i ? "border-violet-400 bg-violet-500/20 text-slate-900" : "border-slate-200 bg-space-800 text-slate-600"
                 }`}
               >
                 {c}
@@ -268,7 +268,7 @@ export function AIPodcast({ onComplete }: { onComplete: () => void }) {
         </div>
 
         <div className="flex gap-3 justify-center">
-          <button onClick={() => setStep("intro")} className="px-4 py-2 bg-space-800 border border-slate-700 text-slate-300 rounded-lg text-sm">
+          <button onClick={() => setStep("intro")} className="px-4 py-2 bg-space-800 border border-slate-200 text-slate-600 rounded-lg text-sm">
             Back
           </button>
           <button
@@ -288,7 +288,7 @@ export function AIPodcast({ onComplete }: { onComplete: () => void }) {
               setStep("arrange");
             }}
             disabled={selectedEffects.size === 0 || !selectedMusic}
-            className="px-5 py-2 bg-violet-600 hover:bg-violet-500 disabled:bg-slate-700 disabled:text-slate-500 text-white font-bold rounded-lg text-sm"
+            className="px-5 py-2 bg-violet-600 hover:bg-violet-500 disabled:bg-slate-700 disabled:text-slate-400 text-slate-900 font-bold rounded-lg text-sm"
           >
             Next: Arrange
           </button>
@@ -308,10 +308,10 @@ export function AIPodcast({ onComplete }: { onComplete: () => void }) {
   // --- STEP 4: ARRANGE ---
   if (step === "arrange") {
     return (
-      <div className="p-4 sm:p-6 bg-space-900 rounded-xl border border-slate-700 space-y-5">
+      <div className="p-4 sm:p-6 bg-space-900 rounded-xl border border-slate-200 space-y-5">
         <div className="text-center space-y-1">
-          <h3 className="text-xl font-bold text-white">Arrange Your Episode</h3>
-          <p className="text-slate-300 text-sm">
+          <h3 className="text-xl font-bold text-slate-900">Arrange Your Episode</h3>
+          <p className="text-slate-600 text-sm">
             Drag or use arrows to reorder segments. Put them in the order that tells the best story!
           </p>
           <div className="flex gap-1 justify-center">
@@ -326,20 +326,20 @@ export function AIPodcast({ onComplete }: { onComplete: () => void }) {
             <motion.div
               key={`${seg.type}-${seg.label}-${i}`}
               layout
-              className="flex items-center gap-2 p-3 bg-space-800 border border-slate-700 rounded-lg"
+              className="flex items-center gap-2 p-3 bg-space-800 border border-slate-200 rounded-lg"
             >
               <div className="flex flex-col gap-1">
                 <button
                   onClick={() => moveSegment(i, -1)}
                   disabled={i === 0}
-                  className="text-xs text-slate-400 hover:text-violet-400 disabled:text-slate-700"
+                  className="text-xs text-slate-400 hover:text-violet-400 disabled:text-slate-300"
                 >
                   ▲
                 </button>
                 <button
                   onClick={() => moveSegment(i, 1)}
                   disabled={i === segments.length - 1}
-                  className="text-xs text-slate-400 hover:text-violet-400 disabled:text-slate-700"
+                  className="text-xs text-slate-400 hover:text-violet-400 disabled:text-slate-300"
                 >
                   ▼
                 </button>
@@ -347,15 +347,15 @@ export function AIPodcast({ onComplete }: { onComplete: () => void }) {
               <span className="text-lg">{seg.emoji}</span>
               <div className="flex-1">
                 <p className="text-xs text-violet-400 font-semibold uppercase">{seg.type}</p>
-                <p className="text-white text-sm">{seg.label}</p>
+                <p className="text-slate-900 text-sm">{seg.label}</p>
               </div>
-              <span className="text-xs text-slate-500 font-mono">#{i + 1}</span>
+              <span className="text-xs text-slate-400 font-mono">#{i + 1}</span>
             </motion.div>
           ))}
         </div>
 
         <div className="flex gap-3 justify-center">
-          <button onClick={() => setStep("effects")} className="px-4 py-2 bg-space-800 border border-slate-700 text-slate-300 rounded-lg text-sm">
+          <button onClick={() => setStep("effects")} className="px-4 py-2 bg-space-800 border border-slate-200 text-slate-600 rounded-lg text-sm">
             Back
           </button>
           <motion.button
@@ -377,7 +377,7 @@ export function AIPodcast({ onComplete }: { onComplete: () => void }) {
                 }
               }, 800);
             }}
-            className="px-5 py-2 bg-violet-600 hover:bg-violet-500 text-white font-bold rounded-lg text-sm"
+            className="px-5 py-2 bg-violet-600 hover:bg-violet-500 text-slate-900 font-bold rounded-lg text-sm"
           >
             🎬 Produce Episode!
           </motion.button>
@@ -392,9 +392,9 @@ export function AIPodcast({ onComplete }: { onComplete: () => void }) {
     const allDone = !producing && produceStep >= segments.length;
 
     return (
-      <div className="p-4 sm:p-6 bg-space-900 rounded-xl border border-slate-700 space-y-5">
+      <div className="p-4 sm:p-6 bg-space-900 rounded-xl border border-slate-200 space-y-5">
         <div className="text-center space-y-1">
-          <h3 className="text-xl font-bold text-white">
+          <h3 className="text-xl font-bold text-slate-900">
             {producing ? "Producing..." : "Episode Complete!"}
           </h3>
           <div className="flex gap-1 justify-center">
@@ -427,13 +427,13 @@ export function AIPodcast({ onComplete }: { onComplete: () => void }) {
                     ? "border-violet-400 bg-violet-500/20"
                     : isDone
                     ? "border-green-500/40 bg-green-500/10"
-                    : "border-slate-700 bg-space-800"
+                    : "border-slate-200 bg-space-800"
                 }`}
               >
                 <span className="text-lg">{isActive ? "⏳" : isDone ? "✅" : seg.emoji}</span>
                 <div className="flex-1">
                   <p className="text-xs text-violet-400 font-semibold uppercase">{seg.type}</p>
-                  <p className="text-white text-sm">{seg.label}</p>
+                  <p className="text-slate-900 text-sm">{seg.label}</p>
                 </div>
               </motion.div>
             );
@@ -441,7 +441,7 @@ export function AIPodcast({ onComplete }: { onComplete: () => void }) {
         </div>
 
         {/* Progress bar */}
-        <div className="w-full bg-slate-700 rounded-full h-2">
+        <div className="w-full bg-slate-200 rounded-full h-2">
           <motion.div
             className="bg-violet-500 h-2 rounded-full"
             animate={{ width: `${(produceStep / segments.length) * 100}%` }}
@@ -458,7 +458,7 @@ export function AIPodcast({ onComplete }: { onComplete: () => void }) {
             <p className="text-green-400 font-bold text-lg">
               🎉 Your podcast episode is ready!
             </p>
-            <div className="bg-space-800 rounded-lg border border-slate-700 p-3 text-left">
+            <div className="bg-space-800 rounded-lg border border-slate-200 p-3 text-left">
               <p className="text-violet-400 text-sm font-bold">{topicData.emoji} {topicData.title}</p>
               <p className="text-xs text-slate-400 mt-1">
                 {segments.length} segments | {musicData?.name} background |{" "}
@@ -471,7 +471,7 @@ export function AIPodcast({ onComplete }: { onComplete: () => void }) {
             </p>
             <button
               onClick={() => { setStep("done"); onComplete(); }}
-              className="px-6 py-2 bg-violet-600 hover:bg-violet-500 text-white font-bold rounded-lg"
+              className="px-6 py-2 bg-violet-600 hover:bg-violet-500 text-slate-900 font-bold rounded-lg"
             >
               Complete Challenge!
             </button>
@@ -483,12 +483,12 @@ export function AIPodcast({ onComplete }: { onComplete: () => void }) {
 
   // --- DONE ---
   return (
-    <div className="p-4 sm:p-6 bg-space-900 rounded-xl border border-slate-700 space-y-4 text-center">
+    <div className="p-4 sm:p-6 bg-space-900 rounded-xl border border-slate-200 space-y-4 text-center">
       <motion.div initial={{ scale: 0.8, opacity: 0 }} animate={{ scale: 1, opacity: 1 }}>
         <p className="text-4xl mb-2">🎙️</p>
-        <h3 className="text-xl font-bold text-white">Podcast Producer!</h3>
+        <h3 className="text-xl font-bold text-slate-900">Podcast Producer!</h3>
         <p className="text-violet-400 font-semibold">Challenge Complete!</p>
-        <p className="text-slate-300 text-sm mt-2">
+        <p className="text-slate-600 text-sm mt-2">
           You created a full podcast episode from scratch — choosing a topic, writing an intro,
           picking sounds, and arranging everything. Real podcast creators use AI for many of these steps!
         </p>

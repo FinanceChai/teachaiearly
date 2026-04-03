@@ -156,11 +156,11 @@ export function PromptLab({
           {passed ? "✍️" : "📝"}
         </motion.div>
         <div>
-          <div className="text-4xl font-black text-white">
+          <div className="text-4xl font-black text-slate-900">
             {totalScore}/{maxScore}
           </div>
           <div className="text-slate-400 text-sm mt-1">prompt quality score ({pct}%)</div>
-          <div className="text-slate-300 mt-3">
+          <div className="text-slate-600 mt-3">
             {pct >= 80
               ? "Prompt Master level! You know exactly how to talk to AI."
               : pct >= 60
@@ -185,7 +185,7 @@ export function PromptLab({
               >
                 {score}/4
               </div>
-              <div className="text-xs text-slate-500">R{i + 1}</div>
+              <div className="text-xs text-slate-400">R{i + 1}</div>
             </div>
           ))}
         </div>
@@ -225,13 +225,13 @@ export function PromptLab({
         </span>
       </div>
 
-      <div className="bg-space-800 rounded-2xl p-5 border border-slate-700">
+      <div className="bg-space-800 rounded-2xl p-5 border border-slate-200">
         <div className="text-xs font-black text-purple-400 mb-1">PROMPT LAB</div>
 
         {/* Goal */}
         <div className="bg-purple-500/10 rounded-xl p-4 border border-purple-500/30 mb-4">
           <div className="text-xs font-black text-purple-400 mb-1">YOUR GOAL</div>
-          <div className="text-white font-black">{challenge.goal}</div>
+          <div className="text-slate-900 font-black">{challenge.goal}</div>
           <div className="text-xs text-slate-400 mt-1">Target: {challenge.targetOutput}</div>
         </div>
 
@@ -246,7 +246,7 @@ export function PromptLab({
           <motion.div
             initial={{ opacity: 0, height: 0 }}
             animate={{ opacity: 1, height: "auto" }}
-            className="bg-space-900 rounded-xl p-3 border border-slate-600 mb-4"
+            className="bg-space-900 rounded-xl p-3 border border-slate-300 mb-4"
           >
             <ul className="space-y-1">
               {challenge.hints.map((hint, i) => (
@@ -273,9 +273,9 @@ export function PromptLab({
                 initial={{ opacity: 0, y: 6 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ delay: i * 0.08 }}
-                className="w-full text-left p-4 rounded-xl border border-slate-700 bg-space-900 hover:border-purple-500/50 hover:bg-purple-500/5 transition-colors"
+                className="w-full text-left p-4 rounded-xl border border-slate-200 bg-space-900 hover:border-purple-500/50 hover:bg-purple-500/5 transition-colors"
               >
-                <div className="text-white font-bold text-sm italic">
+                <div className="text-slate-900 font-bold text-sm italic">
                   &quot;{p.text}&quot;
                 </div>
               </motion.button>
@@ -290,11 +290,11 @@ export function PromptLab({
             {/* Selected prompt */}
             <div className="bg-space-900 rounded-xl p-4 border border-purple-500/40">
               <div className="text-xs font-black text-purple-400 mb-2">YOU PICKED</div>
-              <div className="text-white font-bold text-sm italic mb-3">
+              <div className="text-slate-900 font-bold text-sm italic mb-3">
                 &quot;{challenge.prompts[selectedPrompt].text}&quot;
               </div>
-              <div className="text-xs font-black text-slate-500 mb-1">AI OUTPUT:</div>
-              <div className="text-sm text-slate-300 leading-relaxed whitespace-pre-line">
+              <div className="text-xs font-black text-slate-400 mb-1">AI OUTPUT:</div>
+              <div className="text-sm text-slate-600 leading-relaxed whitespace-pre-line">
                 {challenge.prompts[selectedPrompt].output}
               </div>
             </div>
@@ -309,7 +309,7 @@ export function PromptLab({
                     className={`text-xl ${
                       star <= challenge.prompts[selectedPrompt].score
                         ? "text-yellow-400"
-                        : "text-slate-700"
+                        : "text-slate-300"
                     }`}
                   >
                     ★
@@ -327,7 +327,7 @@ export function PromptLab({
                 <div className="text-xs font-black text-green-400 mb-1">
                   THE BEST PROMPT WAS:
                 </div>
-                <div className="text-sm text-white font-bold italic">
+                <div className="text-sm text-slate-900 font-bold italic">
                   &quot;{challenge.prompts[challenge.prompts.length - 1].text}&quot;
                 </div>
               </div>
@@ -335,7 +335,7 @@ export function PromptLab({
 
             <button
               onClick={next}
-              className="w-full py-4 rounded-xl font-black text-white bg-purple-500 hover:bg-purple-400 btn-press transition-colors"
+              className="w-full py-4 rounded-xl font-black text-slate-900 bg-purple-500 hover:bg-purple-400 btn-press transition-colors"
             >
               {challengeIdx < CHALLENGES.length - 1
                 ? "Next Challenge →"

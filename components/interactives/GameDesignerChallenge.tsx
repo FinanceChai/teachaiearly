@@ -102,19 +102,19 @@ export function GameDesignerChallenge({ onComplete }: { onComplete: () => void }
 
   if (published) {
     return (
-      <div className="bg-space-800 rounded-xl border border-slate-700 p-6">
+      <div className="bg-space-800 rounded-xl border border-slate-200 p-6">
         <motion.div initial={{ scale: 0.9, opacity: 0 }} animate={{ scale: 1, opacity: 1 }}>
           <div className="text-center mb-6">
             <div className="text-5xl mb-3">🎮</div>
-            <h3 className="text-2xl font-bold text-white mb-1">Game Published!</h3>
-            <p className="text-slate-300 text-sm">Here is your AI-powered game concept:</p>
+            <h3 className="text-2xl font-bold text-slate-900 mb-1">Game Published!</h3>
+            <p className="text-slate-600 text-sm">Here is your AI-powered game concept:</p>
           </div>
 
           <div className="bg-space-900 rounded-lg p-5 border border-red-500/30 mb-6">
             <div className="flex items-center gap-3 mb-4">
               <span className="text-3xl">{genre!.icon}</span>
               <div>
-                <h4 className="text-white font-bold text-lg">{genre!.name} Game</h4>
+                <h4 className="text-slate-900 font-bold text-lg">{genre!.name} Game</h4>
                 <p className="text-red-400 text-sm">featuring {aiFeature!.name} {aiFeature!.icon}</p>
               </div>
             </div>
@@ -136,8 +136,8 @@ export function GameDesignerChallenge({ onComplete }: { onComplete: () => void }
               ))}
             </div>
 
-            <div className="border-t border-slate-700 pt-3">
-              <p className="text-slate-300 text-xs font-semibold mb-1">How AI improves this game:</p>
+            <div className="border-t border-slate-200 pt-3">
+              <p className="text-slate-600 text-xs font-semibold mb-1">How AI improves this game:</p>
               <ul className="text-slate-400 text-xs space-y-1">
                 {selectedImprovements.map((imp, i) => (
                   <li key={i}>• {imp}</li>
@@ -151,7 +151,7 @@ export function GameDesignerChallenge({ onComplete }: { onComplete: () => void }
 
           <button
             onClick={onComplete}
-            className="w-full px-6 py-3 bg-red-500 hover:bg-red-400 text-white rounded-lg font-bold transition-colors"
+            className="w-full px-6 py-3 bg-red-500 hover:bg-red-400 text-slate-900 rounded-lg font-bold transition-colors"
           >
             Complete Challenge
           </button>
@@ -161,9 +161,9 @@ export function GameDesignerChallenge({ onComplete }: { onComplete: () => void }
   }
 
   return (
-    <div className="bg-space-800 rounded-xl border border-slate-700 p-6">
+    <div className="bg-space-800 rounded-xl border border-slate-200 p-6">
       <div className="flex justify-between items-center mb-4">
-        <h3 className="text-lg font-bold text-white">🎮 Game Designer Challenge</h3>
+        <h3 className="text-lg font-bold text-slate-900">🎮 Game Designer Challenge</h3>
         <span className="text-sm text-red-400 font-semibold">Step {step}/5</span>
       </div>
 
@@ -183,7 +183,7 @@ export function GameDesignerChallenge({ onComplete }: { onComplete: () => void }
         {/* Step 1: Pick Genre */}
         {step === 1 && (
           <div>
-            <p className="text-white font-semibold mb-3">Step 1: Pick a game genre</p>
+            <p className="text-slate-900 font-semibold mb-3">Step 1: Pick a game genre</p>
             <div className="grid grid-cols-2 gap-3">
               {GENRES.map((g) => (
                 <motion.button
@@ -197,11 +197,11 @@ export function GameDesignerChallenge({ onComplete }: { onComplete: () => void }
                   className={`p-4 rounded-lg border text-left transition-colors ${
                     genre?.name === g.name
                       ? "bg-red-500/20 border-red-500"
-                      : "bg-space-900 border-slate-700 hover:border-red-500"
+                      : "bg-space-900 border-slate-200 hover:border-red-500"
                   }`}
                 >
                   <span className="text-2xl">{g.icon}</span>
-                  <p className="text-white font-semibold text-sm mt-1">{g.name}</p>
+                  <p className="text-slate-900 font-semibold text-sm mt-1">{g.name}</p>
                   <p className="text-slate-400 text-xs">{g.description}</p>
                 </motion.button>
               ))}
@@ -212,7 +212,7 @@ export function GameDesignerChallenge({ onComplete }: { onComplete: () => void }
         {/* Step 2: Choose AI Feature */}
         {step === 2 && (
           <div>
-            <p className="text-white font-semibold mb-1">Step 2: Choose an AI feature for your {genre!.name}</p>
+            <p className="text-slate-900 font-semibold mb-1">Step 2: Choose an AI feature for your {genre!.name}</p>
             <p className="text-slate-400 text-xs mb-3">What kind of AI will power your game?</p>
             <div className="space-y-2">
               {AI_FEATURES.map((f) => (
@@ -223,11 +223,11 @@ export function GameDesignerChallenge({ onComplete }: { onComplete: () => void }
                     setAIFeature(f);
                     setStep(3);
                   }}
-                  className="w-full text-left p-4 rounded-lg border bg-space-900 border-slate-700 hover:border-red-500 transition-colors"
+                  className="w-full text-left p-4 rounded-lg border bg-space-900 border-slate-200 hover:border-red-500 transition-colors"
                 >
                   <div className="flex items-center gap-2">
                     <span className="text-xl">{f.icon}</span>
-                    <span className="text-white font-semibold text-sm">{f.name}</span>
+                    <span className="text-slate-900 font-semibold text-sm">{f.name}</span>
                   </div>
                   <p className="text-slate-400 text-xs mt-1 ml-8">{f.description}</p>
                 </motion.button>
@@ -239,21 +239,21 @@ export function GameDesignerChallenge({ onComplete }: { onComplete: () => void }
         {/* Step 3: Set Parameters */}
         {step === 3 && (
           <div>
-            <p className="text-white font-semibold mb-1">
+            <p className="text-slate-900 font-semibold mb-1">
               Step 3: Configure {aiFeature!.name} for your {genre!.name}
             </p>
             <p className="text-slate-400 text-xs mb-4">Adjust the AI parameters:</p>
             <div className="space-y-5 mb-6">
               {aiFeature!.parameters.map((p, i) => (
                 <div key={i}>
-                  <label className="text-white text-sm font-semibold flex justify-between mb-1">
+                  <label className="text-slate-900 text-sm font-semibold flex justify-between mb-1">
                     <span>{p.name}</span>
                     <span className="text-red-400 text-xs">
                       {params[i] <= 2 ? p.low : params[i] >= 4 ? p.high : "Balanced"}
                     </span>
                   </label>
                   <div className="flex items-center gap-2">
-                    <span className="text-slate-500 text-xs w-20 text-right">{p.low}</span>
+                    <span className="text-slate-400 text-xs w-20 text-right">{p.low}</span>
                     <input
                       type="range"
                       min={1}
@@ -262,14 +262,14 @@ export function GameDesignerChallenge({ onComplete }: { onComplete: () => void }
                       onChange={(e) => handleParam(i, Number(e.target.value))}
                       className="flex-1 accent-red-500"
                     />
-                    <span className="text-slate-500 text-xs w-20">{p.high}</span>
+                    <span className="text-slate-400 text-xs w-20">{p.high}</span>
                   </div>
                 </div>
               ))}
             </div>
             <button
               onClick={() => setStep(4)}
-              className="w-full px-6 py-3 bg-red-500 hover:bg-red-400 text-white rounded-lg font-bold transition-colors"
+              className="w-full px-6 py-3 bg-red-500 hover:bg-red-400 text-slate-900 rounded-lg font-bold transition-colors"
             >
               Next
             </button>
@@ -279,7 +279,7 @@ export function GameDesignerChallenge({ onComplete }: { onComplete: () => void }
         {/* Step 4: Describe Improvement */}
         {step === 4 && (
           <div>
-            <p className="text-white font-semibold mb-1">Step 4: How does the AI make your game better?</p>
+            <p className="text-slate-900 font-semibold mb-1">Step 4: How does the AI make your game better?</p>
             <p className="text-slate-400 text-xs mb-3">Select all that apply, and add your own thoughts:</p>
             <div className="space-y-2 mb-4">
               {IMPROVEMENT_OPTIONS.map((opt, i) => (
@@ -288,8 +288,8 @@ export function GameDesignerChallenge({ onComplete }: { onComplete: () => void }
                   onClick={() => toggleImprovement(opt)}
                   className={`w-full text-left px-4 py-2 rounded-lg border text-sm transition-colors ${
                     selectedImprovements.includes(opt)
-                      ? "bg-red-500/20 border-red-500 text-white"
-                      : "bg-space-900 border-slate-700 text-slate-300 hover:border-slate-500"
+                      ? "bg-red-500/20 border-red-500 text-slate-900"
+                      : "bg-space-900 border-slate-200 text-slate-600 hover:border-slate-500"
                   }`}
                 >
                   {selectedImprovements.includes(opt) ? "✓ " : "  "}
@@ -301,7 +301,7 @@ export function GameDesignerChallenge({ onComplete }: { onComplete: () => void }
               value={freeText}
               onChange={(e) => setFreeText(e.target.value)}
               placeholder="Add your own thoughts (optional)..."
-              className="w-full px-4 py-3 bg-space-900 border border-slate-700 rounded-lg text-white text-sm placeholder-slate-500 focus:outline-none focus:border-red-500 mb-4 resize-none"
+              className="w-full px-4 py-3 bg-space-900 border border-slate-200 rounded-lg text-slate-900 text-sm placeholder-slate-500 focus:outline-none focus:border-red-500 mb-4 resize-none"
               rows={3}
             />
             <button
@@ -309,8 +309,8 @@ export function GameDesignerChallenge({ onComplete }: { onComplete: () => void }
               disabled={selectedImprovements.length === 0}
               className={`w-full px-6 py-3 rounded-lg font-bold transition-colors ${
                 selectedImprovements.length > 0
-                  ? "bg-red-500 hover:bg-red-400 text-white"
-                  : "bg-slate-700 text-slate-500 cursor-not-allowed"
+                  ? "bg-red-500 hover:bg-red-400 text-slate-900"
+                  : "bg-slate-700 text-slate-400 cursor-not-allowed"
               }`}
             >
               Next
@@ -322,17 +322,17 @@ export function GameDesignerChallenge({ onComplete }: { onComplete: () => void }
         {step === 5 && (
           <div className="text-center">
             <div className="text-5xl mb-4">{genre!.icon}</div>
-            <h4 className="text-white font-bold text-xl mb-2">
+            <h4 className="text-slate-900 font-bold text-xl mb-2">
               {genre!.name} + {aiFeature!.name}
             </h4>
-            <p className="text-slate-300 text-sm mb-6">
+            <p className="text-slate-600 text-sm mb-6">
               Your AI-powered {genre!.name.toLowerCase()} is ready to ship! Hit publish to see the final concept.
             </p>
             <motion.button
               whileHover={{ scale: 1.05 }}
               whileTap={{ scale: 0.95 }}
               onClick={() => setPublished(true)}
-              className="px-8 py-4 bg-red-500 hover:bg-red-400 text-white rounded-xl font-bold text-lg transition-colors shadow-lg shadow-red-500/20"
+              className="px-8 py-4 bg-red-500 hover:bg-red-400 text-slate-900 rounded-xl font-bold text-lg transition-colors shadow-lg shadow-red-500/20"
             >
               🚀 Publish Game Concept
             </motion.button>

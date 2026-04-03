@@ -65,8 +65,8 @@ export function PortfolioPiece({ onComplete }: { onComplete: () => void }) {
     const usedTools = TOOLS.filter((_, i) => selectedTools[i]);
 
     return (
-      <div className="p-6 bg-space-900 rounded-xl border border-slate-700 max-w-2xl mx-auto">
-        <h2 className="text-2xl font-bold text-white mb-4 text-center">📁 Portfolio Piece</h2>
+      <div className="p-6 bg-space-900 rounded-xl border border-slate-200 max-w-2xl mx-auto">
+        <h2 className="text-2xl font-bold text-slate-900 mb-4 text-center">📁 Portfolio Piece</h2>
 
         <motion.div
           initial={{ scale: 0.8, opacity: 0 }}
@@ -78,7 +78,7 @@ export function PortfolioPiece({ onComplete }: { onComplete: () => void }) {
           <div className="bg-space-900/40 p-4 text-center border-b border-lime-500/20">
             <span className="text-4xl">{cat?.icon}</span>
             <h3 className="text-2xl font-bold text-lime-400 mt-1">{projectName}</h3>
-            <p className="text-slate-300 text-sm mt-1">{finalDesc}</p>
+            <p className="text-slate-600 text-sm mt-1">{finalDesc}</p>
           </div>
 
           {/* Details */}
@@ -86,11 +86,11 @@ export function PortfolioPiece({ onComplete }: { onComplete: () => void }) {
             <div className="flex items-center justify-between">
               <div>
                 <p className="text-lime-400 text-xs font-semibold">Category</p>
-                <p className="text-white text-sm">{cat?.icon} {cat?.name}</p>
+                <p className="text-slate-900 text-sm">{cat?.icon} {cat?.name}</p>
               </div>
               <div className="text-right">
                 <p className="text-lime-400 text-xs font-semibold">Difficulty</p>
-                <p className="text-white text-sm">
+                <p className="text-slate-900 text-sm">
                   {[1, 2, 3, 4, 5].map((s) => (
                     <span key={s} className={s <= difficulty ? "text-lime-400" : "text-slate-600"}>
                       ⭐
@@ -113,7 +113,7 @@ export function PortfolioPiece({ onComplete }: { onComplete: () => void }) {
 
             <div className="bg-space-900/60 rounded-lg p-3">
               <p className="text-lime-400 text-xs font-semibold">💡 Biggest Learning</p>
-              <p className="text-white text-sm mt-1">{finalLearning}</p>
+              <p className="text-slate-900 text-sm mt-1">{finalLearning}</p>
             </div>
           </div>
 
@@ -124,7 +124,7 @@ export function PortfolioPiece({ onComplete }: { onComplete: () => void }) {
 
         <div className="bg-space-800 rounded-lg p-4 mt-4">
           <p className="text-lime-400 font-semibold mb-1">🎓 Challenge Complete!</p>
-          <p className="text-slate-300 text-sm">
+          <p className="text-slate-600 text-sm">
             You just created a professional portfolio piece! Real developers and designers
             build portfolios to showcase their work. Each project tells a story about what
             you can do and what you&apos;ve learned. Keep building — every project makes your
@@ -137,7 +137,7 @@ export function PortfolioPiece({ onComplete }: { onComplete: () => void }) {
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
             onClick={handleComplete}
-            className="w-full mt-4 px-6 py-3 bg-lime-500 text-white rounded-lg font-bold"
+            className="w-full mt-4 px-6 py-3 bg-lime-500 text-slate-900 rounded-lg font-bold"
           >
             Complete Challenge ✓
           </motion.button>
@@ -170,9 +170,9 @@ export function PortfolioPiece({ onComplete }: { onComplete: () => void }) {
   };
 
   return (
-    <div className="p-6 bg-space-900 rounded-xl border border-slate-700 max-w-2xl mx-auto">
+    <div className="p-6 bg-space-900 rounded-xl border border-slate-200 max-w-2xl mx-auto">
       <div className="flex items-center gap-2 mb-1">
-        <h2 className="text-xl font-bold text-white">📁 Portfolio Piece Builder</h2>
+        <h2 className="text-xl font-bold text-slate-900">📁 Portfolio Piece Builder</h2>
         <span className="bg-lime-500/20 text-lime-400 text-xs px-2 py-0.5 rounded font-semibold">CHALLENGE</span>
       </div>
 
@@ -184,7 +184,7 @@ export function PortfolioPiece({ onComplete }: { onComplete: () => void }) {
 
       <motion.div key={step} initial={{ opacity: 0, x: 30 }} animate={{ opacity: 1, x: 0 }}>
         <h3 className="text-lg font-bold text-lime-400 mb-1">{stepConfigs[step].title}</h3>
-        <p className="text-slate-300 text-sm mb-4">{stepConfigs[step].subtitle}</p>
+        <p className="text-slate-600 text-sm mb-4">{stepConfigs[step].subtitle}</p>
 
         {step === 0 && (
           <input
@@ -192,7 +192,7 @@ export function PortfolioPiece({ onComplete }: { onComplete: () => void }) {
             placeholder="Type your project name..."
             value={projectName}
             onChange={(e) => setProjectName(e.target.value)}
-            className="w-full bg-space-800 border border-slate-700 rounded-lg px-4 py-3 text-white focus:border-lime-500 outline-none"
+            className="w-full bg-space-800 border border-slate-200 rounded-lg px-4 py-3 text-slate-900 focus:border-lime-500 outline-none"
             maxLength={30}
           />
         )}
@@ -204,7 +204,7 @@ export function PortfolioPiece({ onComplete }: { onComplete: () => void }) {
                 key={d}
                 onClick={() => { setDescription(d); setCustomDesc(""); }}
                 className={`w-full p-2 rounded-lg border text-sm text-left ${
-                  description === d ? "bg-lime-500/20 border-lime-500 text-white" : "bg-space-800 border-slate-700 text-slate-300 hover:border-slate-500"
+                  description === d ? "bg-lime-500/20 border-lime-500 text-slate-900" : "bg-space-800 border-slate-200 text-slate-600 hover:border-slate-500"
                 }`}
               >
                 {d}
@@ -215,7 +215,7 @@ export function PortfolioPiece({ onComplete }: { onComplete: () => void }) {
               placeholder="Or write your own..."
               value={customDesc}
               onChange={(e) => { setCustomDesc(e.target.value); setDescription("__custom"); }}
-              className="w-full bg-space-800 border border-slate-700 rounded-lg px-3 py-2 text-white text-sm focus:border-lime-500 outline-none"
+              className="w-full bg-space-800 border border-slate-200 rounded-lg px-3 py-2 text-slate-900 text-sm focus:border-lime-500 outline-none"
               maxLength={80}
             />
           </div>
@@ -231,11 +231,11 @@ export function PortfolioPiece({ onComplete }: { onComplete: () => void }) {
                 transition={{ delay: i * 0.05 }}
                 onClick={() => setCategory(i)}
                 className={`w-full p-3 rounded-lg border text-left flex items-center gap-3 ${
-                  category === i ? "bg-lime-500/20 border-lime-500" : "bg-space-800 border-slate-700 hover:border-slate-500"
+                  category === i ? "bg-lime-500/20 border-lime-500" : "bg-space-800 border-slate-200 hover:border-slate-500"
                 }`}
               >
                 <span className="text-2xl">{cat.icon}</span>
-                <span className="text-white font-semibold">{cat.name}</span>
+                <span className="text-slate-900 font-semibold">{cat.name}</span>
               </motion.button>
             ))}
           </div>
@@ -254,7 +254,7 @@ export function PortfolioPiece({ onComplete }: { onComplete: () => void }) {
                     setSelectedTools(next);
                   }}
                   className={`p-2 rounded-lg border text-sm text-left ${
-                    selectedTools[i] ? "bg-lime-500/20 border-lime-500 text-white" : "bg-space-800 border-slate-700 text-slate-300 hover:border-slate-500"
+                    selectedTools[i] ? "bg-lime-500/20 border-lime-500 text-slate-900" : "bg-space-800 border-slate-200 text-slate-600 hover:border-slate-500"
                   }`}
                 >
                   {t}
@@ -276,7 +276,7 @@ export function PortfolioPiece({ onComplete }: { onComplete: () => void }) {
                 whileTap={{ scale: 0.9 }}
                 onClick={() => setDifficulty(level)}
                 className={`w-14 h-14 rounded-xl border-2 flex items-center justify-center text-xl ${
-                  difficulty >= level ? "bg-lime-500/20 border-lime-500" : "bg-space-800 border-slate-700"
+                  difficulty >= level ? "bg-lime-500/20 border-lime-500" : "bg-space-800 border-slate-200"
                 }`}
               >
                 ⭐
@@ -292,7 +292,7 @@ export function PortfolioPiece({ onComplete }: { onComplete: () => void }) {
                 key={l}
                 onClick={() => { setLearning(l); setCustomLearning(""); }}
                 className={`w-full p-2 rounded-lg border text-sm text-left ${
-                  learning === l ? "bg-lime-500/20 border-lime-500 text-white" : "bg-space-800 border-slate-700 text-slate-300 hover:border-slate-500"
+                  learning === l ? "bg-lime-500/20 border-lime-500 text-slate-900" : "bg-space-800 border-slate-200 text-slate-600 hover:border-slate-500"
                 }`}
               >
                 {l}
@@ -303,7 +303,7 @@ export function PortfolioPiece({ onComplete }: { onComplete: () => void }) {
               placeholder="Or write your own..."
               value={customLearning}
               onChange={(e) => { setCustomLearning(e.target.value); setLearning("__custom"); }}
-              className="w-full bg-space-800 border border-slate-700 rounded-lg px-3 py-2 text-white text-sm focus:border-lime-500 outline-none"
+              className="w-full bg-space-800 border border-slate-200 rounded-lg px-3 py-2 text-slate-900 text-sm focus:border-lime-500 outline-none"
               maxLength={100}
             />
           </div>
@@ -316,7 +316,7 @@ export function PortfolioPiece({ onComplete }: { onComplete: () => void }) {
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
             onClick={() => setStep(step + 1)}
-            className="w-full mt-4 px-5 py-2 bg-lime-500 text-white rounded-lg font-bold"
+            className="w-full mt-4 px-5 py-2 bg-lime-500 text-slate-900 rounded-lg font-bold"
           >
             {step < 5 ? "Next Step →" : "Generate Portfolio Card →"}
           </motion.button>

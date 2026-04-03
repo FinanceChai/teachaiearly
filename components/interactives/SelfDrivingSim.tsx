@@ -119,16 +119,16 @@ export function SelfDrivingSim({ onComplete }: { onComplete: () => void }) {
       <motion.div
         initial={{ opacity: 0, scale: 0.9 }}
         animate={{ opacity: 1, scale: 1 }}
-        className="bg-space-800 rounded-2xl p-6 border border-slate-700 text-center"
+        className="bg-space-800 rounded-2xl p-6 border border-slate-200 text-center"
       >
         <div className="text-5xl mb-4">🚗</div>
-        <h2 className="text-2xl font-bold text-white mb-2">Simulation Complete!</h2>
-        <p className="text-slate-300 mb-3">
+        <h2 className="text-2xl font-bold text-slate-900 mb-2">Simulation Complete!</h2>
+        <p className="text-slate-600 mb-3">
           You matched the AI&apos;s decision in <span className="text-zinc-400 font-bold">{matches}/{SCENARIOS.length}</span> scenarios
         </p>
         <div className="bg-space-900 rounded-xl p-4 mb-6 text-left">
-          <h3 className="text-white font-bold mb-2">🤔 Key Takeaways:</h3>
-          <ul className="text-slate-300 text-sm space-y-2">
+          <h3 className="text-slate-900 font-bold mb-2">🤔 Key Takeaways:</h3>
+          <ul className="text-slate-600 text-sm space-y-2">
             <li>• AI cars react <span className="text-zinc-400 font-bold">15x faster</span> than humans</li>
             <li>• They have <span className="text-zinc-400 font-bold">360° vision</span> — no blind spots</li>
             <li>• They learn from <span className="text-zinc-400 font-bold">millions</span> of driving scenarios</li>
@@ -148,9 +148,9 @@ export function SelfDrivingSim({ onComplete }: { onComplete: () => void }) {
   }
 
   return (
-    <div className="bg-space-800 rounded-2xl p-6 border border-slate-700">
+    <div className="bg-space-800 rounded-2xl p-6 border border-slate-200">
       <div className="flex justify-between items-center mb-4">
-        <h2 className="text-lg font-bold text-white">🚗 Self-Driving Simulator</h2>
+        <h2 className="text-lg font-bold text-slate-900">🚗 Self-Driving Simulator</h2>
         <span className="text-zinc-400 text-sm font-mono">Scenario {current + 1}/{SCENARIOS.length}</span>
       </div>
 
@@ -170,9 +170,9 @@ export function SelfDrivingSim({ onComplete }: { onComplete: () => void }) {
         >
           <div className="bg-space-900 rounded-xl p-5 mb-4 text-center">
             <div className="text-4xl mb-2">{scenario.emoji}</div>
-            <h3 className="text-xl font-bold text-white mb-3">{scenario.title}</h3>
+            <h3 className="text-xl font-bold text-slate-900 mb-3">{scenario.title}</h3>
             <pre className="text-2xl leading-relaxed mb-3 font-mono">{scenario.scene}</pre>
-            <p className="text-slate-300 text-sm">⚡ Split-second decision — what do you do?</p>
+            <p className="text-slate-600 text-sm">⚡ Split-second decision — what do you do?</p>
           </div>
 
           {!revealed ? (
@@ -183,7 +183,7 @@ export function SelfDrivingSim({ onComplete }: { onComplete: () => void }) {
                   whileHover={{ scale: 1.03 }}
                   whileTap={{ scale: 0.97 }}
                   onClick={() => handleChoice(idx)}
-                  className="p-3 bg-space-900 border-2 border-slate-700 rounded-xl text-white font-bold hover:border-zinc-400 transition-colors"
+                  className="p-3 bg-space-900 border-2 border-slate-200 rounded-xl text-slate-900 font-bold hover:border-zinc-400 transition-colors"
                 >
                   <span className="text-xl">{opt.emoji}</span>
                   <span className="block text-sm mt-1">{opt.label}</span>
@@ -199,14 +199,14 @@ export function SelfDrivingSim({ onComplete }: { onComplete: () => void }) {
                       ? "bg-emerald-500/10 border-emerald-500/40"
                       : "bg-red-500/10 border-red-500/40"
                   }`}>
-                    <div className="text-xs text-slate-300 mb-1">Your choice:</div>
-                    <div className="text-white font-bold">
+                    <div className="text-xs text-slate-600 mb-1">Your choice:</div>
+                    <div className="text-slate-900 font-bold">
                       {scenario.options[userChoice!].emoji} {scenario.options[userChoice!].label}
                     </div>
                   </div>
                   <div className="flex-1 p-3 rounded-xl bg-zinc-400/10 border-2 border-zinc-400/40">
-                    <div className="text-xs text-slate-300 mb-1">AI&apos;s choice:</div>
-                    <div className="text-white font-bold">
+                    <div className="text-xs text-slate-600 mb-1">AI&apos;s choice:</div>
+                    <div className="text-slate-900 font-bold">
                       {scenario.options[scenario.aiChoice].emoji} {scenario.options[scenario.aiChoice].label}
                     </div>
                   </div>
@@ -214,12 +214,12 @@ export function SelfDrivingSim({ onComplete }: { onComplete: () => void }) {
 
                 <div className="bg-space-900 rounded-xl p-4">
                   <h4 className="text-zinc-400 font-bold text-sm mb-1">🤖 Why the AI chose this:</h4>
-                  <p className="text-slate-300 text-sm">{scenario.aiReasoning}</p>
+                  <p className="text-slate-600 text-sm">{scenario.aiReasoning}</p>
                 </div>
 
                 <div className="bg-space-900 rounded-xl p-4">
-                  <h4 className="text-slate-500 font-bold text-sm mb-1">🧠 Human vs AI:</h4>
-                  <p className="text-slate-300 text-sm">{scenario.humanNote}</p>
+                  <h4 className="text-slate-400 font-bold text-sm mb-1">🧠 Human vs AI:</h4>
+                  <p className="text-slate-600 text-sm">{scenario.humanNote}</p>
                 </div>
               </div>
 

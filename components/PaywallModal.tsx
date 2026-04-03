@@ -46,11 +46,11 @@ export default function PaywallModal({ onClose }: { onClose: () => void }) {
         if (e.target === e.currentTarget) onClose();
       }}
     >
-      <div className="bg-space-800 rounded-3xl p-8 max-w-sm w-full border border-slate-700 shadow-2xl">
+      <div className="bg-space-800 rounded-3xl p-8 max-w-sm w-full border border-slate-200 shadow-2xl">
         {/* Header */}
         <div className="text-center mb-6">
           <div className="text-5xl mb-3">🔒</div>
-          <h2 className="text-2xl font-black text-white">Explorer Pro</h2>
+          <h2 className="text-2xl font-black text-slate-900">Explorer Pro</h2>
           <p className="text-slate-400 text-sm mt-2">
             Unlock all 12 worlds, 55+ lessons, and 12 challenge badges.
           </p>
@@ -65,7 +65,7 @@ export default function PaywallModal({ onClose }: { onClose: () => void }) {
             "✅ Parent dashboard + reports",
             "✅ Monthly new content",
           ].map((item) => (
-            <li key={item} className="text-slate-300 text-sm font-bold">
+            <li key={item} className="text-slate-600 text-sm font-bold">
               {item}
             </li>
           ))}
@@ -76,14 +76,14 @@ export default function PaywallModal({ onClose }: { onClose: () => void }) {
           <button
             onClick={() => handleCheckout("monthly")}
             disabled={loading}
-            className="w-full bg-gradient-to-r from-teal-500 to-cyan-400 hover:from-teal-400 hover:to-cyan-300 text-white font-black text-lg py-4 rounded-2xl btn-press transition-all shadow-lg disabled:opacity-60"
+            className="w-full bg-gradient-to-r from-sky-400 to-mint-300 hover:from-sky-300 hover:to-mint-200 text-slate-900 font-black text-lg py-4 rounded-2xl btn-press transition-all shadow-lg disabled:opacity-60"
           >
             {loading ? "Loading..." : "Start Free Trial — $9.99/mo"}
           </button>
           <button
             onClick={() => handleCheckout("yearly")}
             disabled={loading}
-            className="w-full bg-teal-500/20 hover:bg-teal-500/30 text-teal-300 font-black text-sm py-3 rounded-2xl btn-press transition-all border border-teal-500/30 disabled:opacity-60"
+            className="w-full bg-mint-400/20 hover:bg-mint-400/30 text-sky-400 font-black text-sm py-3 rounded-2xl btn-press transition-all border border-sky-200 disabled:opacity-60"
           >
             Save 33% — $79.99/year
           </button>
@@ -95,7 +95,7 @@ export default function PaywallModal({ onClose }: { onClose: () => void }) {
 
         <button
           onClick={onClose}
-          className="w-full text-slate-500 hover:text-slate-300 font-bold text-sm py-2 transition-colors"
+          className="w-full text-slate-400 hover:text-slate-600 font-bold text-sm py-2 transition-colors"
         >
           Maybe later
         </button>

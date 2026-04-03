@@ -42,7 +42,7 @@ export function TrainingTracker({ onComplete }: { onComplete: () => void }) {
       <div className="bg-space-800 rounded-2xl p-5 border border-green-500/30">
         <div className="text-center mb-5">
           <div className="text-3xl mb-2">📈</div>
-          <div className="font-black text-white">Training Tracker</div>
+          <div className="font-black text-slate-900">Training Tracker</div>
           <div className="text-sm text-slate-400 mt-1">
             Watch an AI improve as you feed it more training examples.
           </div>
@@ -86,14 +86,14 @@ export function TrainingTracker({ onComplete }: { onComplete: () => void }) {
             <span>20K</span>
             <span>100K</span>
           </div>
-          <div className="text-center text-xs text-slate-500 mt-1">examples</div>
+          <div className="text-center text-xs text-slate-400 mt-1">examples</div>
         </div>
 
         {/* Current stats */}
         <div className="grid grid-cols-2 gap-3 mb-4">
           <div className="bg-space-900 rounded-xl p-4 text-center">
             <div className="text-xs text-slate-400 font-bold mb-1">EXAMPLES SEEN</div>
-            <div className="text-2xl font-black text-white">
+            <div className="text-2xl font-black text-slate-900">
               {current.examples.toLocaleString()}
             </div>
           </div>
@@ -106,7 +106,7 @@ export function TrainingTracker({ onComplete }: { onComplete: () => void }) {
         {round > 0 && (
           <div className={`rounded-xl p-3 mb-4 text-sm text-center font-bold ${
             gain >= 15 ? "bg-green-500/20 text-green-300" :
-            gain >= 8 ? "bg-teal-500/20 text-teal-300" :
+            gain >= 8 ? "bg-mint-400/20 text-sky-400" :
             gain >= 4 ? "bg-amber-500/20 text-amber-300" :
             "bg-slate-700 text-slate-400"
           }`}>
@@ -115,7 +115,7 @@ export function TrainingTracker({ onComplete }: { onComplete: () => void }) {
         )}
 
         {round === 0 && (
-          <div className="bg-slate-700/50 rounded-xl p-3 mb-4 text-sm text-center text-slate-400">
+          <div className="bg-slate-100 rounded-xl p-3 mb-4 text-sm text-center text-slate-400">
             {current.note}
           </div>
         )}
@@ -124,7 +124,7 @@ export function TrainingTracker({ onComplete }: { onComplete: () => void }) {
           <button
             onClick={trainMore}
             disabled={training}
-            className={`w-full py-4 rounded-2xl font-black text-white btn-press transition-all ${
+            className={`w-full py-4 rounded-2xl font-black text-slate-900 btn-press transition-all ${
               training
                 ? "bg-green-600 cursor-wait"
                 : isLast
@@ -142,7 +142,7 @@ export function TrainingTracker({ onComplete }: { onComplete: () => void }) {
           <div className="space-y-3">
             <div className="bg-amber-500/20 border border-amber-500/30 rounded-xl p-4 text-center">
               <div className="font-black text-amber-300 mb-1">Diminishing Returns!</div>
-              <p className="text-slate-300 text-sm">
+              <p className="text-slate-600 text-sm">
                 Notice how going from 10 to 200 examples gave huge gains — but going from 5,000 to 100,000
                 barely moved the needle. More data helps, but less and less over time.
               </p>

@@ -57,17 +57,17 @@ function SwipableCard({
       transition={{ duration: 0.22 }}
       className="absolute inset-0 cursor-grab active:cursor-grabbing select-none"
     >
-      <div className="relative h-full bg-space-800 rounded-3xl border border-slate-700 overflow-hidden flex flex-col items-center justify-center p-8">
+      <div className="relative h-full bg-space-800 rounded-3xl border border-slate-200 overflow-hidden flex flex-col items-center justify-center p-8">
         <motion.div className="absolute inset-0 rounded-3xl pointer-events-none" style={{ backgroundColor: "rgb(20,184,166)", opacity: bgGreen }} />
         <motion.div className="absolute inset-0 rounded-3xl pointer-events-none" style={{ backgroundColor: "rgb(239,68,68)", opacity: bgRed }} />
         <motion.div className="absolute right-6 top-1/2 -translate-y-1/2 pointer-events-none" style={{ opacity: aiOpacity }}>
-          <span className="font-black text-xl text-teal-300 border-4 border-teal-400 rounded-xl px-3 py-1.5 rotate-[15deg] inline-block">AI!</span>
+          <span className="font-black text-xl text-sky-400 border-4 border-teal-400 rounded-xl px-3 py-1.5 rotate-[15deg] inline-block">AI!</span>
         </motion.div>
         <motion.div className="absolute left-6 top-1/2 -translate-y-1/2 pointer-events-none" style={{ opacity: notAiOpacity }}>
           <span className="font-black text-xl text-red-300 border-4 border-red-400 rounded-xl px-3 py-1.5 -rotate-[15deg] inline-block">NOT AI</span>
         </motion.div>
         <div className="text-6xl mb-5 relative z-10">{scenario.emoji}</div>
-        <p className="text-white font-black text-lg leading-tight text-center relative z-10">{scenario.label}</p>
+        <p className="text-slate-900 font-black text-lg leading-tight text-center relative z-10">{scenario.label}</p>
       </div>
     </motion.div>
   );
@@ -112,8 +112,8 @@ export function SpotTheAI({ onComplete }: { onComplete: () => void }) {
       <div className="text-center space-y-5 py-4">
         <div className="text-6xl">🎯</div>
         <div>
-          <div className="text-3xl font-black text-white">{score}/8</div>
-          <div className="text-slate-300 mt-1">
+          <div className="text-3xl font-black text-slate-900">{score}/8</div>
+          <div className="text-slate-600 mt-1">
             {score >= 7 ? "Amazing! You are an AI Spotter!" : score >= 5 ? "Great job! AI is tricky to spot." : "Keep practicing — AI hides everywhere!"}
           </div>
         </div>
@@ -155,7 +155,7 @@ export function SpotTheAI({ onComplete }: { onComplete: () => void }) {
       </div>
 
       {!explanation && (
-        <div className="flex justify-between px-2 text-xs font-black text-slate-500">
+        <div className="flex justify-between px-2 text-xs font-black text-slate-400">
           <span>← Swipe NOT AI</span>
           <span>{current + 1} of {SCENARIOS.length}</span>
           <span>AI! Swipe →</span>
@@ -166,7 +166,7 @@ export function SpotTheAI({ onComplete }: { onComplete: () => void }) {
       {!explanation && (
         <div className="relative" style={{ height: "220px" }}>
           {current + 1 < SCENARIOS.length && (
-            <div className="absolute inset-0 bg-space-800 rounded-3xl border border-slate-700 opacity-50" style={{ transform: "scale(0.94) translateY(10px)" }} />
+            <div className="absolute inset-0 bg-space-800 rounded-3xl border border-slate-200 opacity-50" style={{ transform: "scale(0.94) translateY(10px)" }} />
           )}
           <SwipableCard key={current} scenario={SCENARIOS[current]} onSwipe={handleSwipe} />
         </div>
@@ -179,13 +179,13 @@ export function SpotTheAI({ onComplete }: { onComplete: () => void }) {
             initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -8 }} transition={{ duration: 0.2 }}
             className="space-y-3"
           >
-            <div className="bg-space-800 rounded-2xl p-5 border border-slate-700 text-center">
+            <div className="bg-space-800 rounded-2xl p-5 border border-slate-200 text-center">
               <div className="text-4xl mb-2">{SCENARIOS[current].emoji}</div>
-              <div className="font-black text-white text-sm mb-1">{SCENARIOS[current].isAI ? "🤖 This IS AI" : "❌ This is NOT AI"}</div>
+              <div className="font-black text-slate-900 text-sm mb-1">{SCENARIOS[current].isAI ? "🤖 This IS AI" : "❌ This is NOT AI"}</div>
               <div className={`text-xl font-black mb-3 ${lastCorrect ? "text-green-300" : "text-red-300"}`}>{lastCorrect ? "✓ Correct!" : "✗ Not quite!"}</div>
-              <p className="text-slate-300 text-sm">{explanation}</p>
+              <p className="text-slate-600 text-sm">{explanation}</p>
             </div>
-            <button onClick={handleNext} className="w-full py-4 rounded-2xl font-black text-white bg-teal-500 hover:bg-teal-400 btn-press transition-colors">
+            <button onClick={handleNext} className="w-full py-4 rounded-2xl font-black text-slate-900 bg-mint-400 hover:bg-mint-300 btn-press transition-colors">
               {current < SCENARIOS.length - 1 ? "Next Card →" : "See Results →"}
             </button>
           </motion.div>
@@ -195,8 +195,8 @@ export function SpotTheAI({ onComplete }: { onComplete: () => void }) {
       {/* Tap fallback */}
       {!explanation && (
         <div className="grid grid-cols-2 gap-3">
-          <button onClick={() => handleSwipe(false)} className="py-3 rounded-2xl font-black text-slate-300 bg-slate-700/60 hover:bg-slate-700 border border-slate-600 btn-press transition-all text-sm">← Not AI</button>
-          <button onClick={() => handleSwipe(true)} className="py-3 rounded-2xl font-black text-teal-300 bg-teal-500/20 hover:bg-teal-500/30 border border-teal-500/40 btn-press transition-all text-sm">AI! →</button>
+          <button onClick={() => handleSwipe(false)} className="py-3 rounded-2xl font-black text-slate-600 bg-slate-700/60 hover:bg-slate-700 border border-slate-300 btn-press transition-all text-sm">← Not AI</button>
+          <button onClick={() => handleSwipe(true)} className="py-3 rounded-2xl font-black text-sky-400 bg-mint-400/20 hover:bg-mint-400/30 border border-sky-200 btn-press transition-all text-sm">AI! →</button>
         </div>
       )}
     </div>

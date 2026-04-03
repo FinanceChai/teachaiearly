@@ -166,7 +166,7 @@ function TimerBar({ running, onTimeout }: { running: boolean; onTimeout: () => v
           transition={{ duration: 5, ease: "linear" }}
           style={{ transformOrigin: "left" }}
           onAnimationComplete={onTimeout}
-          className="h-full bg-gradient-to-r from-teal-500 via-amber-400 to-red-500 rounded-full"
+          className="h-full bg-gradient-to-r from-sky-400 via-amber-400 to-red-500 rounded-full"
         />
       ) : (
         <div className="h-full bg-slate-600 rounded-full" />
@@ -349,28 +349,28 @@ export function AIGameShow({ onComplete }: { onComplete: (passed: boolean) => vo
       <div className="space-y-6">
         <div className="text-center">
           <motion.div initial={{ scale: 0.8, opacity: 0 }} animate={{ scale: 1, opacity: 1 }} transition={{ type: "spring", stiffness: 300, damping: 20 }} className="text-6xl mb-3">🎬</motion.div>
-          <h2 className="text-3xl font-black text-white">AM I AI?</h2>
-          <p className="text-teal-400 font-bold text-sm mt-1">The World 1 Capstone Game Show</p>
+          <h2 className="text-3xl font-black text-slate-900">AM I AI?</h2>
+          <p className="text-sky-500 font-bold text-sm mt-1">The World 1 Capstone Game Show</p>
         </div>
 
-        <div className="bg-space-800 rounded-2xl p-5 border border-slate-700 space-y-3">
-          <div className="font-black text-white mb-1">How to play:</div>
-          <div className="flex gap-3 text-sm text-slate-300">
-            <span className="text-teal-400 font-black">Round 1</span>
+        <div className="bg-space-800 rounded-2xl p-5 border border-slate-200 space-y-3">
+          <div className="font-black text-slate-900 mb-1">How to play:</div>
+          <div className="flex gap-3 text-sm text-slate-600">
+            <span className="text-sky-500 font-black">Round 1</span>
             <span>20 rapid-fire scenarios · 5 seconds each · speed bonus points!</span>
           </div>
-          <div className="flex gap-3 text-sm text-slate-300">
+          <div className="flex gap-3 text-sm text-slate-600">
             <span className="text-purple-400 font-black">Round 2</span>
             <span>Build 5 tricky scenarios to fool the AI host · +400 pts each fool!</span>
           </div>
-          <div className="flex gap-3 text-sm text-slate-300">
+          <div className="flex gap-3 text-sm text-slate-600">
             <span className="text-yellow-400 font-black">Scoring</span>
             <span>Fast + correct = max points · Easy to Hard scenarios · leaderboard!</span>
           </div>
         </div>
 
         <div>
-          <label className="text-sm font-black text-slate-300 mb-2 block">Your contestant name:</label>
+          <label className="text-sm font-black text-slate-600 mb-2 block">Your contestant name:</label>
           <input
             type="text"
             value={playerName}
@@ -378,7 +378,7 @@ export function AIGameShow({ onComplete }: { onComplete: (passed: boolean) => vo
             onKeyDown={(e) => e.key === "Enter" && startGame()}
             maxLength={18}
             placeholder="Enter your name..."
-            className="w-full bg-space-900 border-2 border-slate-600 rounded-2xl px-5 py-4 text-white text-xl font-bold placeholder-slate-600 focus:outline-none focus:border-teal-400 transition-colors"
+            className="w-full bg-space-900 border-2 border-slate-300 rounded-2xl px-5 py-4 text-slate-900 text-xl font-bold placeholder-slate-400 focus:outline-none focus:border-sky-400 transition-colors"
             autoFocus
           />
         </div>
@@ -386,7 +386,7 @@ export function AIGameShow({ onComplete }: { onComplete: (passed: boolean) => vo
         <button
           onClick={startGame}
           disabled={!playerName.trim()}
-          className="w-full py-5 rounded-2xl font-black text-xl text-white bg-gradient-to-r from-teal-500 to-cyan-400 hover:from-teal-400 hover:to-cyan-300 btn-press transition-all disabled:opacity-40 disabled:cursor-not-allowed shadow-lg"
+          className="w-full py-5 rounded-2xl font-black text-xl text-slate-900 bg-gradient-to-r from-sky-400 to-mint-300 hover:from-sky-300 hover:to-mint-200 btn-press transition-all disabled:opacity-40 disabled:cursor-not-allowed shadow-lg"
         >
           Start the Show! 🎬
         </button>
@@ -406,7 +406,7 @@ export function AIGameShow({ onComplete }: { onComplete: (passed: boolean) => vo
         <div className="flex items-center justify-between">
           <div className="flex items-center gap-2">
             <span className="text-yellow-400 font-black">⭐</span>
-            <span className="text-white font-black text-lg">{r1Score}</span>
+            <span className="text-slate-900 font-black text-lg">{r1Score}</span>
           </div>
           <div className="text-xs font-black text-slate-400">{qNum}/{totalQ}</div>
           <div className="flex items-center gap-2">
@@ -435,11 +435,11 @@ export function AIGameShow({ onComplete }: { onComplete: (passed: boolean) => vo
               className={`bg-space-800 rounded-3xl p-8 border-2 text-center min-h-[160px] flex flex-col items-center justify-center transition-colors ${
                 showResult === "correct" ? "border-green-500/70 bg-green-500/10"
                   : showResult === "wrong" || showResult === "timeout" ? "border-red-500/70 bg-red-500/10"
-                  : "border-slate-700"
+                  : "border-slate-200"
               }`}
             >
-              <div className="text-xs font-black text-slate-500 mb-3 uppercase">{currentScenario.category}</div>
-              <p className="text-white font-black text-xl leading-snug">{currentScenario.text}</p>
+              <div className="text-xs font-black text-slate-400 mb-3 uppercase">{currentScenario.category}</div>
+              <p className="text-slate-900 font-black text-xl leading-snug">{currentScenario.text}</p>
               {showResult && (
                 <motion.div
                   initial={{ scale: 0.7, opacity: 0 }} animate={{ scale: 1, opacity: 1 }}
@@ -464,7 +464,7 @@ export function AIGameShow({ onComplete }: { onComplete: (passed: boolean) => vo
             whileTap={{ scale: 0.94 }}
             onClick={() => showResult === null && handleAnswer(true)}
             disabled={showResult !== null}
-            className="py-6 rounded-2xl font-black text-2xl text-teal-300 bg-teal-500/20 border-2 border-teal-500/50 hover:bg-teal-500/30 active:bg-teal-500/40 transition-all disabled:opacity-50"
+            className="py-6 rounded-2xl font-black text-2xl text-sky-400 bg-mint-400/20 border-2 border-sky-300 hover:bg-mint-400/30 active:bg-mint-400/40 transition-all disabled:opacity-50"
           >
             🤖 ROBOT
           </motion.button>
@@ -472,7 +472,7 @@ export function AIGameShow({ onComplete }: { onComplete: (passed: boolean) => vo
             whileTap={{ scale: 0.94 }}
             onClick={() => showResult === null && handleAnswer(false)}
             disabled={showResult !== null}
-            className="py-6 rounded-2xl font-black text-2xl text-slate-300 bg-slate-700/60 border-2 border-slate-600 hover:bg-slate-700 active:bg-slate-600 transition-all disabled:opacity-50"
+            className="py-6 rounded-2xl font-black text-2xl text-slate-600 bg-slate-700/60 border-2 border-slate-300 hover:bg-slate-700 active:bg-slate-600 transition-all disabled:opacity-50"
           >
             ❌ NOT
           </motion.button>
@@ -493,24 +493,24 @@ export function AIGameShow({ onComplete }: { onComplete: (passed: boolean) => vo
       <div className="space-y-5">
         <div className="text-center">
           <div className="text-5xl mb-2">🎯</div>
-          <div className="text-3xl font-black text-white">Round 1 Done!</div>
+          <div className="text-3xl font-black text-slate-900">Round 1 Done!</div>
         </div>
         <div className="grid grid-cols-2 gap-3">
           {[
             { label: "Score", value: r1Score, color: "text-yellow-400" },
-            { label: "Accuracy", value: `${accuracy}%`, color: "text-teal-400" },
+            { label: "Accuracy", value: `${accuracy}%`, color: "text-sky-500" },
             { label: "Best Streak", value: `${r1BestStreak}x 🔥`, color: "text-orange-400" },
             { label: "Fastest", value: fastest < 99 ? `${fastest.toFixed(1)}s` : "—", color: "text-purple-400" },
           ].map((stat) => (
-            <div key={stat.label} className="bg-space-800 rounded-2xl p-4 border border-slate-700 text-center">
-              <div className="text-xs text-slate-500 font-bold mb-1">{stat.label}</div>
+            <div key={stat.label} className="bg-space-800 rounded-2xl p-4 border border-slate-200 text-center">
+              <div className="text-xs text-slate-400 font-bold mb-1">{stat.label}</div>
               <div className={`text-2xl font-black ${stat.color}`}>{stat.value}</div>
             </div>
           ))}
         </div>
 
         {/* Question breakdown */}
-        <div className="bg-space-800 rounded-2xl p-4 border border-slate-700">
+        <div className="bg-space-800 rounded-2xl p-4 border border-slate-200">
           <div className="text-xs font-black text-slate-400 mb-2">BY DIFFICULTY</div>
           {(["easy", "medium", "hard"] as Difficulty[]).map((diff) => {
             const subset = r1Results.filter((_, i) => SCENARIO_POOL[questions[i]]?.difficulty === diff);
@@ -518,8 +518,8 @@ export function AIGameShow({ onComplete }: { onComplete: (passed: boolean) => vo
             return (
               <div key={diff} className="flex items-center gap-3 mb-2">
                 <span className={`text-xs font-black w-14 ${diff === "easy" ? "text-green-400" : diff === "medium" ? "text-amber-400" : "text-red-400"}`}>{diff.toUpperCase()}</span>
-                <div className="flex-1 bg-slate-700 rounded-full h-2 overflow-hidden">
-                  <div className="h-full rounded-full bg-teal-500" style={{ width: `${pct}%` }} />
+                <div className="flex-1 bg-slate-200 rounded-full h-2 overflow-hidden">
+                  <div className="h-full rounded-full bg-mint-400" style={{ width: `${pct}%` }} />
                 </div>
                 <span className="text-xs text-slate-400 w-10 text-right">{pct}%</span>
               </div>
@@ -527,7 +527,7 @@ export function AIGameShow({ onComplete }: { onComplete: (passed: boolean) => vo
           })}
         </div>
 
-        <button onClick={() => setPhase("round2-intro")} className="w-full py-5 rounded-2xl font-black text-xl text-white bg-gradient-to-r from-purple-500 to-violet-400 hover:from-purple-400 hover:to-violet-300 btn-press transition-all shadow-lg">
+        <button onClick={() => setPhase("round2-intro")} className="w-full py-5 rounded-2xl font-black text-xl text-slate-900 bg-gradient-to-r from-purple-500 to-violet-400 hover:from-purple-400 hover:to-violet-300 btn-press transition-all shadow-lg">
           Round 2: Stump the Host! →
         </button>
       </div>
@@ -540,21 +540,21 @@ export function AIGameShow({ onComplete }: { onComplete: (passed: boolean) => vo
       <div className="space-y-5">
         <div className="text-center">
           <div className="text-5xl mb-2">🤔</div>
-          <div className="text-3xl font-black text-white">Flip the Script!</div>
+          <div className="text-3xl font-black text-slate-900">Flip the Script!</div>
           <p className="text-purple-400 font-bold text-sm mt-1">Now YOU try to trick the AI host</p>
         </div>
         <div className="bg-space-800 rounded-2xl p-5 border border-purple-500/30 space-y-3">
-          <p className="text-white font-bold text-sm">In Round 2, you BUILD a technology scenario using a template. Then label it as AI or NOT AI. The AI host tries to guess.</p>
-          <div className="bg-purple-500/15 rounded-xl p-4 text-sm text-slate-300">
+          <p className="text-slate-900 font-bold text-sm">In Round 2, you BUILD a technology scenario using a template. Then label it as AI or NOT AI. The AI host tries to guess.</p>
+          <div className="bg-purple-500/15 rounded-xl p-4 text-sm text-slate-600">
             <span className="font-black text-purple-300">How to win: </span>
             Pick an action that sounds like AI but label it NOT — or pick something that sounds simple but label it AI. Fool the host and score <span className="text-yellow-300 font-black">+400 points!</span>
           </div>
-          <div className="bg-space-900 rounded-xl p-3 text-xs text-slate-400 border border-slate-700">
-            <span className="text-slate-300 font-bold">Hot tip: </span>
+          <div className="bg-space-900 rounded-xl p-3 text-xs text-slate-400 border border-slate-200">
+            <span className="text-slate-600 font-bold">Hot tip: </span>
             Vocabulary can be tricky! Words like "detects" and "adapts" make the host think AI — even if the tech is just following rules.
           </div>
         </div>
-        <button onClick={() => setPhase("round2")} className="w-full py-5 rounded-2xl font-black text-xl text-white bg-purple-500 hover:bg-purple-400 btn-press transition-colors">
+        <button onClick={() => setPhase("round2")} className="w-full py-5 rounded-2xl font-black text-xl text-slate-900 bg-purple-500 hover:bg-purple-400 btn-press transition-colors">
           Start Round 2! →
         </button>
       </div>
@@ -597,7 +597,7 @@ export function AIGameShow({ onComplete }: { onComplete: (passed: boolean) => vo
                     <button
                       key={s.id}
                       onClick={() => setR2Subject(s.id)}
-                      className={`flex items-center gap-2 px-3 py-2 rounded-xl border text-xs font-bold text-left transition-all btn-press ${r2Subject === s.id ? "bg-purple-500/30 border-purple-400/60 text-purple-200" : "bg-space-900 border-slate-700 text-slate-400 hover:border-slate-500"}`}
+                      className={`flex items-center gap-2 px-3 py-2 rounded-xl border text-xs font-bold text-left transition-all btn-press ${r2Subject === s.id ? "bg-purple-500/30 border-purple-400/60 text-purple-200" : "bg-space-900 border-slate-200 text-slate-400 hover:border-slate-500"}`}
                     >
                       <span>{s.emoji}</span><span>{s.label}</span>
                     </button>
@@ -613,7 +613,7 @@ export function AIGameShow({ onComplete }: { onComplete: (passed: boolean) => vo
                     <button
                       key={a.id}
                       onClick={() => setR2Action(a.id)}
-                      className={`w-full text-left px-3 py-2.5 rounded-xl border text-xs font-bold transition-all btn-press ${r2Action === a.id ? "bg-purple-500/30 border-purple-400/60 text-purple-200" : "bg-space-900 border-slate-700 text-slate-400 hover:border-slate-500"}`}
+                      className={`w-full text-left px-3 py-2.5 rounded-xl border text-xs font-bold transition-all btn-press ${r2Action === a.id ? "bg-purple-500/30 border-purple-400/60 text-purple-200" : "bg-space-900 border-slate-200 text-slate-400 hover:border-slate-500"}`}
                     >
                       ...{a.label}
                     </button>
@@ -629,7 +629,7 @@ export function AIGameShow({ onComplete }: { onComplete: (passed: boolean) => vo
                     <button
                       key={d.id}
                       onClick={() => setR2Detail(d.id)}
-                      className={`w-full text-left px-3 py-2.5 rounded-xl border text-xs font-bold transition-all btn-press ${r2Detail === d.id ? "bg-purple-500/30 border-purple-400/60 text-purple-200" : "bg-space-900 border-slate-700 text-slate-400 hover:border-slate-500"}`}
+                      className={`w-full text-left px-3 py-2.5 rounded-xl border text-xs font-bold transition-all btn-press ${r2Detail === d.id ? "bg-purple-500/30 border-purple-400/60 text-purple-200" : "bg-space-900 border-slate-200 text-slate-400 hover:border-slate-500"}`}
                     >
                       {d.label}
                     </button>
@@ -639,7 +639,7 @@ export function AIGameShow({ onComplete }: { onComplete: (passed: boolean) => vo
 
               {/* Preview */}
               {scenarioPreview && (
-                <div className="bg-space-900 rounded-xl p-3 mb-4 border border-slate-700 text-sm text-white font-bold">
+                <div className="bg-space-900 rounded-xl p-3 mb-4 border border-slate-200 text-sm text-slate-900 font-bold">
                   {scenarioPreview}
                 </div>
               )}
@@ -649,8 +649,8 @@ export function AIGameShow({ onComplete }: { onComplete: (passed: boolean) => vo
                 <div>
                   <div className="text-xs text-slate-400 font-bold mb-2">4. Label it (this is your trick!):</div>
                   <div className="grid grid-cols-2 gap-3">
-                    <button onClick={() => setR2Label(true)} className={`py-3 rounded-xl font-black text-sm btn-press transition-all ${r2Label === true ? "bg-teal-500 text-white" : "bg-space-900 border border-slate-700 text-teal-400 hover:border-teal-500/50"}`}>🤖 This IS AI</button>
-                    <button onClick={() => setR2Label(false)} className={`py-3 rounded-xl font-black text-sm btn-press transition-all ${r2Label === false ? "bg-red-500 text-white" : "bg-space-900 border border-slate-700 text-red-400 hover:border-red-500/50"}`}>❌ This is NOT</button>
+                    <button onClick={() => setR2Label(true)} className={`py-3 rounded-xl font-black text-sm btn-press transition-all ${r2Label === true ? "bg-mint-400 text-white" : "bg-space-900 border border-slate-200 text-sky-500 hover:border-sky-300"}`}>🤖 This IS AI</button>
+                    <button onClick={() => setR2Label(false)} className={`py-3 rounded-xl font-black text-sm btn-press transition-all ${r2Label === false ? "bg-red-500 text-slate-900" : "bg-space-900 border border-slate-200 text-red-400 hover:border-red-500/50"}`}>❌ This is NOT</button>
                   </div>
                 </div>
               )}
@@ -659,7 +659,7 @@ export function AIGameShow({ onComplete }: { onComplete: (passed: boolean) => vo
             <button
               onClick={submitRound2}
               disabled={!canSubmit}
-              className="w-full py-4 rounded-2xl font-black text-white bg-purple-500 hover:bg-purple-400 btn-press transition-colors disabled:opacity-40 disabled:cursor-not-allowed"
+              className="w-full py-4 rounded-2xl font-black text-slate-900 bg-purple-500 hover:bg-purple-400 btn-press transition-colors disabled:opacity-40 disabled:cursor-not-allowed"
             >
               {hostGuessing ? "AI Host is thinking... 🤔" : "Submit to AI Host! →"}
             </button>
@@ -680,28 +680,28 @@ export function AIGameShow({ onComplete }: { onComplete: (passed: boolean) => vo
         ) : (
           /* Host result */
           <motion.div initial={{ opacity: 0, scale: 0.95 }} animate={{ opacity: 1, scale: 1 }} transition={{ type: "spring", stiffness: 280, damping: 22 }} className="space-y-4">
-            <div className="bg-space-800 rounded-2xl p-5 border border-slate-700 text-center">
+            <div className="bg-space-800 rounded-2xl p-5 border border-slate-200 text-center">
               <div className="text-4xl mb-2">🤖</div>
               <div className="text-xs text-slate-400 font-bold mb-1">AI HOST SAYS...</div>
-              <div className="text-xl font-black text-white mb-3">
+              <div className="text-xl font-black text-slate-900 mb-3">
                 "I think this is {hostResult.hostGuessed ? "🤖 AI" : "❌ NOT AI"}!"
               </div>
             </div>
             <motion.div
               initial={{ opacity: 0, y: 12 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.3 }}
-              className={`rounded-2xl p-5 border text-center ${hostResult.fooled ? "bg-yellow-500/20 border-yellow-500/40" : "bg-slate-700/50 border-slate-600"}`}
+              className={`rounded-2xl p-5 border text-center ${hostResult.fooled ? "bg-yellow-500/20 border-yellow-500/40" : "bg-slate-100 border-slate-300"}`}
             >
-              <div className={`text-3xl font-black mb-1 ${hostResult.fooled ? "text-yellow-300" : "text-slate-300"}`}>
+              <div className={`text-3xl font-black mb-1 ${hostResult.fooled ? "text-yellow-300" : "text-slate-600"}`}>
                 {hostResult.fooled ? "YOU FOOLED THE HOST! 🎉" : "Host was right this time."}
               </div>
               {hostResult.fooled && <div className="text-yellow-400 font-black text-xl">+400 pts!</div>}
               <p className="text-slate-400 text-sm mt-2">
-                Your label was <span className="font-black text-white">{hostResult.kidLabel ? "AI" : "NOT AI"}</span>. The host guessed <span className="font-black text-white">{hostResult.hostGuessed ? "AI" : "NOT AI"}</span>.
+                Your label was <span className="font-black text-slate-900">{hostResult.kidLabel ? "AI" : "NOT AI"}</span>. The host guessed <span className="font-black text-slate-900">{hostResult.hostGuessed ? "AI" : "NOT AI"}</span>.
               </p>
             </motion.div>
             <button
               onClick={nextR2}
-              className="w-full py-4 rounded-2xl font-black text-white bg-purple-500 hover:bg-purple-400 btn-press transition-colors"
+              className="w-full py-4 rounded-2xl font-black text-slate-900 bg-purple-500 hover:bg-purple-400 btn-press transition-colors"
             >
               {r2Step + 1 >= 5 ? "See Final Score! →" : `Next Attempt (${r2Step + 2}/5) →`}
             </button>
@@ -721,43 +721,43 @@ export function AIGameShow({ onComplete }: { onComplete: (passed: boolean) => vo
       <div className="space-y-5">
         <motion.div initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} className="text-center">
           <div className="text-6xl mb-2">{passed ? "🏆" : "🎬"}</div>
-          <div className="text-3xl font-black text-white">{playerName}</div>
+          <div className="text-3xl font-black text-slate-900">{playerName}</div>
           <div className="text-5xl font-black text-yellow-400 mt-1">{totalScore} pts</div>
           {passed && (
-            <motion.div initial={{ scale: 0 }} animate={{ scale: 1 }} transition={{ type: "spring", delay: 0.3 }} className="mt-2 inline-block bg-teal-500/20 border border-teal-500/40 rounded-xl px-4 py-1 text-teal-300 font-black text-sm">
+            <motion.div initial={{ scale: 0 }} animate={{ scale: 1 }} transition={{ type: "spring", delay: 0.3 }} className="mt-2 inline-block bg-mint-400/20 border border-sky-200 rounded-xl px-4 py-1 text-sky-400 font-black text-sm">
               AI Spotter Badge Earned!
             </motion.div>
           )}
         </motion.div>
 
         <div className="grid grid-cols-2 gap-3">
-          <div className="bg-space-800 rounded-2xl p-4 border border-slate-700 text-center">
-            <div className="text-xs text-slate-500 font-bold mb-1">Round 1</div>
-            <div className="text-2xl font-black text-teal-400">{r1Score}</div>
+          <div className="bg-space-800 rounded-2xl p-4 border border-slate-200 text-center">
+            <div className="text-xs text-slate-400 font-bold mb-1">Round 1</div>
+            <div className="text-2xl font-black text-sky-500">{r1Score}</div>
           </div>
-          <div className="bg-space-800 rounded-2xl p-4 border border-slate-700 text-center">
-            <div className="text-xs text-slate-500 font-bold mb-1">Round 2</div>
+          <div className="bg-space-800 rounded-2xl p-4 border border-slate-200 text-center">
+            <div className="text-xs text-slate-400 font-bold mb-1">Round 2</div>
             <div className="text-2xl font-black text-purple-400">{r2Score}</div>
           </div>
         </div>
 
         {/* Leaderboard */}
-        <div className="bg-space-800 rounded-2xl p-4 border border-slate-700">
+        <div className="bg-space-800 rounded-2xl p-4 border border-slate-200">
           <div className="text-xs font-black text-slate-400 mb-3">🏆 LEADERBOARD (this device)</div>
           <div className="space-y-2">
             {lb.slice(0, 7).map((entry, i) => (
               <motion.div
                 key={i}
                 initial={{ opacity: 0, x: -10 }} animate={{ opacity: 1, x: 0 }} transition={{ delay: i * 0.07 }}
-                className={`flex items-center gap-3 px-3 py-2 rounded-xl ${entry.name === playerName && entry.score === totalScore ? "bg-teal-500/20 border border-teal-500/30" : "bg-space-900"}`}
+                className={`flex items-center gap-3 px-3 py-2 rounded-xl ${entry.name === playerName && entry.score === totalScore ? "bg-mint-400/20 border border-sky-200" : "bg-space-900"}`}
               >
-                <span className="text-sm font-black w-6 text-slate-500">{i === 0 ? "🥇" : i === 1 ? "🥈" : i === 2 ? "🥉" : `${i + 1}.`}</span>
-                <span className="flex-1 font-bold text-white text-sm truncate">{entry.name}</span>
+                <span className="text-sm font-black w-6 text-slate-400">{i === 0 ? "🥇" : i === 1 ? "🥈" : i === 2 ? "🥉" : `${i + 1}.`}</span>
+                <span className="flex-1 font-bold text-slate-900 text-sm truncate">{entry.name}</span>
                 <span className="font-black text-yellow-400">{entry.score}</span>
-                <span className="text-xs text-slate-500">{entry.date}</span>
+                <span className="text-xs text-slate-400">{entry.date}</span>
               </motion.div>
             ))}
-            {lb.length === 0 && <div className="text-slate-500 text-sm text-center">No scores yet — you are first!</div>}
+            {lb.length === 0 && <div className="text-slate-400 text-sm text-center">No scores yet — you are first!</div>}
           </div>
         </div>
 
@@ -770,13 +770,13 @@ export function AIGameShow({ onComplete }: { onComplete: (passed: boolean) => vo
               setR2Step(0); setR2Subject(""); setR2Action(""); setR2Detail(""); setR2Label(null);
               setHostResult(null); setPlayerName("");
             }}
-            className="py-4 rounded-2xl font-black text-white bg-slate-700 hover:bg-slate-600 btn-press transition-colors"
+            className="py-4 rounded-2xl font-black text-slate-900 bg-slate-700 hover:bg-slate-600 btn-press transition-colors"
           >
             Play Again
           </button>
           <button
             onClick={() => onComplete(passed)}
-            className="py-4 rounded-2xl font-black text-white bg-teal-500 hover:bg-teal-400 btn-press transition-colors"
+            className="py-4 rounded-2xl font-black text-slate-900 bg-mint-400 hover:bg-mint-300 btn-press transition-colors"
           >
             {passed ? "Claim Badge! →" : "Finish →"}
           </button>

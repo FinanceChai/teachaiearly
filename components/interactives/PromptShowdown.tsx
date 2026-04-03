@@ -120,10 +120,10 @@ export function PromptShowdown({ onComplete }: { onComplete: () => void }) {
           🎯
         </motion.div>
         <div>
-          <div className="text-4xl font-black text-white">
+          <div className="text-4xl font-black text-slate-900">
             {correct}/{ROUNDS.length}
           </div>
-          <div className="text-slate-300 mt-2">
+          <div className="text-slate-600 mt-2">
             {correct === ROUNDS.length
               ? "Perfect! You know exactly what makes a great prompt!"
               : correct >= ROUNDS.length - 1
@@ -167,13 +167,13 @@ export function PromptShowdown({ onComplete }: { onComplete: () => void }) {
         </span>
       </div>
 
-      <div className="bg-space-800 rounded-2xl p-5 border border-slate-700">
+      <div className="bg-space-800 rounded-2xl p-5 border border-slate-200">
         <div className="text-xs font-black text-purple-400 mb-1">PROMPT SHOWDOWN</div>
 
         {/* Task */}
-        <div className="bg-space-900 rounded-xl p-3 mb-4 border border-slate-600">
-          <div className="text-xs font-bold text-slate-500 mb-1">YOUR GOAL:</div>
-          <div className="text-white font-bold">{round.task}</div>
+        <div className="bg-space-900 rounded-xl p-3 mb-4 border border-slate-300">
+          <div className="text-xs font-bold text-slate-400 mb-1">YOUR GOAL:</div>
+          <div className="text-slate-900 font-bold">{round.task}</div>
         </div>
 
         {revealed === "none" ? (
@@ -183,24 +183,24 @@ export function PromptShowdown({ onComplete }: { onComplete: () => void }) {
             </div>
 
             {/* Prompt A */}
-            <div className="bg-space-900 rounded-xl p-4 border border-slate-600">
+            <div className="bg-space-900 rounded-xl p-4 border border-slate-300">
               <div className="text-xs font-black text-blue-400 mb-2">PROMPT A</div>
-              <div className="text-white font-bold text-sm italic">
+              <div className="text-slate-900 font-bold text-sm italic">
                 &quot;{promptA.prompt}&quot;
               </div>
             </div>
 
             {/* Prompt B */}
-            <div className="bg-space-900 rounded-xl p-4 border border-slate-600">
+            <div className="bg-space-900 rounded-xl p-4 border border-slate-300">
               <div className="text-xs font-black text-amber-400 mb-2">PROMPT B</div>
-              <div className="text-white font-bold text-sm italic">
+              <div className="text-slate-900 font-bold text-sm italic">
                 &quot;{promptB.prompt}&quot;
               </div>
             </div>
 
             <button
               onClick={revealOutputs}
-              className="w-full py-4 rounded-xl font-black text-white bg-purple-500 hover:bg-purple-400 btn-press transition-colors"
+              className="w-full py-4 rounded-xl font-black text-slate-900 bg-purple-500 hover:bg-purple-400 btn-press transition-colors"
             >
               See AI&apos;s Outputs →
             </button>
@@ -219,7 +219,7 @@ export function PromptShowdown({ onComplete }: { onComplete: () => void }) {
               className="w-full text-left bg-space-900 rounded-xl p-4 border-2 border-blue-500/30 hover:border-blue-500 transition-colors"
             >
               <div className="text-xs font-black text-blue-400 mb-2">OUTPUT A</div>
-              <div className="text-sm text-slate-300 leading-relaxed whitespace-pre-line">
+              <div className="text-sm text-slate-600 leading-relaxed whitespace-pre-line">
                 {promptA.output}
               </div>
             </motion.button>
@@ -233,7 +233,7 @@ export function PromptShowdown({ onComplete }: { onComplete: () => void }) {
               className="w-full text-left bg-space-900 rounded-xl p-4 border-2 border-amber-500/30 hover:border-amber-500 transition-colors"
             >
               <div className="text-xs font-black text-amber-400 mb-2">OUTPUT B</div>
-              <div className="text-sm text-slate-300 leading-relaxed whitespace-pre-line">
+              <div className="text-sm text-slate-600 leading-relaxed whitespace-pre-line">
                 {promptB.output}
               </div>
             </motion.button>
@@ -260,12 +260,12 @@ export function PromptShowdown({ onComplete }: { onComplete: () => void }) {
             {/* Tip */}
             <div className="bg-purple-500/10 border border-purple-500/30 rounded-xl p-4">
               <div className="text-xs font-black text-purple-400 mb-1">PROMPT TIP</div>
-              <div className="text-sm text-slate-300">{round.tip}</div>
+              <div className="text-sm text-slate-600">{round.tip}</div>
             </div>
 
             <button
               onClick={next}
-              className="w-full py-4 rounded-xl font-black text-white bg-purple-500 hover:bg-purple-400 btn-press transition-colors"
+              className="w-full py-4 rounded-xl font-black text-slate-900 bg-purple-500 hover:bg-purple-400 btn-press transition-colors"
             >
               {current < ROUNDS.length - 1 ? "Next Round →" : "See Results →"}
             </button>

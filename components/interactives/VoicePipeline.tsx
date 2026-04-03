@@ -147,10 +147,10 @@ export function VoicePipeline({ onComplete }: { onComplete: () => void }) {
   if (phase === "order") {
     const remaining = shuffled.filter((i) => !userOrder.includes(i));
     return (
-      <div className="p-4 sm:p-6 bg-space-900 rounded-xl border border-slate-700 space-y-5">
+      <div className="p-4 sm:p-6 bg-space-900 rounded-xl border border-slate-200 space-y-5">
         <div className="text-center space-y-1">
-          <h3 className="text-xl font-bold text-white">Voice Pipeline Builder</h3>
-          <p className="text-slate-300 text-sm">
+          <h3 className="text-xl font-bold text-slate-900">Voice Pipeline Builder</h3>
+          <p className="text-slate-600 text-sm">
             Tap the stages in the correct order — how does a voice assistant process your command?
           </p>
         </div>
@@ -166,13 +166,13 @@ export function VoicePipeline({ onComplete }: { onComplete: () => void }) {
             >
               <span className="text-violet-400 font-bold text-sm w-6">{pos + 1}.</span>
               <span className="text-lg">{STAGES[stageIdx].emoji}</span>
-              <span className="text-white text-sm font-medium">{STAGES[stageIdx].label}</span>
+              <span className="text-slate-900 text-sm font-medium">{STAGES[stageIdx].label}</span>
             </motion.div>
           ))}
           {userOrder.length < 5 && (
-            <div className="flex items-center gap-3 p-3 border-2 border-dashed border-slate-700 rounded-lg">
-              <span className="text-slate-500 font-bold text-sm w-6">{userOrder.length + 1}.</span>
-              <span className="text-slate-500 text-sm">Tap the next stage below...</span>
+            <div className="flex items-center gap-3 p-3 border-2 border-dashed border-slate-200 rounded-lg">
+              <span className="text-slate-400 font-bold text-sm w-6">{userOrder.length + 1}.</span>
+              <span className="text-slate-400 text-sm">Tap the next stage below...</span>
             </div>
           )}
         </div>
@@ -186,10 +186,10 @@ export function VoicePipeline({ onComplete }: { onComplete: () => void }) {
                 whileHover={{ scale: 1.05 }}
                 whileTap={{ scale: 0.95 }}
                 onClick={() => handleTapStage(stageIdx)}
-                className="flex items-center gap-2 px-4 py-2 bg-space-800 border border-slate-700 hover:border-violet-400 rounded-lg transition-all"
+                className="flex items-center gap-2 px-4 py-2 bg-space-800 border border-slate-200 hover:border-violet-400 rounded-lg transition-all"
               >
                 <span className="text-lg">{STAGES[stageIdx].emoji}</span>
-                <span className="text-white text-xs font-medium">{STAGES[stageIdx].short}</span>
+                <span className="text-slate-900 text-xs font-medium">{STAGES[stageIdx].short}</span>
               </motion.button>
             ))}
           </div>
@@ -203,7 +203,7 @@ export function VoicePipeline({ onComplete }: { onComplete: () => void }) {
                 <p className="text-green-400 font-bold">Perfect! That&apos;s exactly right!</p>
                 <button
                   onClick={goToExplore}
-                  className="px-5 py-2 bg-violet-600 hover:bg-violet-500 text-white font-bold rounded-lg text-sm"
+                  className="px-5 py-2 bg-violet-600 hover:bg-violet-500 text-slate-900 font-bold rounded-lg text-sm"
                 >
                   Now Explore How It Works!
                 </button>
@@ -221,16 +221,16 @@ export function VoicePipeline({ onComplete }: { onComplete: () => void }) {
   if (phase === "explore") {
     const scenario = SCENARIOS[scenarioIdx];
     return (
-      <div className="p-4 sm:p-6 bg-space-900 rounded-xl border border-slate-700 space-y-5">
+      <div className="p-4 sm:p-6 bg-space-900 rounded-xl border border-slate-200 space-y-5">
         <div className="text-center space-y-1">
-          <h3 className="text-xl font-bold text-white">Trace the Pipeline</h3>
-          <p className="text-slate-300 text-sm">
+          <h3 className="text-xl font-bold text-slate-900">Trace the Pipeline</h3>
+          <p className="text-slate-600 text-sm">
             Tap each stage to see what happens when you say:
           </p>
           <p className="text-violet-400 font-bold text-lg">
             {scenario.emoji} &quot;{scenario.command}&quot;
           </p>
-          <p className="text-xs text-slate-500">Scenario {scenariosDone + 1} of 2</p>
+          <p className="text-xs text-slate-400">Scenario {scenariosDone + 1} of 2</p>
         </div>
 
         {/* Pipeline stages */}
@@ -248,13 +248,13 @@ export function VoicePipeline({ onComplete }: { onComplete: () => void }) {
                     ? "border-violet-400 bg-violet-500/20"
                     : visited
                     ? "border-violet-500/40 bg-space-800"
-                    : "border-slate-700 bg-space-800 hover:border-slate-600"
+                    : "border-slate-200 bg-space-800 hover:border-slate-300"
                 }`}
               >
                 <div className="flex items-center gap-3">
                   <span className="text-lg">{stage.emoji}</span>
                   <div className="flex-1">
-                    <p className="text-white text-sm font-semibold">
+                    <p className="text-slate-900 text-sm font-semibold">
                       {i + 1}. {stage.label}
                       {visited && <span className="ml-2 text-violet-400 text-xs">✓</span>}
                     </p>
@@ -283,7 +283,7 @@ export function VoicePipeline({ onComplete }: { onComplete: () => void }) {
           <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="text-center">
             <button
               onClick={nextScenario}
-              className="px-5 py-2 bg-violet-600 hover:bg-violet-500 text-white font-bold rounded-lg text-sm"
+              className="px-5 py-2 bg-violet-600 hover:bg-violet-500 text-slate-900 font-bold rounded-lg text-sm"
             >
               {scenariosDone < 1 ? "Try Another Scenario!" : "Finish!"}
             </button>
@@ -295,11 +295,11 @@ export function VoicePipeline({ onComplete }: { onComplete: () => void }) {
 
   // --- DONE ---
   return (
-    <div className="p-4 sm:p-6 bg-space-900 rounded-xl border border-slate-700 space-y-4 text-center">
+    <div className="p-4 sm:p-6 bg-space-900 rounded-xl border border-slate-200 space-y-4 text-center">
       <motion.div initial={{ scale: 0.8, opacity: 0 }} animate={{ scale: 1, opacity: 1 }}>
         <p className="text-4xl mb-2">🎙️</p>
-        <h3 className="text-xl font-bold text-white">Pipeline Master!</h3>
-        <p className="text-slate-300 text-sm mt-2">
+        <h3 className="text-xl font-bold text-slate-900">Pipeline Master!</h3>
+        <p className="text-slate-600 text-sm mt-2">
           You now know the 5 stages every voice assistant goes through — from hearing the wake word to speaking the answer back!
         </p>
         <p className="text-xs text-slate-400 mt-3">

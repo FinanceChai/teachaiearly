@@ -120,8 +120,8 @@ export function CreativeOrCopy({ onComplete }: { onComplete: () => void }) {
           {totalScore >= total - 2 ? "🎨" : "🖌️"}
         </motion.div>
         <div>
-          <div className="text-4xl font-black text-white">{totalScore}/{total}</div>
-          <div className="text-slate-300 mt-2">
+          <div className="text-4xl font-black text-slate-900">{totalScore}/{total}</div>
+          <div className="text-slate-600 mt-2">
             {totalScore >= total - 1 ? "Amazing! You really understand AI creativity." : totalScore >= total / 2 ? "Good grasp of creative AI!" : "The line between AI and human creativity is blurry!"}
           </div>
         </div>
@@ -142,21 +142,21 @@ export function CreativeOrCopy({ onComplete }: { onComplete: () => void }) {
             <div key={i} className={`flex-1 h-2 rounded-full transition-all ${i < exIdx ? "bg-blue-500" : i === exIdx ? "bg-blue-400" : "bg-slate-700"}`} />
           ))}
         </div>
-        <div className="bg-space-800 rounded-2xl p-5 border border-slate-700">
+        <div className="bg-space-800 rounded-2xl p-5 border border-slate-200">
           <div className="text-xs font-black text-blue-400 mb-1">CREATIVE OR COPY?</div>
           <div className="text-sm text-slate-400 font-bold mb-4">Was this made by AI or a human?</div>
 
-          <motion.div key={exIdx} initial={{ opacity: 0, x: 20 }} animate={{ opacity: 1, x: 0 }} className="bg-space-900 rounded-xl p-5 border border-slate-600 mb-4">
-            <div className="text-white font-black text-lg mb-2">{ex.title}</div>
+          <motion.div key={exIdx} initial={{ opacity: 0, x: 20 }} animate={{ opacity: 1, x: 0 }} className="bg-space-900 rounded-xl p-5 border border-slate-300 mb-4">
+            <div className="text-slate-900 font-black text-lg mb-2">{ex.title}</div>
             <div className="text-slate-400 text-sm">{ex.description}</div>
           </motion.div>
 
           {picked === null ? (
             <div className="grid grid-cols-2 gap-3">
-              <motion.button onClick={() => pickAnswer(true)} whileTap={{ scale: 0.95 }} className="py-5 rounded-xl border border-slate-700 bg-space-900 font-black text-white text-lg hover:border-blue-500/50 transition-colors">
+              <motion.button onClick={() => pickAnswer(true)} whileTap={{ scale: 0.95 }} className="py-5 rounded-xl border border-slate-200 bg-space-900 font-black text-slate-900 text-lg hover:border-blue-500/50 transition-colors">
                 AI Made It
               </motion.button>
-              <motion.button onClick={() => pickAnswer(false)} whileTap={{ scale: 0.95 }} className="py-5 rounded-xl border border-slate-700 bg-space-900 font-black text-white text-lg hover:border-blue-500/50 transition-colors">
+              <motion.button onClick={() => pickAnswer(false)} whileTap={{ scale: 0.95 }} className="py-5 rounded-xl border border-slate-200 bg-space-900 font-black text-slate-900 text-lg hover:border-blue-500/50 transition-colors">
                 Human Made It
               </motion.button>
             </div>
@@ -164,9 +164,9 @@ export function CreativeOrCopy({ onComplete }: { onComplete: () => void }) {
             <motion.div initial={{ opacity: 0, y: 8 }} animate={{ opacity: 1, y: 0 }} className="space-y-3">
               <div className={`p-4 rounded-xl text-sm font-bold ${picked === ex.isAI ? "bg-green-500/20 text-green-300" : "bg-red-500/20 text-red-300"}`}>
                 {picked === ex.isAI ? "Correct! " : `It was ${ex.isAI ? "AI" : "human"}-made. `}
-                <span className="font-normal text-slate-300">{ex.explanation}</span>
+                <span className="font-normal text-slate-600">{ex.explanation}</span>
               </div>
-              <button onClick={nextExample} className="w-full py-4 rounded-xl font-black text-white bg-blue-500 hover:bg-blue-400 btn-press transition-colors">
+              <button onClick={nextExample} className="w-full py-4 rounded-xl font-black text-slate-900 bg-blue-500 hover:bg-blue-400 btn-press transition-colors">
                 {exIdx < EXAMPLES.length - 1 ? "Next Example" : "Knowledge Check"}  &rarr;
               </button>
             </motion.div>
@@ -184,13 +184,13 @@ export function CreativeOrCopy({ onComplete }: { onComplete: () => void }) {
           <div key={i} className={`flex-1 h-2 rounded-full transition-all ${i < quizIdx ? "bg-blue-500" : i === quizIdx ? "bg-blue-400" : "bg-slate-700"}`} />
         ))}
       </div>
-      <div className="bg-space-800 rounded-2xl p-5 border border-slate-700">
+      <div className="bg-space-800 rounded-2xl p-5 border border-slate-200">
         <div className="text-xs font-black text-blue-400 mb-1">CREATIVITY QUIZ</div>
-        <div className="text-white font-black text-lg mb-4">{q.question}</div>
+        <div className="text-slate-900 font-black text-lg mb-4">{q.question}</div>
         {quizPicked === null ? (
           <div className="space-y-2">
             {q.options.map((opt, i) => (
-              <motion.button key={i} onClick={() => pickQuiz(i)} whileTap={{ scale: 0.98 }} className="w-full text-left p-3 rounded-xl border border-slate-700 bg-space-900 font-bold text-white text-sm hover:border-blue-500/50 transition-colors">
+              <motion.button key={i} onClick={() => pickQuiz(i)} whileTap={{ scale: 0.98 }} className="w-full text-left p-3 rounded-xl border border-slate-200 bg-space-900 font-bold text-slate-900 text-sm hover:border-blue-500/50 transition-colors">
                 {opt}
               </motion.button>
             ))}
@@ -199,9 +199,9 @@ export function CreativeOrCopy({ onComplete }: { onComplete: () => void }) {
           <motion.div initial={{ opacity: 0, y: 8 }} animate={{ opacity: 1, y: 0 }} className="space-y-3">
             <div className={`p-4 rounded-xl text-sm font-bold ${quizPicked === q.correct ? "bg-green-500/20 text-green-300" : "bg-red-500/20 text-red-300"}`}>
               {quizPicked === q.correct ? "Correct! " : `Answer: "${q.options[q.correct]}." `}
-              <span className="font-normal text-slate-300">{q.explanation}</span>
+              <span className="font-normal text-slate-600">{q.explanation}</span>
             </div>
-            <button onClick={nextQuiz} className="w-full py-4 rounded-xl font-black text-white bg-blue-500 hover:bg-blue-400 btn-press transition-colors">
+            <button onClick={nextQuiz} className="w-full py-4 rounded-xl font-black text-slate-900 bg-blue-500 hover:bg-blue-400 btn-press transition-colors">
               {quizIdx < QUIZ.length - 1 ? "Next Question" : "See Results"} &rarr;
             </button>
           </motion.div>

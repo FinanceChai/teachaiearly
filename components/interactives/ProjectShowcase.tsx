@@ -68,8 +68,8 @@ export function ProjectShowcase({ onComplete }: { onComplete: () => void }) {
   if (step === 5) {
     const selectedTool = tool !== null ? AI_TOOLS[tool] : null;
     return (
-      <div className="p-6 bg-space-900 rounded-xl border border-slate-700 max-w-2xl mx-auto">
-        <h2 className="text-2xl font-bold text-white mb-4 text-center">🏆 Your Showcase Card</h2>
+      <div className="p-6 bg-space-900 rounded-xl border border-slate-200 max-w-2xl mx-auto">
+        <h2 className="text-2xl font-bold text-slate-900 mb-4 text-center">🏆 Your Showcase Card</h2>
 
         <motion.div
           initial={{ scale: 0.8, opacity: 0, rotateY: 90 }}
@@ -85,19 +85,19 @@ export function ProjectShowcase({ onComplete }: { onComplete: () => void }) {
           <div className="space-y-3">
             <div className="bg-space-900/60 rounded-lg p-3">
               <p className="text-lime-400 text-xs font-semibold">Problem it solves</p>
-              <p className="text-white text-sm">{problem}</p>
+              <p className="text-slate-900 text-sm">{problem}</p>
             </div>
             <div className="bg-space-900/60 rounded-lg p-3">
               <p className="text-lime-400 text-xs font-semibold">AI tool used</p>
-              <p className="text-white text-sm">{selectedTool?.icon} {selectedTool?.name}</p>
+              <p className="text-slate-900 text-sm">{selectedTool?.icon} {selectedTool?.name}</p>
             </div>
             <div className="bg-space-900/60 rounded-lg p-3">
               <p className="text-lime-400 text-xs font-semibold">What worked well</p>
-              <p className="text-white text-sm">✅ {finalWorkedWell}</p>
+              <p className="text-slate-900 text-sm">✅ {finalWorkedWell}</p>
             </div>
             <div className="bg-space-900/60 rounded-lg p-3">
               <p className="text-lime-400 text-xs font-semibold">What I&apos;d improve</p>
-              <p className="text-white text-sm">🔧 {finalImprovement}</p>
+              <p className="text-slate-900 text-sm">🔧 {finalImprovement}</p>
             </div>
           </div>
 
@@ -108,7 +108,7 @@ export function ProjectShowcase({ onComplete }: { onComplete: () => void }) {
 
         <div className="bg-space-800 rounded-lg p-4 mt-4">
           <p className="text-lime-400 font-semibold mb-1">💡 Great job!</p>
-          <p className="text-slate-300 text-sm">
+          <p className="text-slate-600 text-sm">
             Being able to present your work clearly is a superpower! Every great project
             needs a good showcase — it helps others understand what you built and why it matters.
           </p>
@@ -119,7 +119,7 @@ export function ProjectShowcase({ onComplete }: { onComplete: () => void }) {
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
             onClick={handleComplete}
-            className="w-full mt-4 px-6 py-3 bg-lime-500 text-white rounded-lg font-bold"
+            className="w-full mt-4 px-6 py-3 bg-lime-500 text-slate-900 rounded-lg font-bold"
           >
             Complete Showcase ✓
           </motion.button>
@@ -165,8 +165,8 @@ export function ProjectShowcase({ onComplete }: { onComplete: () => void }) {
   };
 
   return (
-    <div className="p-6 bg-space-900 rounded-xl border border-slate-700 max-w-2xl mx-auto">
-      <h2 className="text-xl font-bold text-white mb-1">🏆 Project Showcase</h2>
+    <div className="p-6 bg-space-900 rounded-xl border border-slate-200 max-w-2xl mx-auto">
+      <h2 className="text-xl font-bold text-slate-900 mb-1">🏆 Project Showcase</h2>
 
       <div className="flex gap-1 mb-4">
         {steps.map((_, i) => (
@@ -179,7 +179,7 @@ export function ProjectShowcase({ onComplete }: { onComplete: () => void }) {
 
       <motion.div key={step} initial={{ opacity: 0, x: 30 }} animate={{ opacity: 1, x: 0 }}>
         <h3 className="text-lg font-bold text-lime-400 mb-1">{steps[step].title}</h3>
-        <p className="text-slate-300 text-sm mb-4">{steps[step].subtitle}</p>
+        <p className="text-slate-600 text-sm mb-4">{steps[step].subtitle}</p>
 
         {step === 0 && (
           <div className="space-y-2">
@@ -190,8 +190,8 @@ export function ProjectShowcase({ onComplete }: { onComplete: () => void }) {
                   onClick={() => { setProjectName(name); setCustomName(""); }}
                   className={`p-2 rounded-lg border text-sm text-left ${
                     projectName === name
-                      ? "bg-lime-500/20 border-lime-500 text-white"
-                      : "bg-space-800 border-slate-700 text-slate-300 hover:border-slate-500"
+                      ? "bg-lime-500/20 border-lime-500 text-slate-900"
+                      : "bg-space-800 border-slate-200 text-slate-600 hover:border-slate-500"
                   }`}
                 >
                   {name}
@@ -204,7 +204,7 @@ export function ProjectShowcase({ onComplete }: { onComplete: () => void }) {
                 placeholder="Or type your own name..."
                 value={customName}
                 onChange={(e) => { setCustomName(e.target.value); setProjectName("__custom"); }}
-                className="flex-1 bg-space-800 border border-slate-700 rounded-lg px-3 py-2 text-white text-sm focus:border-lime-500 outline-none"
+                className="flex-1 bg-space-800 border border-slate-200 rounded-lg px-3 py-2 text-slate-900 text-sm focus:border-lime-500 outline-none"
                 maxLength={30}
               />
             </div>
@@ -219,8 +219,8 @@ export function ProjectShowcase({ onComplete }: { onComplete: () => void }) {
                 onClick={() => setProblem(p)}
                 className={`w-full p-2 rounded-lg border text-sm text-left ${
                   problem === p
-                    ? "bg-lime-500/20 border-lime-500 text-white"
-                    : "bg-space-800 border-slate-700 text-slate-300 hover:border-slate-500"
+                    ? "bg-lime-500/20 border-lime-500 text-slate-900"
+                    : "bg-space-800 border-slate-200 text-slate-600 hover:border-slate-500"
                 }`}
               >
                 {p}
@@ -238,11 +238,11 @@ export function ProjectShowcase({ onComplete }: { onComplete: () => void }) {
                 className={`w-full p-3 rounded-lg border text-left flex items-center gap-3 ${
                   tool === i
                     ? "bg-lime-500/20 border-lime-500"
-                    : "bg-space-800 border-slate-700 hover:border-slate-500"
+                    : "bg-space-800 border-slate-200 hover:border-slate-500"
                 }`}
               >
                 <span className="text-2xl">{t.icon}</span>
-                <span className="text-white font-semibold">{t.name}</span>
+                <span className="text-slate-900 font-semibold">{t.name}</span>
               </button>
             ))}
           </div>
@@ -256,8 +256,8 @@ export function ProjectShowcase({ onComplete }: { onComplete: () => void }) {
                 onClick={() => { setWorkedWell(w); setCustomWorkedWell(""); }}
                 className={`w-full p-2 rounded-lg border text-sm text-left ${
                   workedWell === w
-                    ? "bg-lime-500/20 border-lime-500 text-white"
-                    : "bg-space-800 border-slate-700 text-slate-300 hover:border-slate-500"
+                    ? "bg-lime-500/20 border-lime-500 text-slate-900"
+                    : "bg-space-800 border-slate-200 text-slate-600 hover:border-slate-500"
                 }`}
               >
                 {w}
@@ -268,7 +268,7 @@ export function ProjectShowcase({ onComplete }: { onComplete: () => void }) {
               placeholder="Or type your own..."
               value={customWorkedWell}
               onChange={(e) => { setCustomWorkedWell(e.target.value); setWorkedWell("__custom"); }}
-              className="w-full bg-space-800 border border-slate-700 rounded-lg px-3 py-2 text-white text-sm focus:border-lime-500 outline-none"
+              className="w-full bg-space-800 border border-slate-200 rounded-lg px-3 py-2 text-slate-900 text-sm focus:border-lime-500 outline-none"
               maxLength={100}
             />
           </div>
@@ -282,8 +282,8 @@ export function ProjectShowcase({ onComplete }: { onComplete: () => void }) {
                 onClick={() => { setImprovement(imp); setCustomImprovement(""); }}
                 className={`w-full p-2 rounded-lg border text-sm text-left ${
                   improvement === imp
-                    ? "bg-lime-500/20 border-lime-500 text-white"
-                    : "bg-space-800 border-slate-700 text-slate-300 hover:border-slate-500"
+                    ? "bg-lime-500/20 border-lime-500 text-slate-900"
+                    : "bg-space-800 border-slate-200 text-slate-600 hover:border-slate-500"
                 }`}
               >
                 {imp}
@@ -294,7 +294,7 @@ export function ProjectShowcase({ onComplete }: { onComplete: () => void }) {
               placeholder="Or type your own..."
               value={customImprovement}
               onChange={(e) => { setCustomImprovement(e.target.value); setImprovement("__custom"); }}
-              className="w-full bg-space-800 border border-slate-700 rounded-lg px-3 py-2 text-white text-sm focus:border-lime-500 outline-none"
+              className="w-full bg-space-800 border border-slate-200 rounded-lg px-3 py-2 text-slate-900 text-sm focus:border-lime-500 outline-none"
               maxLength={100}
             />
           </div>
@@ -307,7 +307,7 @@ export function ProjectShowcase({ onComplete }: { onComplete: () => void }) {
             whileHover={{ scale: 1.05 }}
             whileTap={{ scale: 0.95 }}
             onClick={() => setStep(step + 1)}
-            className="w-full mt-4 px-5 py-2 bg-lime-500 text-white rounded-lg font-bold"
+            className="w-full mt-4 px-5 py-2 bg-lime-500 text-slate-900 rounded-lg font-bold"
           >
             {step < 4 ? "Next Step →" : "Generate Showcase Card →"}
           </motion.button>

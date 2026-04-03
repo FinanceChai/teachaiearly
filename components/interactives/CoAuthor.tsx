@@ -111,11 +111,11 @@ export function CoAuthor({ onComplete }: { onComplete: () => void }) {
           ✍️
         </motion.div>
         <div>
-          <div className="text-4xl font-black text-white">
+          <div className="text-4xl font-black text-slate-900">
             {correct}/{ROUNDS.length}
           </div>
           <div className="text-slate-400 text-sm mt-1">human-written passages identified</div>
-          <div className="text-slate-300 mt-3">
+          <div className="text-slate-600 mt-3">
             {correct >= ROUNDS.length - 1
               ? "Sharp eye! You can tell when writing has real human soul."
               : correct >= ROUNDS.length / 2
@@ -159,16 +159,16 @@ export function CoAuthor({ onComplete }: { onComplete: () => void }) {
         </span>
       </div>
 
-      <div className="bg-space-800 rounded-2xl p-5 border border-slate-700">
+      <div className="bg-space-800 rounded-2xl p-5 border border-slate-200">
         <div className="flex items-center justify-between mb-1">
           <div className="text-xs font-black text-purple-400">CO-AUTHOR</div>
-          <div className="text-xs font-bold text-slate-500">{round.genre}</div>
+          <div className="text-xs font-bold text-slate-400">{round.genre}</div>
         </div>
 
         {/* Story starter */}
-        <div className="bg-space-900 rounded-xl p-4 border border-slate-600 mb-4">
-          <div className="text-xs font-bold text-slate-500 mb-2">STORY STARTER</div>
-          <div className="text-white font-bold leading-relaxed">
+        <div className="bg-space-900 rounded-xl p-4 border border-slate-300 mb-4">
+          <div className="text-xs font-bold text-slate-400 mb-2">STORY STARTER</div>
+          <div className="text-slate-900 font-bold leading-relaxed">
             {round.starter}
           </div>
         </div>
@@ -180,7 +180,7 @@ export function CoAuthor({ onComplete }: { onComplete: () => void }) {
             </div>
             <button
               onClick={() => setPhase("compare")}
-              className="w-full py-4 rounded-xl font-black text-white bg-purple-500 hover:bg-purple-400 btn-press transition-colors"
+              className="w-full py-4 rounded-xl font-black text-slate-900 bg-purple-500 hover:bg-purple-400 btn-press transition-colors"
             >
               Show Both Versions →
             </button>
@@ -196,18 +196,18 @@ export function CoAuthor({ onComplete }: { onComplete: () => void }) {
               onClick={() => setPhase("pick")}
               className="w-full text-left space-y-4"
             >
-              <div className="bg-space-900 rounded-xl p-4 border border-slate-600">
+              <div className="bg-space-900 rounded-xl p-4 border border-slate-300">
                 <div className="text-xs font-black text-blue-400 mb-2">VERSION A</div>
-                <div className="text-sm text-slate-300 leading-relaxed">{contA}</div>
+                <div className="text-sm text-slate-600 leading-relaxed">{contA}</div>
               </div>
-              <div className="bg-space-900 rounded-xl p-4 border border-slate-600">
+              <div className="bg-space-900 rounded-xl p-4 border border-slate-300">
                 <div className="text-xs font-black text-amber-400 mb-2">VERSION B</div>
-                <div className="text-sm text-slate-300 leading-relaxed">{contB}</div>
+                <div className="text-sm text-slate-600 leading-relaxed">{contB}</div>
               </div>
             </button>
             <button
               onClick={() => setPhase("pick")}
-              className="w-full py-4 rounded-xl font-black text-white bg-purple-500 hover:bg-purple-400 btn-press transition-colors"
+              className="w-full py-4 rounded-xl font-black text-slate-900 bg-purple-500 hover:bg-purple-400 btn-press transition-colors"
             >
               I&apos;ve Read Both — Let Me Pick →
             </button>
@@ -223,14 +223,14 @@ export function CoAuthor({ onComplete }: { onComplete: () => void }) {
               <motion.button
                 onClick={() => pickHuman("A")}
                 whileTap={{ scale: 0.95 }}
-                className="py-5 rounded-xl border-2 border-blue-500/30 bg-space-900 font-black text-white text-lg hover:border-blue-500 transition-colors"
+                className="py-5 rounded-xl border-2 border-blue-500/30 bg-space-900 font-black text-slate-900 text-lg hover:border-blue-500 transition-colors"
               >
                 Version A
               </motion.button>
               <motion.button
                 onClick={() => pickHuman("B")}
                 whileTap={{ scale: 0.95 }}
-                className="py-5 rounded-xl border-2 border-amber-500/30 bg-space-900 font-black text-white text-lg hover:border-amber-500 transition-colors"
+                className="py-5 rounded-xl border-2 border-amber-500/30 bg-space-900 font-black text-slate-900 text-lg hover:border-amber-500 transition-colors"
               >
                 Version B
               </motion.button>
@@ -258,17 +258,17 @@ export function CoAuthor({ onComplete }: { onComplete: () => void }) {
 
             {/* Labels */}
             <div className="grid grid-cols-2 gap-3">
-              <div className="bg-space-900 rounded-xl p-3 border border-slate-600 text-center">
+              <div className="bg-space-900 rounded-xl p-3 border border-slate-300 text-center">
                 <div className="text-xs font-black text-blue-400">VERSION A</div>
-                <div className="text-sm font-bold text-slate-300 mt-1">{labelA}</div>
-                <div className="text-xs text-slate-500 mt-1">
+                <div className="text-sm font-bold text-slate-600 mt-1">{labelA}</div>
+                <div className="text-xs text-slate-400 mt-1">
                   {humanIsA ? "👤 Human" : "🤖 AI"}
                 </div>
               </div>
-              <div className="bg-space-900 rounded-xl p-3 border border-slate-600 text-center">
+              <div className="bg-space-900 rounded-xl p-3 border border-slate-300 text-center">
                 <div className="text-xs font-black text-amber-400">VERSION B</div>
-                <div className="text-sm font-bold text-slate-300 mt-1">{labelB}</div>
-                <div className="text-xs text-slate-500 mt-1">
+                <div className="text-sm font-bold text-slate-600 mt-1">{labelB}</div>
+                <div className="text-xs text-slate-400 mt-1">
                   {humanIsA ? "🤖 AI" : "👤 Human"}
                 </div>
               </div>
@@ -276,12 +276,12 @@ export function CoAuthor({ onComplete }: { onComplete: () => void }) {
 
             <div className="bg-purple-500/10 border border-purple-500/30 rounded-xl p-4">
               <div className="text-xs font-black text-purple-400 mb-1">INSIGHT</div>
-              <div className="text-sm text-slate-300">{round.insight}</div>
+              <div className="text-sm text-slate-600">{round.insight}</div>
             </div>
 
             <button
               onClick={next}
-              className="w-full py-4 rounded-xl font-black text-white bg-purple-500 hover:bg-purple-400 btn-press transition-colors"
+              className="w-full py-4 rounded-xl font-black text-slate-900 bg-purple-500 hover:bg-purple-400 btn-press transition-colors"
             >
               {current < ROUNDS.length - 1 ? "Next Story →" : "See Results →"}
             </button>

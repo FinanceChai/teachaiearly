@@ -121,8 +121,8 @@ export function TrickTheEye({ onComplete }: { onComplete: () => void }) {
       <div className="text-center space-y-5 py-4">
         <motion.div initial={{ scale: 0 }} animate={{ scale: 1 }} transition={{ type: "spring", stiffness: 300, damping: 18 }} className="text-7xl">🎭</motion.div>
         <div>
-          <div className="text-4xl font-black text-white">{score}/{QUIZ.length}</div>
-          <div className="text-slate-300 mt-2">
+          <div className="text-4xl font-black text-slate-900">{score}/{QUIZ.length}</div>
+          <div className="text-slate-600 mt-2">
             {score >= QUIZ.length - 1 ? "Excellent! You understand AI's hidden vulnerability." : score >= QUIZ.length / 2 ? "Good grasp of adversarial AI!" : "Adversarial attacks are tricky — but now you know they exist!"}
           </div>
         </div>
@@ -144,16 +144,16 @@ export function TrickTheEye({ onComplete }: { onComplete: () => void }) {
           ))}
         </div>
 
-        <div className="bg-space-800 rounded-2xl p-5 border border-slate-700">
+        <div className="bg-space-800 rounded-2xl p-5 border border-slate-200">
           <div className="text-xs font-black text-pink-400 mb-1">ADVERSARIAL EXAMPLES</div>
           <div className="text-sm text-slate-400 font-bold mb-4">Same image to your eyes — totally different to AI.</div>
 
           <div className="grid grid-cols-2 gap-3 mb-4">
             {/* Original */}
-            <div className="bg-space-900 rounded-xl p-4 border border-slate-600 text-center">
+            <div className="bg-space-900 rounded-xl p-4 border border-slate-300 text-center">
               <div className="text-4xl mb-2">{ex.original.emoji}</div>
               <div className="text-xs font-black text-green-400">ORIGINAL</div>
-              <div className="text-white font-black mt-1">{ex.original.label}</div>
+              <div className="text-slate-900 font-black mt-1">{ex.original.label}</div>
               <div className="mt-2 h-2 bg-slate-700 rounded-full overflow-hidden">
                 <div className="h-full bg-green-500 rounded-full" style={{ width: `${ex.original.confidence}%` }} />
               </div>
@@ -161,36 +161,36 @@ export function TrickTheEye({ onComplete }: { onComplete: () => void }) {
             </div>
 
             {/* Tweaked */}
-            <div className={`bg-space-900 rounded-xl p-4 border text-center transition-all ${showTweak ? "border-red-500/50" : "border-slate-600"}`}>
+            <div className={`bg-space-900 rounded-xl p-4 border text-center transition-all ${showTweak ? "border-red-500/50" : "border-slate-300"}`}>
               <div className="text-4xl mb-2">{ex.tweaked.emoji}</div>
               <div className="text-xs font-black text-red-400">AFTER ATTACK</div>
               {showTweak ? (
                 <motion.div initial={{ opacity: 0 }} animate={{ opacity: 1 }}>
-                  <div className="text-white font-black mt-1">{ex.tweaked.label}</div>
+                  <div className="text-slate-900 font-black mt-1">{ex.tweaked.label}</div>
                   <div className="mt-2 h-2 bg-slate-700 rounded-full overflow-hidden">
                     <div className="h-full bg-red-500 rounded-full" style={{ width: `${ex.tweaked.confidence}%` }} />
                   </div>
                   <div className="text-xs text-red-400 font-bold mt-1">{ex.tweaked.confidence}% sure</div>
                 </motion.div>
               ) : (
-                <div className="text-slate-500 font-black mt-1">???</div>
+                <div className="text-slate-400 font-black mt-1">???</div>
               )}
             </div>
           </div>
 
           {!showTweak ? (
-            <button onClick={() => setShowTweak(true)} className="w-full py-4 rounded-xl font-black text-white bg-red-500 hover:bg-red-400 btn-press transition-colors">
+            <button onClick={() => setShowTweak(true)} className="w-full py-4 rounded-xl font-black text-slate-900 bg-red-500 hover:bg-red-400 btn-press transition-colors">
               Apply Attack →
             </button>
           ) : (
             <motion.div initial={{ opacity: 0, y: 8 }} animate={{ opacity: 1, y: 0 }} className="space-y-3">
               <div className="bg-red-500/10 border border-red-500/30 rounded-xl p-3">
                 <div className="text-xs font-black text-red-400 mb-1">WHAT CHANGED</div>
-                <div className="text-sm text-slate-300">{ex.change}</div>
+                <div className="text-sm text-slate-600">{ex.change}</div>
               </div>
               <div className="bg-pink-500/10 border border-pink-500/30 rounded-xl p-3">
                 <div className="text-xs font-black text-pink-400 mb-1">WHY IT WORKS</div>
-                <div className="text-sm text-slate-300">{ex.explanation}</div>
+                <div className="text-sm text-slate-600">{ex.explanation}</div>
               </div>
               <button
                 onClick={() => {
@@ -198,7 +198,7 @@ export function TrickTheEye({ onComplete }: { onComplete: () => void }) {
                   if (exIdx < EXAMPLES.length - 1) setExIdx((e) => e + 1);
                   else setPhase("quiz");
                 }}
-                className="w-full py-4 rounded-xl font-black text-white bg-pink-500 hover:bg-pink-400 btn-press transition-colors"
+                className="w-full py-4 rounded-xl font-black text-slate-900 bg-pink-500 hover:bg-pink-400 btn-press transition-colors"
               >
                 {exIdx < EXAMPLES.length - 1 ? "Next Example →" : "Take the Quiz →"}
               </button>
@@ -222,14 +222,14 @@ export function TrickTheEye({ onComplete }: { onComplete: () => void }) {
         <span className="text-xs font-bold text-yellow-400">Score: {score}</span>
       </div>
 
-      <div className="bg-space-800 rounded-2xl p-5 border border-slate-700">
+      <div className="bg-space-800 rounded-2xl p-5 border border-slate-200">
         <div className="text-xs font-black text-pink-400 mb-3">ADVERSARIAL QUIZ</div>
-        <div className="text-white font-black text-lg mb-4">{q.question}</div>
+        <div className="text-slate-900 font-black text-lg mb-4">{q.question}</div>
 
         {picked === null ? (
           <div className="space-y-2">
             {q.options.map((opt, i) => (
-              <motion.button key={i} onClick={() => pickAnswer(i)} whileTap={{ scale: 0.98 }} className="w-full text-left p-3 rounded-xl border border-slate-700 bg-space-900 font-bold text-white text-sm hover:border-pink-500/50 transition-colors">
+              <motion.button key={i} onClick={() => pickAnswer(i)} whileTap={{ scale: 0.98 }} className="w-full text-left p-3 rounded-xl border border-slate-200 bg-space-900 font-bold text-slate-900 text-sm hover:border-pink-500/50 transition-colors">
                 {opt}
               </motion.button>
             ))}
@@ -238,9 +238,9 @@ export function TrickTheEye({ onComplete }: { onComplete: () => void }) {
           <motion.div initial={{ opacity: 0, y: 8 }} animate={{ opacity: 1, y: 0 }} className="space-y-3">
             <div className={`p-4 rounded-xl text-sm font-bold ${picked === q.correct ? "bg-green-500/20 text-green-300" : "bg-red-500/20 text-red-300"}`}>
               {picked === q.correct ? "Correct! " : `Answer: "${q.options[q.correct]}." `}
-              <span className="font-normal text-slate-300">{q.explanation}</span>
+              <span className="font-normal text-slate-600">{q.explanation}</span>
             </div>
-            <button onClick={nextQuiz} className="w-full py-4 rounded-xl font-black text-white bg-pink-500 hover:bg-pink-400 btn-press transition-colors">
+            <button onClick={nextQuiz} className="w-full py-4 rounded-xl font-black text-slate-900 bg-pink-500 hover:bg-pink-400 btn-press transition-colors">
               {quizIdx < QUIZ.length - 1 ? "Next Question →" : "See Results →"}
             </button>
           </motion.div>
